@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Development Scratch & Audit Files
+scratch/
+*.log
+
+# AI & IDE Configuration
+.gemini/
+.system_generated/
+.vscode/
+.idea/

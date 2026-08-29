@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDII-MAFBIF | Mettupalayam Agroforestry Business Incubation Forum</title>
+
+  <!-- Premium Institutional Typography: Plus Jakarta Sans & Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              950: '#07190F',
+              900: '#0A2E1C',
+              850: '#0E3B24',
+              800: '#14532D',
+              700: '#15803D',
+              600: '#16A34A',
+              500: '#22C55E',
+              100: '#DCFCE7',
+              50: '#F0FDF4',
+            },
+            teal: {
+              900: '#134E4A',
+              800: '#115E59',
+              700: '#0F766E',
+              600: '#0D9488',
+              500: '#14B8A6',
+              400: '#2DD4BF',
+              300: '#38BDF8',
+              100: '#CCFBF1',
+              50: '#F0FDFA',
+            },
+            science: {
+              blue: '#0284C7',
+              cyan: '#0891B2',
+              teal: '#0D9488',
+              deepteal: '#0E7490',
+            },
+            brand: {
+              green: '#2E7D32',
+              darkgreen: '#173B2F',
+              darker: '#1B4332',
+              sage: '#EAF3EC',
+              mint: '#CFE3D1',
+              deepforest: '#0A2216',
+              gold: '#CFA851'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Manrope', 'system-ui', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          boxShadow: {
+            'soft-sm': '0 2px 8px -2px rgba(10, 46, 28, 0.04), 0 1px 4px -1px rgba(10, 46, 28, 0.02)',
+            'soft-md': '0 10px 25px -4px rgba(10, 46, 28, 0.05), 0 4px 10px -2px rgba(10, 46, 28, 0.02)',
+            'soft-lg': '0 20px 40px -8px rgba(10, 46, 28, 0.07), 0 6px 16px -3px rgba(10, 46, 28, 0.03)',
+            'glow-teal': '0 0 45px -10px rgba(2, 132, 199, 0.16)',
+            'glow-forest': '0 0 45px -10px rgba(22, 163, 74, 0.14)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ========================================================================= */
+    /* 1. DUAL-COLOR AMBIENT BACKGROUND ANIMATION (Nature + Science Harmony)     */
+    /* ========================================================================= */
+    @keyframes orbFloatGreen {
+
+      0%,
+      100% {
+        transform: translate(0px, 0px) scale(1);
+      }
+
+      33% {
+        transform: translate(22px, -30px) scale(1.05);
+      }
+
+      66% {
+        transform: translate(-18px, 18px) scale(0.95);
+      }
+    }
+
+    @keyframes orbFloatTeal {
+
+      0%,
+      100% {
+        transform: translate(0px, 0px) scale(1);
+      }
+
+      33% {
+        transform: translate(-25px, 22px) scale(0.95);
+      }
+
+      66% {
+        transform: translate(18px, -22px) scale(1.04);
+      }
+    }
+
+    .ambient-orb-green {
+      position: absolute;
+      border-radius: 9999px;
+      background: radial-gradient(circle, rgba(22, 163, 74, 0.09) 0%, rgba(22, 163, 74, 0) 70%);
+      filter: blur(90px);
+      pointer-events: none;
+      animation: orbFloatGreen 24s ease-in-out infinite;
+      will-change: transform;
+      z-index: 0;
+    }
+
+    .ambient-orb-teal {
+      position: absolute;
+      border-radius: 9999px;
+      background: radial-gradient(circle, rgba(2, 132, 199, 0.08) 0%, rgba(2, 132, 199, 0) 70%);
+      filter: blur(95px);
+      pointer-events: none;
+      animation: orbFloatTeal 28s ease-in-out infinite;
+      will-change: transform;
+      z-index: 0;
+    }
+
+    /* Clean Hero Slide Transitions (Zero Ghosting) */
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 350ms ease-in-out, visibility 350ms ease-in-out;
+      z-index: 1;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 2;
+    }
+
+    /* Continuous Editorial Marquee Animation */
+    @keyframes marqueeScroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-marquee {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: marqueeScroll 42s linear infinite;
+    }
+
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Active Link Accent Line */
+    .nav-link-active {
+      color: #0A2E1C;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .nav-link-active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 12px;
+      right: 12px;
+      height: 2.5px;
+      background-color: #CFA851;
+      border-radius: 9999px;
+    }
+
+    /* Interactive Facility Accordion Item */
+    .facility-card {
+      border-left: 3.5px solid #16A34A;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .facility-card:hover,
+    .facility-card.is-active {
+      border-left-color: #0284C7;
+      transform: translateX(4px);
+    }
+
+    /* Botanical Line Growth Transition */
+    .botanical-stroke {
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      transition: stroke-dashoffset 2.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .is-revealed .botanical-stroke {
+      stroke-dashoffset: 0;
+    }
+
+    /* Restrained Scroll Reveal (Stays visible once triggered) */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-on-scroll.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Standardized 2-3% Smooth Image Hover Zoom */
+    .img-zoom-container img {
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .img-zoom-container:hover img {
+      transform: scale(1.028);
+    }
+
+    /* Standardized Card Hover Elevation (3-4px subtle lift) */
+    .hover-lift {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-3.5px);
+    }
+
+    /* Subtle Section Transition Gradient Dividers */
+    .section-hairline {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(22, 163, 74, 0.15) 30%, rgba(2, 132, 199, 0.15) 70%, transparent 100%);
+    }
+
+    /* Subtle Downward Scroll Indicator Animation (Gentle Sinusoidal Movement) */
+    @keyframes gentleArrowFloat {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(3.5px);
+      }
+    }
+
+    .scroll-arrow-float {
+      animation: gentleArrowFloat 2.4s ease-in-out infinite;
+    }
+
+    /* Accessibility: Respect Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+
+      .ambient-orb-green,
+      .ambient-orb-teal,
+      .animate-marquee,
+      .botanical-stroke,
+      .reveal-on-scroll,
+      .hover-lift,
+      .scroll-arrow-float,
+      .img-zoom-container img {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        stroke-dashoffset: 0 !important;
+      }
+    }
+
+    /* ========================================================================= */
+    /* PREMIUM CARD & BOX DEFINITION (Clear Background Contrast & Micro-Animation) */
+    /* ========================================================================= */
+    /* Crisp border & elevated soft depth for all content boxes */
+    .bg-white.rounded-\[20px\],
+    .bg-white.rounded-\[22px\],
+    .bg-white.rounded-\[24px\],
+    .bg-white.rounded-\[26px\],
+    .bg-white.rounded-\[28px\],
+    .accordion-item,
+    .event-card,
+    .facility-card,
+    .placeholder-card,
+    .hover-lift {
+      border: 1px solid rgba(15, 74, 42, 0.13) !important;
+      box-shadow: 0 4px 20px -2px rgba(10, 46, 28, 0.06), 0 1px 3px 0 rgba(10, 46, 28, 0.04) !important;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease !important;
+    }
+
+    /* Subtle, clean interactive border glow & 2.5px lift on hover */
+    .accordion-item:hover,
+    .event-card:hover,
+    .facility-card:hover,
+    .placeholder-card:hover,
+    .hover-lift:hover {
+      transform: translateY(-2.5px);
+      border-color: rgba(22, 163, 74, 0.45) !important;
+      box-shadow: 0 12px 28px -4px rgba(10, 46, 28, 0.11), 0 0 0 1.5px rgba(22, 163, 74, 0.22) !important;
+    }
+
+    /* Inner stat/metric cards on dark green sections (high contrast & golden glow) */
+    .stat-metric-card,
+    .bg-white\/\[0\.06\],
+    .bg-white\/\[0\.08\],
+    .bg-white\/\[0\.09\],
+    .bg-white\/\[0\.12\] {
+      background-color: rgba(255, 255, 255, 0.09) !important;
+      border: 1px solid rgba(255, 255, 255, 0.22) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, background-color 0.28s ease !important;
+    }
+
+    .stat-metric-card:hover,
+    .bg-white\/\[0\.06\]:hover,
+    .bg-white\/\[0\.08\]:hover,
+    .bg-white\/\[0\.09\]:hover,
+    .bg-white\/\[0\.12\]:hover {
+      background-color: rgba(255, 255, 255, 0.15) !important;
+      border-color: rgba(207, 168, 81, 0.75) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32), 0 0 0 1.5px rgba(207, 168, 81, 0.45) !important;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-[#F8FAF8] text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-start selection:bg-emerald-100 selection:text-emerald-900 overflow-x-hidden">
+
+  <!-- ========================================================================= -->
+  <!-- 1. INSTITUTIONAL HEADER (Clean Floating Glass Bar with Logo, Brand & Nav)  -->
+  <!-- ========================================================================= -->
+  <!-- ========================================================================= -->
+  <!-- 1. INSTITUTIONAL HEADER (Refined Compact Desktop Navbar & Balanced Branding) -->
+  <!-- ========================================================================= -->
+  <!-- ========================================================================= -->
+  <!-- 1. INSTITUTIONAL HEADER (Prominent Logo, Balanced Brand & Navigation)      -->
+  <!-- ========================================================================= -->
+  <!-- ========================================================================= -->
+  <!-- 1. INSTITUTIONAL HEADER (Single Premium Navbar Matching Reference Visuals) -->
+  <!-- ========================================================================= -->
+  <!-- ========================================================================= -->
+  <!-- 1. INSTITUTIONAL HEADER (Mobile-Responsive Single Premium Floating Navbar) -->
+  <!-- ========================================================================= -->
+  <header
+    class="w-full pt-2.5 sm:pt-4 pb-2 px-3 sm:px-6 lg:px-8 xl:px-12 sticky top-0 z-50 backdrop-blur-md bg-[#F8FAF8]/90">
+    <div class="max-w-[1440px] mx-auto">
+
+      <div
+        class="relative bg-white rounded-[20px] sm:rounded-[28px] shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)] border border-slate-200/80 px-3.5 sm:px-6 lg:px-7 py-2 sm:py-3.5 flex items-center justify-between min-h-[64px] sm:min-h-[80px] lg:min-h-[88px]">
+
+        <!-- Left Group: Branding + Divider + Navigation -->
+        <div class="flex items-center min-w-0">
+
+          <!-- Brand Lockup -->
+          <a href="/" class="flex items-center space-x-2.5 sm:space-x-3.5 group shrink-0" aria-label="EDII-MAFBIF Home">
+            <div
+              class="w-10 h-10 sm:w-[48px] sm:h-[48px] lg:w-[54px] lg:h-[54px] flex items-center justify-center overflow-hidden transition-transform duration-200 group-hover:scale-105 shrink-0">
+              <img src="/logo.png" alt="EDII-MAFBIF Logo" class="w-full h-full object-contain">
+            </div>
+
+            <div class="flex flex-col justify-center min-w-0">
+              <span
+                class="font-heading font-extrabold text-[16px] sm:text-[20px] lg:text-[21px] tracking-tight text-[#0A2E1C] leading-tight">
+                EDII–MAFBIF
+              </span>
+              <span
+                class="text-[9px] sm:text-[10.5px] font-medium text-slate-500 tracking-tight leading-tight mt-0.5 max-w-[155px] sm:max-w-none">
+                Tamil Nadu Agricultural University<br class="hidden sm:block"> &amp; FC&amp;RI Initiative
+              </span>
+            </div>
+          </a>
+
+          <!-- Subtle Vertical Divider -->
+          <div class="hidden lg:block h-9 w-[1px] bg-slate-200/90 mx-3.5 xl:mx-5 2xl:mx-6 shrink-0"></div>
+
+          <!-- Desktop Navigation Bar -->
+          <nav
+            class="hidden lg:flex items-center space-x-1 xl:space-x-2 2xl:space-x-3 font-medium tracking-tight whitespace-nowrap"
+            aria-label="Main Navigation">
+            <a href="/"
+              class="px-2.5 xl:px-3 py-1.5 rounded-xl bg-[#F0FDF4] text-[#0A2E1C] font-bold text-[13px] xl:text-[13.5px] 2xl:text-[14px] relative">
+              <span>Home</span>
+              <span class="absolute bottom-0 left-3 right-3 h-[2px] bg-[#15803D] rounded-full"></span>
+            </a>
+            <a href="/about"
+              class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>About Us</span>
+
+            </a>
+            <a href="/technologies"
+              class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>Technologies</span>
+
+            </a>
+            <a href="/facilities"
+              class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>Facilities</span>
+
+            </a>
+
+            <!-- Incubation Dropdown Menu -->
+            <div class="relative" id="incubation-nav-group">
+              <button type="button"
+                class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all inline-flex items-center focus:outline-none"
+                aria-expanded="false">
+                <span>Incubation</span>
+                <svg class="ml-1 w-3.5 h-3.5 text-slate-500 transition-transform duration-200" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7" />
+                </svg>
+
+              </button>
+
+              <div
+                class="absolute left-0 top-full w-52 rounded-2xl shadow-xl bg-white border border-slate-100 hidden z-50 pt-2.5 pb-2 mt-1"
+                id="incubation-dropdown-panel">
+                <a href="/incubation"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Incubation
+                  Overview</a>
+                <a href="/members"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Members</a>
+                <a href="/mentors"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Mentors</a>
+              </div>
+            </div>
+
+            <a href="/events"
+              class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>Events &amp; Training</span>
+
+            </a>
+            <a href="/success-stories"
+              class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>Success Stories</span>
+
+            </a>
+          </nav>
+
+        </div>
+
+        <!-- Right Side: Primary Green Contact Us CTA Button -->
+        <div class="hidden lg:flex items-center shrink-0 ml-3 xl:ml-5">
+          <a href="/contact"
+            class="inline-flex items-center space-x-2 bg-[#0F4A2A] hover:bg-[#0A2E1C] text-white px-5 py-2.5 rounded-full font-semibold text-[13.5px] xl:text-[14px] shadow-sm hover:shadow-md transition-all duration-200 group">
+            <svg class="w-4 h-4 text-emerald-300 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+            </svg>
+            <span>Contact Us</span>
+            <svg
+              class="w-3.5 h-3.5 text-white/80 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button (Visible on < lg screens, minimum 44px tap target) -->
+        <div class="flex items-center lg:hidden z-10 shrink-0 ml-2">
+          <button id="mobile-menu-btn" type="button"
+            class="inline-flex items-center justify-center w-10 h-10 rounded-xl text-[#0A2E1C] hover:bg-slate-100 active:bg-slate-200 focus:outline-none transition-colors"
+            aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
+            <svg id="menu-icon-open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="menu-icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div id="mobile-menu"
+        class="hidden lg:hidden mt-2.5 bg-white rounded-[24px] shadow-xl border border-slate-200/90 p-4 sm:p-5 transition-all duration-200">
+        <div class="space-y-1 text-sm font-medium">
+          <a href="/" class="block px-3.5 py-2.5 rounded-xl bg-[#F0FDF4] text-[#0A2E1C] font-bold text-sm">Home</a>
+          <a href="/about"
+            class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">About
+            Us</a>
+          <a href="/technologies"
+            class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Technologies</a>
+          <a href="/facilities"
+            class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Facilities</a>
+
+          <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
+            <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Incubation</div>
+            <a href="/incubation"
+              class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Incubation
+              Overview</a>
+            <a href="/members"
+              class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Members</a>
+            <a href="/mentors"
+              class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Mentors</a>
+          </div>
+
+          <a href="/events"
+            class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Events
+            &amp; Training</a>
+          <a href="/success-stories"
+            class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Success
+            Stories</a>
+
+          <div class="pt-3 border-t border-slate-100 mt-2">
+            <a href="/contact"
+              class="flex items-center justify-center space-x-2 bg-[#0F4A2A] hover:bg-[#0A2E1C] text-white px-5 py-3 rounded-xl font-bold text-sm shadow-md transition-all">
+              <svg class="w-4 h-4 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+              </svg>
+              <span>Contact Us</span>
+              <svg class="w-3.5 h-3.5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                stroke-width="2.2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN LANDING PAGE CONTENT                                                 -->
+  <!-- ========================================================================= -->
+  <main class="flex-grow pt-2 pb-16">
+    <div class="max-w-[1440px] mx-auto px-3.5 sm:px-6 lg:px-8 xl:px-12 space-y-12 sm:space-y-16">
+
+      <!-- ===================================================================== -->
+      <!-- 2. HERO SECTION WITH DUAL-COLOR AMBIENT GLOW                          -->
+      <!-- ===================================================================== -->
+      <section class="relative">
+
+        <!-- Dual-Color Ambient Glow Behind Hero (Forest Green + Science Teal) -->
+        <div class="ambient-orb-green w-72 h-72 sm:w-96 sm:h-96 -top-12 -left-12 opacity-60"></div>
+        <div class="ambient-orb-teal w-80 h-80 sm:w-[420px] sm:h-[420px] -bottom-16 -right-12 opacity-55"></div>
+
+        <div
+          class="relative z-10 bg-white rounded-[26px] sm:rounded-[28px] shadow-soft-sm border border-slate-200/70 p-5 sm:p-6 lg:py-6 lg:px-8 xl:py-6 xl:px-9 overflow-hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-9 items-center">
+
+            <!-- LEFT SIDE: MESSAGE & CTAs (Span 6) -->
+            <div class="lg:col-span-6 flex flex-col justify-center">
+
+              <!-- Eyebrow Tag: Forest Green + Subtle Science Teal Accent Dot -->
+              <div
+                class="inline-flex items-center space-x-2 self-start px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[10.5px] sm:text-xs font-bold tracking-wider uppercase shadow-2xs mb-2.5 sm:mb-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7] animate-pulse"></span>
+                <span>TNAU-BACKED AGROFORESTRY INCUBATION</span>
+              </div>
+
+              <!-- Main Headline with Nature + Innovation Color Highlight -->
+              <h1
+                class="font-heading text-3xl sm:text-4xl md:text-[40px] xl:text-[44px] font-extrabold text-[#0A2E1C] tracking-tight leading-[1.24] sm:leading-[1.26] lg:leading-[1.28] mb-2.5 sm:mb-3">
+                Growing Ideas.<br>
+                <span class="text-[#16A34A]">Growing Enterprises.</span><br>
+                Growing Forests.
+              </h1>
+
+              <!-- Concise Description -->
+              <p class="text-slate-600 text-sm sm:text-[15px] leading-relaxed max-w-xl mb-4 sm:mb-4.5">
+                EDII-MAFBIF supports sustainable entrepreneurship, innovation and enterprise development across
+                agroforestry landscapes through incubation, technology support, training and mentorship.
+              </p>
+
+              <!-- Call to Actions: Primary & Secondary -->
+              <div class="flex flex-wrap items-center gap-3">
+                <a href="/incubation"
+                  class="inline-flex items-center justify-center px-5.5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold rounded-xl text-white bg-[#0A2E1C] hover:bg-[#14532D] shadow-md shadow-forest-900/10 transition-all duration-200 group">
+                  <span>Explore Incubation</span>
+                  <svg class="ml-2 w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+                <a href="/technologies"
+                  class="inline-flex items-center justify-center px-5 sm:px-5.5 py-2.5 sm:py-3 text-sm sm:text-base font-semibold rounded-xl text-[#0A2E1C] bg-white hover:bg-slate-50 border border-slate-300/80 transition-all duration-200">
+                  View Technologies
+                </a>
+              </div>
+
+            </div>
+
+            <!-- RIGHT SIDE: CLEAN LANDSCAPE PHOTOGRAPHY FRAME (No Overlays, Natural Aspect) -->
+            <div class="lg:col-span-6 relative">
+              <div id="hero-slider-container"
+                class="relative w-full aspect-[4/3] sm:aspect-[16/10] max-h-[320px] sm:max-h-[340px] lg:max-h-[355px] xl:max-h-[365px] rounded-2xl sm:rounded-[22px] overflow-hidden shadow-soft-md border border-slate-200/80 bg-slate-100 group select-none">
+
+                <!-- Slide 1 -->
+                <div class="hero-slide active">
+                  <img
+                    src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.47.51-pm-Urh8Qnaq4ttqfgcl.jpeg"
+                    alt="MoU & Agreement Distribution" class="w-full h-full object-cover object-center">
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="hero-slide">
+                  <img
+                    src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.47.35-pm-0t2KiOCydqN7Ptif.jpeg"
+                    alt="TNAU FC&RI Stage Ceremony" class="w-full h-full object-cover object-center">
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="hero-slide">
+                  <img
+                    src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.47.42-pm-FrbF2fFVuLAii0AT.jpeg"
+                    alt="Inauguration & Project Launch" class="w-full h-full object-cover object-center">
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="hero-slide">
+                  <img
+                    src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.48.13-pm-n1F09M7GerGw7Kdr.jpeg"
+                    alt="Incubation & Strategy Session" class="w-full h-full object-cover object-center">
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="hero-slide">
+                  <img
+                    src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.48.19-pm-aTz9blVktoo52pRf.jpeg"
+                    alt="Farmers & Entrepreneurs Capacity Building" class="w-full h-full object-cover object-center">
+                </div>
+
+                <!-- Slide 6 -->
+                <div class="hero-slide">
+                  <img
+                    src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.48.41-pm-eQjrBoZsNYmefsIV.jpeg"
+                    alt="Agroforestry Innovation Showcase" class="w-full h-full object-cover object-center">
+                </div>
+
+                <!-- Slide 7 -->
+                <div class="hero-slide">
+                  <img
+                    src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.48.46-pm-mnOxDbzbpAMtU288.jpeg"
+                    alt="Field Demonstration with Farmers" class="w-full h-full object-cover object-center">
+                </div>
+
+                <!-- Slide 8 -->
+                <div class="hero-slide">
+                  <img
+                    src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.48.58-pm-ULaWkASyX5XoGGOn.jpeg"
+                    alt="Value Addition & Processing Workshop" class="w-full h-full object-cover object-center">
+                </div>
+
+                <!-- Slide 9 -->
+                <div class="hero-slide">
+                  <img
+                    src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.47.59-pm-G5bpdfrRWKn3Fusv.jpeg"
+                    alt="Institutional Review & Evaluation" class="w-full h-full object-cover object-center">
+                </div>
+
+                <!-- Slide 10 -->
+                <div class="hero-slide">
+                  <img
+                    src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.48.06-pm-RHigXrZURFLLXASa.jpeg"
+                    alt="Forest Products & Enterprise Meet" class="w-full h-full object-cover object-center">
+                </div>
+
+                <!-- Discreet Navigation Arrows on Hover (Left & Right Sides) -->
+                <div
+                  class="absolute inset-y-0 left-0 right-0 z-20 flex items-center justify-between px-3 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <button id="slider-prev-btn" type="button"
+                    class="w-9 h-9 rounded-full bg-black/40 hover:bg-black/75 backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer pointer-events-auto shadow-md hover:scale-105"
+                    aria-label="Previous slide">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button id="slider-next-btn" type="button"
+                    class="w-9 h-9 rounded-full bg-black/40 hover:bg-black/75 backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer pointer-events-auto shadow-md hover:scale-105"
+                    aria-label="Next slide">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Subtle, Elegant "Scroll to explore ↓" Indicator -->
+          <div class="mt-4 sm:mt-5 pt-3 border-t border-slate-100/90 flex justify-center items-center">
+            <a href="#upcoming-events" id="hero-scroll-indicator"
+              class="inline-flex items-center space-x-2 text-xs font-semibold text-slate-500 hover:text-[#15803D] transition-colors py-1 px-3.5 rounded-full hover:bg-slate-50 border border-transparent hover:border-slate-200/60 cursor-pointer group select-none"
+              aria-label="Scroll to explore next section">
+              <span class="tracking-wider uppercase text-[10.5px]">Scroll to explore</span>
+              <svg class="w-3.5 h-3.5 text-[#15803D] scroll-arrow-float transition-colors group-hover:text-[#0A2E1C]"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section Transition Hairline -->
+      <div class="section-hairline"></div>
+
+      <!-- ===================================================================== -->
+      <!-- 3. UPCOMING EVENTS & PROGRAMS (Unboxed Continuous Flow)                -->
+      <!-- ===================================================================== -->
+      <section id="upcoming-events" class="reveal-on-scroll py-2 scroll-mt-28">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+          <div>
+            <div
+              class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] font-bold tracking-widest uppercase mb-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
+              <span>UPCOMING EVENTS</span>
+            </div>
+            <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0A2E1C] tracking-tight">
+              Explore Our Events &amp; Programs
+            </h2>
+          </div>
+          <a href="/events"
+            class="inline-flex items-center font-semibold text-sm text-[#15803D] hover:text-[#0284C7] transition-colors group shrink-0">
+            <span>View all schedules</span>
+            <svg class="ml-1.5 w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- 5 Event Cards Grid with Standardized Image Zoom & Subtle Hover Accent -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5">
+
+          <!-- Card 1: Workshop -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
+            <div class="h-40 overflow-hidden bg-slate-100 relative">
+              <img
+                src="https://assets.zyrosite.com/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-17-at-9.56.23-pm-X1QmxjfOFXqkVldH.jpeg"
+                alt="Workshop" class="w-full h-full object-cover">
+              <span
+                class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[10.5px] font-bold px-2 py-0.5 rounded-md border border-slate-200/60 shadow-2xs">Workshops</span>
+            </div>
+            <div class="p-4 flex-grow flex flex-col justify-between">
+              <div>
+                <h3
+                  class="font-heading font-bold text-[16px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-1.5">
+                  Workshop</h3>
+                <p class="text-slate-600 text-xs leading-relaxed">
+                  Practical agroforestry workshops help participants learn sustainable farming methods, plantation
+                  techniques and field-based applications.
+                </p>
+              </div>
+              <ul class="mt-3 pt-3 border-t border-slate-100 text-xs font-semibold text-[#15803D] space-y-1">
+                <li>• Up to March 2023 – 28 Workshops</li>
+                <li>• Up to Sep 2024 – 39 Workshops</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 2: Training -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
+            <div class="h-40 overflow-hidden bg-slate-100 relative">
+              <img
+                src="https://assets.zyrosite.com/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-12.08.38-am-L4mVcNkaVbLyb5W6.jpeg"
+                alt="Training" class="w-full h-full object-cover">
+              <span
+                class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[10.5px] font-bold px-2 py-0.5 rounded-md border border-slate-200/60 shadow-2xs">Training</span>
+            </div>
+            <div class="p-4 flex-grow flex flex-col justify-between">
+              <div>
+                <h3
+                  class="font-heading font-bold text-[16px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-1.5">
+                  Training</h3>
+                <p class="text-slate-600 text-xs leading-relaxed">
+                  Training programs strengthen technical knowledge and improve practical skills in forestry and
+                  agroforestry management.
+                </p>
+              </div>
+              <ul class="mt-3 pt-3 border-t border-slate-100 text-xs font-semibold text-[#15803D] space-y-1">
+                <li>• Up to March 2023 – 129 Trainings</li>
+                <li>• Up to Sep 2024 – 79 Trainings</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 3: Webinar -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
+            <div class="h-40 overflow-hidden bg-slate-100 relative">
+              <img
+                src="https://assets.zyrosite.com/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-12.08.38-am-1-83oLu3IghqUdFk9Z.jpeg"
+                alt="Webinar" class="w-full h-full object-cover">
+              <span
+                class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[10.5px] font-bold px-2 py-0.5 rounded-md border border-slate-200/60 shadow-2xs">Webinars</span>
+            </div>
+            <div class="p-4 flex-grow flex flex-col justify-between">
+              <div>
+                <h3
+                  class="font-heading font-bold text-[16px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-1.5">
+                  Webinar</h3>
+                <p class="text-slate-600 text-xs leading-relaxed">
+                  Expert-led webinars provide insights on emerging forestry trends, innovations and sustainable land-use
+                  practices.
+                </p>
+              </div>
+              <ul class="mt-3 pt-3 border-t border-slate-100 text-xs font-semibold text-[#15803D] space-y-1">
+                <li>• Up to March 2023 – 27 Webinars</li>
+                <li>• Up to Sep 2024 – 3 Webinars</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 4: Seminar -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
+            <div class="h-40 overflow-hidden bg-slate-100 relative">
+              <img
+                src="https://assets.zyrosite.com/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-17-at-9.56.28-pm-1-zd6v0wbEix3gFjv9.jpeg"
+                alt="Seminar" class="w-full h-full object-cover">
+              <span
+                class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[10.5px] font-bold px-2 py-0.5 rounded-md border border-slate-200/60 shadow-2xs">Seminars</span>
+            </div>
+            <div class="p-4 flex-grow flex flex-col justify-between">
+              <div>
+                <h3
+                  class="font-heading font-bold text-[16px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-1.5">
+                  Seminar</h3>
+                <p class="text-slate-600 text-xs leading-relaxed">
+                  Seminars encourage knowledge sharing between researchers, professionals and students in forestry.
+                </p>
+              </div>
+              <ul class="mt-3 pt-3 border-t border-slate-100 text-xs font-semibold text-[#15803D] space-y-1">
+                <li>• Up to March 2023 – 91 Seminars</li>
+                <li>• Up to Sep 2024 – 22 Seminars</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 5: Buyer Seller Meet -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col sm:col-span-2 lg:col-span-1 group img-zoom-container">
+            <div class="h-40 overflow-hidden bg-slate-100 relative">
+              <img
+                src="https://assets.zyrosite.com/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-17-at-9.34.24-pm-3mTewCbDmHeuQHMt.jpeg"
+                alt="Buyer Seller Meet" class="w-full h-full object-cover">
+              <span
+                class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[10.5px] font-bold px-2 py-0.5 rounded-md border border-slate-200/60 shadow-2xs">B2B
+                Meets</span>
+            </div>
+            <div class="p-4 flex-grow flex flex-col justify-between">
+              <div>
+                <h3
+                  class="font-heading font-bold text-[16px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-1.5">
+                  Buyer Seller Meet</h3>
+                <p class="text-slate-600 text-xs leading-relaxed">
+                  Buyer Seller Meets connect farmers, industries and stakeholders to strengthen agroforestry value
+                  chains.
+                </p>
+              </div>
+              <ul class="mt-3 pt-3 border-t border-slate-100 text-xs font-semibold text-[#15803D] space-y-1">
+                <li>• Up to March 2023 – 4 Meets</li>
+                <li>• Up to Sep 2024 – 4 Meets</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- 4. MOVING ANNOUNCEMENT STRIP (Nature + Science Dual-Color Accent)     -->
+      <!-- ===================================================================== -->
+      <section class="reveal-on-scroll">
+        <div
+          class="w-full overflow-hidden bg-[#0A2E1C] rounded-[18px] sm:rounded-[20px] py-3.5 sm:py-4 shadow-soft-sm border border-[#16A34A]/25">
+          <div
+            class="animate-marquee text-white font-bold text-sm sm:text-base tracking-[2.5px] uppercase items-center">
+            <span class="inline-flex items-center px-4">WHERE NATURE MEETS INNOVATION <span
+                class="text-[#38BDF8] mx-3 text-xs">✦</span> TNAU-BACKED AGROFORESTRY INCUBATION <span
+                class="text-[#86EFAC] mx-3 text-xs">✦</span> EDII TAMIL NADU <span
+                class="text-[#38BDF8] mx-3 text-xs">✦</span> SUSTAINABLE ENTERPRISE DEVELOPMENT <span
+                class="text-[#86EFAC] mx-3 text-xs">✦</span></span>
+            <span class="inline-flex items-center px-4">WHERE NATURE MEETS INNOVATION <span
+                class="text-[#38BDF8] mx-3 text-xs">✦</span> TNAU-BACKED AGROFORESTRY INCUBATION <span
+                class="text-[#86EFAC] mx-3 text-xs">✦</span> EDII TAMIL NADU <span
+                class="text-[#38BDF8] mx-3 text-xs">✦</span> SUSTAINABLE ENTERPRISE DEVELOPMENT <span
+                class="text-[#86EFAC] mx-3 text-xs">✦</span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- 5. ABOUT MAFBIF SECTION (Spacious Editorial Two-Column Composition)   -->
+      <!-- ===================================================================== -->
+      <section class="relative reveal-on-scroll">
+
+        <!-- Ambient Green + Science Teal Glow Behind About Section -->
+        <div class="ambient-orb-green w-80 h-80 sm:w-96 sm:h-96 -top-10 -left-10 opacity-65"></div>
+        <div class="ambient-orb-teal w-80 h-80 sm:w-96 sm:h-96 -bottom-10 -right-10 opacity-55"></div>
+
+        <div
+          class="relative z-10 bg-gradient-to-br from-[#F4F9F5] via-[#EAF3EC]/70 to-[#F0FDFA]/50 rounded-[26px] sm:rounded-[28px] p-6 sm:p-10 lg:p-14 border border-[#CFE3D1]/80 shadow-soft-sm overflow-hidden">
+
+          <!-- Subtle Decorative Botanical Line (Nature + Science Heritage) -->
+          <svg class="absolute -right-8 -bottom-10 w-72 h-72 text-[#16A34A]/10 pointer-events-none hidden md:block"
+            viewBox="0 0 200 200" fill="none" stroke="currentColor">
+            <path class="botanical-stroke" stroke-width="1.8"
+              d="M20,180 C50,140 80,130 110,90 C130,60 150,40 180,20 M110,90 C90,70 70,60 50,60 M110,90 C130,110 150,120 170,120 M140,50 C120,40 100,40 90,45" />
+          </svg>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-14 items-center relative z-10">
+
+            <!-- LEFT COLUMN: Institutional Overview & CTA (7 Cols) -->
+            <div class="lg:col-span-7 flex flex-col justify-center space-y-5">
+
+              <!-- Section Eyebrow Label -->
+              <div
+                class="inline-flex items-center space-x-2.5 self-start px-3.5 py-1.5 rounded-full bg-white/90 border border-[#DCFCE7] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-widest uppercase shadow-2xs">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
+                <span>ABOUT MAFBIF</span>
+              </div>
+
+              <!-- Main Section Heading with Exact Original Text -->
+              <h2
+                class="font-heading text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0A2E1C] leading-[1.2] tracking-tight">
+                Empowering Innovation in <span class="text-[#0E7490]">Agroforestry</span>
+              </h2>
+
+              <!-- Description Body Text (Word-for-word identical to original) -->
+              <p
+                class="text-slate-700 text-sm sm:text-base md:text-[16.5px] leading-[1.75] font-normal text-justify sm:text-left">
+                MAFBIF (Mettupalayam Agroforestry Business Incubation Forum) is a Section 8 not-for-profit organization
+                dedicated to fostering innovation and entrepreneurship in the agroforestry sector. Supported by EDII and
+                TNAU, MAFBIF empowers startups, farmers, students, women entrepreneurs, and tribal communities through
+                incubation, technology transfer, skill development, mentoring, and sustainable business support,
+                creating long-term environmental and economic impact.
+              </p>
+
+              <!-- Existing CTA Button -->
+              <div class="pt-1">
+                <a href="/about"
+                  class="inline-flex items-center space-x-2.5 bg-[#0A2E1C] hover:bg-[#14532D] text-white px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base shadow-md shadow-forest-900/10 hover:shadow-lg transition-all duration-200 cursor-pointer group">
+                  <span>Explore more</span>
+                  <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: Authentic FC&RI Documentary Campus Photography (5 Cols) -->
+            <div class="lg:col-span-5 relative">
+              <div
+                class="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] rounded-2xl sm:rounded-[22px] overflow-hidden shadow-soft-md border border-slate-200/80 bg-slate-100 group img-zoom-container hover-lift">
+                <img
+                  src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/15xxed-MR2VPYfiAJvUXiDt.png"
+                  alt="Forest College and Research Institute, TNAU, Mettupalayam"
+                  class="w-full h-full object-cover object-center">
+
+                <!-- Floating Campus Badge -->
+                <div
+                  class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-auto bg-white/95 backdrop-blur-md px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-slate-200/80 shadow-soft-sm flex items-center space-x-2.5 pointer-events-none">
+                  <span class="w-2 h-2 rounded-full bg-[#16A34A] shrink-0"></span>
+                  <div class="leading-tight">
+                    <span class="text-xs font-bold text-[#0A2E1C] block">FC&amp;RI Campus</span>
+                    <span class="text-[10.5px] text-slate-500 font-medium">Mettupalayam, TNAU</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section Transition Hairline -->
+      <div class="section-hairline"></div>
+
+      <!-- ===================================================================== -->
+      <!-- 6. MESSAGE FROM THE DEAN (Clean White Institutional Elevation)        -->
+      <!-- ===================================================================== -->
+      <section
+        class="reveal-on-scroll bg-white rounded-[26px] sm:rounded-[28px] p-8 sm:p-12 lg:p-14 border border-slate-200/70 shadow-soft-sm">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-start">
+
+          <!-- Left Column: Dean Photograph + Credentials -->
+          <div class="md:col-span-5 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+            <div
+              class="w-full max-w-[300px] rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 bg-slate-100 img-zoom-container">
+              <img
+                src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/iX3h8rqPfxJk6DDB/dean-photo-ePd3q9KTKLKY1jBp.jpeg"
+                alt="Dr. A. Balasubramanian" class="w-full h-auto object-cover aspect-[4/5]">
+            </div>
+
+            <h3 class="font-heading font-extrabold text-xl sm:text-2xl text-[#0A2E1C] mt-5 tracking-tight">
+              Dr.A.Balasubramanian
+            </h3>
+
+            <!-- Dual-Color Accent Line under Leadership (Nature Green to Science Blue) -->
+            <div class="w-14 h-1 bg-gradient-to-r from-[#16A34A] to-[#0284C7] rounded-full my-2.5"></div>
+
+            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-snug">
+              Dean (Forestry) and Nodal Officer (MAFBIF)
+            </p>
+          </div>
+
+          <!-- Right Column: Full Official Message -->
+          <div class="md:col-span-7 lg:col-span-8 flex flex-col justify-center space-y-5">
+            <div>
+              <div
+                class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] font-bold tracking-widest uppercase mb-2">
+                <span>LEADERSHIP PERSPECTIVE</span>
+              </div>
+              <h2
+                class="font-heading text-2xl sm:text-3xl lg:text-[38px] font-extrabold text-[#0A2E1C] tracking-tight leading-tight">
+                Message from the Dean
+              </h2>
+            </div>
+
+            <p class="text-slate-700 text-sm sm:text-[15.5px] leading-relaxed text-justify sm:text-left">
+              EDII-MAFBIF, a section 8 company is an initiative of Tamil Nadu Agricultural University and Forest College
+              and Research Institute with funding assistance from EDII TN, Chennai to promote entrepreneurship in Agro
+              forestry sector. EDII-MAFBIF, being the first of its kind in the country, proposes to extend its services
+              and its development catchment to almost all the districts of Tamil Nadu that can be managed effectively.
+              EDII-MAFBIF is a support process that accelerates the successful development of sustainable businesses in
+              Forest and Agroforestry landscapes
+            </p>
+
+            <p class="text-slate-700 text-sm sm:text-[15.5px] leading-relaxed text-justify sm:text-left">
+              EDII-MAFBIF aims in creating entrepreneurship skills in various stake holders like professional graduates,
+              unemployed youth, Members of SHG, Farmers, Tribal Community, etc., in order to augment sustainable income
+              and employment generation activities. EDII-MAFBIF diversifies income generation through technology
+              adoption and commercialization. EDII-MAFBIF also helps to validate, license, commercialize the concept and
+              technology already developed by any individual or group or a firm. EDII-MAFBIF aims to converge and link
+              all stakeholders involved in agroforestry-based value chain system through suitable partnership and
+              collaboration. EDII-MAFBIF involves in networking all wood-based industries to facilitate skill
+              development of Incubatees and to sustain the market conditions
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- 7. OUR INSTITUTIONAL IMPACT (Deep Forest + Teal Ambient Glow)         -->
+      <!-- ===================================================================== -->
+      <section id="institutional-impact" class="relative reveal-on-scroll">
+
+        <!-- Ambient Teal Backlight Behind Impact Metrics -->
+        <div class="ambient-orb-teal w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30"></div>
+
+        <div
+          class="relative z-10 bg-[#0A2216] text-white rounded-[26px] sm:rounded-[28px] p-8 sm:p-12 lg:p-14 border border-[#163818] shadow-soft-md overflow-hidden">
+
+          <div class="text-center max-w-3xl mx-auto mb-10">
+            <span
+              class="text-[11px] font-bold text-emerald-300 uppercase tracking-widest bg-emerald-950/80 px-4 py-1.5 rounded-full border border-emerald-500/30 inline-flex items-center space-x-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
+              <span>ECOSYSTEM GROWTH</span>
+            </span>
+            <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FBFCEB] mt-3 tracking-tight">
+              Our Institutional Impact
+            </h2>
+          </div>
+
+          <!-- 8 Animated Metric Cards -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5">
+
+            <div
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              <div
+                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                data-target="201">
+                201
+              </div>
+              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">Rural Beneficiaries</div>
+            </div>
+
+            <div
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              <div
+                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                data-target="20120" data-comma="true">
+                20,120
+              </div>
+              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">Beneficiaries</div>
+            </div>
+
+            <div
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              <div
+                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                data-target="13">
+                13
+              </div>
+              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">Technologies Licensed</div>
+            </div>
+
+            <div
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              <div
+                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                data-target="408">
+                408
+              </div>
+              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">Programmes conducted</div>
+            </div>
+
+            <div
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              <div
+                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                data-target="51">
+                51
+              </div>
+              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">Mentors</div>
+            </div>
+
+            <div
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              <div
+                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                data-target="42" data-prefix="₹" data-suffix="L">
+                ₹42L
+              </div>
+              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">Seed Grant disbursed</div>
+            </div>
+
+            <div
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              <div
+                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                data-target="38">
+                38
+              </div>
+              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">Startups Created</div>
+            </div>
+
+            <div
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              <div
+                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                data-target="6">
+                6
+              </div>
+              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">IP Registrations</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Transition Hairline -->
+      <div class="section-hairline"></div>
+
+      <!-- ===================================================================== -->
+      <!-- 8. TECHNOLOGIES (Clean Flow + Subtle Interactive Cards)               -->
+      <!-- ===================================================================== -->
+      <section id="technologies-preview" class="relative reveal-on-scroll py-2">
+
+        <!-- Ambient Dual-Color Lighting Behind Technologies -->
+        <div class="ambient-orb-green w-72 h-72 -top-6 -right-6 opacity-45"></div>
+        <div class="ambient-orb-teal w-72 h-72 -bottom-6 -left-6 opacity-45"></div>
+
+        <div class="relative z-10">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
+            <div class="max-w-2xl">
+              <div
+                class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] font-bold tracking-widest uppercase mb-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
+                <span>COMMERCIALIZATION &amp; SCIENCE</span>
+              </div>
+              <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0A2E1C] tracking-tight">
+                Technologies</h2>
+              <p class="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
+                We bridge academic research and commercial enterprise, offering startups direct access to validated
+                processing methods and technical mentoring.
+              </p>
+            </div>
+            <a href="/technologies"
+              class="inline-flex items-center font-semibold text-sm text-[#15803D] hover:text-[#0284C7] shrink-0 group transition-colors">
+              <span>Explore Technologies</span>
+              <svg class="ml-1.5 w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
+
+            <!-- Technology 1 -->
+            <div
+              class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
+              <div class="h-48 overflow-hidden bg-slate-100 relative">
+                <img
+                  src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/iX3h8rqPfxJk6DDB/_aaa0078-1-.jpg-1-pFP7gY5NWtySVOGl.jpeg"
+                  alt="Biomass & Pellets" class="w-full h-full object-cover">
+                <span
+                  class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[11px] font-bold px-2.5 py-1 rounded-md border border-slate-200/60 shadow-2xs">Bioenergy</span>
+              </div>
+              <div class="p-6 flex-grow flex flex-col justify-between">
+                <div>
+                  <h3
+                    class="font-heading font-bold text-lg text-[#0A2E1C] group-hover:text-[#15803D] transition-colors">
+                    Biomass &amp; Pellets</h3>
+                  <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
+                    Processing raw forestry waste into high-density biomass briquettes and activated carbon for
+                    industrial energy markets.
+                  </p>
+                </div>
+                <a href="/technologies"
+                  class="mt-4 inline-flex items-center text-xs font-semibold text-[#15803D] group-hover:text-[#0284C7] transition-colors">
+                  <span>Learn more</span>
+                  <span class="ml-1 transition-transform duration-200 group-hover:translate-x-1">→</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Technology 2 -->
+            <div
+              class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
+              <div class="h-48 overflow-hidden bg-slate-100 relative">
+                <img
+                  src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/iX3h8rqPfxJk6DDB/img-20201102-wa0081.jpg-ElJ2JmnHjjKBnYSX.jpeg"
+                  alt="Essential Oils" class="w-full h-full object-cover">
+                <span
+                  class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[11px] font-bold px-2.5 py-1 rounded-md border border-slate-200/60 shadow-2xs">Distillation</span>
+              </div>
+              <div class="p-6 flex-grow flex flex-col justify-between">
+                <div>
+                  <h3
+                    class="font-heading font-bold text-lg text-[#0A2E1C] group-hover:text-[#15803D] transition-colors">
+                    Essential Oils</h3>
+                  <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
+                    Extraction and refinement of high-value natural resins, gums, and organic dyes using
+                    state-of-the-art laboratory distillation.
+                  </p>
+                </div>
+                <a href="/technologies"
+                  class="mt-4 inline-flex items-center text-xs font-semibold text-[#15803D] group-hover:text-[#0284C7] transition-colors">
+                  <span>Learn more</span>
+                  <span class="ml-1 transition-transform duration-200 group-hover:translate-x-1">→</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Technology 3 -->
+            <div
+              class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
+              <div class="h-48 overflow-hidden bg-slate-100 relative">
+                <img
+                  src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/iX3h8rqPfxJk6DDB/flyash-drier.jpg-1-DiAa5mV5d9R0lEQX.jpeg"
+                  alt="Wood Value Addition" class="w-full h-full object-cover">
+                <span
+                  class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[11px] font-bold px-2.5 py-1 rounded-md border border-slate-200/60 shadow-2xs">Value
+                  Addition</span>
+              </div>
+              <div class="p-6 flex-grow flex flex-col justify-between">
+                <div>
+                  <h3
+                    class="font-heading font-bold text-lg text-[#0A2E1C] group-hover:text-[#15803D] transition-colors">
+                    Wood Value Addition</h3>
+                  <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
+                    Technical validation and mechanical processing of timber species to enhance durability and market
+                    value for MSMEs.
+                  </p>
+                </div>
+                <a href="/technologies"
+                  class="mt-4 inline-flex items-center text-xs font-semibold text-[#15803D] group-hover:text-[#0284C7] transition-colors">
+                  <span>Learn more</span>
+                  <span class="ml-1 transition-transform duration-200 group-hover:translate-x-1">→</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- 9. FACILITIES & INFRASTRUCTURE (Interactive Facility Accordions)      -->
+      <!-- ===================================================================== -->
+      <section class="relative reveal-on-scroll">
+
+        <!-- Ambient Green + Science Teal Background Glow -->
+        <div class="ambient-orb-green w-72 h-72 -top-6 -right-6 opacity-55"></div>
+        <div class="ambient-orb-teal w-72 h-72 -bottom-6 -left-6 opacity-45"></div>
+
+        <div
+          class="relative z-10 bg-[#EAF3EC] rounded-[26px] sm:rounded-[28px] p-8 sm:p-12 lg:p-14 border border-[#CFE3D1]/80 shadow-soft-sm text-center">
+          <div class="max-w-4xl mx-auto">
+
+            <div
+              class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/80 border border-[#CFE3D1] text-[#15803D] text-[11px] font-bold tracking-widest uppercase mb-3 shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
+              <span>FACILITIES &amp; INFRASTRUCTURE</span>
+            </div>
+
+            <h2
+              class="font-heading text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0A2E1C] leading-tight mb-4 tracking-tight">
+              Modern Facilities for Research &amp; Innovation
+            </h2>
+
+            <p class="text-slate-700 text-base sm:text-[17.5px] leading-[1.8] max-w-3xl mx-auto mb-8 text-center">
+              EDII-MAFBIF offers modern infrastructure and specialized facilities to support research, innovation,
+              entrepreneurship, and sustainable technology development. From fully equipped co-working spaces and
+              conference halls to advanced industrial units and laboratory facilities, we provide an ecosystem designed
+              to foster learning, collaboration, and growth.
+            </p>
+
+            <!-- 6 Interactive Expandable Facility Cards -->
+            <div class="max-w-3xl mx-auto space-y-3 text-left mb-8" id="facilities-accordion">
+
+              <!-- Facility 1 -->
+              <div
+                class="facility-card bg-white hover:bg-[#FAFDFB] rounded-xl shadow-2xs hover:shadow-soft-md border border-slate-200/70 hover:border-[#16A34A]/60 transition-all duration-300 ease-out hover:-translate-y-0.5 overflow-hidden cursor-pointer group select-none"
+                onclick="toggleFacility(this)">
+                <div class="p-4 sm:p-4.5 flex items-center justify-between">
+                  <span
+                    class="text-base sm:text-[17px] font-bold text-slate-800 group-hover:text-[#0A2E1C] transition-colors duration-200">Co-Working
+                    Space (26 Seating Capacity)</span>
+                  <span
+                    class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#F0FDF4] group-hover:border-[#DCFCE7] border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#16A34A] transition-all duration-300 shrink-0 facility-toggle-icon">
+                    <svg class="w-3.5 h-3.5 transition-transform duration-300 transform facility-plus-icon" fill="none"
+                      stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="facility-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-4.5 bg-[#F9FBFA]">
+                  <p class="text-slate-600 text-xs sm:text-sm pb-4 pt-2 border-t border-slate-100/90 leading-relaxed">
+                    Air-conditioned incubator workstations, dedicated high-speed fiber internet, private discussion
+                    booths, and plug-and-play setup for emerging agri-tech startup teams.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Facility 2 -->
+              <div
+                class="facility-card bg-white hover:bg-[#FAFDFB] rounded-xl shadow-2xs hover:shadow-soft-md border border-slate-200/70 hover:border-[#16A34A]/60 transition-all duration-300 ease-out hover:-translate-y-0.5 overflow-hidden cursor-pointer group select-none"
+                onclick="toggleFacility(this)">
+                <div class="p-4 sm:p-4.5 flex items-center justify-between">
+                  <span
+                    class="text-base sm:text-[17px] font-bold text-slate-800 group-hover:text-[#0A2E1C] transition-colors duration-200">Conference
+                    &amp; Meeting Facilities</span>
+                  <span
+                    class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#F0FDF4] group-hover:border-[#DCFCE7] border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#16A34A] transition-all duration-300 shrink-0 facility-toggle-icon">
+                    <svg class="w-3.5 h-3.5 transition-transform duration-300 transform facility-plus-icon" fill="none"
+                      stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="facility-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-4.5 bg-[#F9FBFA]">
+                  <p class="text-slate-600 text-xs sm:text-sm pb-4 pt-2 border-t border-slate-100/90 leading-relaxed">
+                    100+ seating capacity audio-visual auditorium, interactive smart presentation screens, and executive
+                    boardroom for stakeholder summits, buyer meets, and investor pitches.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Facility 3 -->
+              <div
+                class="facility-card bg-white hover:bg-[#FAFDFB] rounded-xl shadow-2xs hover:shadow-soft-md border border-slate-200/70 hover:border-[#16A34A]/60 transition-all duration-300 ease-out hover:-translate-y-0.5 overflow-hidden cursor-pointer group select-none"
+                onclick="toggleFacility(this)">
+                <div class="p-4 sm:p-4.5 flex items-center justify-between">
+                  <span
+                    class="text-base sm:text-[17px] font-bold text-slate-800 group-hover:text-[#0A2E1C] transition-colors duration-200">Industrial
+                    Processing Units</span>
+                  <span
+                    class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#F0FDF4] group-hover:border-[#DCFCE7] border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#16A34A] transition-all duration-300 shrink-0 facility-toggle-icon">
+                    <svg class="w-3.5 h-3.5 transition-transform duration-300 transform facility-plus-icon" fill="none"
+                      stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="facility-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-4.5 bg-[#F9FBFA]">
+                  <p class="text-slate-600 text-xs sm:text-sm pb-4 pt-2 border-t border-slate-100/90 leading-relaxed">
+                    Pilot-scale pulverizers, briquetting machinery, industrial biomass compactors, and drying equipment
+                    for commercializing wood and non-timber forest produce.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Facility 4 -->
+              <div
+                class="facility-card bg-white hover:bg-[#FAFDFB] rounded-xl shadow-2xs hover:shadow-soft-md border border-slate-200/70 hover:border-[#16A34A]/60 transition-all duration-300 ease-out hover:-translate-y-0.5 overflow-hidden cursor-pointer group select-none"
+                onclick="toggleFacility(this)">
+                <div class="p-4 sm:p-4.5 flex items-center justify-between">
+                  <span
+                    class="text-base sm:text-[17px] font-bold text-slate-800 group-hover:text-[#0A2E1C] transition-colors duration-200">Tissue
+                    Culture Laboratory</span>
+                  <span
+                    class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#F0FDF4] group-hover:border-[#DCFCE7] border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#16A34A] transition-all duration-300 shrink-0 facility-toggle-icon">
+                    <svg class="w-3.5 h-3.5 transition-transform duration-300 transform facility-plus-icon" fill="none"
+                      stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="facility-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-4.5 bg-[#F9FBFA]">
+                  <p class="text-slate-600 text-xs sm:text-sm pb-4 pt-2 border-t border-slate-100/90 leading-relaxed">
+                    Controlled temperature growth chambers, laminar airflow cabinets, and autoclave systems for rapid
+                    micropropagation of elite tree clones and medicinal plants.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Facility 5 -->
+              <div
+                class="facility-card bg-white hover:bg-[#FAFDFB] rounded-xl shadow-2xs hover:shadow-soft-md border border-slate-200/70 hover:border-[#16A34A]/60 transition-all duration-300 ease-out hover:-translate-y-0.5 overflow-hidden cursor-pointer group select-none"
+                onclick="toggleFacility(this)">
+                <div class="p-4 sm:p-4.5 flex items-center justify-between">
+                  <span
+                    class="text-base sm:text-[17px] font-bold text-slate-800 group-hover:text-[#0A2E1C] transition-colors duration-200">Honey
+                    Processing Unit</span>
+                  <span
+                    class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#F0FDF4] group-hover:border-[#DCFCE7] border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#16A34A] transition-all duration-300 shrink-0 facility-toggle-icon">
+                    <svg class="w-3.5 h-3.5 transition-transform duration-300 transform facility-plus-icon" fill="none"
+                      stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="facility-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-4.5 bg-[#F9FBFA]">
+                  <p class="text-slate-600 text-xs sm:text-sm pb-4 pt-2 border-t border-slate-100/90 leading-relaxed">
+                    Fully mechanized moisture reduction, micro-filtration, pasteurization, and hygienic bottling setup
+                    for organic wild forest honey value-addition.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Facility 6 -->
+              <div
+                class="facility-card bg-white hover:bg-[#FAFDFB] rounded-xl shadow-2xs hover:shadow-soft-md border border-slate-200/70 hover:border-[#16A34A]/60 transition-all duration-300 ease-out hover:-translate-y-0.5 overflow-hidden cursor-pointer group select-none"
+                onclick="toggleFacility(this)">
+                <div class="p-4 sm:p-4.5 flex items-center justify-between">
+                  <span
+                    class="text-base sm:text-[17px] font-bold text-slate-800 group-hover:text-[#0A2E1C] transition-colors duration-200">Research
+                    &amp; Innovation Support</span>
+                  <span
+                    class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#F0FDF4] group-hover:border-[#DCFCE7] border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#16A34A] transition-all duration-300 shrink-0 facility-toggle-icon">
+                    <svg class="w-3.5 h-3.5 transition-transform duration-300 transform facility-plus-icon" fill="none"
+                      stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="facility-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-4.5 bg-[#F9FBFA]">
+                  <p class="text-slate-600 text-xs sm:text-sm pb-4 pt-2 border-t border-slate-100/90 leading-relaxed">
+                    Direct laboratory access to analytical equipment, soil-wood durability testing protocols, and
+                    mentorship from TNAU Forest College and Research Institute scientists.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <p class="text-slate-700 text-base sm:text-[17.5px] leading-relaxed max-w-2xl mx-auto mb-6">
+              Explore our world-class facilities and discover how we empower sustainable development and innovation.
+            </p>
+
+            <a href="/facilities"
+              class="inline-flex items-center space-x-2 bg-[#0A2E1C] hover:bg-[#14532D] text-white px-7 sm:px-9 py-3.5 sm:py-4 rounded-xl font-bold text-base shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer group">
+              <span>Explore More...</span>
+              <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Transition Hairline -->
+      <div class="section-hairline"></div>
+
+      <!-- ===================================================================== -->
+      <!-- 10. STATE-OF-THE-ART RESEARCH LABS (Clean Gallery & Image Zoom)       -->
+      <!-- ===================================================================== -->
+      <section class="reveal-on-scroll py-2">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+          <div>
+            <div
+              class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] font-bold tracking-widest uppercase mb-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
+              <span>FACILITY TOUR</span>
+            </div>
+            <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0A2E1C] tracking-tight">
+              State-of-the-Art Research Labs</h2>
+            <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
+              Our incubatees work in professional laboratory environments equipped for tissue culture, briquetting, and
+              advanced product development.
+            </p>
+          </div>
+          <a href="/facilities"
+            class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold rounded-xl text-[#0A2E1C] bg-white hover:bg-slate-50 border border-slate-300/80 shrink-0 transition-colors">
+            View All Facilities
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div
+            class="rounded-2xl overflow-hidden border border-slate-200/80 bg-slate-100 h-56 group img-zoom-container shadow-2xs hover-lift">
+            <img
+              src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/iX3h8rqPfxJk6DDB/dsc_0512.jpg-H9hfXFZ76b5pXoKp.jpeg"
+              alt="Machinery" class="w-full h-full object-cover">
+          </div>
+          <div
+            class="rounded-2xl overflow-hidden border border-slate-200/80 bg-slate-100 h-56 group img-zoom-container shadow-2xs hover-lift">
+            <img
+              src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/iX3h8rqPfxJk6DDB/dsc_0413-1-.jpg-1-7CJ3wUhfErCkz5cq.jpeg"
+              alt="Distillation Unit" class="w-full h-full object-cover">
+          </div>
+          <div
+            class="rounded-2xl overflow-hidden border border-slate-200/80 bg-slate-100 h-56 group img-zoom-container shadow-2xs hover-lift">
+            <img
+              src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/iX3h8rqPfxJk6DDB/flyash-drier.jpg-1-DiAa5mV5d9R0lEQX.jpeg"
+              alt="Drying Unit" class="w-full h-full object-cover">
+          </div>
+          <div
+            class="rounded-2xl overflow-hidden border border-slate-200/80 bg-slate-100 h-56 group img-zoom-container shadow-2xs hover-lift">
+            <img
+              src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/iX3h8rqPfxJk6DDB/_aaa0078-1-.jpg-1-pFP7gY5NWtySVOGl.jpeg"
+              alt="Biomass Lab" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 11. INSTITUTIONAL FOOTER (Dual Accent Line & Refined Spacing)             -->
+  <!-- ========================================================================= -->
+  <footer
+    class="relative bg-[#07190F] text-slate-300 border-t-2 border-t-[#16A34A]/30 mt-auto py-12 sm:py-16 overflow-hidden">
+
+    <!-- Subtle Science Teal Bottom Accent -->
+    <div class="ambient-orb-teal w-80 h-80 -bottom-20 left-1/4 opacity-20"></div>
+
+    <div class="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+
+        <!-- Brand Info -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 flex items-center justify-center">
+              <svg viewBox="0 0 100 100" class="w-full h-full">
+                <circle cx="50" cy="22" r="11" fill="#84CC16" />
+                <path d="M50 14 L50 24 M46 17 Q50 21 50 24 M54 17 Q50 21 50 24" stroke="#FFFFFF" stroke-width="1.8"
+                  stroke-linecap="round" fill="none" />
+                <circle cx="33" cy="34" r="10.5" fill="#65A30D" />
+                <circle cx="67" cy="34" r="10.5" fill="#4D7C0F" />
+                <circle cx="23" cy="52" r="10.5" fill="#15803D" />
+                <circle cx="77" cy="52" r="10.5" fill="#16A34A" />
+                <circle cx="69" cy="68" r="9" fill="#047857" />
+                <circle cx="31" cy="68" r="9" fill="#14532D" />
+                <circle cx="50" cy="48" r="5.5" fill="#0284C7" />
+                <path
+                  d="M50 56 C44 56 36 60 36 66 C42 63 47 62 48 70 L48 88 L52 88 L52 70 C53 62 58 63 64 66 C64 60 56 56 50 56 Z"
+                  fill="#0284C7" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-extrabold text-xl text-white tracking-tight">EDII-MAFBIF</h3>
+              <p class="text-xs text-slate-400">TNAU-backed agroforestry business incubator.</p>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-md">
+            Forest College and Research Institute, Mettupalayam, Tamil Nadu 641301. Supported by EDII, Government of
+            Tamil Nadu &amp; TNAU.
+          </p>
+        </div>
+
+        <!-- Sitemap -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-xs font-bold text-[#CFA851] uppercase tracking-wider">Sitemap</h4>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="/technologies" class="hover:text-white transition-colors">Technologies</a></li>
+            <li><a href="/facilities" class="hover:text-white transition-colors">Facilities</a></li>
+            <li><a href="/incubation" class="hover:text-white transition-colors">Incubation</a></li>
+            <li><a href="/events" class="hover:text-white transition-colors">Events &amp; Training</a></li>
+            <li><a href="/success-stories" class="hover:text-white transition-colors">Success Stories</a></li>
+            <li><a href="/contact" class="hover:text-white transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Incubator Office -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-xs font-bold text-[#CFA851] uppercase tracking-wider">Incubator Office</h4>
+          <div class="space-y-1.5 text-xs text-slate-400">
+            <p class="font-medium text-white">Forest College and Research Institute,</p>
+            <p>Mettupalayam, Tamil Nadu 641301</p>
+            <p class="pt-1">Email: <a href="mailto:info@mafbif.com"
+                class="text-emerald-400 hover:underline">info@mafbif.com</a></p>
+            <p class="text-slate-400">Supported by EDII &amp; TNAU</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div
+        class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-3">
+        <p>© 2026 MAFBIF - Supported by EDII, Government of Tamil Nadu &amp; TNAU.</p>
+        <p class="font-bold text-[#CFA851] text-[11px] tracking-wider uppercase">TNAU-BACKED AGROFORESTRY INCUBATION</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- 12. CLIENT SCRIPTS (Smooth Slider, Counter Animation, Reveal Observer)    -->
+  <!-- ========================================================================= -->
+  <script>
+    document.documentElement.classList.add('js');
+
+    // 1. Facility Accordion Interactive Toggle Function
+    function toggleAccordion(itemNumber) {
+      const allCards = document.querySelectorAll('.facility-card');
+      const allContents = document.querySelectorAll('.facility-content');
+      const allArrows = document.querySelectorAll('.facility-arrow');
+
+      const card = document.getElementById('facility-card-' + itemNumber);
+      const content = document.getElementById('facility-content-' + itemNumber);
+      const arrow = document.getElementById('facility-arrow-' + itemNumber);
+
+      if (!card || !content || !arrow) return;
+
+      const isOpen = card.classList.contains('is-active');
+
+      allCards.forEach(c => c.classList.remove('is-active'));
+      allContents.forEach(c => c.style.maxHeight = null);
+      allArrows.forEach(a => a.style.transform = '');
+
+      if (!isOpen) {
+        card.classList.add('is-active');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        arrow.style.transform = 'rotate(90deg)';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Navigation Toggle
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+          mobileBtn.setAttribute('aria-expanded', !isExpanded);
+          mobileMenu.classList.toggle('hidden');
+          if (iconOpen) iconOpen.classList.toggle('hidden');
+          if (iconClose) iconClose.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+            if (iconOpen) iconOpen.classList.remove('hidden');
+            if (iconClose) iconClose.classList.add('hidden');
+          }
+        });
+      }
+
+      // Incubation Dropdown
+      const incubDdWrapper = document.getElementById('incubation-nav-group');
+      const incubDdPanel = document.getElementById('incubation-dropdown-panel');
+      const incubDdArrow = incubDdWrapper && incubDdWrapper.querySelector('svg');
+      let incubDdTimer = null;
+
+      function openIncubDd() {
+        if (incubDdTimer) { clearTimeout(incubDdTimer); incubDdTimer = null; }
+        if (incubDdPanel) {
+          incubDdPanel.classList.remove('hidden');
+          if (incubDdArrow) incubDdArrow.style.transform = 'rotate(180deg)';
+        }
+      }
+
+      function scheduleCloseIncubDd() {
+        incubDdTimer = setTimeout(() => {
+          if (incubDdPanel) {
+            incubDdPanel.classList.add('hidden');
+            if (incubDdArrow) incubDdArrow.style.transform = '';
+          }
+        }, 180);
+      }
+
+      if (incubDdWrapper && incubDdPanel) {
+        incubDdWrapper.addEventListener('mouseenter', openIncubDd);
+        incubDdWrapper.addEventListener('mouseleave', scheduleCloseIncubDd);
+        incubDdPanel.addEventListener('mouseenter', openIncubDd);
+        incubDdPanel.addEventListener('mouseleave', scheduleCloseIncubDd);
+      }
+
+      // 3-Second High-Performance Hero Image Slider
+      const sliderContainer = document.getElementById('hero-slider-container');
+      const slides = document.querySelectorAll('.hero-slide');
+      const prevBtn = document.getElementById('slider-prev-btn');
+      const nextBtn = document.getElementById('slider-next-btn');
+
+      if (slides.length > 0) {
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        const slideDuration = 3000;
+        let slideTimer = null;
+
+        function showSlide(index) {
+          slides.forEach((slide, idx) => {
+            if (idx === index) {
+              slide.classList.add('active');
+            } else {
+              slide.classList.remove('active');
+            }
+          });
+        }
+
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+          showSlide(currentIndex);
+        }
+
+        function startAutoPlay() {
+          stopAutoPlay();
+          slideTimer = setInterval(() => {
+            nextSlide();
+          }, slideDuration);
+        }
+
+        function stopAutoPlay() {
+          if (slideTimer) {
+            clearInterval(slideTimer);
+            slideTimer = null;
+          }
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextSlide();
+            startAutoPlay();
+          });
+        }
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevSlide();
+            startAutoPlay();
+          });
+        }
+
+        if (sliderContainer) {
+          sliderContainer.addEventListener('mouseenter', stopAutoPlay);
+          sliderContainer.addEventListener('mouseleave', startAutoPlay);
+        }
+
+        showSlide(0);
+        startAutoPlay();
+      }
+
+      // Smooth Scroll for Hero "Scroll to explore" Indicator
+      const heroScrollBtn = document.getElementById('hero-scroll-indicator');
+      if (heroScrollBtn) {
+        heroScrollBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = document.getElementById('upcoming-events');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      }
+
+      // Restrained Scroll Reveal (Intersection Observer)
+      const revealElements = document.querySelectorAll('.reveal-on-scroll');
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+      } else {
+        revealElements.forEach(el => el.classList.add('is-revealed'));
+      }
+
+      // Impact Numbers Smooth Counter Animation
+      const impactSection = document.getElementById('institutional-impact');
+      let countersAnimated = false;
+
+      function animateImpactNumbers() {
+        if (countersAnimated) return;
+        countersAnimated = true;
+
+        const counters = document.querySelectorAll('.stat-counter');
+        counters.forEach(counter => {
+          const rawTarget = counter.getAttribute('data-target') || counter.getAttribute('data-counter-target');
+          const target = parseInt(rawTarget, 10);
+          if (isNaN(target)) return;
+
+          const prefix = counter.getAttribute('data-prefix') || counter.getAttribute('data-counter-prefix') || '';
+          const suffix = counter.getAttribute('data-suffix') || counter.getAttribute('data-counter-suffix') || '';
+          const isComma = counter.getAttribute('data-comma') === 'true';
+          const duration = 1400;
+          const startTime = performance.now();
+
+          function step(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(target * ease);
+            let formatted = isComma ? current.toLocaleString('en-IN') : current.toString();
+            counter.textContent = prefix + formatted + suffix;
+
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            }
+          }
+          requestAnimationFrame(step);
+        });
+      }
+
+      if (impactSection && 'IntersectionObserver' in window) {
+        const impactObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              animateImpactNumbers();
+              impactObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.25 });
+
+        impactObserver.observe(impactSection);
+      }
+    });
+
+    // Interactive Facilities Accordion Animation Function
+    function toggleFacility(card) {
+      if (!card) return;
+      const content = card.querySelector('.facility-content');
+      const icon = card.querySelector('.facility-plus-icon');
+      const iconCircle = card.querySelector('.facility-toggle-icon');
+      const isAlreadyOpen = card.classList.contains('is-open');
+
+      // Close all cards for sleek accordion behavior
+      document.querySelectorAll('.facility-card').forEach(c => {
+        c.classList.remove('is-open', 'border-[#16A34A]', 'shadow-soft-sm');
+        const cnt = c.querySelector('.facility-content');
+        if (cnt) cnt.style.maxHeight = null;
+        const ic = c.querySelector('.facility-plus-icon');
+        if (ic) ic.classList.remove('rotate-45');
+        const icCircle = c.querySelector('.facility-toggle-icon');
+        if (icCircle) {
+          icCircle.classList.remove('bg-[#DCFCE7]', 'border-[#16A34A]/40', 'text-[#15803D]');
+        }
+      });
+
+      // Open target card smoothly
+      if (!isAlreadyOpen && content) {
+        card.classList.add('is-open', 'border-[#16A34A]', 'shadow-soft-sm');
+        content.style.maxHeight = (content.scrollHeight + 30) + 'px';
+        if (icon) icon.classList.add('rotate-45');
+        if (iconCircle) {
+          iconCircle.classList.add('bg-[#DCFCE7]', 'border-[#16A34A]/40', 'text-[#15803D]');
+        }
+      }
+    }
+  </script>
+
+</body>
+
+</html>

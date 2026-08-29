@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Members | EDII-MAFBIF Mettupalayam Agroforestry Business Incubation Forum</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: { 950: '#07190F', 900: '#0A2E1C', 800: '#14532D', 700: '#15803D', 600: '#16A34A', 100: '#DCFCE7', 50: '#F0FDF4' },
+            brand: { gold: '#CFA851', deepforest: '#0A2216' }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Manrope', 'system-ui', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @keyframes orbFloatGreen {
+      0%, 100% { transform: translate(0px, 0px) scale(1); }
+      50% { transform: translate(20px, -24px) scale(1.04); }
+    }
+    @keyframes orbFloatTeal {
+      0%, 100% { transform: translate(0px, 0px) scale(1); }
+      50% { transform: translate(-20px, 20px) scale(0.96); }
+    }
+    .ambient-orb-green {
+      position: absolute; border-radius: 9999px;
+      background: radial-gradient(circle, rgba(22,163,74,0.08) 0%, transparent 70%);
+      filter: blur(80px); pointer-events: none;
+      animation: orbFloatGreen 22s ease-in-out infinite; z-index: 0;
+    }
+    .ambient-orb-teal {
+      position: absolute; border-radius: 9999px;
+      background: radial-gradient(circle, rgba(2,132,199,0.07) 0%, transparent 70%);
+      filter: blur(85px); pointer-events: none;
+      animation: orbFloatTeal 26s ease-in-out infinite; z-index: 0;
+    }
+    .nav-link-active { color: #0A2E1C; font-weight: 700; position: relative; }
+    .nav-link-active::after {
+      content: ''; position: absolute; bottom: -6px; left: 12px; right: 12px;
+      height: 2.5px; background-color: #CFA851; border-radius: 9999px;
+    }
+    .reveal-on-scroll {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .js .reveal-on-scroll:not(.is-revealed) {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    .js .reveal-on-scroll.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section-hairline { height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(22,163,74,0.15) 30%, rgba(2,132,199,0.12) 70%, transparent 100%); }
+
+    /* Empty card pulse shimmer to signal "coming soon" */
+    .placeholder-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .placeholder-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.5) 50%, transparent 60%);
+      background-size: 200% 100%;
+      animation: shimmer 3.5s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ambient-orb-green, .ambient-orb-teal,
+      .reveal-on-scroll, .placeholder-card::after { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+    }
+  
+    /* ========================================================================= */
+    /* PREMIUM CARD & BOX DEFINITION (Clear Background Contrast & Micro-Animation) */
+    /* ========================================================================= */
+    /* Crisp border & elevated soft depth for all content boxes */
+    .bg-white.rounded-\[20px\],
+    .bg-white.rounded-\[22px\],
+    .bg-white.rounded-\[24px\],
+    .bg-white.rounded-\[26px\],
+    .bg-white.rounded-\[28px\],
+    .accordion-item,
+    .event-card,
+    .facility-card,
+    .placeholder-card,
+    .hover-lift {
+      border: 1px solid rgba(15, 74, 42, 0.13) !important;
+      box-shadow: 0 4px 20px -2px rgba(10, 46, 28, 0.06), 0 1px 3px 0 rgba(10, 46, 28, 0.04) !important;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease !important;
+    }
+
+    /* Subtle, clean interactive border glow & 2.5px lift on hover */
+    .accordion-item:hover,
+    .event-card:hover,
+    .facility-card:hover,
+    .placeholder-card:hover,
+    .hover-lift:hover {
+      transform: translateY(-2.5px);
+      border-color: rgba(22, 163, 74, 0.45) !important;
+      box-shadow: 0 12px 28px -4px rgba(10, 46, 28, 0.11), 0 0 0 1.5px rgba(22, 163, 74, 0.22) !important;
+    }
+
+    /* Inner stat/metric cards on dark green sections (high contrast & golden glow) */
+    .stat-metric-card,
+    .bg-white\/\[0\.06\],
+    .bg-white\/\[0\.08\],
+    .bg-white\/\[0\.09\],
+    .bg-white\/\[0\.12\] {
+      background-color: rgba(255, 255, 255, 0.09) !important;
+      border: 1px solid rgba(255, 255, 255, 0.22) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, background-color 0.28s ease !important;
+    }
+
+    .stat-metric-card:hover,
+    .bg-white\/\[0\.06\]:hover,
+    .bg-white\/\[0\.08\]:hover,
+    .bg-white\/\[0\.09\]:hover,
+    .bg-white\/\[0\.12\]:hover {
+      background-color: rgba(255, 255, 255, 0.15) !important;
+      border-color: rgba(207, 168, 81, 0.75) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32), 0 0 0 1.5px rgba(207, 168, 81, 0.45) !important;
+      transform: translateY(-2px);
+    }
+
+  </style>
+</head>
+
+<body class="bg-[#F8FAF8] text-slate-800 font-sans antialiased min-h-screen flex flex-col overflow-x-hidden">
+
+    <!-- ========================================================================= -->
+  <!-- 1. INSTITUTIONAL HEADER (Mobile-Responsive Single Premium Floating Navbar) -->
+  <!-- ========================================================================= -->
+    <!-- ========================================================================= -->
+  <!-- 1. INSTITUTIONAL HEADER (Mobile-Responsive Single Premium Floating Navbar) -->
+  <!-- ========================================================================= -->
+  <header class="w-full pt-2.5 sm:pt-4 pb-2 px-3 sm:px-6 lg:px-8 xl:px-12 sticky top-0 z-50 backdrop-blur-md bg-[#F8FAF8]/90">
+    <div class="max-w-[1440px] mx-auto">
+      
+      <div class="relative bg-white rounded-[20px] sm:rounded-[28px] shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)] border border-slate-200/80 px-3.5 sm:px-6 lg:px-7 py-2 sm:py-3.5 flex items-center justify-between min-h-[64px] sm:min-h-[80px] lg:min-h-[88px]">
+        
+        <!-- Left Group: Branding + Divider + Navigation -->
+        <div class="flex items-center min-w-0">
+          
+          <!-- Brand Lockup -->
+          <a href="/" class="flex items-center space-x-2.5 sm:space-x-3.5 group shrink-0" aria-label="EDII-MAFBIF Home">
+            <div class="w-10 h-10 sm:w-[48px] sm:h-[48px] lg:w-[54px] lg:h-[54px] flex items-center justify-center overflow-hidden transition-transform duration-200 group-hover:scale-105 shrink-0">
+              <img src="/logo.png" alt="EDII-MAFBIF Logo" class="w-full h-full object-contain">
+            </div>
+
+            <div class="flex flex-col justify-center min-w-0">
+              <span class="font-heading font-extrabold text-[16px] sm:text-[20px] lg:text-[21px] tracking-tight text-[#0A2E1C] leading-tight">
+                EDII–MAFBIF
+              </span>
+              <span class="text-[9px] sm:text-[10.5px] font-medium text-slate-500 tracking-tight leading-tight mt-0.5 max-w-[155px] sm:max-w-none">
+                Tamil Nadu Agricultural University<br class="hidden sm:block"> &amp; FC&amp;RI Initiative
+              </span>
+            </div>
+          </a>
+
+          <!-- Subtle Vertical Divider -->
+          <div class="hidden lg:block h-9 w-[1px] bg-slate-200/90 mx-3.5 xl:mx-5 2xl:mx-6 shrink-0"></div>
+
+          <!-- Desktop Navigation Bar -->
+          <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2 2xl:space-x-3 font-medium tracking-tight whitespace-nowrap" aria-label="Main Navigation">
+            <a href="/" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>Home</span>
+              
+            </a>
+            <a href="/about" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>About Us</span>
+              
+            </a>
+            <a href="/technologies" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>Technologies</span>
+              
+            </a>
+            <a href="/facilities" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>Facilities</span>
+              
+            </a>
+
+            <!-- Incubation Dropdown Menu -->
+            <div class="relative" id="incubation-nav-group">
+              <button type="button" class="px-2.5 xl:px-3 py-1.5 rounded-xl bg-[#F0FDF4] text-[#0A2E1C] font-bold text-[13px] xl:text-[13.5px] 2xl:text-[14px] relative inline-flex items-center focus:outline-none" aria-expanded="false">
+                <span>Incubation</span>
+                <svg class="ml-1 w-3.5 h-3.5 text-[#15803D] transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"/>
+                </svg>
+                <span class="absolute bottom-0 left-3 right-3 h-[2px] bg-[#15803D] rounded-full"></span>
+              </button>
+              
+              <div class="absolute left-0 top-full w-52 rounded-2xl shadow-xl bg-white border border-slate-100 hidden z-50 pt-2.5 pb-2 mt-1" id="incubation-dropdown-panel">
+                <a href="/incubation" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Incubation Overview</a>
+                <a href="/members" class="block px-4 py-2 text-sm bg-[#F0FDF4] text-[#0A2E1C] font-bold">Members</a>
+                <a href="/mentors" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Mentors</a>
+              </div>
+            </div>
+
+            <a href="/events" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>Events &amp; Training</span>
+              
+            </a>
+            <a href="/success-stories" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>Success Stories</span>
+              
+            </a>
+          </nav>
+
+        </div>
+
+        <!-- Right Side: Primary Green Contact Us CTA Button -->
+        <div class="hidden lg:flex items-center shrink-0 ml-3 xl:ml-5">
+          <a href="/contact" class="inline-flex items-center space-x-2 bg-[#0F4A2A] hover:bg-[#0A2E1C] text-white px-5 py-2.5 rounded-full font-semibold text-[13.5px] xl:text-[14px] shadow-sm hover:shadow-md transition-all duration-200 group">
+            <svg class="w-4 h-4 text-emerald-300 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+            <span>Contact Us</span>
+            <svg class="w-3.5 h-3.5 text-white/80 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button (Visible on < lg screens, minimum 44px tap target) -->
+        <div class="flex items-center lg:hidden z-10 shrink-0 ml-2">
+          <button id="mobile-menu-btn" type="button" class="inline-flex items-center justify-center w-10 h-10 rounded-xl text-[#0A2E1C] hover:bg-slate-100 active:bg-slate-200 focus:outline-none transition-colors" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
+            <svg id="menu-icon-open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="menu-icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div id="mobile-menu" class="hidden lg:hidden mt-2.5 bg-white rounded-[24px] shadow-xl border border-slate-200/90 p-4 sm:p-5 transition-all duration-200">
+        <div class="space-y-1 text-sm font-medium">
+          <a href="/" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Home</a>
+          <a href="/about" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">About Us</a>
+          <a href="/technologies" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Technologies</a>
+          <a href="/facilities" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Facilities</a>
+          
+          <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
+            <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Incubation</div>
+            <a href="/incubation" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Incubation Overview</a>
+            <a href="/members" class="block px-2.5 py-2 rounded-lg bg-[#F0FDF4] text-[#0A2E1C] font-bold text-xs sm:text-sm">Members</a>
+            <a href="/mentors" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Mentors</a>
+          </div>
+
+          <a href="/events" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Events &amp; Training</a>
+          <a href="/success-stories" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Success Stories</a>
+          
+          <div class="pt-3 border-t border-slate-100 mt-2">
+            <a href="/contact" class="flex items-center justify-center space-x-2 bg-[#0F4A2A] hover:bg-[#0A2E1C] text-white px-5 py-3 rounded-xl font-bold text-sm shadow-md transition-all">
+              <svg class="w-4 h-4 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+              </svg>
+              <span>Contact Us</span>
+              <svg class="w-3.5 h-3.5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========= MAIN ========= -->
+  <main class="flex-grow pt-2 pb-16">
+    <div class="max-w-[1440px] mx-auto px-3.5 sm:px-6 lg:px-8 xl:px-12 space-y-12 sm:space-y-14">
+
+      <!-- PAGE HEADER -->
+      <section class="reveal-on-scroll relative">
+        <div class="ambient-orb-green w-80 h-80 -top-10 -left-10 opacity-50"></div>
+        <div class="relative z-10 bg-white rounded-[26px] sm:rounded-[28px] border border-slate-200/80 shadow-sm p-8 sm:p-12 lg:p-14">
+          <div class="max-w-2xl">
+            <p class="text-[11px] font-bold text-[#15803D] uppercase tracking-widest mb-3">Incubation / Members</p>
+            <h1 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[42px] text-[#0A2E1C] tracking-tight leading-tight mb-4">Members</h1>
+            <p class="text-slate-500 text-sm sm:text-base leading-relaxed">
+              This directory will list the active incubatee startups and ventures of EDII-MAFBIF. Member information will be published here as ventures are formally enrolled.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-hairline"></div>
+
+      <!-- 20 EMPTY PLACEHOLDER CARDS -->
+      <section class="reveal-on-scroll relative py-2">
+        <div class="ambient-orb-teal w-96 h-96 -top-12 -right-12 opacity-40"></div>
+
+        <div class="relative z-10 bg-white rounded-[26px] sm:rounded-[28px] border border-slate-200/80 shadow-sm p-6 sm:p-10 lg:p-12">
+
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h2 class="font-heading font-extrabold text-xl sm:text-2xl text-[#0A2E1C]">Incubatee Portfolio</h2>
+              <p class="text-xs text-slate-400 mt-1">Member entries will be published as enrollments are confirmed.</p>
+            </div>
+            <div class="shrink-0 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
+              Slots available
+            </div>
+          </div>
+
+          <!-- 20 placeholder cards — intentionally empty -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4">
+
+            <!-- Card 01 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 02 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 03 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 04 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 05 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 06 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 07 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 08 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 09 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 12 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 13 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 14 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 15 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 16 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 17 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 18 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 19 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+            <!-- Card 20 -->
+            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
+              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
+              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+
+          </div><!-- end grid -->
+        </div>
+      </section>
+
+      <div class="section-hairline"></div>
+
+      <!-- VERIFIED CTA — SOURCE: scratch/members_clean.json elements TD3MIj, 7hpklB, s269O4 -->
+      <section class="reveal-on-scroll relative py-2">
+        <div class="ambient-orb-green w-96 h-96 -top-10 -left-10 opacity-45"></div>
+        <div class="relative z-10 bg-[#1e4620] text-white rounded-[26px] sm:rounded-[28px] border border-emerald-800/80 shadow-md p-8 sm:p-12 lg:p-14 text-center max-w-4xl mx-auto overflow-hidden">
+          <div class="max-w-xl mx-auto space-y-5">
+            <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-[36px] text-[#FBFCEB] tracking-tight leading-tight">
+              Ready to commercialize your forestry innovation?
+            </h2>
+            <p class="text-emerald-100/90 text-sm sm:text-base leading-relaxed">
+              Join MAFBIF today to secure your access to TNAU research, advanced testing labs, and Tamil Nadu's premier agroforestry network.
+            </p>
+            <div class="pt-2">
+              <a href="/contact" class="inline-flex items-center space-x-2 bg-[#CFA851] hover:bg-[#b89342] text-[#0A2E1C] px-8 py-4 rounded-xl font-bold text-sm sm:text-base shadow-md transition-all duration-200">
+                <span>Become a Member</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ========= FOOTER ========= -->
+  <footer class="relative bg-[#07190F] text-slate-300 border-t-2 border-t-[#16A34A]/30 mt-auto py-12 sm:py-16 overflow-hidden">
+    <div class="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+        <div class="md:col-span-5 space-y-3">
+          <h3 class="font-heading font-extrabold text-xl text-white">EDII-MAFBIF</h3>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-md">Forest College and Research Institute, Mettupalayam, Tamil Nadu 641301. Supported by EDII, Government of Tamil Nadu &amp; TNAU.</p>
+        </div>
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-xs font-bold text-[#CFA851] uppercase tracking-wider">Sitemap</h4>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="/technologies" class="hover:text-white transition-colors">Technologies</a></li>
+            <li><a href="/facilities" class="hover:text-white transition-colors">Facilities</a></li>
+            <li><a href="/incubation" class="hover:text-white transition-colors">Incubation</a></li>
+            <li><a href="/events" class="hover:text-white transition-colors">Events &amp; Training</a></li>
+            <li><a href="/success-stories" class="hover:text-white transition-colors">Success Stories</a></li>
+            <li><a href="/contact" class="hover:text-white transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-xs font-bold text-[#CFA851] uppercase tracking-wider">Incubator Office</h4>
+          <div class="space-y-1 text-xs text-slate-400">
+            <p class="font-medium text-white">Forest College and Research Institute,</p>
+            <p>Mettupalayam, Tamil Nadu 641301</p>
+            <p class="pt-1">Email: <a href="mailto:info@mafbif.com" class="text-emerald-400 hover:underline">info@mafbif.com</a></p>
+            <p>Supported by EDII &amp; TNAU</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-3">
+        <p>© 2026 MAFBIF - Supported by EDII, Government of Tamil Nadu &amp; TNAU.</p>
+        <p class="font-bold text-[#CFA851] text-[11px] tracking-wider uppercase">TNAU-BACKED AGROFORESTRY INCUBATION</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.documentElement.classList.add('js');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Navigation Toggle
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+          mobileBtn.setAttribute('aria-expanded', !isExpanded);
+          mobileMenu.classList.toggle('hidden');
+          if (iconOpen) iconOpen.classList.toggle('hidden');
+          if (iconClose) iconClose.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+            if (iconOpen) iconOpen.classList.remove('hidden');
+            if (iconClose) iconClose.classList.add('hidden');
+          }
+        });
+      }
+
+      // Incubation Dropdown
+      const incubDdWrapper = document.getElementById('incubation-nav-group');
+      const incubDdPanel   = document.getElementById('incubation-dropdown-panel');
+      const incubDdArrow   = incubDdWrapper && incubDdWrapper.querySelector('svg');
+      let   incubDdTimer   = null;
+
+      function openIncubDd() {
+        if (incubDdTimer) { clearTimeout(incubDdTimer); incubDdTimer = null; }
+        if (incubDdPanel) {
+          incubDdPanel.classList.remove('hidden');
+          if (incubDdArrow) incubDdArrow.style.transform = 'rotate(180deg)';
+        }
+      }
+
+      function scheduleCloseIncubDd() {
+        incubDdTimer = setTimeout(() => {
+          if (incubDdPanel) {
+            incubDdPanel.classList.add('hidden');
+            if (incubDdArrow) incubDdArrow.style.transform = '';
+          }
+        }, 180);
+      }
+
+      if (incubDdWrapper && incubDdPanel) {
+        incubDdWrapper.addEventListener('mouseenter', openIncubDd);
+        incubDdWrapper.addEventListener('mouseleave', scheduleCloseIncubDd);
+        incubDdPanel.addEventListener('mouseenter',  openIncubDd);
+        incubDdPanel.addEventListener('mouseleave',  scheduleCloseIncubDd);
+      }
+
+      // Restrained Scroll Reveal
+      const revealElements = document.querySelectorAll('.reveal-on-scroll');
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+      } else {
+        revealElements.forEach(el => el.classList.add('is-revealed'));
+      }
+    });
+  </script>
+
+</body>
+</html>
