@@ -317,21 +317,6 @@
 </head>
 <body class="bg-[#F8FAF8] text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-start selection:bg-emerald-100 selection:text-emerald-900 overflow-x-hidden">
 
-  <!-- ========================================================================= -->
-  <!-- 1. INSTITUTIONAL HEADER (Clean Floating Bar with Logo, Brand & Nav)       -->
-  <!-- ========================================================================= -->
-    <!-- ========================================================================= -->
-  <!-- 1. INSTITUTIONAL HEADER (Refined Compact Desktop Navbar & Balanced Branding) -->
-  <!-- ========================================================================= -->
-    <!-- ========================================================================= -->
-  <!-- 1. INSTITUTIONAL HEADER (Prominent Logo, Balanced Brand & Navigation)      -->
-  <!-- ========================================================================= -->
-    <!-- ========================================================================= -->
-  <!-- 1. INSTITUTIONAL HEADER (Single Premium Navbar Matching Reference Visuals) -->
-  <!-- ========================================================================= -->
-    <!-- ========================================================================= -->
-  <!-- 1. INSTITUTIONAL HEADER (Mobile-Responsive Single Premium Floating Navbar) -->
-  <!-- ========================================================================= -->
   <header class="w-full pt-2.5 sm:pt-4 pb-2 px-3 sm:px-6 lg:px-8 xl:px-12 sticky top-0 z-50 backdrop-blur-md bg-[#F8FAF8]/90">
     <div class="max-w-[1440px] mx-auto">
       
@@ -373,10 +358,21 @@
               <span>Technologies</span>
               
             </a>
-            <a href="/facilities" class="px-2.5 xl:px-3 py-1.5 rounded-xl bg-[#F0FDF4] text-[#0A2E1C] font-bold text-[13px] xl:text-[13.5px] 2xl:text-[14px] relative">
-              <span>Facilities</span>
-              <span class="absolute bottom-0 left-3 right-3 h-[2px] bg-[#15803D] rounded-full"></span>
-            </a>
+            <!-- Support Dropdown Menu (ACTIVE on Facilities) -->
+            <div class="relative" id="support-nav-group">
+              <button type="button" class="px-2.5 xl:px-3 py-1.5 rounded-xl bg-[#F0FDF4] text-[#0A2E1C] font-bold text-[13px] xl:text-[13.5px] 2xl:text-[14px] relative inline-flex items-center focus:outline-none" aria-expanded="false">
+                <span>Support</span>
+                <svg class="ml-1 w-3.5 h-3.5 text-[#15803D] transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"/>
+                </svg>
+                <span class="absolute bottom-0 left-3 right-3 h-[2px] bg-[#15803D] rounded-full"></span>
+              </button>
+              
+              <div class="absolute left-0 top-full w-52 rounded-2xl shadow-xl bg-white border border-slate-100 hidden z-50 pt-2.5 pb-2 mt-1" id="support-dropdown-panel">
+                <a href="/facilities" class="block px-4 py-2 text-sm bg-[#F0FDF4] text-[#0A2E1C] font-bold">Facilities</a>
+                <a href="/services" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Services &amp; Support</a>
+              </div>
+            </div>
 
             <!-- Incubation Dropdown Menu -->
             <div class="relative" id="incubation-nav-group">
@@ -441,7 +437,12 @@
           <a href="/" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Home</a>
           <a href="/about" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">About Us</a>
           <a href="/technologies" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Technologies</a>
-          <a href="/facilities" class="block px-3.5 py-2.5 rounded-xl bg-[#F0FDF4] text-[#0A2E1C] font-bold text-sm">Facilities</a>
+          <!-- Mobile Support Section -->
+          <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
+            <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Support</div>
+            <a href="/facilities" class="block px-2.5 py-2 rounded-lg bg-[#F0FDF4] text-[#0A2E1C] font-bold text-xs sm:text-sm">Facilities</a>
+            <a href="/services" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Services &amp; Support</a>
+          </div>
           
           <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
             <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Incubation</div>
@@ -478,9 +479,9 @@
     <div class="max-w-[1440px] mx-auto px-3.5 sm:px-6 lg:px-8 xl:px-12 space-y-12 sm:space-y-16">
       
       <!-- ===================================================================== -->
-      <!-- 2. FACILITIES HERO (Spacious Page Introduction & Spotlight)           -->
+      <!-- 1. FACILITIES HERO (Physical Infrastructure & Resources)              -->
       <!-- ===================================================================== -->
-      <section class="relative reveal-on-scroll">
+      <section id="hero" class="relative reveal-on-scroll">
         
         <!-- Ambient Dual-Color Lighting -->
         <div class="ambient-orb-green w-80 h-80 sm:w-96 sm:h-96 -top-10 -left-10 opacity-60"></div>
@@ -495,7 +496,7 @@
               
               <div class="inline-flex items-center space-x-2.5 self-start px-3.5 py-1.5 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-widest uppercase shadow-2xs">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
-                <span>Infrastructure &amp; Resources</span>
+                <span>PHYSICAL INFRASTRUCTURE &amp; RESOURCES</span>
               </div>
 
               <h1 class="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0A2E1C] leading-[1.18] tracking-tight">
@@ -503,19 +504,19 @@
               </h1>
 
               <p class="text-slate-700 text-sm sm:text-base md:text-[16.5px] leading-relaxed">
-                EDII-MAFBIF offers modern infrastructure and specialized facilities to support research, innovation, entrepreneurship, and sustainable technology development. From fully equipped co-working spaces and conference halls to advanced industrial units and laboratory facilities, we provide an ecosystem designed to foster learning, collaboration, and growth.
+                EDII-MAFBIF offers modern physical infrastructure and specialized resources to support agroforestry startups, innovators, and enterprises. From fully equipped co-working spaces and an 80-seat conference auditorium to industrial pilot yards, state-of-the-art testing labs, and practical demonstration fields, we provide the physical environment required to transition from concept to commercial reality.
               </p>
 
               <div class="flex flex-wrap items-center gap-3.5 pt-2">
                 <a href="#facility-directory" class="inline-flex items-center space-x-2.5 bg-[#0A2E1C] hover:bg-[#14532D] text-white px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base shadow-md shadow-forest-900/10 hover:shadow-lg transition-all duration-200 cursor-pointer group">
-                  <span>Explore All 12 Units</span>
+                  <span>Explore Physical Facilities</span>
                   <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                   </svg>
                 </a>
 
-                <a href="/contact" class="inline-flex items-center space-x-2 border border-slate-300 hover:border-[#16A34A] text-slate-700 hover:text-[#0A2E1C] bg-slate-50/70 hover:bg-[#F0FDF4] px-6 py-3.5 sm:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-200">
-                  <span>Book Facility Access</span>
+                <a href="/technologies" class="inline-flex items-center space-x-2 border border-slate-300 hover:border-[#16A34A] text-slate-700 hover:text-[#0A2E1C] bg-slate-50/70 hover:bg-[#F0FDF4] px-6 py-3.5 sm:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-200">
+                  <span>Explore Technologies</span>
                   <span class="text-[#15803D]">→</span>
                 </a>
               </div>
@@ -543,13 +544,13 @@
       </section>
 
       <!-- ===================================================================== -->
-      <!-- 3. DOMAIN PREVIEW PILLARS (Admin Space, Industrial Space, Lab Space)  -->
+      <!-- 2. DOMAIN PREVIEW PILLARS (Admin Space, Industrial Space, Lab Space)  -->
       <!-- ===================================================================== -->
       <section class="reveal-on-scroll py-2">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
           
           <!-- Domain 1: Admin Space -->
-          <div onclick="filterCategory('admin')" class="bg-white rounded-[22px] p-6 sm:p-7 border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/60 transition-all duration-300 cursor-pointer group flex flex-col justify-between">
+          <div class="bg-white rounded-[22px] p-6 sm:p-7 border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/60 transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="w-10 h-10 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7] flex items-center justify-center text-[#15803D] font-bold text-sm">
@@ -567,55 +568,55 @@
               </p>
             </div>
             <div class="mt-5 pt-3 border-t border-slate-100 flex items-center text-xs font-bold text-[#15803D] space-x-1">
-              <span>View Admin Facilities</span>
+              <span>Co-Working &amp; Conferencing</span>
               <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
             </div>
           </div>
 
           <!-- Domain 2: Industrial Space -->
-          <div onclick="filterCategory('industrial')" class="bg-white rounded-[22px] p-6 sm:p-7 border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/60 transition-all duration-300 cursor-pointer group flex flex-col justify-between">
+          <div class="bg-white rounded-[22px] p-6 sm:p-7 border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/60 transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="w-10 h-10 rounded-xl bg-[#F0FDFA] border border-teal-100 flex items-center justify-center text-[#0E7490] font-bold text-sm">
                   02
                 </span>
                 <span class="text-[11px] font-bold text-[#0E7490] bg-[#F0FDFA] px-3 py-1 rounded-full border border-teal-100">
-                  6 Units
+                  Pilot Yard
                 </span>
               </div>
               <h3 class="font-heading font-extrabold text-xl text-[#0A2E1C] group-hover:text-[#0E7490] transition-colors mb-2">
                 INDUSTRIAL SPACE
               </h3>
               <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Briquetting &amp; pelletizing, mini clonal propagation nursery, carbonization, wood seasoning, steam distillation, and oil expelling.
+                Pilot bio-processing plant with heavy-duty biomass shredders, wood seasoning kilns, pelletizers, and carbonization retorts.
               </p>
             </div>
             <div class="mt-5 pt-3 border-t border-slate-100 flex items-center text-xs font-bold text-[#0E7490] space-x-1">
-              <span>View Industrial Plants</span>
+              <span>Pilot Manufacturing</span>
               <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
             </div>
           </div>
 
           <!-- Domain 3: Lab Space -->
-          <div onclick="filterCategory('lab')" class="bg-white rounded-[22px] p-6 sm:p-7 border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/60 transition-all duration-300 cursor-pointer group flex flex-col justify-between">
+          <div class="bg-white rounded-[22px] p-6 sm:p-7 border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/60 transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="w-10 h-10 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7] flex items-center justify-center text-[#CFA851] font-bold text-sm">
                   03
                 </span>
                 <span class="text-[11px] font-bold text-[#b0872e] bg-amber-50 px-3 py-1 rounded-full border border-amber-100">
-                  2 Units
+                  Advanced Labs
                 </span>
               </div>
               <h3 class="font-heading font-extrabold text-xl text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-2">
-                LAB SPACE
+                LAB &amp; CAMPUS
               </h3>
               <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                State of the art plant tissue culture laboratory and NABARD-supported hygienic honey processing facility.
+                Plant tissue culture laboratory, NABARD honey processing facility, and outdoor agroforestry field training grounds.
               </p>
             </div>
             <div class="mt-5 pt-3 border-t border-slate-100 flex items-center text-xs font-bold text-[#15803D] space-x-1">
-              <span>View Laboratory Space</span>
+              <span>Scientific Testing &amp; Trials</span>
               <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
             </div>
           </div>
@@ -627,7 +628,7 @@
       <div class="section-hairline"></div>
 
       <!-- ===================================================================== -->
-      <!-- 4. INTERACTIVE FACILITY DIRECTORY & ACCORDION SYSTEM                  -->
+      <!-- 3. PHYSICAL FACILITIES DIRECTORY (Authentic Infrastructure Grid)       -->
       <!-- ===================================================================== -->
       <section id="facility-directory" class="relative reveal-on-scroll py-2">
         
@@ -635,738 +636,500 @@
         <div class="ambient-orb-green w-80 h-80 -top-8 -right-8 opacity-50"></div>
         <div class="ambient-orb-teal w-80 h-80 -bottom-8 -left-8 opacity-45"></div>
 
-        <div class="relative z-10">
+        <div class="relative z-10 space-y-6">
           
-          <!-- Section Heading and Category Filter Tabs -->
-          <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
-            <div class="max-w-2xl">
-              <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-widest uppercase mb-3 shadow-2xs">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
-                <span>Infrastructure Directory</span>
-              </div>
-              <h2 class="font-heading text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0A2E1C] tracking-tight leading-tight">
-                Explore All Facilities
-              </h2>
-              <p class="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
-                Click on any facility below to expand its technical specifications, equipment details, and photographic overview.
-              </p>
-
-              <!-- Interactive Click Instruction Banner -->
-              <div class="mt-4 inline-flex flex-wrap items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-gradient-to-r from-[#F0FDF4] to-[#F0FDFA] border border-[#DCFCE7] text-xs font-semibold text-[#0A2E1C] shadow-2xs">
-                <span class="w-6 h-6 rounded-lg bg-[#15803D] text-white flex items-center justify-center pointer-bob shrink-0 shadow-2xs">
-                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
-                  </svg>
-                </span>
-                <span class="leading-normal">
-                  <strong class="text-[#15803D]">Interactive Directory:</strong> Click any facility box to reveal machine specs, capacities &amp; photo gallery.
-                </span>
-              </div>
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-widest uppercase mb-3 shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
+              <span>CAMPUS INFRASTRUCTURE</span>
             </div>
-
-            <!-- Segmented Category Filter Navigation + Expand All Control -->
-            <div class="flex flex-col sm:flex-row sm:items-center gap-2.5 shrink-0">
-              <div class="flex flex-wrap items-center gap-1.5 p-1.5 bg-white rounded-2xl border border-slate-200/80 shadow-2xs">
-                <button type="button" onclick="filterCategory('all')" class="tab-btn is-active px-3.5 py-2 rounded-xl text-xs font-bold tracking-wide transition-all duration-200 cursor-pointer" data-category="all">
-                  All (12)
-                </button>
-                <button type="button" onclick="filterCategory('industrial')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold tracking-wide text-slate-600 hover:text-[#0A2E1C] hover:bg-slate-50 transition-all duration-200 cursor-pointer" data-category="industrial">
-                  Industrial (6)
-                </button>
-                <button type="button" onclick="filterCategory('lab')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold tracking-wide text-slate-600 hover:text-[#0A2E1C] hover:bg-slate-50 transition-all duration-200 cursor-pointer" data-category="lab">
-                  Lab (2)
-                </button>
-                <button type="button" onclick="filterCategory('admin')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold tracking-wide text-slate-600 hover:text-[#0A2E1C] hover:bg-slate-50 transition-all duration-200 cursor-pointer" data-category="admin">
-                  Admin (4)
-                </button>
-              </div>
-
-              <!-- Quick Toggle All Action Button -->
-              <button type="button" onclick="toggleAllAccordions()" id="toggle-all-btn" class="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200/80 text-xs font-bold text-slate-700 hover:text-[#0A2E1C] transition-all shadow-2xs cursor-pointer self-start sm:self-auto">
-                <svg class="w-3.5 h-3.5 text-[#15803D]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
-                </svg>
-                <span id="toggle-all-text">Expand All</span>
-              </button>
-            </div>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0A2E1C] tracking-tight leading-tight">
+              Physical Facilities &amp; Equipment
+            </h2>
+            <p class="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
+              Explore the dedicated physical facilities available to incubated startups, researchers, and commercial clients at the Forest College and Research Institute, Mettupalayam.
+            </p>
           </div>
 
-          <!-- 12 Facility Items Accordion List -->
-          <div class="space-y-4" id="facilities-accordion-container">
-            
-            <!-- Facility 01: Biomass Briquetting and Pelletizing Technology -->
-            <div class="accordion-item is-active bg-white rounded-[20px] border border-slate-200/80 shadow-soft-sm transition-all duration-300 overflow-hidden" data-category="industrial">
-              <button type="button" onclick="toggleAccordion(this)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between focus:outline-none">
-                <div class="flex items-center space-x-4">
-                  <span class="font-heading font-extrabold text-sm sm:text-base text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-3 py-1 rounded-lg">
-                    01
-                  </span>
-                  <div>
-                    <h3 class="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-[#0A2E1C] flex flex-wrap items-center">
-                      <span>BIOMASS BRIQUETTING AND PELLETIZING TECHNOLOGY</span>
-                      <span class="hidden md:inline-flex items-center space-x-1 text-[10.5px] font-bold text-[#15803D] bg-emerald-100 border border-emerald-300/80 px-2 py-0.5 rounded-full beacon-pulse ml-2.5">
-                        <span>Click to Open</span>
-                        <span>👇</span>
-                      </span>
-                    </h3>
-                    <span class="text-[11px] font-semibold text-slate-500 block sm:inline mt-0.5 sm:mt-0 sm:ml-2">
-                      Industrial Space • Saw Dust Dryer &amp; Wood Chipper cum Pulverizer • Pelletizing Unit
+          <!-- 8 Facility Cards Responsive Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 pt-2">
+
+            <!-- Facility Card 1: Co-Working & Incubation Space -->
+            <div class="facility-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="admin space">
+              <div>
+                <!-- Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Facilities/coworking-space.jpg" alt="Co-Working and Business Incubation Office Space at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Admin Space
                     </span>
                   </div>
-                </div>
-                <div class="flex items-center space-x-2.5 sm:space-x-3 shrink-0 ml-3">
-                  <span class="expand-hint-badge text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-lg transition-all duration-200 hidden sm:inline-flex items-center space-x-1 shadow-2xs group-hover:bg-[#0A2E1C] group-hover:text-white group-hover:border-[#0A2E1C]">
-                    <span class="badge-collapsed-text">Click to expand</span>
-                    <span class="badge-expanded-text">Click to collapse</span>
-                    <svg class="w-3 h-3 transition-transform duration-300 expand-badge-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                  <div class="accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 group-hover:bg-emerald-100 group-hover:text-emerald-800 flex items-center justify-center text-slate-600 transition-transform duration-300 shrink-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
-                    </svg>
+
+                  <!-- Unit Number Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      01
+                    </span>
                   </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
-              </button>
-              
-              <div class="accordion-body px-5 sm:px-6 pb-6">
-                <div class="pt-4 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 aspect-[16/10] bg-slate-100 img-zoom-container">
-                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/qah9tn-Nylug65UycLa7rJG.png" alt="Biomass Briquetting and Pelletizing Machinery at MAFBIF" class="w-full h-full object-cover">
-                  </div>
-                  <div class="lg:col-span-7 space-y-4">
-                    <div class="p-4 rounded-xl bg-[#F8FAF8] border border-slate-200/80">
-                      <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-1.5">Facility Overview</h4>
-                      <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                        Biomass briquettes are a biofuel substitute for coal and charcoal made from agricultural and forestry waste.
-                      </p>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 pt-1">
-                      <span>Equipped with Saw Dust Dryer, Wood Chipper &amp; Pulverizer</span>
-                      <a href="/contact?facility=Biomass-Briquetting" class="font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1">
-                        <span>Inquire Facility Access</span>
-                        <span>→</span>
-                      </a>
+
+                <!-- Card Body -->
+                <div class="p-5 sm:p-6 space-y-3">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug">
+                    Co-Working & Incubation Space
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
+                    Modern, air-conditioned co-working stations, dedicated private cabins, high-speed fiber internet, and collaborative startup lounges. Provides entrepreneurs, student innovators, and remote teams with a professional business environment on campus.
+                  </p>
+
+                  <!-- Features List -->
+                  <div class="pt-2 border-t border-slate-100 space-y-1.5">
+                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Key Capabilities:</span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• 40+ Ergonomic Workstations</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• High-Speed Fiber Wi-Fi & LAN</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Uninterrupted Power Backup</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Official Mailing & Incubation Address</span>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <a href="/contact?facility=Co-Working%20%26%20Incubation%20Space" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn">
+                  <span>Book Facility Access</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </a>
+
+                <span class="text-[11px] font-semibold text-slate-500">
+                  FC&amp;RI Campus
+                </span>
+              </div>
             </div>
 
-            <!-- Facility 02: Mini Clonal Propagation Technology -->
-            <div class="accordion-item bg-white rounded-[20px] border border-slate-200/80 shadow-soft-sm transition-all duration-300 overflow-hidden" data-category="industrial">
-              <button type="button" onclick="toggleAccordion(this)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between focus:outline-none">
-                <div class="flex items-center space-x-4">
-                  <span class="font-heading font-extrabold text-sm sm:text-base text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-3 py-1 rounded-lg">
-                    02
-                  </span>
-                  <div>
-                    <h3 class="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-[#0A2E1C]">
-                      MINI CLONAL PROPAGATION TECHNOLOGY
-                    </h3>
-                    <span class="text-[11px] font-semibold text-slate-500 block sm:inline mt-0.5 sm:mt-0 sm:ml-2">
-                      Industrial Space • Clonal Multiplication Nursery
+
+            <!-- Facility Card 2: 80-Seat Conference Auditorium -->
+            <div class="facility-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="admin space">
+              <div>
+                <!-- Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Facilities/conference-auditorium.jpg" alt="80-Seat Audiovisual Conference Auditorium and Seminar Hall" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Admin Space
                     </span>
                   </div>
-                </div>
-                <div class="flex items-center space-x-2.5 sm:space-x-3 shrink-0 ml-3">
-                  <span class="expand-hint-badge text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-lg transition-all duration-200 hidden sm:inline-flex items-center space-x-1 shadow-2xs group-hover:bg-[#0A2E1C] group-hover:text-white group-hover:border-[#0A2E1C]">
-                    <span class="badge-collapsed-text">Click to expand</span>
-                    <span class="badge-expanded-text">Click to collapse</span>
-                    <svg class="w-3 h-3 transition-transform duration-300 expand-badge-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                  <div class="accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 group-hover:bg-emerald-100 group-hover:text-emerald-800 flex items-center justify-center text-slate-600 transition-transform duration-300 shrink-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
-                    </svg>
+
+                  <!-- Unit Number Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      02
+                    </span>
                   </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
-              </button>
-              
-              <div class="accordion-body px-5 sm:px-6 pb-6">
-                <div class="pt-4 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 aspect-[16/10] bg-slate-100 img-zoom-container">
-                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/me6wgx-QzuZxVr1ov31pCRK.png" alt="Mini Clonal Propagation Nursery Infrastructure" class="w-full h-full object-cover">
-                  </div>
-                  <div class="lg:col-span-7 space-y-4">
-                    <div class="p-4 rounded-xl bg-[#F8FAF8] border border-slate-200/80">
-                      <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-1.5">Facility Overview</h4>
-                      <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                        Production of quality planting material through mini clonal propagation for large-scale multiplication.
-                      </p>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 pt-1">
-                      <span>High-yield elite tree clonal multiplying facility</span>
-                      <a href="/contact?facility=Clonal-Propagation" class="font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1">
-                        <span>Inquire Facility Access</span>
-                        <span>→</span>
-                      </a>
+
+                <!-- Card Body -->
+                <div class="p-5 sm:p-6 space-y-3">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug">
+                    80-Seat Conference Auditorium
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
+                    Tiered acoustic conference hall equipped with high-definition digital projection, surround sound, teleconferencing, and live-streaming infrastructure. Host webinars, investor pitch demo days, capacity-building workshops, and institutional symposiums.
+                  </p>
+
+                  <!-- Features List -->
+                  <div class="pt-2 border-t border-slate-100 space-y-1.5">
+                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Key Capabilities:</span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• 80 Tiered Upholstered Seats</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• HD Digital Projector & Smart Screen</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Wireless Stage & Lapel Audio</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Full Teleconferencing Capabilities</span>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <a href="/contact?facility=80-Seat%20Conference%20Auditorium" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn">
+                  <span>Book Facility Access</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </a>
+
+                <span class="text-[11px] font-semibold text-slate-500">
+                  FC&amp;RI Campus
+                </span>
+              </div>
             </div>
 
-            <!-- Facility 03: Activated Carbon Generation -->
-            <div class="accordion-item bg-white rounded-[20px] border border-slate-200/80 shadow-soft-sm transition-all duration-300 overflow-hidden" data-category="industrial">
-              <button type="button" onclick="toggleAccordion(this)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between focus:outline-none">
-                <div class="flex items-center space-x-4">
-                  <span class="font-heading font-extrabold text-sm sm:text-base text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-3 py-1 rounded-lg">
-                    03
-                  </span>
-                  <div>
-                    <h3 class="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-[#0A2E1C]">
-                      ACTIVATED CARBON GENERATION
-                    </h3>
-                    <span class="text-[11px] font-semibold text-slate-500 block sm:inline mt-0.5 sm:mt-0 sm:ml-2">
-                      Industrial Space • Pilot Carbonization Unit
+
+            <!-- Facility Card 3: Executive Boardroom & Discussion Suites -->
+            <div class="facility-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="admin space">
+              <div>
+                <!-- Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Facilities/boardroom-suite.jpg" alt="Executive Boardroom and Conference Discussion Suite" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Admin Space
                     </span>
                   </div>
-                </div>
-                <div class="flex items-center space-x-2.5 sm:space-x-3 shrink-0 ml-3">
-                  <span class="expand-hint-badge text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-lg transition-all duration-200 hidden sm:inline-flex items-center space-x-1 shadow-2xs group-hover:bg-[#0A2E1C] group-hover:text-white group-hover:border-[#0A2E1C]">
-                    <span class="badge-collapsed-text">Click to expand</span>
-                    <span class="badge-expanded-text">Click to collapse</span>
-                    <svg class="w-3 h-3 transition-transform duration-300 expand-badge-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                  <div class="accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 group-hover:bg-emerald-100 group-hover:text-emerald-800 flex items-center justify-center text-slate-600 transition-transform duration-300 shrink-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
-                    </svg>
+
+                  <!-- Unit Number Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      03
+                    </span>
                   </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
-              </button>
-              
-              <div class="accordion-body px-5 sm:px-6 pb-6">
-                <div class="pt-4 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 aspect-[16/10] bg-slate-100 img-zoom-container">
-                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/i7fy2d-9TP9p4smgsrW8Ty7.png" alt="Activated Carbon Generation and Carbonization Pilot Unit" class="w-full h-full object-cover">
-                  </div>
-                  <div class="lg:col-span-7 space-y-4">
-                    <div class="p-4 rounded-xl bg-[#F8FAF8] border border-slate-200/80">
-                      <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-1.5">Facility Overview</h4>
-                      <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                        Generation of activated carbon through continuous carbonization for industrial applications.
-                      </p>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 pt-1">
-                      <span>Pilot-scale continuous carbonization and quality validation</span>
-                      <a href="/contact?facility=Activated-Carbon" class="font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1">
-                        <span>Inquire Facility Access</span>
-                        <span>→</span>
-                      </a>
+
+                <!-- Card Body -->
+                <div class="p-5 sm:p-6 space-y-3">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug">
+                    Executive Boardroom & Discussion Suites
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
+                    Upscale corporate discussion room featuring a polished natural wood conference table, high-back ergonomic executive chairs, smart interactive digital display, and acoustic privacy. Ideal for mentor consultations, client negotiations, and advisory meetings.
+                  </p>
+
+                  <!-- Features List -->
+                  <div class="pt-2 border-t border-slate-100 space-y-1.5">
+                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Key Capabilities:</span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• 18-Seat Executive Conference Table</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Interactive Touchscreen Smart Board</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• High-Resolution Video Conferencing</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Private Negotiation Antechamber</span>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <a href="/contact?facility=Executive%20Boardroom%20%26%20Discussion%20Suites" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn">
+                  <span>Book Facility Access</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </a>
+
+                <span class="text-[11px] font-semibold text-slate-500">
+                  FC&amp;RI Campus
+                </span>
+              </div>
             </div>
 
-            <!-- Facility 04: Wood Seasoning and Preservation -->
-            <div class="accordion-item bg-white rounded-[20px] border border-slate-200/80 shadow-soft-sm transition-all duration-300 overflow-hidden" data-category="industrial">
-              <button type="button" onclick="toggleAccordion(this)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between focus:outline-none">
-                <div class="flex items-center space-x-4">
-                  <span class="font-heading font-extrabold text-sm sm:text-base text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-3 py-1 rounded-lg">
-                    04
-                  </span>
-                  <div>
-                    <h3 class="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-[#0A2E1C]">
-                      WOOD SEASONING AND PRESERVATION
-                    </h3>
-                    <span class="text-[11px] font-semibold text-slate-500 block sm:inline mt-0.5 sm:mt-0 sm:ml-2">
-                      Industrial Space • Wood Seasoning Unit • CNC Router &amp; Woodworking Machinery
+
+            <!-- Facility Card 4: Product Display & Exhibition Center -->
+            <div class="facility-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="admin space">
+              <div>
+                <!-- Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Facilities/product-display-center.jpg" alt="Agroforestry Product Display and Exhibition Gallery" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Admin Space
                     </span>
                   </div>
-                </div>
-                <div class="flex items-center space-x-2.5 sm:space-x-3 shrink-0 ml-3">
-                  <span class="expand-hint-badge text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-lg transition-all duration-200 hidden sm:inline-flex items-center space-x-1 shadow-2xs group-hover:bg-[#0A2E1C] group-hover:text-white group-hover:border-[#0A2E1C]">
-                    <span class="badge-collapsed-text">Click to expand</span>
-                    <span class="badge-expanded-text">Click to collapse</span>
-                    <svg class="w-3 h-3 transition-transform duration-300 expand-badge-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                  <div class="accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 group-hover:bg-emerald-100 group-hover:text-emerald-800 flex items-center justify-center text-slate-600 transition-transform duration-300 shrink-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
-                    </svg>
+
+                  <!-- Unit Number Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      04
+                    </span>
                   </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
-              </button>
-              
-              <div class="accordion-body px-5 sm:px-6 pb-6">
-                <div class="pt-4 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 aspect-[16/10] bg-slate-100 img-zoom-container">
-                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/flyash-drier.jpg-1-DiAa5mV5d9R0lEQX.jpeg" alt="Wood Seasoning and Preservation Machinery" class="w-full h-full object-cover">
-                  </div>
-                  <div class="lg:col-span-7 space-y-4">
-                    <div class="p-4 rounded-xl bg-[#F8FAF8] border border-slate-200/80">
-                      <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-1.5">Facility Overview</h4>
-                      <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                        Preserves wood from termites and fungal attack by reducing moisture content and applying preservative treatment to improve durability and service life.
-                      </p>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 pt-1">
-                      <span>Equipped with pressure treatment cylinders and CNC routing stations</span>
-                      <a href="/contact?facility=Wood-Seasoning" class="font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1">
-                        <span>Inquire Facility Access</span>
-                        <span>→</span>
-                      </a>
+
+                <!-- Card Body -->
+                <div class="p-5 sm:p-6 space-y-3">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug">
+                    Product Display & Exhibition Center
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
+                    Dedicated institutional exhibition gallery showcasing startup prototypes, market-ready forest products, natural extracts, value-added wooden crafts, and bio-composites. Visited by visiting delegates, commercial buyers, and venture investors.
+                  </p>
+
+                  <!-- Features List -->
+                  <div class="pt-2 border-t border-slate-100 space-y-1.5">
+                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Key Capabilities:</span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Illuminated Glass Display Shelving</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Dedicated Startup Showcase Pedestals</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Interactive Multimedia Catalogues</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Direct B2B Buyer Showcase</span>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <a href="/contact?facility=Product%20Display%20%26%20Exhibition%20Center" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn">
+                  <span>Book Facility Access</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </a>
+
+                <span class="text-[11px] font-semibold text-slate-500">
+                  FC&amp;RI Campus
+                </span>
+              </div>
             </div>
 
-            <!-- Facility 05: Steam Distillation for Essential Oils -->
-            <div class="accordion-item bg-white rounded-[20px] border border-slate-200/80 shadow-soft-sm transition-all duration-300 overflow-hidden" data-category="industrial">
-              <button type="button" onclick="toggleAccordion(this)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between focus:outline-none">
-                <div class="flex items-center space-x-4">
-                  <span class="font-heading font-extrabold text-sm sm:text-base text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-3 py-1 rounded-lg">
-                    05
-                  </span>
-                  <div>
-                    <h3 class="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-[#0A2E1C]">
-                      STEAM DISTILLATION FOR ESSENTIAL OILS
-                    </h3>
-                    <span class="text-[11px] font-semibold text-slate-500 block sm:inline mt-0.5 sm:mt-0 sm:ml-2">
-                      Industrial Space • Steam Distillation Unit
+
+            <!-- Facility Card 5: Bio-Processing & Industrial Pilot Facility -->
+            <div class="facility-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="industrial space">
+              <div>
+                <!-- Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Facilities/wood-seasoning-kiln-plant.jpg" alt="Bio-Processing and Industrial Pilot Manufacturing Yard at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Industrial Space
                     </span>
                   </div>
-                </div>
-                <div class="flex items-center space-x-2.5 sm:space-x-3 shrink-0 ml-3">
-                  <span class="expand-hint-badge text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-lg transition-all duration-200 hidden sm:inline-flex items-center space-x-1 shadow-2xs group-hover:bg-[#0A2E1C] group-hover:text-white group-hover:border-[#0A2E1C]">
-                    <span class="badge-collapsed-text">Click to expand</span>
-                    <span class="badge-expanded-text">Click to collapse</span>
-                    <svg class="w-3 h-3 transition-transform duration-300 expand-badge-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                  <div class="accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 group-hover:bg-emerald-100 group-hover:text-emerald-800 flex items-center justify-center text-slate-600 transition-transform duration-300 shrink-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
-                    </svg>
+
+                  <!-- Unit Number Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      05
+                    </span>
                   </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
-              </button>
-              
-              <div class="accordion-body px-5 sm:px-6 pb-6">
-                <div class="pt-4 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 aspect-[16/10] bg-slate-100 img-zoom-container">
-                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/img-20201102-wa0081.jpg-ElJ2JmnHjjKBnYSX.jpeg" alt="Steam Distillation Unit for Essential Oils at MAFBIF" class="w-full h-full object-cover">
-                  </div>
-                  <div class="lg:col-span-7 space-y-4">
-                    <div class="p-4 rounded-xl bg-[#F8FAF8] border border-slate-200/80">
-                      <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-1.5">Facility Overview</h4>
-                      <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                        Extraction of essential oils from tree leaves, bark and other plant materials through steam distillation for industrial and commercial applications.
-                      </p>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 pt-1">
-                      <span>Stainless steel distillation boilers, condensers and oil separators</span>
-                      <a href="/contact?facility=Steam-Distillation" class="font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1">
-                        <span>Inquire Facility Access</span>
-                        <span>→</span>
-                      </a>
+
+                <!-- Card Body -->
+                <div class="p-5 sm:p-6 space-y-3">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug">
+                    Bio-Processing & Industrial Pilot Facility
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
+                    Heavy-duty industrial pilot manufacturing yard equipped with commercial-scale biomass briquetting presses, flash air dryers, wood seasoning kilns, timber treatment autoclaves, and CNC wood carving routers. Enables startups to trial pilot batches and scale up thermal and timber processing.
+                  </p>
+
+                  <!-- Features List -->
+                  <div class="pt-2 border-t border-slate-100 space-y-1.5">
+                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Operational Equipment & Pilot Bays:</span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Biomass Briquetting Press</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Flash Air Dryer & Cyclone</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Wood Seasoning Kiln & Autoclave</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• CNC Wood Router Workshop</span>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <a href="/contact?facility=Bio-Processing%20%26%20Industrial%20Pilot%20Facility" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn">
+                  <span>Book Facility Access</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </a>
+
+                <span class="text-[11px] font-semibold text-slate-500">
+                  FC&amp;RI Campus
+                </span>
+              </div>
             </div>
 
-            <!-- Facility 06: Oil Extraction from Tree Borne Oil Seeds -->
-            <div class="accordion-item bg-white rounded-[20px] border border-slate-200/80 shadow-soft-sm transition-all duration-300 overflow-hidden" data-category="industrial">
-              <button type="button" onclick="toggleAccordion(this)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between focus:outline-none">
-                <div class="flex items-center space-x-4">
-                  <span class="font-heading font-extrabold text-sm sm:text-base text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-3 py-1 rounded-lg">
-                    06
-                  </span>
-                  <div>
-                    <h3 class="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-[#0A2E1C]">
-                      OIL EXTRACTION FROM TREE BORNE OIL SEEDS
-                    </h3>
-                    <span class="text-[11px] font-semibold text-slate-500 block sm:inline mt-0.5 sm:mt-0 sm:ml-2">
-                      Industrial Space • Oil Expeller Machine
+
+            <!-- Facility Card 6: Plant Tissue Culture & Testing Lab -->
+            <div class="facility-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="lab space">
+              <div>
+                <!-- Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Facilities/tissue-culture-lab.jpg" alt="Plant Tissue Culture and Molecular Testing Laboratory" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Lab Space
                     </span>
                   </div>
-                </div>
-                <div class="flex items-center space-x-2.5 sm:space-x-3 shrink-0 ml-3">
-                  <span class="expand-hint-badge text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-lg transition-all duration-200 hidden sm:inline-flex items-center space-x-1 shadow-2xs group-hover:bg-[#0A2E1C] group-hover:text-white group-hover:border-[#0A2E1C]">
-                    <span class="badge-collapsed-text">Click to expand</span>
-                    <span class="badge-expanded-text">Click to collapse</span>
-                    <svg class="w-3 h-3 transition-transform duration-300 expand-badge-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                  <div class="accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 group-hover:bg-emerald-100 group-hover:text-emerald-800 flex items-center justify-center text-slate-600 transition-transform duration-300 shrink-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
-                    </svg>
+
+                  <!-- Unit Number Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      06
+                    </span>
                   </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
-              </button>
-              
-              <div class="accordion-body px-5 sm:px-6 pb-6">
-                <div class="pt-4 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 aspect-[16/10] bg-slate-100 img-zoom-container">
-                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/dsc_0413-1-.jpg-1-7CJ3wUhfErCkz5cq.jpeg" alt="Oil Extraction and Expeller Machinery at MAFBIF" class="w-full h-full object-cover">
-                  </div>
-                  <div class="lg:col-span-7 space-y-4">
-                    <div class="p-4 rounded-xl bg-[#F8FAF8] border border-slate-200/80">
-                      <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-1.5">Facility Overview</h4>
-                      <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                        Extraction of oil from tree borne oil seeds for use in biodiesel, cosmetics, pharmaceuticals, agriculture and other value-added products.
-                      </p>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 pt-1">
-                      <span>Mechanical screw expelling and filtration apparatus</span>
-                      <a href="/contact?facility=Oil-Extraction" class="font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1">
-                        <span>Inquire Facility Access</span>
-                        <span>→</span>
-                      </a>
+
+                <!-- Card Body -->
+                <div class="p-5 sm:p-6 space-y-3">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug">
+                    Plant Tissue Culture & Testing Lab
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
+                    Sterile Class 10,000 biotechnology laboratory equipped with laminar airflow workstations, high-pressure autoclave sterilizers, climate-controlled culture growth rooms, and analytical spectrophotometers for micropropagation and plant health assays.
+                  </p>
+
+                  <!-- Features List -->
+                  <div class="pt-2 border-t border-slate-100 space-y-1.5">
+                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Key Capabilities:</span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Sterile Laminar Airflow Cleanroom</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Precision Environmental Growth Chambers</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Analytical Phytochemical Profiling</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Certified Disease-Free Culturing</span>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <a href="/contact?facility=Plant%20Tissue%20Culture%20%26%20Testing%20Lab" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn">
+                  <span>Book Facility Access</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </a>
+
+                <span class="text-[11px] font-semibold text-slate-500">
+                  FC&amp;RI Campus
+                </span>
+              </div>
             </div>
 
-            <!-- Facility 07: State of the Art Tissue Culture Laboratory -->
-            <div class="accordion-item bg-white rounded-[20px] border border-slate-200/80 shadow-soft-sm transition-all duration-300 overflow-hidden" data-category="lab">
-              <button type="button" onclick="toggleAccordion(this)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between focus:outline-none">
-                <div class="flex items-center space-x-4">
-                  <span class="font-heading font-extrabold text-sm sm:text-base text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-3 py-1 rounded-lg">
-                    07
-                  </span>
-                  <div>
-                    <h3 class="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-[#0A2E1C]">
-                      STATE OF THE ART TISSUE CULTURE LABORATORY
-                    </h3>
-                    <span class="text-[11px] font-semibold text-slate-500 block sm:inline mt-0.5 sm:mt-0 sm:ml-2">
-                      Lab Space • Clean Analytical &amp; Growth Chambers
+
+            <!-- Facility Card 7: NABARD Honey Processing & Bottling Facility -->
+            <div class="facility-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="lab space">
+              <div>
+                <!-- Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Facilities/honey-processing-facility.jpg" alt="NABARD-Supported Honey Processing and Aseptic Bottling Facility" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Lab Space
                     </span>
                   </div>
-                </div>
-                <div class="flex items-center space-x-2.5 sm:space-x-3 shrink-0 ml-3">
-                  <span class="expand-hint-badge text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-lg transition-all duration-200 hidden sm:inline-flex items-center space-x-1 shadow-2xs group-hover:bg-[#0A2E1C] group-hover:text-white group-hover:border-[#0A2E1C]">
-                    <span class="badge-collapsed-text">Click to expand</span>
-                    <span class="badge-expanded-text">Click to collapse</span>
-                    <svg class="w-3 h-3 transition-transform duration-300 expand-badge-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                  <div class="accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 group-hover:bg-emerald-100 group-hover:text-emerald-800 flex items-center justify-center text-slate-600 transition-transform duration-300 shrink-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
-                    </svg>
+
+                  <!-- Unit Number Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      07
+                    </span>
                   </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
-              </button>
-              
-              <div class="accordion-body px-5 sm:px-6 pb-6">
-                <div class="pt-4 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 aspect-[16/10] bg-slate-100 img-zoom-container">
-                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/dsc_0512.jpg-H9hfXFZ76b5pXoKp.jpeg" alt="Tissue Culture Laboratory at FC&RI TNAU" class="w-full h-full object-cover">
-                  </div>
-                  <div class="lg:col-span-7 space-y-4">
-                    <div class="p-4 rounded-xl bg-[#F8FAF8] border border-slate-200/80">
-                      <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-1.5">Facility Overview</h4>
-                      <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                        An advanced laboratory for plant tissue culture, supporting research, propagation, and production of high-quality planting materials.
-                      </p>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 pt-1">
-                      <span>Laminar airflow cabinets, autoclave units, and growth control room</span>
-                      <a href="/contact?facility=Tissue-Culture" class="font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1">
-                        <span>Inquire Facility Access</span>
-                        <span>→</span>
-                      </a>
+
+                <!-- Card Body -->
+                <div class="p-5 sm:p-6 space-y-3">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug">
+                    NABARD Honey Processing & Bottling Facility
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
+                    Sanitary food-grade pilot processing facility equipped with automated vacuum de-moisturization, multi-stage micro-filtration, pasteurization, and aseptic glass jar bottling. Certified to produce FSSAI-compliant commercial forest honey.
+                  </p>
+
+                  <!-- Features List -->
+                  <div class="pt-2 border-t border-slate-100 space-y-1.5">
+                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Key Capabilities:</span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Food-Grade Stainless Steel (SS304)</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Low-Temp Vacuum De-Moisturizing</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Multi-Stage Micro-Filtration</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Automated Aseptic Glass Bottler</span>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <a href="/contact?facility=NABARD%20Honey%20Processing%20%26%20Bottling%20Facility" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn">
+                  <span>Book Facility Access</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </a>
+
+                <span class="text-[11px] font-semibold text-slate-500">
+                  FC&amp;RI Campus
+                </span>
+              </div>
             </div>
 
-            <!-- Facility 08: Honey Processing Unit by NABARD -->
-            <div class="accordion-item bg-white rounded-[20px] border border-slate-200/80 shadow-soft-sm transition-all duration-300 overflow-hidden" data-category="lab">
-              <button type="button" onclick="toggleAccordion(this)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between focus:outline-none">
-                <div class="flex items-center space-x-4">
-                  <span class="font-heading font-extrabold text-sm sm:text-base text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-3 py-1 rounded-lg">
-                    08
-                  </span>
-                  <div>
-                    <h3 class="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-[#0A2E1C]">
-                      HONEY PROCESSING UNIT BY NABARD
-                    </h3>
-                    <span class="text-[11px] font-semibold text-slate-500 block sm:inline mt-0.5 sm:mt-0 sm:ml-2">
-                      Lab Space • NABARD Supported Value Addition
+
+            <!-- Facility Card 8: Demonstration & Training Grounds -->
+            <div class="facility-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="campus resource">
+              <div>
+                <!-- Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Facilities/training-grounds.jpg" alt="Agroforestry Practical Demonstration and Field Training Grounds" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Campus Resource
                     </span>
                   </div>
-                </div>
-                <div class="flex items-center space-x-2.5 sm:space-x-3 shrink-0 ml-3">
-                  <span class="expand-hint-badge text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-lg transition-all duration-200 hidden sm:inline-flex items-center space-x-1 shadow-2xs group-hover:bg-[#0A2E1C] group-hover:text-white group-hover:border-[#0A2E1C]">
-                    <span class="badge-collapsed-text">Click to expand</span>
-                    <span class="badge-expanded-text">Click to collapse</span>
-                    <svg class="w-3 h-3 transition-transform duration-300 expand-badge-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                  <div class="accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 group-hover:bg-emerald-100 group-hover:text-emerald-800 flex items-center justify-center text-slate-600 transition-transform duration-300 shrink-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
-                    </svg>
+
+                  <!-- Unit Number Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      08
+                    </span>
                   </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
-              </button>
-              
-              <div class="accordion-body px-5 sm:px-6 pb-6">
-                <div class="pt-4 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 aspect-[16/10] bg-slate-100 img-zoom-container">
-                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/k9awf0-pZy3sDbIDFBA05vD.png" alt="Honey Processing Unit supported by NABARD" class="w-full h-full object-cover">
-                  </div>
-                  <div class="lg:col-span-7 space-y-4">
-                    <div class="p-4 rounded-xl bg-[#F8FAF8] border border-slate-200/80">
-                      <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-1.5">Facility Overview</h4>
-                      <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                        A modern honey processing facility established with NABARD support for hygienic processing, quality enhancement, and value addition of honey.
-                      </p>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 pt-1">
-                      <span>Hygienic processing, moisture reduction, and bottling lines</span>
-                      <a href="/contact?facility=Honey-Processing" class="font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1">
-                        <span>Inquire Facility Access</span>
-                        <span>→</span>
-                      </a>
+
+                <!-- Card Body -->
+                <div class="p-5 sm:p-6 space-y-3">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug">
+                    Demonstration & Training Grounds
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
+                    Outdoor field demonstration plots, clonal multiplication polyhouses, and practical training blocks within the FC&RI campus. Allows farmers, tree growers, and entrepreneurs to experience hands-on tree management and nursery multiplication.
+                  </p>
+
+                  <!-- Features List -->
+                  <div class="pt-2 border-t border-slate-100 space-y-1.5">
+                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Key Capabilities:</span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Clonal Field Trial Blocks</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Automated Nursery Polyhouses</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Hands-On Farmer Training Grounds</span><span class="inline-block text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded-md">• Open-Air Practical Demonstrations</span>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Facility 09: Co-working Space – 26 Seating Capacity -->
-            <div class="accordion-item bg-white rounded-[20px] border border-slate-200/80 shadow-soft-sm transition-all duration-300 overflow-hidden" data-category="admin">
-              <button type="button" onclick="toggleAccordion(this)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between focus:outline-none">
-                <div class="flex items-center space-x-4">
-                  <span class="font-heading font-extrabold text-sm sm:text-base text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-3 py-1 rounded-lg">
-                    09
-                  </span>
-                  <div>
-                    <h3 class="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-[#0A2E1C]">
-                      CO-WORKING SPACE – 26 SEATING CAPACITY
-                    </h3>
-                    <span class="text-[11px] font-semibold text-slate-500 block sm:inline mt-0.5 sm:mt-0 sm:ml-2">
-                      Admin Space • Plug &amp; Play Workstations
-                    </span>
-                  </div>
-                </div>
-                <div class="flex items-center space-x-2.5 sm:space-x-3 shrink-0 ml-3">
-                  <span class="expand-hint-badge text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-lg transition-all duration-200 hidden sm:inline-flex items-center space-x-1 shadow-2xs group-hover:bg-[#0A2E1C] group-hover:text-white group-hover:border-[#0A2E1C]">
-                    <span class="badge-collapsed-text">Click to expand</span>
-                    <span class="badge-expanded-text">Click to collapse</span>
-                    <svg class="w-3 h-3 transition-transform duration-300 expand-badge-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                  <div class="accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 group-hover:bg-emerald-100 group-hover:text-emerald-800 flex items-center justify-center text-slate-600 transition-transform duration-300 shrink-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
-                    </svg>
-                  </div>
-                </div>
-              </button>
-              
-              <div class="accordion-body px-5 sm:px-6 pb-6">
-                <div class="pt-4 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 aspect-[16/10] bg-slate-100 img-zoom-container">
-                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.48.13-pm-n1F09M7GerGw7Kdr.jpeg" alt="Co-working Space and Workstations at EDII-MAFBIF" class="w-full h-full object-cover">
-                  </div>
-                  <div class="lg:col-span-7 space-y-4">
-                    <div class="p-4 rounded-xl bg-[#F8FAF8] border border-slate-200/80">
-                      <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-1.5">Facility Overview</h4>
-                      <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                        A collaborative workspace for up to 26 professionals, fostering productivity, networking, and innovation.
-                      </p>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 pt-1">
-                      <span>Air-conditioned incubator workstations with high-speed internet</span>
-                      <a href="/contact?facility=Coworking-Space" class="font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1">
-                        <span>Apply for Desk Space</span>
-                        <span>→</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <a href="/contact?facility=Demonstration%20%26%20Training%20Grounds" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn">
+                  <span>Book Facility Access</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </a>
 
-            <!-- Facility 10: Highly Equipped Conferencing Hall – 80 Capacity -->
-            <div class="accordion-item bg-white rounded-[20px] border border-slate-200/80 shadow-soft-sm transition-all duration-300 overflow-hidden" data-category="admin">
-              <button type="button" onclick="toggleAccordion(this)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between focus:outline-none">
-                <div class="flex items-center space-x-4">
-                  <span class="font-heading font-extrabold text-sm sm:text-base text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-3 py-1 rounded-lg">
-                    10
-                  </span>
-                  <div>
-                    <h3 class="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-[#0A2E1C]">
-                      HIGHLY EQUIPPED CONFERENCING HALL – 80 CAPACITY
-                    </h3>
-                    <span class="text-[11px] font-semibold text-slate-500 block sm:inline mt-0.5 sm:mt-0 sm:ml-2">
-                      Admin Space • Audio-Visual Auditorium
-                    </span>
-                  </div>
-                </div>
-                <div class="flex items-center space-x-2.5 sm:space-x-3 shrink-0 ml-3">
-                  <span class="expand-hint-badge text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-lg transition-all duration-200 hidden sm:inline-flex items-center space-x-1 shadow-2xs group-hover:bg-[#0A2E1C] group-hover:text-white group-hover:border-[#0A2E1C]">
-                    <span class="badge-collapsed-text">Click to expand</span>
-                    <span class="badge-expanded-text">Click to collapse</span>
-                    <svg class="w-3 h-3 transition-transform duration-300 expand-badge-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                  <div class="accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 group-hover:bg-emerald-100 group-hover:text-emerald-800 flex items-center justify-center text-slate-600 transition-transform duration-300 shrink-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
-                    </svg>
-                  </div>
-                </div>
-              </button>
-              
-              <div class="accordion-body px-5 sm:px-6 pb-6">
-                <div class="pt-4 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 aspect-[16/10] bg-slate-100 img-zoom-container">
-                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.47.35-pm-0t2KiOCydqN7Ptif.jpeg" alt="Audio-Visual Conferencing Hall and Auditorium at FC&RI TNAU" class="w-full h-full object-cover">
-                  </div>
-                  <div class="lg:col-span-7 space-y-4">
-                    <div class="p-4 rounded-xl bg-[#F8FAF8] border border-slate-200/80">
-                      <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-1.5">Facility Overview</h4>
-                      <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                        A modern 80-seat conference hall with advanced audio-visual facilities for meetings, seminars, workshops, and events.
-                      </p>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 pt-1">
-                      <span>Ideal for buyer-seller meets, seminars, and investor summits</span>
-                      <a href="/contact?facility=Conference-Hall" class="font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1">
-                        <span>Book Hall</span>
-                        <span>→</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Facility 11: Board Room with Business Standards -->
-            <div class="accordion-item bg-white rounded-[20px] border border-slate-200/80 shadow-soft-sm transition-all duration-300 overflow-hidden" data-category="admin">
-              <button type="button" onclick="toggleAccordion(this)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between focus:outline-none">
-                <div class="flex items-center space-x-4">
-                  <span class="font-heading font-extrabold text-sm sm:text-base text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-3 py-1 rounded-lg">
-                    11
-                  </span>
-                  <div>
-                    <h3 class="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-[#0A2E1C]">
-                      BOARD ROOM WITH BUSINESS STANDARDS
-                    </h3>
-                    <span class="text-[11px] font-semibold text-slate-500 block sm:inline mt-0.5 sm:mt-0 sm:ml-2">
-                      Admin Space • Executive Suite
-                    </span>
-                  </div>
-                </div>
-                <div class="flex items-center space-x-2.5 sm:space-x-3 shrink-0 ml-3">
-                  <span class="expand-hint-badge text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-lg transition-all duration-200 hidden sm:inline-flex items-center space-x-1 shadow-2xs group-hover:bg-[#0A2E1C] group-hover:text-white group-hover:border-[#0A2E1C]">
-                    <span class="badge-collapsed-text">Click to expand</span>
-                    <span class="badge-expanded-text">Click to collapse</span>
-                    <svg class="w-3 h-3 transition-transform duration-300 expand-badge-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                  <div class="accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 group-hover:bg-emerald-100 group-hover:text-emerald-800 flex items-center justify-center text-slate-600 transition-transform duration-300 shrink-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
-                    </svg>
-                  </div>
-                </div>
-              </button>
-              
-              <div class="accordion-body px-5 sm:px-6 pb-6">
-                <div class="pt-4 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 aspect-[16/10] bg-slate-100 img-zoom-container">
-                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.47.51-pm-Urh8Qnaq4ttqfgcl.jpeg" alt="Executive Boardroom and Meeting Suite at EDII-MAFBIF" class="w-full h-full object-cover">
-                  </div>
-                  <div class="lg:col-span-7 space-y-4">
-                    <div class="p-4 rounded-xl bg-[#F8FAF8] border border-slate-200/80">
-                      <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-1.5">Facility Overview</h4>
-                      <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                        A professional boardroom for executive meetings, strategic discussions, and client presentations.
-                      </p>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 pt-1">
-                      <span>Suitable for corporate delegations and investor briefings</span>
-                      <a href="/contact?facility=Boardroom" class="font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1">
-                        <span>Book Boardroom</span>
-                        <span>→</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Facility 12: Product Display Platform -->
-            <div class="accordion-item bg-white rounded-[20px] border border-slate-200/80 shadow-soft-sm transition-all duration-300 overflow-hidden" data-category="admin">
-              <button type="button" onclick="toggleAccordion(this)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between focus:outline-none">
-                <div class="flex items-center space-x-4">
-                  <span class="font-heading font-extrabold text-sm sm:text-base text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-3 py-1 rounded-lg">
-                    12
-                  </span>
-                  <div>
-                    <h3 class="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-[#0A2E1C]">
-                      PRODUCT DISPLAY PLATFORM
-                    </h3>
-                    <span class="text-[11px] font-semibold text-slate-500 block sm:inline mt-0.5 sm:mt-0 sm:ml-2">
-                      Admin Space • Commercial Showcase Zone
-                    </span>
-                  </div>
-                </div>
-                <div class="flex items-center space-x-2.5 sm:space-x-3 shrink-0 ml-3">
-                  <span class="expand-hint-badge text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-lg transition-all duration-200 hidden sm:inline-flex items-center space-x-1 shadow-2xs group-hover:bg-[#0A2E1C] group-hover:text-white group-hover:border-[#0A2E1C]">
-                    <span class="badge-collapsed-text">Click to expand</span>
-                    <span class="badge-expanded-text">Click to collapse</span>
-                    <svg class="w-3 h-3 transition-transform duration-300 expand-badge-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                  <div class="accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 group-hover:bg-emerald-100 group-hover:text-emerald-800 flex items-center justify-center text-slate-600 transition-transform duration-300 shrink-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
-                    </svg>
-                  </div>
-                </div>
-              </button>
-              
-              <div class="accordion-body px-5 sm:px-6 pb-6">
-                <div class="pt-4 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 aspect-[16/10] bg-slate-100 img-zoom-container">
-                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.48.41-pm-eQjrBoZsNYmefsIV.jpeg" alt="Product Display Platform & Commercial Showcase Zone at EDII-MAFBIF" class="w-full h-full object-cover">
-                  </div>
-                  <div class="lg:col-span-7 space-y-4">
-                    <div class="p-4 rounded-xl bg-[#F8FAF8] border border-slate-200/80">
-                      <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-1.5">Facility Overview</h4>
-                      <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                        A dedicated space to showcase products, prototypes, and innovations to customers, investors, and industry experts.
-                      </p>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 pt-1">
-                      <span>Showcase commercial incubatee products to visiting delegations</span>
-                      <a href="/contact?facility=Product-Display" class="font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1">
-                        <span>Exhibit Products</span>
-                        <span>→</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                <span class="text-[11px] font-semibold text-slate-500">
+                  FC&amp;RI Campus
+                </span>
               </div>
             </div>
 
@@ -1379,7 +1142,69 @@
       <div class="section-hairline"></div>
 
       <!-- ===================================================================== -->
-      <!-- 5. FACILITY ACCESS CALL TO ACTION                                     -->
+      <!-- 4. SEPARATION CTA: BRIDGE TO TECHNOLOGIES                             -->
+      <!-- ===================================================================== -->
+      <section class="relative reveal-on-scroll">
+        <div class="bg-gradient-to-r from-[#0A2E1C] via-[#0E3B24] to-[#14532D] rounded-[24px] sm:rounded-[28px] p-8 sm:p-10 lg:p-12 text-white shadow-soft-md flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div class="space-y-3 text-center lg:text-left max-w-2xl">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-emerald-300 text-xs font-bold tracking-wide uppercase">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#CFA851]"></span>
+              <span>COMMERCIALIZABLE RESEARCH</span>
+            </div>
+            <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-[#FBFCEB] leading-tight">
+              Explore MAFBIF Technologies
+            </h3>
+            <p class="text-sm sm:text-base text-emerald-100/90 leading-relaxed">
+              Looking for commercializable research, validated protocols, or technology transfer? Discover the 19 technologies developed and supported by MAFBIF across biomass, forestry clones, bioenergy, wood value addition, and natural products.
+            </p>
+          </div>
+
+          <div class="shrink-0">
+            <a href="/technologies" class="inline-flex items-center space-x-2.5 bg-[#CFA851] hover:bg-[#b89342] text-[#0A2E1C] px-7 py-4 rounded-xl font-bold text-sm sm:text-base shadow-md hover:shadow-lg transition-all duration-200 group">
+              <span>Explore MAFBIF Technologies</span>
+              <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Transition Hairline -->
+      <div class="section-hairline"></div>
+
+      <!-- ===================================================================== -->
+      <!-- 5. MORE THAN INFRASTRUCTURE (Services & Support Connection)          -->
+      <!-- ===================================================================== -->
+      <section class="relative reveal-on-scroll">
+        <div class="bg-gradient-to-r from-[#F0FDF4] via-white to-[#F0FDFA] rounded-[24px] border border-emerald-200/80 p-6 sm:p-8 lg:p-10 shadow-soft-sm">
+          <div class="max-w-3xl mx-auto text-center space-y-4">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white border border-[#DCFCE7] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-wider uppercase shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
+              <span>Holistic Enterprise Incubation</span>
+            </div>
+            <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-[#0A2E1C] tracking-tight">
+              More Than Infrastructure
+            </h2>
+            <p class="text-base sm:text-lg font-semibold text-[#15803D]">
+              We don't just provide space. We help ideas become enterprises.
+            </p>
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              From technical mentoring and business guidance to funding, IPR, networking, and product development, EDII–MAFBIF provides end-to-end support for entrepreneurs.
+            </p>
+            <div class="pt-2">
+              <a href="/services" class="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-[#0F4A2A] hover:bg-[#0A2E1C] text-white font-bold text-sm shadow-sm hover:shadow-md transition-all group">
+                <span>Explore Our Services</span>
+                <span class="text-emerald-300 group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Transition Hairline -->
+      <div class="section-hairline"></div>
+
+      <!-- ===================================================================== -->
+      <!-- 6. FACILITY ACCESS CALL TO ACTION                                     -->
       <!-- ===================================================================== -->
       <section class="relative reveal-on-scroll">
         
@@ -1419,9 +1244,6 @@
     </div>
   </main>
 
-  <!-- ========================================================================= -->
-  <!-- 6. INSTITUTIONAL FOOTER (Deep Forest Green with Sitemap & Contact)        -->
-  <!-- ========================================================================= -->
   <footer class="relative bg-[#07190F] text-slate-300 border-t-2 border-t-[#16A34A]/30 mt-auto py-12 sm:py-16 overflow-hidden">
     
     <div class="ambient-orb-teal w-80 h-80 -bottom-20 left-1/4 opacity-20"></div>
@@ -1464,6 +1286,7 @@
             <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
             <li><a href="/technologies" class="hover:text-white transition-colors">Technologies</a></li>
             <li><a href="/facilities" class="text-emerald-400 font-bold">Facilities</a></li>
+            <li><a href="/services" class="hover:text-white transition-colors">Services &amp; Support</a></li>
             <li><a href="/incubation" class="hover:text-white transition-colors">Incubation</a></li>
             <li><a href="/events" class="hover:text-white transition-colors">Events &amp; Training</a></li>
             <li><a href="/success-stories" class="hover:text-white transition-colors">Success Stories</a></li>
@@ -1492,70 +1315,10 @@
   </footer>
 
   <!-- ========================================================================= -->
-  <!-- 7. CLIENT SCRIPTS (Accordion, Tab Filtering, Mobile Nav & Scroll Reveal)  -->
+  <!-- 7. CLIENT SCRIPTS (Dropdowns, Menu Toggle & Scroll Reveal)                -->
   <!-- ========================================================================= -->
   <script>
     document.documentElement.classList.add('js');
-
-    // Facility Accordion Interactive Toggle Function
-    function toggleAccordion(btn) {
-      const item = btn.closest('.accordion-item');
-      if (!item) return;
-      const wasActive = item.classList.contains('is-active');
-      if (wasActive) {
-        item.classList.remove('is-active');
-      } else {
-        item.classList.add('is-active');
-      }
-      updateToggleAllBtn();
-    }
-
-    function toggleAllAccordions() {
-      const items = document.querySelectorAll('.accordion-item');
-      const anyClosed = Array.from(items).some(item => !item.classList.contains('is-active'));
-      
-      items.forEach(item => {
-        if (anyClosed) {
-          item.classList.add('is-active');
-        } else {
-          item.classList.remove('is-active');
-        }
-      });
-      updateToggleAllBtn();
-    }
-
-    function updateToggleAllBtn() {
-      const items = document.querySelectorAll('.accordion-item');
-      const anyClosed = Array.from(items).some(item => !item.classList.contains('is-active'));
-      const btnText = document.getElementById('toggle-all-text');
-      if (btnText) {
-        btnText.textContent = anyClosed ? 'Expand All' : 'Collapse All';
-      }
-    }
-
-    // Category Filter Function
-    function filterCategory(category) {
-      const tabBtns = document.querySelectorAll('.tab-btn');
-      tabBtns.forEach(btn => {
-        if (btn.getAttribute('data-category') === category) {
-          btn.classList.add('is-active');
-          btn.classList.remove('text-slate-600');
-        } else {
-          btn.classList.remove('is-active');
-          btn.classList.add('text-slate-600');
-        }
-      });
-
-      const items = document.querySelectorAll('.accordion-item');
-      items.forEach(item => {
-        const itemCat = item.getAttribute('data-category');
-        if (category === 'all' || itemCat === category) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
 
     document.addEventListener('DOMContentLoaded', () => {
       // Mobile Navigation Toggle
@@ -1582,6 +1345,36 @@
             if (iconClose) iconClose.classList.add('hidden');
           }
         });
+      }
+
+      // Support Dropdown
+      const supportDdWrapper = document.getElementById('support-nav-group');
+      const supportDdPanel   = document.getElementById('support-dropdown-panel');
+      const supportDdArrow   = supportDdWrapper && supportDdWrapper.querySelector('svg');
+      let   supportDdTimer   = null;
+
+      function openSupportDd() {
+        if (supportDdTimer) { clearTimeout(supportDdTimer); supportDdTimer = null; }
+        if (supportDdPanel) {
+          supportDdPanel.classList.remove('hidden');
+          if (supportDdArrow) supportDdArrow.style.transform = 'rotate(180deg)';
+        }
+      }
+
+      function scheduleCloseSupportDd() {
+        supportDdTimer = setTimeout(() => {
+          if (supportDdPanel) {
+            supportDdPanel.classList.add('hidden');
+            if (supportDdArrow) supportDdArrow.style.transform = '';
+          }
+        }, 180);
+      }
+
+      if (supportDdWrapper && supportDdPanel) {
+        supportDdWrapper.addEventListener('mouseenter', openSupportDd);
+        supportDdWrapper.addEventListener('mouseleave', scheduleCloseSupportDd);
+        supportDdPanel.addEventListener('mouseenter',  openSupportDd);
+        supportDdPanel.addEventListener('mouseleave',  scheduleCloseSupportDd);
       }
 
       // Incubation Dropdown

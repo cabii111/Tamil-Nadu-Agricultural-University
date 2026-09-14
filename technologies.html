@@ -243,21 +243,6 @@
 </head>
 <body class="bg-[#F8FAF8] text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-start selection:bg-emerald-100 selection:text-emerald-900 overflow-x-hidden">
 
-  <!-- ========================================================================= -->
-  <!-- 1. INSTITUTIONAL HEADER (Clean Floating Bar with Logo, Brand & Nav)       -->
-  <!-- ========================================================================= -->
-    <!-- ========================================================================= -->
-  <!-- 1. INSTITUTIONAL HEADER (Refined Compact Desktop Navbar & Balanced Branding) -->
-  <!-- ========================================================================= -->
-    <!-- ========================================================================= -->
-  <!-- 1. INSTITUTIONAL HEADER (Prominent Logo, Balanced Brand & Navigation)      -->
-  <!-- ========================================================================= -->
-    <!-- ========================================================================= -->
-  <!-- 1. INSTITUTIONAL HEADER (Single Premium Navbar Matching Reference Visuals) -->
-  <!-- ========================================================================= -->
-    <!-- ========================================================================= -->
-  <!-- 1. INSTITUTIONAL HEADER (Mobile-Responsive Single Premium Floating Navbar) -->
-  <!-- ========================================================================= -->
   <header class="w-full pt-2.5 sm:pt-4 pb-2 px-3 sm:px-6 lg:px-8 xl:px-12 sticky top-0 z-50 backdrop-blur-md bg-[#F8FAF8]/90">
     <div class="max-w-[1440px] mx-auto">
       
@@ -299,10 +284,20 @@
               <span>Technologies</span>
               <span class="absolute bottom-0 left-3 right-3 h-[2px] bg-[#15803D] rounded-full"></span>
             </a>
-            <a href="/facilities" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
-              <span>Facilities</span>
+            <!-- Support Dropdown Menu -->
+            <div class="relative" id="support-nav-group">
+              <button type="button" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all inline-flex items-center focus:outline-none" aria-expanded="false">
+                <span>Support</span>
+                <svg class="ml-1 w-3.5 h-3.5 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
               
-            </a>
+              <div class="absolute left-0 top-full w-52 rounded-2xl shadow-xl bg-white border border-slate-100 hidden z-50 pt-2.5 pb-2 mt-1" id="support-dropdown-panel">
+                <a href="/facilities" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Facilities</a>
+                <a href="/services" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Services &amp; Support</a>
+              </div>
+            </div>
 
             <!-- Incubation Dropdown Menu -->
             <div class="relative" id="incubation-nav-group">
@@ -367,7 +362,12 @@
           <a href="/" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Home</a>
           <a href="/about" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">About Us</a>
           <a href="/technologies" class="block px-3.5 py-2.5 rounded-xl bg-[#F0FDF4] text-[#0A2E1C] font-bold text-sm">Technologies</a>
-          <a href="/facilities" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Facilities</a>
+          <!-- Mobile Support Section -->
+          <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
+            <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Support</div>
+            <a href="/facilities" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Facilities</a>
+            <a href="/services" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Services &amp; Support</a>
+          </div>
           
           <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
             <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Incubation</div>
@@ -404,7 +404,7 @@
     <div class="max-w-[1440px] mx-auto px-3.5 sm:px-6 lg:px-8 xl:px-12 space-y-12 sm:space-y-16">
       
       <!-- ===================================================================== -->
-      <!-- 2. REFINED TECHNOLOGY HERO (Research Showcase Introduction)           -->
+      <!-- 1. TECHNOLOGY PAGE HERO (Innovation & Enterprise Showcase)            -->
       <!-- ===================================================================== -->
       <section id="hero" class="relative reveal-on-scroll">
         
@@ -412,55 +412,69 @@
         <div class="ambient-orb-green w-80 h-80 sm:w-96 sm:h-96 -top-10 -left-10 opacity-60"></div>
         <div class="ambient-orb-teal w-80 h-80 sm:w-96 sm:h-96 -bottom-10 -right-10 opacity-55"></div>
 
-        <div class="relative z-10 bg-white rounded-[26px] sm:rounded-[28px] p-6 sm:p-8 lg:p-10 xl:p-12 border border-slate-200/80 shadow-soft-sm overflow-hidden">
+        <div class="relative z-10 bg-white rounded-[26px] sm:rounded-[28px] p-6 sm:p-8 lg:p-12 border border-slate-200/80 shadow-soft-sm overflow-hidden">
           
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-9 xl:gap-10 items-center">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
             
-            <!-- LEFT: Hero Copy & Actions -->
-            <div class="lg:col-span-7 flex flex-col justify-center">
+            <!-- LEFT: Hero Content -->
+            <div class="lg:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-5">
               
-              <div class="inline-flex items-center space-x-2.5 self-start px-3.5 py-1.5 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-widest uppercase shadow-2xs mb-3 sm:mb-3.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
-                <span>Commercializable Research</span>
+              <div class="inline-flex items-center space-x-2.5 self-start px-3.5 py-1.5 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-widest uppercase shadow-2xs">
+                <span class="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse"></span>
+                <span>MAFBIF TECHNOLOGIES</span>
               </div>
 
-              <h1 class="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0A2E1C] leading-[1.3] sm:leading-[1.32] lg:leading-[1.35] tracking-tight mb-3 sm:mb-3.5 lg:mb-4">
-                Scientific <span class="text-[#0E7490]"><em>technology transfer</em></span><br class="hidden sm:inline"> for agroforestry.
+              <h1 class="font-heading text-3xl sm:text-4xl lg:text-[44px] xl:text-[46px] font-extrabold text-[#0A2E1C] leading-[1.18] tracking-tight">
+                Technologies for Innovation &amp; Enterprise
               </h1>
 
-              <p class="text-slate-700 text-sm sm:text-base md:text-[16.5px] leading-relaxed mb-5 sm:mb-6">
-                Commercialize TNAU-backed research with certified processing infrastructure, seed funding, and direct technical mentoring from forestry scientists.
+              <p class="text-slate-700 text-sm sm:text-base md:text-[16.5px] leading-relaxed max-w-2xl">
+                Explore technologies supported by MAFBIF across biomass, forestry, bioenergy, value addition, natural products and other emerging areas, with opportunities for validation, development and commercialization.
               </p>
 
-              <div class="flex flex-wrap items-center gap-3.5">
-                <a href="/contact" class="inline-flex items-center space-x-2.5 bg-[#0A2E1C] hover:bg-[#14532D] text-white px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base shadow-md shadow-forest-900/10 hover:shadow-lg transition-all duration-200 cursor-pointer group">
-                  <span>Inquire About Technology</span>
-                  <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                  </svg>
-                </a>
+              <!-- Quick Highlights Chips -->
+              <div class="flex flex-wrap items-center gap-2 pt-1">
+                <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 text-xs font-medium">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                  <span>14 Supported Technologies</span>
+                </span>
+                <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 text-xs font-medium">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
+                  <span>TNAU Scientific Rigor</span>
+                </span>
+                <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 text-xs font-medium">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#CFA851]"></span>
+                  <span>Commercial Licensing Ready</span>
+                </span>
+              </div>
 
-                <a href="#infrastructure" class="inline-flex items-center space-x-2 border border-slate-300 hover:border-[#16A34A] text-slate-700 hover:text-[#0A2E1C] bg-slate-50/70 hover:bg-[#F0FDF4] px-6 py-3.5 sm:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-200">
-                  <span>Explore Infrastructure</span>
-                  <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="flex flex-wrap items-center gap-3.5 pt-2">
+                <a href="#catalogue" class="inline-flex items-center space-x-2.5 bg-[#0A2E1C] hover:bg-[#14532D] text-white px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base shadow-md shadow-forest-900/10 hover:shadow-lg transition-all duration-200 cursor-pointer group">
+                  <span>Browse Technology Catalogue</span>
+                  <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                   </svg>
                 </a>
+
+                <a href="/contact" class="inline-flex items-center space-x-2 border border-slate-300 hover:border-[#16A34A] text-slate-700 hover:text-[#0A2E1C] bg-slate-50/70 hover:bg-[#F0FDF4] px-6 py-3.5 sm:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-200">
+                  <span>Inquire for Licensing</span>
+                  <span class="text-[#15803D]">→</span>
+                </a>
               </div>
 
             </div>
 
-            <!-- RIGHT: Authentic Biomass Processing Lab Photograph -->
+            <!-- RIGHT: Authentic Feature Image Spotlight -->
             <div class="lg:col-span-5 relative">
               <div class="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] rounded-2xl sm:rounded-[22px] overflow-hidden shadow-soft-md border border-slate-200/80 bg-slate-100 group img-zoom-container hover-lift">
-                <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/qah9tn-Nylug65UycLa7rJG.png" alt="Side view of a modern biomass briquetting machine inside a clean, well-lit industrial lab, high-tech wood processing equipment, natural daylight, 35mm lens." class="w-full h-full object-cover object-center">
+                <img src="/Public/Technologies/biomass-briquettes-pellets.png" alt="Biomass and Bioenergy Research Equipment at EDII-MAFBIF" class="w-full h-full object-cover object-center">
                 
-                <!-- Floating Machinery Status Pill -->
+                <!-- Floating Technology Spotlight Pill -->
                 <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-auto bg-white/95 backdrop-blur-md px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-slate-200/80 shadow-soft-sm flex items-center space-x-2.5 pointer-events-none">
-                  <span class="w-2 h-2 rounded-full bg-[#16A34A] shrink-0 animate-pulse"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#16A34A] shrink-0 animate-pulse"></span>
                   <div class="leading-tight">
-                    <span class="text-xs font-bold text-[#0A2E1C] block">Biomass Processing Unit</span>
-                    <span class="text-[10.5px] text-slate-500 font-medium">Clean Industrial Lab Setup</span>
+                    <span class="text-xs font-bold text-[#0A2E1C] block">Commercial Technology Transfer</span>
+                    <span class="text-[10.5px] text-slate-500 font-medium">Validated by TNAU Forestry Scientists</span>
                   </div>
                 </div>
               </div>
@@ -475,263 +489,903 @@
       <div class="section-hairline"></div>
 
       <!-- ===================================================================== -->
-      <!-- 3. COMMERCIAL TECHNOLOGIES CATALOG (3-Column Editorial Grid)          -->
+      <!-- 2. TECHNOLOGY CATALOGUE FILTER & SEARCH                                -->
       <!-- ===================================================================== -->
-      <section id="tech-catalog" class="relative reveal-on-scroll py-2">
+      <section id="catalogue" class="relative reveal-on-scroll py-2">
         
-        <!-- Ambient Dual-Color Glow -->
-        <div class="ambient-orb-green w-72 h-72 -top-6 -right-6 opacity-45"></div>
-        <div class="ambient-orb-teal w-72 h-72 -bottom-6 -left-6 opacity-45"></div>
+        <!-- Ambient Dual-Color Lighting -->
+        <div class="ambient-orb-green w-80 h-80 -top-8 -right-8 opacity-45"></div>
+        <div class="ambient-orb-teal w-80 h-80 -bottom-8 -left-8 opacity-45"></div>
 
-        <div class="relative z-10">
+        <div class="relative z-10 space-y-6">
           
-          <!-- Section Heading Header -->
-          <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+          <!-- Catalogue Header & Real-Time Search -->
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div class="max-w-2xl">
               <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-widest uppercase mb-3 shadow-2xs">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
-                <span>Proven Pathways</span>
+                <span>Technology Showcase</span>
               </div>
               <h2 class="font-heading text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0A2E1C] tracking-tight leading-tight">
-                Commercial Technologies
+                Explore Available Technologies
               </h2>
-              <p class="text-slate-600 text-sm sm:text-base md:text-lg mt-3 leading-relaxed">
-                Standardized protocols developed by TNAU scientists, ready for immediate licensing and commercial deployment by rural MSMEs.
+              <p class="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
+                Click any technology card to examine technical protocols, machinery specifications, commercial applications, and licensing pathways.
               </p>
             </div>
 
-            <div class="shrink-0 hidden md:block">
-              <span class="text-xs font-semibold text-slate-500 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-2xs">
-                6 Standardized Protocols
-              </span>
+            <!-- Instant Search Input -->
+            <div class="w-full lg:w-80 shrink-0">
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                  </svg>
+                </div>
+                <input type="text" id="tech-search-input" oninput="handleSearch(this.value)" placeholder="Search technologies..." class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#16A34A]/20 focus:border-[#16A34A] transition-all shadow-2xs">
+              </div>
             </div>
           </div>
 
-          <!-- 3-Column Technology Cards Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-            
-            <!-- Tech Card 1: Biomass Briquetting -->
-            <div class="bg-white rounded-[20px] p-6 sm:p-7 border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col justify-between group">
+          <!-- Category Filter Bar -->
+          <div class="flex flex-wrap items-center gap-2 p-1.5 bg-white rounded-2xl border border-slate-200/90 shadow-2xs">
+            <button type="button" onclick="filterCategory('all')" class="cat-filter-btn is-active px-4 py-2 rounded-xl text-xs sm:text-[13px] font-bold tracking-wide transition-all duration-200 cursor-pointer bg-[#0A2E1C] text-white" data-category="all">
+              All Technologies (14)
+            </button>
+            <button type="button" onclick="filterCategory('bioenergy')" class="cat-filter-btn px-4 py-2 rounded-xl text-xs sm:text-[13px] font-semibold text-slate-600 hover:text-[#0A2E1C] hover:bg-slate-100 transition-all duration-200 cursor-pointer" data-category="bioenergy">
+              Biomass &amp; Bioenergy (3)
+            </button>
+            <button type="button" onclick="filterCategory('forestry')" class="cat-filter-btn px-4 py-2 rounded-xl text-xs sm:text-[13px] font-semibold text-slate-600 hover:text-[#0A2E1C] hover:bg-slate-100 transition-all duration-200 cursor-pointer" data-category="forestry">
+              Forestry &amp; Nursery (3)
+            </button>
+            <button type="button" onclick="filterCategory('wood')" class="cat-filter-btn px-4 py-2 rounded-xl text-xs sm:text-[13px] font-semibold text-slate-600 hover:text-[#0A2E1C] hover:bg-slate-100 transition-all duration-200 cursor-pointer" data-category="wood">
+              Wood &amp; Value Addition (3)
+            </button>
+            <button type="button" onclick="filterCategory('natural')" class="cat-filter-btn px-4 py-2 rounded-xl text-xs sm:text-[13px] font-semibold text-slate-600 hover:text-[#0A2E1C] hover:bg-slate-100 transition-all duration-200 cursor-pointer" data-category="natural">
+              Natural Products (4)
+            </button>
+            <button type="button" onclick="filterCategory('environmental')" class="cat-filter-btn px-4 py-2 rounded-xl text-xs sm:text-[13px] font-semibold text-slate-600 hover:text-[#0A2E1C] hover:bg-slate-100 transition-all duration-200 cursor-pointer" data-category="environmental">
+              Environmental &amp; ITK (1)
+            </button>
+          </div>
+
+          <!-- Active Filter Status & Match Counter -->
+          <div class="flex items-center justify-between text-xs text-slate-500 px-1">
+            <span id="filter-status-text">Showing all 14 technologies</span>
+            <span class="text-emerald-700 font-semibold cursor-pointer hover:underline hidden" id="reset-filter-btn" onclick="filterCategory('all')">Reset filter</span>
+          </div>
+
+          <!-- =================================================================== -->
+          <!-- 3. TECHNOLOGY CATALOGUE 3-COLUMN RESPONSIVE GRID                    -->
+          <!-- =================================================================== -->
+          <div id="tech-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 pt-2">
+
+            <!-- Tech Card 01: BIOMASS BRIQUETTING AND PELLETING TECHNOLOGY -->
+            <div class="tech-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="bioenergy" data-id="biomass-briquetting-pelleting" data-title="biomass briquetting and pelleting technology" data-desc="biomass briquettes are a bio fuel substitute to coal and charcoal made from agricultural and forestry waste where the low-density biomass is converted into high density biomass briquettes.">
               <div>
-                <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7] flex items-center justify-center text-[#15803D] group-hover:scale-105 transition-transform">
-                    <!-- Zap/Energy Icon -->
-                    <svg class="w-6 h-6 text-[#15803D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                <!-- Card Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Technologies/biomass-briquetting-press.jpg" alt="Biomass Briquetting and Pelleting Technology at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge floating on image -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Biomass & Bioenergy
+                    </span>
                   </div>
-                  <span class="text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] px-3 py-1 rounded-full border border-[#DCFCE7]">
-                    Energy &amp; Biomass
-                  </span>
+
+                  <!-- Tech Number Pill Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      01
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
 
-                <h3 class="font-heading font-extrabold text-xl sm:text-[22px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-3">
-                  Biomass Briquetting
-                </h3>
+                <!-- Card Body Content -->
+                <div class="p-5 sm:p-6">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug mb-2">
+                    BIOMASS BRIQUETTING AND PELLETING TECHNOLOGY
+                  </h3>
 
-                <p class="text-slate-600 text-xs sm:text-sm md:text-[15px] leading-relaxed">
-                  High-density thermal energy solutions engineered from forestry residues. Zero chemical binders with optimized calorific output.
-                </p>
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed line-clamp-3 mb-4">
+                    Biomass briquettes are a bio fuel substitute to coal and charcoal made from agricultural and forestry waste where the low-density biomass is converted into high density biomass briquettes.
+                  </p>
+
+                  <!-- Primary Application Tag -->
+                  <div class="pt-1">
+                    <span class="inline-block text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-md">
+                      🎯 Industrial Boilers & Green Fuel
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                <button type="button" onclick="openTechModal('Biomass Briquetting', 'High-density thermal energy solutions engineered from forestry residues. Zero chemical binders with optimized calorific output.', 'Energy & Biomass', 'Zap / Thermal Technology')" class="text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1.5 transition-colors cursor-pointer">
-                  <span>View Technology Profile</span>
-                  <span class="text-[#0284C7] transition-transform duration-200 group-hover:translate-x-1">→</span>
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <button type="button" onclick="openTechModalById('biomass-briquetting-pelleting')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn cursor-pointer">
+                  <span>View Details</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
                 </button>
-                <a href="/contact?tech=Biomass-Briquetting" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] transition-colors">
-                  Inquire
+
+                <a href="/contact?tech=BIOMASS%20BRIQUETTING%20AND%20PELLETING%20TECHNOLOGY" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] hover:underline transition-colors">
+                  Inquire →
                 </a>
               </div>
             </div>
 
-            <!-- Tech Card 2: Activated Carbon -->
-            <div class="bg-white rounded-[20px] p-6 sm:p-7 border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col justify-between group">
+            <!-- Tech Card 02: MINI CLONAL PROPAGATION TECHNOLOGY -->
+            <div class="tech-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="forestry" data-id="mini-clonal-propagation-technology" data-title="mini clonal propagation technology" data-desc="production of quality planting material and its mass multiplication through mini clonal propagation technology.">
               <div>
-                <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7] flex items-center justify-center text-[#15803D] group-hover:scale-105 transition-transform">
-                    <!-- Layers Icon -->
-                    <svg class="w-6 h-6 text-[#15803D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <polygon points="12 2 2 7 12 12 22 7 12 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <polyline points="2 17 12 22 22 17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <polyline points="2 12 12 17 22 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                <!-- Card Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Technologies/mini-clonal-propagation.png" alt="Mini Clonal Propagation Technology at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge floating on image -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Forestry & Nursery
+                    </span>
                   </div>
-                  <span class="text-[11px] font-bold text-[#0E7490] bg-[#F0FDFA] px-3 py-1 rounded-full border border-teal-100">
-                    Industrial Materials
-                  </span>
+
+                  <!-- Tech Number Pill Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      02
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
 
-                <h3 class="font-heading font-extrabold text-xl sm:text-[22px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-3">
-                  Activated Carbon
-                </h3>
+                <!-- Card Body Content -->
+                <div class="p-5 sm:p-6">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug mb-2">
+                    MINI CLONAL PROPAGATION TECHNOLOGY
+                  </h3>
 
-                <p class="text-slate-600 text-xs sm:text-sm md:text-[15px] leading-relaxed">
-                  High-surface-area carbonization protocols for coconut shell and wood biomass, optimized for industrial filtration.
-                </p>
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed line-clamp-3 mb-4">
+                    Production of quality planting material and its mass multiplication through mini clonal propagation technology.
+                  </p>
+
+                  <!-- Primary Application Tag -->
+                  <div class="pt-1">
+                    <span class="inline-block text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-md">
+                      🎯 Quality Planting Material & Clones
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                <button type="button" onclick="openTechModal('Activated Carbon', 'High-surface-area carbonization protocols for coconut shell and wood biomass, optimized for industrial filtration.', 'Industrial Materials', 'Carbonization & Filtration')" class="text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1.5 transition-colors cursor-pointer">
-                  <span>View Technology Profile</span>
-                  <span class="text-[#0284C7] transition-transform duration-200 group-hover:translate-x-1">→</span>
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <button type="button" onclick="openTechModalById('mini-clonal-propagation-technology')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn cursor-pointer">
+                  <span>View Details</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
                 </button>
-                <a href="/contact?tech=Activated-Carbon" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] transition-colors">
-                  Inquire
+
+                <a href="/contact?tech=MINI%20CLONAL%20PROPAGATION%20TECHNOLOGY" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] hover:underline transition-colors">
+                  Inquire →
                 </a>
               </div>
             </div>
 
-            <!-- Tech Card 3: Essential Oils -->
-            <div class="bg-white rounded-[20px] p-6 sm:p-7 border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col justify-between group">
+            <!-- Tech Card 03: ACTIVATED CARBON GENERATION -->
+            <div class="tech-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="bioenergy" data-id="activated-carbon-generation" data-title="activated carbon generation" data-desc="generation of activated carbon through continous carbonization from wood species which is used for industrial purposes.">
               <div>
-                <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 rounded-xl bg-[#F0FDFA] border border-teal-100 flex items-center justify-center text-[#0E7490] group-hover:scale-105 transition-transform">
-                    <!-- Droplet Icon -->
-                    <svg class="w-6 h-6 text-[#0E7490]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                <!-- Card Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Technologies/activated-carbon-generation.png" alt="Activated Carbon Generation Unit at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge floating on image -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Biomass & Bioenergy
+                    </span>
                   </div>
-                  <span class="text-[11px] font-bold text-[#0E7490] bg-[#F0FDFA] px-3 py-1 rounded-full border border-teal-100">
-                    Natural Extracts
-                  </span>
+
+                  <!-- Tech Number Pill Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      03
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
 
-                <h3 class="font-heading font-extrabold text-xl sm:text-[22px] text-[#0A2E1C] group-hover:text-[#0E7490] transition-colors mb-3">
-                  Essential Oils
-                </h3>
+                <!-- Card Body Content -->
+                <div class="p-5 sm:p-6">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug mb-2">
+                    ACTIVATED CARBON GENERATION
+                  </h3>
 
-                <p class="text-slate-600 text-xs sm:text-sm md:text-[15px] leading-relaxed">
-                  Precision steam distillation extraction methods for high-purity eucalyptus, lemongrass, and native forest resins.
-                </p>
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed line-clamp-3 mb-4">
+                    Generation of Activated Carbon through continous carbonization from wood species which is used for industrial purposes.
+                  </p>
+
+                  <!-- Primary Application Tag -->
+                  <div class="pt-1">
+                    <span class="inline-block text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-md">
+                      🎯 Continuous Carbonization & Industrial Use
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                <button type="button" onclick="openTechModal('Essential Oils', 'Precision steam distillation extraction methods for high-purity eucalyptus, lemongrass, and native forest resins.', 'Natural Extracts', 'Steam Distillation Laboratory')" class="text-xs font-bold text-[#0E7490] hover:text-[#0A2E1C] inline-flex items-center space-x-1.5 transition-colors cursor-pointer">
-                  <span>View Technology Profile</span>
-                  <span class="text-[#0284C7] transition-transform duration-200 group-hover:translate-x-1">→</span>
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <button type="button" onclick="openTechModalById('activated-carbon-generation')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn cursor-pointer">
+                  <span>View Details</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
                 </button>
-                <a href="/contact?tech=Essential-Oils" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] transition-colors">
-                  Inquire
+
+                <a href="/contact?tech=ACTIVATED%20CARBON%20GENERATION" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] hover:underline transition-colors">
+                  Inquire →
                 </a>
               </div>
             </div>
 
-            <!-- Tech Card 4: Hi-Tech Nurseries -->
-            <div class="bg-white rounded-[20px] p-6 sm:p-7 border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col justify-between group">
+            <!-- Tech Card 04: WOOD SEASONING AND PRESERVATION -->
+            <div class="tech-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="wood" data-id="wood-seasoning-and-preservation" data-title="wood seasoning and preservation" data-desc="preserves wood from termite, fungal attack by removing moisture content and chemical treatment which increases the shelf life of timber.">
               <div>
-                <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7] flex items-center justify-center text-[#15803D] group-hover:scale-105 transition-transform">
-                    <!-- Sun / Growth Icon -->
-                    <svg class="w-6 h-6 text-[#15803D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <circle cx="12" cy="12" r="5" stroke-width="2"/>
-                      <line x1="12" y1="1" x2="12" y2="3" stroke-width="2" stroke-linecap="round"/>
-                      <line x1="12" y1="21" x2="12" y2="23" stroke-width="2" stroke-linecap="round"/>
-                      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke-width="2" stroke-linecap="round"/>
-                      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke-width="2" stroke-linecap="round"/>
-                      <line x1="1" y1="12" x2="3" y2="12" stroke-width="2" stroke-linecap="round"/>
-                      <line x1="21" y1="12" x2="23" y2="12" stroke-width="2" stroke-linecap="round"/>
-                      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke-width="2" stroke-linecap="round"/>
-                      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
+                <!-- Card Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Technologies/wood-seasoning-kiln-plant.jpg" alt="Wood Seasoning and Preservation Treatment at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge floating on image -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Wood & Value Addition
+                    </span>
                   </div>
-                  <span class="text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] px-3 py-1 rounded-full border border-[#DCFCE7]">
-                    Propagation &amp; Clones
-                  </span>
+
+                  <!-- Tech Number Pill Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      04
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
 
-                <h3 class="font-heading font-extrabold text-xl sm:text-[22px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-3">
-                  Hi-Tech Nurseries
-                </h3>
+                <!-- Card Body Content -->
+                <div class="p-5 sm:p-6">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug mb-2">
+                    WOOD SEASONING AND PRESERVATION
+                  </h3>
 
-                <p class="text-slate-600 text-xs sm:text-sm md:text-[15px] leading-relaxed">
-                  Clonal propagation and tissue culture protocols for high-yield timber species, ensuring disease-free elite planting stock.
-                </p>
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed line-clamp-3 mb-4">
+                    Preserves wood from termite, fungal attack by removing moisture content and chemical treatment which increases the shelf life of timber.
+                  </p>
+
+                  <!-- Primary Application Tag -->
+                  <div class="pt-1">
+                    <span class="inline-block text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-md">
+                      🎯 Termite & Fungal Protection
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                <button type="button" onclick="openTechModal('Hi-Tech Nurseries', 'Clonal propagation and tissue culture protocols for high-yield timber species, ensuring disease-free elite planting stock.', 'Propagation & Clones', 'Clonal & Tissue Culture Protocols')" class="text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1.5 transition-colors cursor-pointer">
-                  <span>View Technology Profile</span>
-                  <span class="text-[#0284C7] transition-transform duration-200 group-hover:translate-x-1">→</span>
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <button type="button" onclick="openTechModalById('wood-seasoning-and-preservation')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn cursor-pointer">
+                  <span>View Details</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
                 </button>
-                <a href="/contact?tech=Hi-Tech-Nurseries" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] transition-colors">
-                  Inquire
+
+                <a href="/contact?tech=WOOD%20SEASONING%20AND%20PRESERVATION" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] hover:underline transition-colors">
+                  Inquire →
                 </a>
               </div>
             </div>
 
-            <!-- Tech Card 5: Wood Value Addition -->
-            <div class="bg-white rounded-[20px] p-6 sm:p-7 border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col justify-between group">
+            <!-- Tech Card 05: STEAM DISTILLATION FOR ESSENTIAL OILS -->
+            <div class="tech-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="natural" data-id="steam-distillation-for-essential-oils" data-title="steam distillation for essential oils" data-desc="extraction of essential oil from tree components through steam distillation method which has a wide scope of business opportunity in local and international markets.">
               <div>
-                <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7] flex items-center justify-center text-[#15803D] group-hover:scale-105 transition-transform">
-                    <!-- Tool / Craft Icon -->
-                    <svg class="w-6 h-6 text-[#15803D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                <!-- Card Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Technologies/steam-distillation-essential-oils.png" alt="Steam Distillation Unit for Essential Oils at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge floating on image -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Natural Products
+                    </span>
                   </div>
-                  <span class="text-[11px] font-bold text-[#15803D] bg-[#F0FDF4] px-3 py-1 rounded-full border border-[#DCFCE7]">
-                    Timber Processing
-                  </span>
+
+                  <!-- Tech Number Pill Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      05
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
 
-                <h3 class="font-heading font-extrabold text-xl sm:text-[22px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-3">
-                  Wood Value Addition
-                </h3>
+                <!-- Card Body Content -->
+                <div class="p-5 sm:p-6">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug mb-2">
+                    STEAM DISTILLATION FOR ESSENTIAL OILS
+                  </h3>
 
-                <p class="text-slate-600 text-xs sm:text-sm md:text-[15px] leading-relaxed">
-                  Advanced wood seasoning and eco-friendly preservative treatment schedules to commercialize lesser-known timbers.
-                </p>
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed line-clamp-3 mb-4">
+                    Extraction of essential oil from tree components through steam distillation method which has a wide scope of business opportunity in local and international markets.
+                  </p>
+
+                  <!-- Primary Application Tag -->
+                  <div class="pt-1">
+                    <span class="inline-block text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-md">
+                      🎯 Tree Essential Oils & Global Trade
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                <button type="button" onclick="openTechModal('Wood Value Addition', 'Advanced wood seasoning and eco-friendly preservative treatment schedules to commercialize lesser-known timbers.', 'Timber Processing', 'Wood Seasoning & Preservative Schedules')" class="text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] inline-flex items-center space-x-1.5 transition-colors cursor-pointer">
-                  <span>View Technology Profile</span>
-                  <span class="text-[#0284C7] transition-transform duration-200 group-hover:translate-x-1">→</span>
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <button type="button" onclick="openTechModalById('steam-distillation-for-essential-oils')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn cursor-pointer">
+                  <span>View Details</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
                 </button>
-                <a href="/contact?tech=Wood-Value-Addition" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] transition-colors">
-                  Inquire
+
+                <a href="/contact?tech=STEAM%20DISTILLATION%20FOR%20ESSENTIAL%20OILS" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] hover:underline transition-colors">
+                  Inquire →
                 </a>
               </div>
             </div>
 
-            <!-- Tech Card 6: Natural Dyes & Gums -->
-            <div class="bg-white rounded-[20px] p-6 sm:p-7 border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col justify-between group">
+            <!-- Tech Card 06: OIL EXTRACTION FROM TREE BORNE OIL SEEDS -->
+            <div class="tech-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="bioenergy" data-id="oil-extraction-from-tree-borne-oil-seeds" data-title="oil extraction from tree borne oil seeds" data-desc="extraction of oil from tbos which have domestic and industrial utility like agriculture, cosmetic, pharmaceutical, bio diesel, etc.,">
               <div>
-                <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 rounded-xl bg-[#F0FDFA] border border-teal-100 flex items-center justify-center text-[#0E7490] group-hover:scale-105 transition-transform">
-                    <!-- Feather / Botanical Icon -->
-                    <svg class="w-6 h-6 text-[#0E7490]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <line x1="16" y1="8" x2="2" y2="22" stroke-width="2" stroke-linecap="round"/>
-                      <line x1="17.5" y1="15" x2="9" y2="15" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
+                <!-- Card Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Technologies/oil-extraction-tree-borne-oil-seeds.png" alt="Oil Extraction from Tree Borne Oil Seeds at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge floating on image -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Biomass & Bioenergy
+                    </span>
                   </div>
-                  <span class="text-[11px] font-bold text-[#0E7490] bg-[#F0FDFA] px-3 py-1 rounded-full border border-teal-100">
-                    Organic Pigments
-                  </span>
+
+                  <!-- Tech Number Pill Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      06
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
 
-                <h3 class="font-heading font-extrabold text-xl sm:text-[22px] text-[#0A2E1C] group-hover:text-[#0E7490] transition-colors mb-3">
-                  Natural Dyes &amp; Gums
-                </h3>
+                <!-- Card Body Content -->
+                <div class="p-5 sm:p-6">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug mb-2">
+                    OIL EXTRACTION FROM TREE BORNE OIL SEEDS
+                  </h3>
 
-                <p class="text-slate-600 text-xs sm:text-sm md:text-[15px] leading-relaxed">
-                  Sustainable extraction processes from forest barks and seeds, standardized for commercial textile applications.
-                </p>
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed line-clamp-3 mb-4">
+                    Extraction of oil from TBOs which have domestic and industrial utility like agriculture, cosmetic, pharmaceutical, bio diesel, etc.,
+                  </p>
+
+                  <!-- Primary Application Tag -->
+                  <div class="pt-1">
+                    <span class="inline-block text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-md">
+                      🎯 TBOs, Biodiesel & Pharmaceuticals
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                <button type="button" onclick="openTechModal('Natural Dyes & Gums', 'Sustainable extraction processes from forest barks and seeds, standardized for commercial textile applications.', 'Organic Pigments', 'Bark & Seed Extraction Process')" class="text-xs font-bold text-[#0E7490] hover:text-[#0A2E1C] inline-flex items-center space-x-1.5 transition-colors cursor-pointer">
-                  <span>View Technology Profile</span>
-                  <span class="text-[#0284C7] transition-transform duration-200 group-hover:translate-x-1">→</span>
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <button type="button" onclick="openTechModalById('oil-extraction-from-tree-borne-oil-seeds')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn cursor-pointer">
+                  <span>View Details</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
                 </button>
-                <a href="/contact?tech=Natural-Dyes-Gums" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] transition-colors">
-                  Inquire
+
+                <a href="/contact?tech=OIL%20EXTRACTION%20FROM%20TREE%20BORNE%20OIL%20SEEDS" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] hover:underline transition-colors">
+                  Inquire →
                 </a>
               </div>
             </div>
 
+            <!-- Tech Card 07: WOOD VALUE ADDITION TECHNOLOGY -->
+            <div class="tech-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="wood" data-id="wood-value-addition-technology" data-title="wood value addition technology" data-desc="wood value addition such as antiques, carvings, etc through cnc router machine.">
+              <div>
+                <!-- Card Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Technologies/cnc-wood-router-workshop.jpg" alt="Wood Value Addition CNC Router Workshop at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge floating on image -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Wood & Value Addition
+                    </span>
+                  </div>
+
+                  <!-- Tech Number Pill Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      07
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+
+                <!-- Card Body Content -->
+                <div class="p-5 sm:p-6">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug mb-2">
+                    WOOD VALUE ADDITION TECHNOLOGY
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed line-clamp-3 mb-4">
+                    Wood value addition such as antiques, carvings, etc through CNC Router machine.
+                  </p>
+
+                  <!-- Primary Application Tag -->
+                  <div class="pt-1">
+                    <span class="inline-block text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-md">
+                      🎯 CNC Router Art & Carvings
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <button type="button" onclick="openTechModalById('wood-value-addition-technology')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn cursor-pointer">
+                  <span>View Details</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </button>
+
+                <a href="/contact?tech=WOOD%20VALUE%20ADDITION%20TECHNOLOGY" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] hover:underline transition-colors">
+                  Inquire →
+                </a>
+              </div>
+            </div>
+
+            <!-- Tech Card 08: TALL SEEDLING PRODUCTION -->
+            <div class="tech-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="forestry" data-id="tall-seedling-production" data-title="tall seedling production" data-desc="specialized nursery production protocol for cultivating tall, sturdy seedlings (6–10 ft height) with well-developed root architecture for high survival in agroforestry plantations and urban forestry.">
+              <div>
+                <!-- Card Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Technologies/tall-seedling-production.jpg" alt="Tall Seedling Production at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge floating on image -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Forestry & Nursery
+                    </span>
+                  </div>
+
+                  <!-- Tech Number Pill Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      08
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+
+                <!-- Card Body Content -->
+                <div class="p-5 sm:p-6">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug mb-2">
+                    TALL SEEDLING PRODUCTION
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed line-clamp-3 mb-4">
+                    Specialized nursery production protocol for cultivating tall, sturdy seedlings (6–10 ft height) with well-developed root architecture for high survival in agroforestry plantations and urban forestry.
+                  </p>
+
+                  <!-- Primary Application Tag -->
+                  <div class="pt-1">
+                    <span class="inline-block text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-md">
+                      🎯 Tall Seedlings & Agroforestry Plantations
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <button type="button" onclick="openTechModalById('tall-seedling-production')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn cursor-pointer">
+                  <span>View Details</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </button>
+
+                <a href="/contact?tech=TALL%20SEEDLING%20PRODUCTION" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] hover:underline transition-colors">
+                  Inquire →
+                </a>
+              </div>
+            </div>
+
+            <!-- Tech Card 09: TREE BURLAPPING -->
+            <div class="tech-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="forestry" data-id="tree-burlapping" data-title="tree burlapping" data-desc="root ball preservation and burlap wrapping technique for safe transplanting, relocation, and commercial transport of mature trees and seedlings with minimal transplant shock.">
+              <div>
+                <!-- Card Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Technologies/tree-burling.jpg" alt="Tree Burlapping and Root-Ball Preservation at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge floating on image -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Forestry & Nursery
+                    </span>
+                  </div>
+
+                  <!-- Tech Number Pill Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      09
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+
+                <!-- Card Body Content -->
+                <div class="p-5 sm:p-6">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug mb-2">
+                    TREE BURLAPPING
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed line-clamp-3 mb-4">
+                    Root ball preservation and burlap wrapping technique for safe transplanting, relocation, and commercial transport of mature trees and seedlings with minimal transplant shock.
+                  </p>
+
+                  <!-- Primary Application Tag -->
+                  <div class="pt-1">
+                    <span class="inline-block text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-md">
+                      🎯 Root-Ball Preservation & Tree Relocation
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <button type="button" onclick="openTechModalById('tree-burlapping')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn cursor-pointer">
+                  <span>View Details</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </button>
+
+                <a href="/contact?tech=TREE%20BURLAPPING" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] hover:underline transition-colors">
+                  Inquire →
+                </a>
+              </div>
+            </div>
+
+            <!-- Tech Card 10: COCOON CRAFT -->
+            <div class="tech-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="natural" data-id="cocoon-craft" data-title="cocoon craft" data-desc="innovative post-cocoon value-addition process utilizing unreelable and pierced silk cocoons for crafting eco-friendly decorative items, floral designs, jewelry, and luxury handicrafts.">
+              <div>
+                <!-- Card Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Technologies/cocoon-craft.jpg" alt="Cocoon Craft Silk Value Addition at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge floating on image -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Natural Products
+                    </span>
+                  </div>
+
+                  <!-- Tech Number Pill Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      10
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+
+                <!-- Card Body Content -->
+                <div class="p-5 sm:p-6">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug mb-2">
+                    COCOON CRAFT
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed line-clamp-3 mb-4">
+                    Innovative post-cocoon value-addition process utilizing unreelable and pierced silk cocoons for crafting eco-friendly decorative items, floral designs, jewelry, and luxury handicrafts.
+                  </p>
+
+                  <!-- Primary Application Tag -->
+                  <div class="pt-1">
+                    <span class="inline-block text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-md">
+                      🎯 Silk Cocoon Value Addition & Crafts
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <button type="button" onclick="openTechModalById('cocoon-craft')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn cursor-pointer">
+                  <span>View Details</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </button>
+
+                <a href="/contact?tech=COCOON%20CRAFT" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] hover:underline transition-colors">
+                  Inquire →
+                </a>
+              </div>
+            </div>
+
+            <!-- Tech Card 11: ITK VALIDATION -->
+            <div class="tech-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="environmental" data-id="itk-validation" data-title="itk validation" data-desc="scientific evaluation and validation of indigenous technical knowledge (itk) and traditional ethno-botanical practices to standardize and commercialize herbal and rural innovations.">
+              <div>
+                <!-- Card Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Technologies/itk-validation.jpg" alt="ITK Validation and Ethno-Botanical Laboratory at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge floating on image -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Environmental & ITK
+                    </span>
+                  </div>
+
+                  <!-- Tech Number Pill Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      11
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+
+                <!-- Card Body Content -->
+                <div class="p-5 sm:p-6">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug mb-2">
+                    ITK VALIDATION
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed line-clamp-3 mb-4">
+                    Scientific evaluation and validation of Indigenous Technical Knowledge (ITK) and traditional ethno-botanical practices to standardize and commercialize herbal and rural innovations.
+                  </p>
+
+                  <!-- Primary Application Tag -->
+                  <div class="pt-1">
+                    <span class="inline-block text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-md">
+                      🎯 Scientific Validation of Ethno-botany
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <button type="button" onclick="openTechModalById('itk-validation')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn cursor-pointer">
+                  <span>View Details</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </button>
+
+                <a href="/contact?tech=ITK%20VALIDATION" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] hover:underline transition-colors">
+                  Inquire →
+                </a>
+              </div>
+            </div>
+
+            <!-- Tech Card 12: TIMBER DIGITAL TRADE -->
+            <div class="tech-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="wood" data-id="timber-digital-trade" data-title="timber digital trade" data-desc="digital marketplace and supply-chain platform connecting tree growers, agroforestry farmers, and wood-based industries for transparent pricing, volume estimation, and timber trading.">
+              <div>
+                <!-- Card Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Technologies/timber-digital-trade.jpg" alt="Timber Digital Trade and Supply Chain Platform at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge floating on image -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Wood & Value Addition
+                    </span>
+                  </div>
+
+                  <!-- Tech Number Pill Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      12
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+
+                <!-- Card Body Content -->
+                <div class="p-5 sm:p-6">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug mb-2">
+                    TIMBER DIGITAL TRADE
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed line-clamp-3 mb-4">
+                    Digital marketplace and supply-chain platform connecting tree growers, agroforestry farmers, and wood-based industries for transparent pricing, volume estimation, and timber trading.
+                  </p>
+
+                  <!-- Primary Application Tag -->
+                  <div class="pt-1">
+                    <span class="inline-block text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-md">
+                      🎯 Direct Timber Market & Digital Auction
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <button type="button" onclick="openTechModalById('timber-digital-trade')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn cursor-pointer">
+                  <span>View Details</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </button>
+
+                <a href="/contact?tech=TIMBER%20DIGITAL%20TRADE" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] hover:underline transition-colors">
+                  Inquire →
+                </a>
+              </div>
+            </div>
+
+            <!-- Tech Card 13: MEDICINAL PRODUCTS -->
+            <div class="tech-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="natural" data-id="medicinal-products" data-title="medicinal products" data-desc="standardized processing, value addition, and commercial product development from agroforestry and forest-based medicinal and aromatic plants.">
+              <div>
+                <!-- Card Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Technologies/medicinal-products.jpg" alt="Medicinal Products Processing and Formulation at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge floating on image -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Natural Products
+                    </span>
+                  </div>
+
+                  <!-- Tech Number Pill Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      13
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+
+                <!-- Card Body Content -->
+                <div class="p-5 sm:p-6">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug mb-2">
+                    MEDICINAL PRODUCTS
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed line-clamp-3 mb-4">
+                    Standardized processing, value addition, and commercial product development from agroforestry and forest-based medicinal and aromatic plants.
+                  </p>
+
+                  <!-- Primary Application Tag -->
+                  <div class="pt-1">
+                    <span class="inline-block text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-md">
+                      🎯 Standardized Herbal Formulations
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <button type="button" onclick="openTechModalById('medicinal-products')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn cursor-pointer">
+                  <span>View Details</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </button>
+
+                <a href="/contact?tech=MEDICINAL%20PRODUCTS" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] hover:underline transition-colors">
+                  Inquire →
+                </a>
+              </div>
+            </div>
+
+            <!-- Tech Card 14: NON WOOD FOREST PRODUCTS -->
+            <div class="tech-card bg-white rounded-[22px] border border-slate-200/90 shadow-soft-sm hover-lift flex flex-col justify-between overflow-hidden transition-all duration-300 group" data-category="natural" data-id="non-wood-forest-products" data-title="non wood forest products" data-desc="sustainable collection, processing, and value-addition of diverse non-wood forest products (nwfps) including gums, resins, natural dyes, honey, and forest produce for enterprise development.">
+              <div>
+                <!-- Card Image Container with 16:10 Aspect Ratio -->
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 img-zoom-container">
+                  <img src="/Public/Technologies/non-wood-forest-products.jpg" alt="Non Wood Forest Products Value Addition at EDII-MAFBIF" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                  
+                  <!-- Category Pill Badge floating on image -->
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide backdrop-blur-md bg-white/95 text-[#0A2E1C] shadow-sm border border-slate-200/80">
+                      Natural Products
+                    </span>
+                  </div>
+
+                  <!-- Tech Number Pill Badge -->
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-[#0A2E1C]/90 text-[#FBFCEB] shadow-sm backdrop-blur-sm">
+                      14
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+
+                <!-- Card Body Content -->
+                <div class="p-5 sm:p-6">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug mb-2">
+                    NON WOOD FOREST PRODUCTS
+                  </h3>
+
+                  <p class="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed line-clamp-3 mb-4">
+                    Sustainable collection, processing, and value-addition of diverse Non-Wood Forest Products (NWFPs) including gums, resins, natural dyes, honey, and forest produce for enterprise development.
+                  </p>
+
+                  <!-- Primary Application Tag -->
+                  <div class="pt-1">
+                    <span class="inline-block text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] border border-[#DCFCE7] px-2.5 py-1 rounded-md">
+                      🎯 Sustainable Gums, Resins & Forest Produce
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card Action Footer -->
+              <div class="p-5 sm:p-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto bg-slate-50/40">
+                <button type="button" onclick="openTechModalById('non-wood-forest-products')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/btn cursor-pointer">
+                  <span>View Details</span>
+                  <svg class="w-3.5 h-3.5 text-[#0284C7] transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </button>
+
+                <a href="/contact?tech=NON%20WOOD%20FOREST%20PRODUCTS" class="text-xs font-semibold text-slate-500 hover:text-[#0A2E1C] hover:underline transition-colors">
+                  Inquire →
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Empty State (Shown when search returns no matches) -->
+          <div id="tech-empty-state" class="hidden text-center py-16 px-4 bg-white rounded-2xl border border-slate-200 shadow-soft-sm">
+            <div class="w-12 h-12 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-3">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-base text-slate-800 mb-1">No technologies match your search</h3>
+            <p class="text-xs text-slate-500 mb-4">Try different keywords or reset the category filter.</p>
+            <button type="button" onclick="resetAllFilters()" class="px-4 py-2 rounded-xl bg-[#0A2E1C] text-white text-xs font-bold hover:bg-[#14532D] transition-colors">
+              Reset All Filters
+            </button>
           </div>
 
         </div>
@@ -741,162 +1395,7 @@
       <div class="section-hairline"></div>
 
       <!-- ===================================================================== -->
-      <!-- 4. CORE MAFBIF TECHNOLOGIES (Pale Botanical Green Domain Showcase)     -->
-      <!-- ===================================================================== -->
-      <section id="mafbif-technologies" class="relative reveal-on-scroll">
-        
-        <!-- Ambient Dual-Color Lighting -->
-        <div class="ambient-orb-green w-80 h-80 -top-8 -left-8 opacity-65"></div>
-        <div class="ambient-orb-teal w-80 h-80 -bottom-8 -right-8 opacity-55"></div>
-
-        <div class="relative z-10 bg-[#EAF3EC] rounded-[26px] sm:rounded-[28px] p-6 sm:p-10 lg:p-14 border border-[#CFE3D1]/80 shadow-soft-sm overflow-hidden">
-          
-          <!-- Subtle Decorative Botanical Line Artwork -->
-          <svg class="absolute -right-8 -bottom-10 w-72 h-72 text-[#16A34A]/10 pointer-events-none hidden md:block" viewBox="0 0 200 200" fill="none" stroke="currentColor">
-            <path class="botanical-stroke" stroke-width="1.8" d="M20,180 C50,140 80,130 110,90 C130,60 150,40 180,20 M110,90 C90,70 70,60 50,60 M110,90 C130,110 150,120 170,120 M140,50 C120,40 100,40 90,45"/>
-          </svg>
-
-          <div class="max-w-3xl mb-10 relative z-10">
-            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-[#CFE3D1] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-widest uppercase mb-3 shadow-2xs">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
-              <span>Commercialization</span>
-            </div>
-            
-            <h2 class="font-heading text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0A2E1C] tracking-tight leading-tight">
-              MAFBIF Technologies
-            </h2>
-
-            <p class="text-slate-700 text-sm sm:text-base md:text-[16.5px] mt-3 leading-relaxed">
-              We bridge academic research and commercial enterprise, offering startups direct access to validated processing methods and technical mentoring.
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
-            
-            <!-- Pillar 1: Biomass & Pellets -->
-            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-[#CFE3D1] shadow-soft-sm hover-lift transition-all duration-300">
-              <div class="w-10 h-10 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7] flex items-center justify-center text-[#15803D] mb-4">
-                <span class="font-heading font-extrabold text-sm text-[#15803D]">01</span>
-              </div>
-              <h3 class="font-heading font-extrabold text-xl text-[#0A2E1C] mb-2">
-                Biomass &amp; Pellets
-              </h3>
-              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                Processing raw forestry waste into high-density biomass briquettes and activated carbon for industrial energy markets.
-              </p>
-              <div class="text-xs font-bold text-[#15803D]">
-                <span>Validated Thermal Protocol</span>
-              </div>
-            </div>
-
-            <!-- Pillar 2: Essential Oils -->
-            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-[#CFE3D1] shadow-soft-sm hover-lift transition-all duration-300">
-              <div class="w-10 h-10 rounded-xl bg-[#F0FDFA] border border-teal-100 flex items-center justify-center text-[#0E7490] mb-4">
-                <span class="font-heading font-extrabold text-sm text-[#0E7490]">02</span>
-              </div>
-              <h3 class="font-heading font-extrabold text-xl text-[#0A2E1C] mb-2">
-                Essential Oils
-              </h3>
-              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                Extraction and refinement of high-value natural resins, gums, and organic dyes using state-of-the-art laboratory distillation.
-              </p>
-              <div class="text-xs font-bold text-[#0E7490]">
-                <span>Laboratory Distillation Unit</span>
-              </div>
-            </div>
-
-            <!-- Pillar 3: Wood Value Addition -->
-            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-[#CFE3D1] shadow-soft-sm hover-lift transition-all duration-300">
-              <div class="w-10 h-10 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7] flex items-center justify-center text-[#15803D] mb-4">
-                <span class="font-heading font-extrabold text-sm text-[#15803D]">03</span>
-              </div>
-              <h3 class="font-heading font-extrabold text-xl text-[#0A2E1C] mb-2">
-                Wood Value Addition
-              </h3>
-              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                Technical validation and mechanical processing of timber species to enhance durability and market value for MSMEs.
-              </p>
-              <div class="text-xs font-bold text-[#15803D]">
-                <span>Mechanical Processing Facility</span>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Section Transition Hairline -->
-      <div class="section-hairline"></div>
-
-      <!-- ===================================================================== -->
-      <!-- 5. PROCESSING FACILITIES GALLERY (Real Incubator Infrastructure)       -->
-      <!-- ===================================================================== -->
-      <section id="infrastructure" class="reveal-on-scroll py-2">
-        <div class="text-center max-w-3xl mx-auto mb-10">
-          <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-widest uppercase mb-3 shadow-2xs">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
-            <span>Processing Facilities</span>
-          </div>
-          <h2 class="font-heading text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0A2E1C] tracking-tight leading-tight">
-            State-of-the-art incubation infrastructure
-          </h2>
-          <p class="text-slate-600 text-sm sm:text-base md:text-lg mt-3 leading-relaxed">
-            Our physical facilities at Mettupalayam provide the machinery, testing labs, and workspace required to transition from raw material to market-ready product.
-          </p>
-        </div>
-
-        <!-- 4 Authentic Photographic Gallery Items -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-          
-          <!-- Facility Item 1 -->
-          <div class="relative group rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 bg-slate-100 aspect-[4/3] img-zoom-container hover-lift">
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/iX3h8rqPfxJk6DDB/k9awf0-pZy3sDbIDFBA05vD.png" alt="Processing Equipment and Testing Laboratory at Mettupalayam Incubator" class="w-full h-full object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-            <div class="absolute bottom-3 left-3 right-3 text-white">
-              <span class="text-xs font-bold block drop-shadow-sm">Lab &amp; Testing Facility</span>
-              <span class="text-[10.5px] text-slate-200 font-medium">FC&amp;RI Mettupalayam</span>
-            </div>
-          </div>
-
-          <!-- Facility Item 2 -->
-          <div class="relative group rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 bg-slate-100 aspect-[4/3] img-zoom-container hover-lift">
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/iX3h8rqPfxJk6DDB/i7fy2d-9TP9p4smgsrW8Ty7.png" alt="Thermal Processing and Extraction Units at MAFBIF" class="w-full h-full object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-            <div class="absolute bottom-3 left-3 right-3 text-white">
-              <span class="text-xs font-bold block drop-shadow-sm">Thermal Extraction Unit</span>
-              <span class="text-[10.5px] text-slate-200 font-medium">Standardized Pilot Scale</span>
-            </div>
-          </div>
-
-          <!-- Facility Item 3 -->
-          <div class="relative group rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 bg-slate-100 aspect-[4/3] img-zoom-container hover-lift">
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/iX3h8rqPfxJk6DDB/jdoozt-HhloCMH8gfH02LOn.png" alt="Wood Seasoning and Value Addition Machinery at MAFBIF" class="w-full h-full object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-            <div class="absolute bottom-3 left-3 right-3 text-white">
-              <span class="text-xs font-bold block drop-shadow-sm">Wood Seasoning Lab</span>
-              <span class="text-[10.5px] text-slate-200 font-medium">Mechanical Treatment Area</span>
-            </div>
-          </div>
-
-          <!-- Facility Item 4 -->
-          <div class="relative group rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 bg-slate-100 aspect-[4/3] img-zoom-container hover-lift">
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/iX3h8rqPfxJk6DDB/me6wgx-QzuZxVr1ov31pCRK.png" alt="Industrial Nursery and Clonal Propagation Infrastructure" class="w-full h-full object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-            <div class="absolute bottom-3 left-3 right-3 text-white">
-              <span class="text-xs font-bold block drop-shadow-sm">Hi-Tech Nursery Unit</span>
-              <span class="text-[10.5px] text-slate-200 font-medium">Clonal Propagation Facility</span>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Section Transition Hairline -->
-      <div class="section-hairline"></div>
-
-      <!-- ===================================================================== -->
-      <!-- 6. HIGH-IMPACT LICENSING CTA ("Ready to license our technologies?")   -->
+      <!-- 4. BOTTOM CALL TO ACTION (Services, Incubation & Contact Bridge)       -->
       <!-- ===================================================================== -->
       <section id="cta" class="relative reveal-on-scroll">
         
@@ -906,26 +1405,29 @@
 
         <div class="relative z-10 bg-[#0A2216] text-white rounded-[26px] sm:rounded-[28px] p-8 sm:p-12 lg:p-14 border border-[#163818] shadow-soft-md overflow-hidden text-center">
           
-          <div class="max-w-2xl mx-auto space-y-5">
+          <div class="max-w-3xl mx-auto space-y-5">
             <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 text-[11px] sm:text-xs font-bold tracking-widest uppercase shadow-2xs">
               <span class="w-1.5 h-1.5 rounded-full bg-[#CFA851] animate-pulse"></span>
-              <span>Commercial Licensing</span>
+              <span>COMMERCIALIZATION &amp; INCUBATION</span>
             </div>
 
-            <h2 class="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#FBFCEB] tracking-tight leading-[1.2]">
-              Ready to license our technologies?
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#FBFCEB] tracking-tight leading-[1.2]">
+              INTERESTED IN WORKING WITH A TECHNOLOGY?
             </h2>
 
-            <p class="text-emerald-100/90 text-sm sm:text-base md:text-lg leading-relaxed">
-              Get in touch with our incubation team to discuss technology transfer, lab access, and seed grant opportunities.
+            <p class="text-emerald-100/90 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+              Explore incubation, technical mentoring, product development, IPR facilitation and other support available through MAFBIF.
             </p>
 
-            <div class="pt-3">
-              <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 text-sm sm:text-base font-bold rounded-xl text-[#0A2E1C] bg-[#CFA851] hover:bg-[#b89342] shadow-md transition-all duration-200 cursor-pointer group">
-                <span>Inquire About Technology</span>
-                <svg class="ml-2 w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                </svg>
+            <div class="flex flex-wrap items-center justify-center gap-3.5 pt-4">
+              <a href="/services" class="inline-flex items-center space-x-2 px-6 sm:px-7 py-3.5 sm:py-4 text-sm sm:text-base font-bold rounded-xl text-[#0A2E1C] bg-[#CFA851] hover:bg-[#b89342] shadow-md transition-all duration-200 cursor-pointer group">
+                <span>Explore Services &amp; Support</span>
+                <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+              </a>
+
+              <a href="/incubation" class="inline-flex items-center space-x-2 px-6 sm:px-7 py-3.5 sm:py-4 text-sm sm:text-base font-bold rounded-xl text-white bg-white/10 hover:bg-white/15 border border-white/20 transition-all duration-200 cursor-pointer group">
+                <span>Explore Incubation</span>
+                <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
               </a>
             </div>
           </div>
@@ -937,66 +1439,101 @@
   </main>
 
   <!-- ========================================================================= -->
-  <!-- 7. RESEARCH TECHNOLOGY DETAIL MODAL (Interactive Protocol Profile)        -->
+  <!-- 5. TECHNOLOGY DETAIL MODAL (Rich Technical Specification & Transfer)     -->
   <!-- ========================================================================= -->
   <div id="tech-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm bg-black/60 transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     
-    <div class="relative w-full max-w-2xl bg-white rounded-[24px] sm:rounded-[28px] shadow-2xl border border-slate-200 overflow-hidden transform transition-all duration-300 scale-95 opacity-0" id="tech-modal-card">
+    <div class="relative w-full max-w-3xl bg-white rounded-[24px] sm:rounded-[28px] shadow-2xl border border-slate-200 overflow-hidden transform transition-all duration-300 scale-95 opacity-0 max-h-[90vh] flex flex-col" id="tech-modal-card">
       
       <!-- Modal Header -->
-      <div class="bg-gradient-to-r from-[#0A2E1C] to-[#14532D] p-6 text-white flex items-start justify-between">
-        <div>
-          <span id="modal-category" class="inline-block text-[11px] font-bold tracking-wider uppercase text-[#CFA851] mb-1">
-            Research Protocol
-          </span>
-          <h3 id="modal-title" class="font-heading font-extrabold text-2xl sm:text-3xl text-[#FBFCEB] leading-tight">
+      <div class="bg-gradient-to-r from-[#0A2E1C] via-[#0E3B24] to-[#14532D] p-5 sm:p-6 text-white flex items-start justify-between shrink-0">
+        <div class="space-y-1 pr-4">
+          <div class="flex items-center space-x-2">
+            <span id="modal-number" class="text-xs font-black bg-[#CFA851] text-[#0A2E1C] px-2 py-0.5 rounded-md">01</span>
+            <span id="modal-category" class="text-xs font-bold tracking-wider uppercase text-emerald-200">
+              Category
+            </span>
+          </div>
+          <h3 id="modal-title" class="font-heading font-extrabold text-xl sm:text-2xl lg:text-[26px] text-[#FBFCEB] leading-tight">
             Technology Name
           </h3>
+          <p id="modal-tagline" class="text-xs sm:text-sm text-emerald-100/80 font-medium">
+            Tagline
+          </p>
         </div>
-        <button type="button" onclick="closeTechModal()" class="text-white/80 hover:text-white p-2 rounded-xl hover:bg-white/10 transition-colors focus:outline-none" aria-label="Close modal">
+
+        <button type="button" onclick="closeTechModal()" class="text-white/80 hover:text-white p-2 rounded-xl hover:bg-white/10 transition-colors focus:outline-none shrink-0 cursor-pointer" aria-label="Close modal">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
       </div>
 
-      <!-- Modal Body -->
-      <div class="p-6 sm:p-8 space-y-6">
+      <!-- Modal Body (Scrollable) -->
+      <div class="p-5 sm:p-8 space-y-6 overflow-y-auto">
+        
+        <!-- Large Image Showcase -->
+        <div class="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
+          <img id="modal-image" src="" alt="" class="w-full h-full object-cover object-center">
+        </div>
+
+        <!-- Technical Description -->
         <div>
-          <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-2">Technical Description &amp; Protocol</h4>
+          <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-2 flex items-center space-x-1.5">
+            <span>What It Does &amp; Technology Overview</span>
+          </h4>
           <p id="modal-description" class="text-slate-700 text-sm sm:text-base leading-relaxed">
-            Technology description placeholder.
+            Description
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-[#F8FAF8] p-4 rounded-xl border border-slate-200/80">
-          <div>
-            <span class="text-[11px] font-bold text-slate-500 uppercase block">Validation Body</span>
-            <span class="text-xs font-semibold text-[#0A2E1C]">TNAU Scientists &amp; FC&amp;RI</span>
-          </div>
-          <div>
-            <span class="text-[11px] font-bold text-slate-500 uppercase block">Licensing Framework</span>
-            <span class="text-xs font-semibold text-[#0A2E1C]">EDII-MAFBIF Incubation Support</span>
+        <!-- Technical Purpose & Mechanism -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-[#F0FDF4] border border-[#DCFCE7] space-y-2">
+          <h4 class="text-xs font-bold text-[#0A2E1C] uppercase tracking-wider">
+            Technical Purpose &amp; Specifications
+          </h4>
+          <p id="modal-purpose" class="text-slate-700 text-xs sm:text-sm leading-relaxed">
+            Purpose details
+          </p>
+        </div>
+
+        <!-- Applications & Commercial Uses -->
+        <div>
+          <h4 class="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-2.5">
+            Applications &amp; Uses
+          </h4>
+          <div id="modal-applications" class="flex flex-wrap gap-2">
+            <!-- Populated via JS -->
           </div>
         </div>
 
-        <!-- Actions -->
-        <div class="flex flex-col sm:flex-row items-center justify-end gap-3 pt-2">
-          <button type="button" onclick="closeTechModal()" class="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-50 text-sm font-semibold transition-colors">
-            Close
-          </button>
-          <a id="modal-inquire-btn" href="/contact" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#0A2E1C] hover:bg-[#14532D] text-white text-sm font-bold shadow-md transition-all text-center">
-            Inquire for Licensing
-          </a>
+        <!-- Industry Relevance -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+          <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">
+            Industry Relevance &amp; Commercialization
+          </h4>
+          <p id="modal-industry" class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Industry details
+          </p>
         </div>
+
+      </div>
+
+      <!-- Modal Footer (Fixed at bottom) -->
+      <div class="p-4 sm:p-5 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+        <button type="button" onclick="closeTechModal()" class="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 text-xs sm:text-sm font-semibold transition-colors cursor-pointer text-center">
+          Close
+        </button>
+
+        <a id="modal-inquire-btn" href="/contact" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-2.5 rounded-xl bg-[#0A2E1C] hover:bg-[#14532D] text-white text-xs sm:text-sm font-bold shadow-sm transition-all text-center">
+          <span>Inquire About This Technology</span>
+          <span>→</span>
+        </a>
       </div>
 
     </div>
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- 8. INSTITUTIONAL FOOTER (Deep Forest Green with Sitemap & Contact)        -->
-  <!-- ========================================================================= -->
   <footer class="relative bg-[#07190F] text-slate-300 border-t-2 border-t-[#16A34A]/30 mt-auto py-12 sm:py-16 overflow-hidden">
     
     <!-- Subtle Science Teal Bottom Accent -->
@@ -1040,6 +1577,7 @@
             <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
             <li><a href="/technologies" class="text-emerald-400 font-bold">Technologies</a></li>
             <li><a href="/facilities" class="hover:text-white transition-colors">Facilities</a></li>
+            <li><a href="/services" class="hover:text-white transition-colors">Services &amp; Support</a></li>
             <li><a href="/incubation" class="hover:text-white transition-colors">Incubation</a></li>
             <li><a href="/events" class="hover:text-white transition-colors">Events &amp; Training</a></li>
             <li><a href="/success-stories" class="hover:text-white transition-colors">Success Stories</a></li>
@@ -1068,10 +1606,462 @@
   </footer>
 
   <!-- ========================================================================= -->
-  <!-- 9. CLIENT SCRIPTS (Interactive Modal, Menu Toggle & Scroll Reveal)        -->
+  <!-- 6. CLIENT SCRIPTS (Interactive Search, Filters, Modal & Animations)        -->
   <!-- ========================================================================= -->
   <script>
     document.documentElement.classList.add('js');
+
+    // Technologies Data Source for Modal
+    const technologiesData = [
+  {
+    "id": "biomass-briquetting-pelleting",
+    "index": "01",
+    "title": "BIOMASS BRIQUETTING AND PELLETING TECHNOLOGY",
+    "category": "Biomass & Bioenergy",
+    "categoryId": "bioenergy",
+    "categoryBadgeColor": "bg-emerald-50 text-emerald-800 border-emerald-200",
+    "image": "/Public/Technologies/biomass-briquetting-press.jpg",
+    "slideImage": "/Public/MAFBIF TECHNOLOGIES/1.png",
+    "alt": "Biomass Briquetting and Pelleting Technology at EDII-MAFBIF",
+    "tagline": "Biomass briquettes are a bio fuel substitute to coal and charcoal",
+    "description": "Biomass briquettes are a bio fuel substitute to coal and charcoal made from agricultural and forestry waste where the low-density biomass is converted into high density biomass briquettes.",
+    "tagBadge": "🎯 Industrial Boilers & Green Fuel",
+    "applications": [
+      "Industrial Boilers & Thermal Energy",
+      "Substitute for Coal & Firewood",
+      "Agricultural & Forestry Waste Valorization",
+      "Clean Green Fuel Pellets"
+    ],
+    "purpose": "Converts low-density agricultural residues and forestry biomass into high-density solid biofuel briquettes to replace coal and charcoal.",
+    "industry": "Thermal Energy, Biomass Fuel & Industrial Boilers"
+  },
+  {
+    "id": "mini-clonal-propagation-technology",
+    "index": "02",
+    "title": "MINI CLONAL PROPAGATION TECHNOLOGY",
+    "category": "Forestry & Nursery",
+    "categoryId": "forestry",
+    "categoryBadgeColor": "bg-emerald-50 text-emerald-800 border-emerald-200",
+    "image": "/Public/Technologies/mini-clonal-propagation.png",
+    "slideImage": "/Public/MAFBIF TECHNOLOGIES/1.png",
+    "alt": "Mini Clonal Propagation Technology at EDII-MAFBIF",
+    "tagline": "Quality planting material and mass multiplication",
+    "description": "Production of quality planting material and its mass multiplication through mini clonal propagation technology.",
+    "tagBadge": "🎯 Quality Planting Material & Clones",
+    "applications": [
+      "Elite Tree Cultivar Propagation",
+      "Mass Clonal Seedling Multiplication",
+      "Quality Planting Material (QPM)",
+      "High-Yield Agroforestry Plantations"
+    ],
+    "purpose": "Accelerates the mass multiplication of genetically superior tree cultivars with uniform growth, rapid establishment, and high yield.",
+    "industry": "Commercial Agroforestry, Nurseries & Farm Forestry"
+  },
+  {
+    "id": "activated-carbon-generation",
+    "index": "03",
+    "title": "ACTIVATED CARBON GENERATION",
+    "category": "Biomass & Bioenergy",
+    "categoryId": "bioenergy",
+    "categoryBadgeColor": "bg-emerald-50 text-emerald-800 border-emerald-200",
+    "image": "/Public/Technologies/activated-carbon-generation.png",
+    "slideImage": "/Public/MAFBIF TECHNOLOGIES/2.png",
+    "alt": "Activated Carbon Generation Unit at EDII-MAFBIF",
+    "tagline": "Continuous carbonization from wood species for industrial purposes",
+    "description": "Generation of Activated Carbon through continous carbonization from wood species which is used for industrial purposes.",
+    "tagBadge": "🎯 Continuous Carbonization & Industrial Use",
+    "applications": [
+      "Industrial Air & Water Filtration",
+      "Gold Recovery & Chemical Purification",
+      "Continuous Carbonization Process",
+      "High-Surface-Area Adsorbents"
+    ],
+    "purpose": "Produces high-grade industrial activated carbon from sustainably sourced wood species via continuous controlled carbonization.",
+    "industry": "Industrial Filtration, Chemical Processing & Environmental Remediation"
+  },
+  {
+    "id": "wood-seasoning-and-preservation",
+    "index": "04",
+    "title": "WOOD SEASONING AND PRESERVATION",
+    "category": "Wood & Value Addition",
+    "categoryId": "wood",
+    "categoryBadgeColor": "bg-amber-50 text-amber-800 border-amber-200",
+    "image": "/Public/Technologies/wood-seasoning-kiln-plant.jpg",
+    "slideImage": "/Public/MAFBIF TECHNOLOGIES/2.png",
+    "alt": "Wood Seasoning and Preservation Treatment at EDII-MAFBIF",
+    "tagline": "Preserves wood from termite and fungal attack, increasing timber shelf life",
+    "description": "Preserves wood from termite, fungal attack by removing moisture content and chemical treatment which increases the shelf life of timber.",
+    "tagBadge": "🎯 Termite & Fungal Protection",
+    "applications": [
+      "Moisture Content Reduction & Solar Kiln Drying",
+      "Chemical Vacuum Pressure Impregnation",
+      "Termite & Fungal Decay Prevention",
+      "Long-Life Structural & Furniture Timber"
+    ],
+    "purpose": "Enhances wood durability, dimensional stability, and longevity by eliminating moisture and applying protective timber treatments.",
+    "industry": "Timber Processing, Construction & Furniture Manufacturing"
+  },
+  {
+    "id": "steam-distillation-for-essential-oils",
+    "index": "05",
+    "title": "STEAM DISTILLATION FOR ESSENTIAL OILS",
+    "category": "Natural Products",
+    "categoryId": "natural",
+    "categoryBadgeColor": "bg-sky-50 text-sky-800 border-sky-200",
+    "image": "/Public/Technologies/steam-distillation-essential-oils.png",
+    "slideImage": "/Public/MAFBIF TECHNOLOGIES/3.png",
+    "alt": "Steam Distillation Unit for Essential Oils at EDII-MAFBIF",
+    "tagline": "Extraction of essential oils from tree components with wide business scope",
+    "description": "Extraction of essential oil from tree components through steam distillation method which has a wide scope of business opportunity in local and international markets.",
+    "tagBadge": "🎯 Tree Essential Oils & Global Trade",
+    "applications": [
+      "Aromatherapy & Fragrance Industries",
+      "Pharmaceutical & Cosmetic Formulations",
+      "High-Value Tree Essential Oils",
+      "Local & Export Market Commercialization"
+    ],
+    "purpose": "Efficiently isolates volatile aromatic compounds and pure essential oils from eucalyptus, lemongrass, cymbopogon, and other forestry species.",
+    "industry": "Perfumery, Cosmetics, Pharmaceuticals & Wellness"
+  },
+  {
+    "id": "oil-extraction-from-tree-borne-oil-seeds",
+    "index": "06",
+    "title": "OIL EXTRACTION FROM TREE BORNE OIL SEEDS",
+    "category": "Biomass & Bioenergy",
+    "categoryId": "bioenergy",
+    "categoryBadgeColor": "bg-emerald-50 text-emerald-800 border-emerald-200",
+    "image": "/Public/Technologies/oil-extraction-tree-borne-oil-seeds.png",
+    "slideImage": "/Public/MAFBIF TECHNOLOGIES/3.png",
+    "alt": "Oil Extraction from Tree Borne Oil Seeds at EDII-MAFBIF",
+    "tagline": "Oil extraction from TBOs for domestic and industrial utility",
+    "description": "Extraction of oil from TBOs which have domestic and industrial utility like agriculture, cosmetic, pharmaceutical, bio diesel, etc.,",
+    "tagBadge": "🎯 TBOs, Biodiesel & Pharmaceuticals",
+    "applications": [
+      "Bio-diesel & Renewable Fuels",
+      "Agricultural Bio-pesticides & Soil Enhancers",
+      "Cosmetic & Soap Formulations",
+      "Pharmaceutical Grade TBO Derivatives"
+    ],
+    "purpose": "Processes non-edible tree-borne oilseeds (Neem, Pongamia, Jatropha, Mahua) into multi-utility industrial oils and nutrient-rich bio-cake.",
+    "industry": "Biofuels, Organic Agriculture & Cosmetic Manufacturing"
+  },
+  {
+    "id": "wood-value-addition-technology",
+    "index": "07",
+    "title": "WOOD VALUE ADDITION TECHNOLOGY",
+    "category": "Wood & Value Addition",
+    "categoryId": "wood",
+    "categoryBadgeColor": "bg-amber-50 text-amber-800 border-amber-200",
+    "image": "/Public/Technologies/cnc-wood-router-workshop.jpg",
+    "slideImage": "/Public/MAFBIF TECHNOLOGIES/4.png",
+    "alt": "Wood Value Addition CNC Router Workshop at EDII-MAFBIF",
+    "tagline": "Wood value addition such as antiques and carvings through CNC Router machine",
+    "description": "Wood value addition such as antiques, carvings, etc through CNC Router machine.",
+    "tagBadge": "🎯 CNC Router Art & Carvings",
+    "applications": [
+      "Precision CNC Architectural Wood Carving",
+      "Heritage Antiques & Decorative Woodcraft",
+      "Custom Furniture Components & Panels",
+      "High-Value Artisan Prototyping"
+    ],
+    "purpose": "Empowers entrepreneurs to design, carve, and mass-produce precision 2D/3D wooden artifacts and furniture with high profit margins.",
+    "industry": "Woodcraft, Interior Architecture & Artisanal Exports"
+  },
+  {
+    "id": "tall-seedling-production",
+    "index": "08",
+    "title": "TALL SEEDLING PRODUCTION",
+    "category": "Forestry & Nursery",
+    "categoryId": "forestry",
+    "categoryBadgeColor": "bg-emerald-50 text-emerald-800 border-emerald-200",
+    "image": "/Public/Technologies/tall-seedling-production.jpg",
+    "slideImage": "/Public/MAFBIF TECHNOLOGIES/4.1 join this.png",
+    "alt": "Tall Seedling Production at EDII-MAFBIF",
+    "tagline": "Advanced nursery protocols for vigorous tall seedlings",
+    "description": "Specialized nursery production protocol for cultivating tall, sturdy seedlings (6–10 ft height) with well-developed root architecture for high survival in agroforestry plantations and urban forestry.",
+    "tagBadge": "🎯 Tall Seedlings & Agroforestry Plantations",
+    "applications": [
+      "High-Survival Farm Boundary Plantations",
+      "Urban Avenue & Highway Greening",
+      "Degraded Land Reforestation",
+      "Mechanized Field Establishment"
+    ],
+    "purpose": "Produces hardened, field-ready tall seedlings that outgrow competing weeds, tolerate browsing pressure, and achieve near-100% field survival.",
+    "industry": "Forestry Nurseries, Agroforestry & Green Infrastructure"
+  },
+  {
+    "id": "tree-burlapping",
+    "index": "09",
+    "title": "TREE BURLAPPING",
+    "category": "Forestry & Nursery",
+    "categoryId": "forestry",
+    "categoryBadgeColor": "bg-emerald-50 text-emerald-800 border-emerald-200",
+    "image": "/Public/Technologies/tree-burling.jpg",
+    "slideImage": "/Public/MAFBIF TECHNOLOGIES/4.1 join this.png",
+    "alt": "Tree Burlapping and Root-Ball Preservation at EDII-MAFBIF",
+    "tagline": "Root ball preservation and burlap wrapping for tree transplantation",
+    "description": "Root ball preservation and burlap wrapping technique for safe transplanting, relocation, and commercial transport of mature trees and seedlings with minimal transplant shock.",
+    "tagBadge": "🎯 Root-Ball Preservation & Tree Relocation",
+    "applications": [
+      "Mature Tree Relocation & Transplantation",
+      "Root Ball Stabilization for Long-Distance Transport",
+      "Urban Infrastructure Rescue Operations",
+      "Commercial Landscaping & Specimen Tree Sales"
+    ],
+    "purpose": "Protects the delicate feeder root system using natural burlap and wire basket binding to ensure seamless transplant survival without root disruption.",
+    "industry": "Arboriculture, Urban Forestry & Landscape Contracting"
+  },
+  {
+    "id": "cocoon-craft",
+    "index": "10",
+    "title": "COCOON CRAFT",
+    "category": "Natural Products",
+    "categoryId": "natural",
+    "categoryBadgeColor": "bg-sky-50 text-sky-800 border-sky-200",
+    "image": "/Public/Technologies/cocoon-craft.jpg",
+    "slideImage": "/Public/MAFBIF TECHNOLOGIES/4.1 join this.png",
+    "alt": "Cocoon Craft Silk Value Addition at EDII-MAFBIF",
+    "tagline": "Creative value addition using unreelable and pierced silk cocoons",
+    "description": "Innovative post-cocoon value-addition process utilizing unreelable and pierced silk cocoons for crafting eco-friendly decorative items, floral designs, jewelry, and luxury handicrafts.",
+    "tagBadge": "🎯 Silk Cocoon Value Addition & Crafts",
+    "applications": [
+      "Sericulture Waste Valorization",
+      "Handcrafted Eco-Jewelry & Garlands",
+      "Corporate Gifting & Floral Art",
+      "Rural Women Self-Help Group (SHG) Enterprises"
+    ],
+    "purpose": "Converts low-value discarded silk cocoons into high-value artisanal luxury products, creating sustainable supplementary rural income.",
+    "industry": "Handicrafts, Fashion Accessories & Sericulture MSMEs"
+  },
+  {
+    "id": "itk-validation",
+    "index": "11",
+    "title": "ITK VALIDATION",
+    "category": "Environmental & ITK",
+    "categoryId": "environmental",
+    "categoryBadgeColor": "bg-teal-50 text-teal-800 border-teal-200",
+    "image": "/Public/Technologies/itk-validation.jpg",
+    "slideImage": "/Public/MAFBIF TECHNOLOGIES/4.1 join this.png",
+    "alt": "ITK Validation and Ethno-Botanical Laboratory at EDII-MAFBIF",
+    "tagline": "Scientific evaluation and validation of Indigenous Technical Knowledge",
+    "description": "Scientific evaluation and validation of Indigenous Technical Knowledge (ITK) and traditional ethno-botanical practices to standardize and commercialize herbal and rural innovations.",
+    "tagBadge": "🎯 Scientific Validation of Ethno-botany",
+    "applications": [
+      "Ethno-Botanical Bio-Assay Testing",
+      "Tribal Knowledge Documentation & IPR Protection",
+      "Standardized Bio-Formulations for Pest Control",
+      "Commercial Patenting & Academic Tech Transfer"
+    ],
+    "purpose": "Bridges age-old traditional tribal remedies with laboratory analytical validation to formulate certified, repeatable commercial bioproducts.",
+    "industry": "Herbal Pharmaceuticals, Bio-Pesticides & Traditional Medicine"
+  },
+  {
+    "id": "timber-digital-trade",
+    "index": "12",
+    "title": "TIMBER DIGITAL TRADE",
+    "category": "Wood & Value Addition",
+    "categoryId": "wood",
+    "categoryBadgeColor": "bg-amber-50 text-amber-800 border-amber-200",
+    "image": "/Public/Technologies/timber-digital-trade.jpg",
+    "slideImage": "/Public/MAFBIF TECHNOLOGIES/4.1 join this.png",
+    "alt": "Timber Digital Trade and Supply Chain Platform at EDII-MAFBIF",
+    "tagline": "Digital marketplace connecting tree growers and wood-based industries",
+    "description": "Digital marketplace and supply-chain platform connecting tree growers, agroforestry farmers, and wood-based industries for transparent pricing, volume estimation, and timber trading.",
+    "tagBadge": "🎯 Direct Timber Market & Digital Auction",
+    "applications": [
+      "Mobile Log Volume Measurement & Quality Grading",
+      "Direct Farmer-to-Industry Online Bidding",
+      "Real-Time Market Price Discovery",
+      "Legal Compliance & Timber Transit Documentation"
+    ],
+    "purpose": "Eliminates opaque middlemen in the timber supply chain, enabling tree farmers to receive fair, transparent remuneration.",
+    "industry": "Digital Agri-Tech, Sawmills, Plywood & Paper Pulp Industries"
+  },
+  {
+    "id": "medicinal-products",
+    "index": "13",
+    "title": "MEDICINAL PRODUCTS",
+    "category": "Natural Products",
+    "categoryId": "natural",
+    "categoryBadgeColor": "bg-sky-50 text-sky-800 border-sky-200",
+    "image": "/Public/Technologies/medicinal-products.jpg",
+    "slideImage": "/Public/MAFBIF TECHNOLOGIES/4.1 join this.png",
+    "alt": "Medicinal Products Processing and Formulation at EDII-MAFBIF",
+    "tagline": "Standardized processing and product development from medicinal plants",
+    "description": "Standardized processing, value addition, and commercial product development from agroforestry and forest-based medicinal and aromatic plants.",
+    "tagBadge": "🎯 Standardized Herbal Formulations",
+    "applications": [
+      "Ayurvedic & Siddha Botanical Extracts",
+      "Nutraceutical & Dietary Supplements",
+      "Solar Tunnel Drying & Hygienic Pulverization",
+      "Certified Phytochemical Formulations"
+    ],
+    "purpose": "Translates wild and cultivated medicinal botanical species into GMP-compliant powders, decoctions, oils, and standardized pharmaceutical ingredients.",
+    "industry": "Phytopharmaceuticals, Herbal Wellness & Nutraceuticals"
+  },
+  {
+    "id": "non-wood-forest-products",
+    "index": "14",
+    "title": "NON WOOD FOREST PRODUCTS",
+    "category": "Natural Products",
+    "categoryId": "natural",
+    "categoryBadgeColor": "bg-sky-50 text-sky-800 border-sky-200",
+    "image": "/Public/Technologies/non-wood-forest-products.jpg",
+    "slideImage": "/Public/MAFBIF TECHNOLOGIES/4.1 join this.png",
+    "alt": "Non Wood Forest Products Value Addition at EDII-MAFBIF",
+    "tagline": "Sustainable collection and value-addition of non-wood forest commodities",
+    "description": "Sustainable collection, processing, and value-addition of diverse Non-Wood Forest Products (NWFPs) including gums, resins, natural dyes, honey, and forest produce for enterprise development.",
+    "tagBadge": "🎯 Sustainable Gums, Resins & Forest Produce",
+    "applications": [
+      "Natural Tree Gums & Resins (Sterculia, Acacia)",
+      "Forest Botanical Dyes & Tannins",
+      "Forest Honey Purification & Cold-Processing",
+      "Tribal Collective Micro-Enterprise Promotion"
+    ],
+    "purpose": "Maximizes sustainable economic returns from forest ecosystems without tree felling through hygienic processing, grading, and packaging of non-wood forest produce.",
+    "industry": "Food Processing, Confectionery, Natural Colorants & Tribal MSMEs"
+  }
+];
+
+    let activeCategory = 'all';
+    let searchQuery = '';
+
+    function filterCategory(cat) {
+      activeCategory = cat;
+      
+      // Update Filter Buttons UI
+      document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-category') === cat) {
+          btn.classList.add('bg-[#0A2E1C]', 'text-white', 'is-active');
+          btn.classList.remove('text-slate-600', 'hover:bg-slate-100');
+        } else {
+          btn.classList.remove('bg-[#0A2E1C]', 'text-white', 'is-active');
+          btn.classList.add('text-slate-600', 'hover:bg-slate-100');
+        }
+      });
+
+      applyFilters();
+    }
+
+    function handleSearch(val) {
+      searchQuery = val.trim().toLowerCase();
+      applyFilters();
+    }
+
+    function resetAllFilters() {
+      activeCategory = 'all';
+      searchQuery = '';
+      const searchInput = document.getElementById('tech-search-input');
+      if (searchInput) searchInput.value = '';
+      filterCategory('all');
+    }
+
+    function applyFilters() {
+      const cards = document.querySelectorAll('.tech-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        const title = card.getAttribute('data-title') || '';
+        const desc = card.getAttribute('data-desc') || '';
+
+        const matchesCat = (activeCategory === 'all' || cardCat === activeCategory);
+        const matchesSearch = (!searchQuery || title.includes(searchQuery) || desc.includes(searchQuery));
+
+        if (matchesCat && matchesSearch) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Update counter & reset button
+      const statusText = document.getElementById('filter-status-text');
+      const resetBtn = document.getElementById('reset-filter-btn');
+      const emptyState = document.getElementById('tech-empty-state');
+
+      if (statusText) {
+        if (activeCategory === 'all' && !searchQuery) {
+          statusText.textContent = `Showing all ${cards.length} technologies`;
+          if (resetBtn) resetBtn.classList.add('hidden');
+        } else {
+          statusText.textContent = `Showing ${visibleCount} of ${cards.length} technologies`;
+          if (resetBtn) resetBtn.classList.remove('hidden');
+        }
+      }
+
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      }
+    }
+
+    // Modal Interaction
+    function openTechModalById(id) {
+      const tech = technologiesData.find(t => t.id === id);
+      if (!tech) return;
+
+      document.getElementById('modal-number').textContent = tech.index;
+      document.getElementById('modal-category').textContent = tech.category;
+      document.getElementById('modal-title').textContent = tech.title;
+      document.getElementById('modal-tagline').textContent = tech.tagline;
+      document.getElementById('modal-image').src = tech.image;
+      document.getElementById('modal-image').alt = tech.alt;
+      document.getElementById('modal-description').textContent = tech.description;
+      document.getElementById('modal-purpose').textContent = tech.purpose;
+      document.getElementById('modal-industry').textContent = tech.industry;
+
+      const appContainer = document.getElementById('modal-applications');
+      appContainer.innerHTML = tech.applications.map(app => 
+        `<span class="inline-flex items-center px-3 py-1 rounded-lg text-xs font-semibold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7]">${app}</span>`
+      ).join('');
+
+      document.getElementById('modal-inquire-btn').href = `/contact?tech=${encodeURIComponent(tech.title)}`;
+
+      const modal = document.getElementById('tech-modal');
+      const modalCard = document.getElementById('tech-modal-card');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+
+      setTimeout(() => {
+        modalCard.classList.remove('scale-95', 'opacity-0');
+        modalCard.classList.add('scale-100', 'opacity-100');
+      }, 10);
+    }
+
+    function closeTechModal() {
+      const modal = document.getElementById('tech-modal');
+      const modalCard = document.getElementById('tech-modal-card');
+      
+      modalCard.classList.remove('scale-100', 'opacity-100');
+      modalCard.classList.add('scale-95', 'opacity-0');
+
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 250);
+    }
+
+    // Close on outside click
+    document.getElementById('tech-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'tech-modal') {
+        closeTechModal();
+      }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('tech-modal');
+        if (modal && !modal.classList.contains('hidden')) {
+          closeTechModal();
+        }
+      }
+    });
 
     document.addEventListener('DOMContentLoaded', () => {
       // Mobile Navigation Toggle
@@ -1098,6 +2088,36 @@
             if (iconClose) iconClose.classList.add('hidden');
           }
         });
+      }
+
+      // Support Dropdown
+      const supportDdWrapper = document.getElementById('support-nav-group');
+      const supportDdPanel   = document.getElementById('support-dropdown-panel');
+      const supportDdArrow   = supportDdWrapper && supportDdWrapper.querySelector('svg');
+      let   supportDdTimer   = null;
+
+      function openSupportDd() {
+        if (supportDdTimer) { clearTimeout(supportDdTimer); supportDdTimer = null; }
+        if (supportDdPanel) {
+          supportDdPanel.classList.remove('hidden');
+          if (supportDdArrow) supportDdArrow.style.transform = 'rotate(180deg)';
+        }
+      }
+
+      function scheduleCloseSupportDd() {
+        supportDdTimer = setTimeout(() => {
+          if (supportDdPanel) {
+            supportDdPanel.classList.add('hidden');
+            if (supportDdArrow) supportDdArrow.style.transform = '';
+          }
+        }, 180);
+      }
+
+      if (supportDdWrapper && supportDdPanel) {
+        supportDdWrapper.addEventListener('mouseenter', openSupportDd);
+        supportDdWrapper.addEventListener('mouseleave', scheduleCloseSupportDd);
+        supportDdPanel.addEventListener('mouseenter',  openSupportDd);
+        supportDdPanel.addEventListener('mouseleave',  scheduleCloseSupportDd);
       }
 
       // Incubation Dropdown

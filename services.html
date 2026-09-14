@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDII–MAFBIF | Services &amp; Support</title>
+  <meta name="description" content="EDII–MAFBIF provides comprehensive support to entrepreneurs and startups through expert mentoring, technical guidance, regulatory assistance, funding access, product development support, and strategic industry connections.">
+
+  <!-- Premium Institutional Typography: Plus Jakarta Sans & Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              950: '#07190F',
+              900: '#0A2E1C',
+              850: '#0E3B24',
+              800: '#14532D',
+              700: '#15803D',
+              600: '#16A34A',
+              500: '#22C55E',
+              100: '#DCFCE7',
+              50: '#F0FDF4',
+            },
+            teal: {
+              900: '#134E4A',
+              800: '#115E59',
+              700: '#0F766E',
+              600: '#0D9488',
+              500: '#14B8A6',
+              400: '#2DD4BF',
+              300: '#38BDF8',
+              100: '#CCFBF1',
+              50: '#F0FDFA',
+            },
+            science: {
+              blue: '#0284C7',
+              cyan: '#0891B2',
+              teal: '#0D9488',
+              deepteal: '#0E7490',
+            },
+            brand: {
+              green: '#2E7D32',
+              darkgreen: '#173B2F',
+              darker: '#1B4332',
+              sage: '#EAF3EC',
+              mint: '#CFE3D1',
+              deepforest: '#0A2216',
+              gold: '#CFA851'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Manrope', 'system-ui', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          },
+          boxShadow: {
+            'soft-sm': '0 2px 8px -2px rgba(10, 46, 28, 0.04), 0 1px 4px -1px rgba(10, 46, 28, 0.02)',
+            'soft-md': '0 10px 25px -4px rgba(10, 46, 28, 0.05), 0 4px 10px -2px rgba(10, 46, 28, 0.02)',
+            'soft-lg': '0 20px 40px -8px rgba(10, 46, 28, 0.07), 0 6px 16px -3px rgba(10, 46, 28, 0.03)',
+            'glow-teal': '0 0 45px -10px rgba(2, 132, 199, 0.16)',
+            'glow-forest': '0 0 45px -10px rgba(22, 163, 74, 0.14)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ========================================================================= */
+    /* 1. DUAL-COLOR AMBIENT BACKGROUND ANIMATION (Nature + Science Harmony)     */
+    /* ========================================================================= */
+    @keyframes orbFloatGreen {
+      0%, 100% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(22px, -30px) scale(1.05); }
+      66% { transform: translate(-18px, 18px) scale(0.95); }
+    }
+
+    @keyframes orbFloatTeal {
+      0%, 100% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(-25px, 22px) scale(0.95); }
+      66% { transform: translate(18px, -22px) scale(1.04); }
+    }
+
+    .ambient-orb-green {
+      position: absolute;
+      border-radius: 9999px;
+      background: radial-gradient(circle, rgba(22, 163, 74, 0.09) 0%, rgba(22, 163, 74, 0) 70%);
+      filter: blur(90px);
+      pointer-events: none;
+      animation: orbFloatGreen 24s ease-in-out infinite;
+      will-change: transform;
+      z-index: 0;
+    }
+
+    .ambient-orb-teal {
+      position: absolute;
+      border-radius: 9999px;
+      background: radial-gradient(circle, rgba(2, 132, 199, 0.08) 0%, rgba(2, 132, 199, 0) 70%);
+      filter: blur(95px);
+      pointer-events: none;
+      animation: orbFloatTeal 28s ease-in-out infinite;
+      will-change: transform;
+      z-index: 0;
+    }
+
+    /* Active Link Accent Line */
+    .nav-link-active {
+      color: #0A2E1C;
+      font-weight: 700;
+      position: relative;
+    }
+    .nav-link-active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 12px;
+      right: 12px;
+      height: 2.5px;
+      background-color: #CFA851;
+      border-radius: 9999px;
+    }
+
+    /* Restrained Scroll Reveal */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hover-lift {
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Subtle Section Transition Gradient Dividers */
+    .section-hairline {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(22, 163, 74, 0.15) 30%, rgba(2, 132, 199, 0.15) 70%, transparent 100%);
+    }
+
+    /* Accessibility: Respect Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      .ambient-orb-green,
+      .ambient-orb-teal,
+      .reveal-on-scroll,
+      .hover-lift {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* Card styling */
+    .service-card {
+      border: 1px solid rgba(15, 74, 42, 0.12);
+      box-shadow: 0 4px 20px -2px rgba(10, 46, 28, 0.05), 0 1px 3px 0 rgba(10, 46, 28, 0.03);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(22, 163, 74, 0.45);
+      box-shadow: 0 12px 28px -4px rgba(10, 46, 28, 0.10), 0 0 0 1.5px rgba(22, 163, 74, 0.18);
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAF8] text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-start selection:bg-emerald-100 selection:text-emerald-900 overflow-x-hidden">
+
+  <!-- ========================================================================= -->
+  <!-- 1. INSTITUTIONAL HEADER (Clean Floating Bar with Logo, Brand & Nav)       -->
+  <!-- ========================================================================= -->
+  <header class="w-full pt-2.5 sm:pt-4 pb-2 px-3 sm:px-6 lg:px-8 xl:px-12 sticky top-0 z-50 backdrop-blur-md bg-[#F8FAF8]/90">
+    <div class="max-w-[1440px] mx-auto">
+      
+      <div class="relative bg-white rounded-[20px] sm:rounded-[28px] shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)] border border-slate-200/80 px-3.5 sm:px-6 lg:px-7 py-2 sm:py-3.5 flex items-center justify-between min-h-[64px] sm:min-h-[80px] lg:min-h-[88px]">
+        
+        <!-- Left Group: Branding + Divider + Navigation -->
+        <div class="flex items-center min-w-0">
+          
+          <!-- Brand Lockup -->
+          <a href="/" class="flex items-center space-x-2.5 sm:space-x-3.5 group shrink-0" aria-label="EDII-MAFBIF Home">
+            <div class="w-10 h-10 sm:w-[48px] sm:h-[48px] lg:w-[54px] lg:h-[54px] flex items-center justify-center overflow-hidden transition-transform duration-200 group-hover:scale-105 shrink-0">
+              <img src="/logo.png" alt="EDII-MAFBIF Logo" class="w-full h-full object-contain">
+            </div>
+
+            <div class="flex flex-col justify-center min-w-0">
+              <span class="font-heading font-extrabold text-[16px] sm:text-[20px] lg:text-[21px] tracking-tight text-[#0A2E1C] leading-tight">
+                EDII–MAFBIF
+              </span>
+              <span class="text-[9px] sm:text-[10.5px] font-medium text-slate-500 tracking-tight leading-tight mt-0.5 max-w-[155px] sm:max-w-none">
+                Tamil Nadu Agricultural University<br class="hidden sm:block"> &amp; FC&amp;RI Initiative
+              </span>
+            </div>
+          </a>
+
+          <!-- Subtle Vertical Divider -->
+          <div class="hidden lg:block h-9 w-[1px] bg-slate-200/90 mx-3.5 xl:mx-5 2xl:mx-6 shrink-0"></div>
+
+          <!-- Desktop Navigation Bar -->
+          <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2 2xl:space-x-3 font-medium tracking-tight whitespace-nowrap" aria-label="Main Navigation">
+            <a href="/" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>Home</span>
+            </a>
+            <a href="/about" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>About Us</span>
+            </a>
+            <a href="/technologies" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>Technologies</span>
+            </a>
+
+            <!-- Support Dropdown Menu (ACTIVE on Services & Support) -->
+            <div class="relative" id="support-nav-group">
+              <button type="button" class="px-2.5 xl:px-3 py-1.5 rounded-xl bg-[#F0FDF4] text-[#0A2E1C] font-bold text-[13px] xl:text-[13.5px] 2xl:text-[14px] relative inline-flex items-center focus:outline-none" aria-expanded="false">
+                <span>Support</span>
+                <svg class="ml-1 w-3.5 h-3.5 text-[#15803D] transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"/>
+                </svg>
+                <span class="absolute bottom-0 left-3 right-3 h-[2px] bg-[#15803D] rounded-full"></span>
+              </button>
+              
+              <div class="absolute left-0 top-full w-52 rounded-2xl shadow-xl bg-white border border-slate-100 hidden z-50 pt-2.5 pb-2 mt-1" id="support-dropdown-panel">
+                <a href="/facilities" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Facilities</a>
+                <a href="/services" class="block px-4 py-2 text-sm bg-[#F0FDF4] text-[#0A2E1C] font-bold">Services &amp; Support</a>
+              </div>
+            </div>
+
+            <!-- Incubation Dropdown Menu -->
+            <div class="relative" id="incubation-nav-group">
+              <button type="button" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all inline-flex items-center focus:outline-none" aria-expanded="false">
+                <span>Incubation</span>
+                <svg class="ml-1 w-3.5 h-3.5 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              
+              <div class="absolute left-0 top-full w-52 rounded-2xl shadow-xl bg-white border border-slate-100 hidden z-50 pt-2.5 pb-2 mt-1" id="incubation-dropdown-panel">
+                <a href="/incubation" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Incubation Overview</a>
+                <a href="/members" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Members</a>
+                <a href="/mentors" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Mentors</a>
+              </div>
+            </div>
+
+            <a href="/events" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>Events &amp; Training</span>
+            </a>
+            <a href="/success-stories" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
+              <span>Success Stories</span>
+            </a>
+          </nav>
+
+        </div>
+
+        <!-- Right Side: Primary Green Contact Us CTA Button -->
+        <div class="hidden lg:flex items-center shrink-0 ml-3 xl:ml-5">
+          <a href="/contact" class="inline-flex items-center space-x-2 bg-[#0F4A2A] hover:bg-[#0A2E1C] text-white px-5 py-2.5 rounded-full font-semibold text-[13.5px] xl:text-[14px] shadow-sm hover:shadow-md transition-all duration-200 group">
+            <svg class="w-4 h-4 text-emerald-300 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+            <span>Contact Us</span>
+            <svg class="w-3.5 h-3.5 text-white/80 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button (Visible on < lg screens) -->
+        <div class="flex items-center lg:hidden z-10 shrink-0 ml-2">
+          <button id="mobile-menu-btn" type="button" class="inline-flex items-center justify-center w-10 h-10 rounded-xl text-[#0A2E1C] hover:bg-slate-100 active:bg-slate-200 focus:outline-none transition-colors" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
+            <svg id="menu-icon-open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="menu-icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div id="mobile-menu" class="hidden lg:hidden mt-2.5 bg-white rounded-[24px] shadow-xl border border-slate-200/90 p-4 sm:p-5 transition-all duration-200">
+        <div class="space-y-1 text-sm font-medium">
+          <a href="/" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Home</a>
+          <a href="/about" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">About Us</a>
+          <a href="/technologies" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Technologies</a>
+          
+          <!-- Mobile Support Section -->
+          <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
+            <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Support</div>
+            <a href="/facilities" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Facilities</a>
+            <a href="/services" class="block px-2.5 py-2 rounded-lg bg-[#F0FDF4] text-[#0A2E1C] font-bold text-xs sm:text-sm">Services &amp; Support</a>
+          </div>
+
+          <!-- Mobile Incubation Section -->
+          <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
+            <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Incubation</div>
+            <a href="/incubation" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Incubation Overview</a>
+            <a href="/members" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Members</a>
+            <a href="/mentors" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Mentors</a>
+          </div>
+
+          <a href="/events" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Events &amp; Training</a>
+          <a href="/success-stories" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Success Stories</a>
+          
+          <div class="pt-3 border-t border-slate-100 mt-2">
+            <a href="/contact" class="flex items-center justify-center space-x-2 bg-[#0F4A2A] hover:bg-[#0A2E1C] text-white px-5 py-3 rounded-xl font-bold text-sm shadow-md transition-all">
+              <svg class="w-4 h-4 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+              </svg>
+              <span>Contact Us</span>
+              <svg class="w-3.5 h-3.5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. MAIN CONTENT AREA                                                      -->
+  <!-- ========================================================================= -->
+  <main class="flex-grow pt-2 pb-16">
+    <div class="max-w-[1440px] mx-auto px-3.5 sm:px-6 lg:px-8 xl:px-12 space-y-12 sm:space-y-16">
+
+      <!-- ===================================================================== -->
+      <!-- 2A. HERO SECTION                                                      -->
+      <!-- ===================================================================== -->
+      <section class="relative">
+        <!-- Dual-Color Ambient Glow -->
+        <div class="ambient-orb-green w-72 h-72 sm:w-96 sm:h-96 -top-12 -left-12 opacity-60"></div>
+        <div class="ambient-orb-teal w-80 h-80 sm:w-[420px] sm:h-[420px] -bottom-16 -right-12 opacity-55"></div>
+
+        <div class="relative z-10 bg-white rounded-[26px] sm:rounded-[28px] shadow-soft-sm border border-slate-200/70 p-6 sm:p-8 lg:p-12 overflow-hidden">
+          <div class="max-w-4xl mx-auto text-center space-y-4 sm:space-y-5">
+            
+            <!-- Eyebrow Tag -->
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-wider uppercase shadow-2xs">
+              <svg class="w-3.5 h-3.5 text-[#16A34A]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
+              </svg>
+              <span>STARTUP SUPPORT ECOSYSTEM</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0A2E1C] tracking-tight leading-[1.15]">
+              Services &amp; Support
+            </h1>
+
+            <!-- Subheading / Description -->
+            <p class="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto font-normal">
+              EDII–MAFBIF provides comprehensive support to entrepreneurs and startups through expert mentoring, technical guidance, regulatory assistance, funding access, product development support, and strategic industry connections.
+            </p>
+
+            <!-- Quick Institutional Trust Badges -->
+            <div class="pt-4 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs">
+              <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200/80 text-slate-700 font-medium">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>8 Core Support Pillars</span>
+              </div>
+              <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200/80 text-slate-700 font-medium">
+                <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
+                <span>TNAU &amp; FC&amp;RI Expert Network</span>
+              </div>
+              <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200/80 text-slate-700 font-medium">
+                <span class="w-2 h-2 rounded-full bg-[#CFA851]"></span>
+                <span>Govt. Grant &amp; IVP Access</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Hairline -->
+      <div class="section-hairline"></div>
+
+      <!-- ===================================================================== -->
+      <!-- 2B. 9 SERVICES STAGGERED MASONRY GRID                                   -->
+      <!-- ===================================================================== -->
+      <section class="relative reveal-on-scroll">
+        <div class="space-y-10 sm:space-y-12">
+          
+          <!-- Section Heading (Requirement 10) -->
+          <div class="text-center max-w-3xl mx-auto space-y-3.5">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-wider uppercase shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
+              <span>OUR SERVICES</span>
+            </div>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0A2E1C] tracking-tight leading-[1.15]">
+              Comprehensive Support for Every Stage
+            </h2>
+            <p class="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto font-normal">
+              From ideation to scale, we provide end-to-end support to help you succeed.
+            </p>
+          </div>
+
+          <!-- Staggered / Masonry-Style 9 Cards Grid (Desktop 3-col with vertical offsets, Tablet 2-col, Mobile 1-col) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 xl:gap-8 lg:pb-16 xl:pb-20">
+            
+            <!-- =============================================================== -->
+            <!-- 01 — INFRASTRUCTURE & RESOURCES (Col 1, Top)                    -->
+            <!-- =============================================================== -->
+            <div class="lg:translate-y-0 transition-transform">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full">
+                <!-- Colored Top Accent: Red / Coral -->
+                <div class="w-full h-[5px] bg-[#E11D48]"></div>
+
+                <div class="p-6 sm:p-7 lg:p-8 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50/90 border border-emerald-100/80 flex items-center justify-center text-emerald-600 shrink-0">
+                      <!-- Building / Laboratory Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2M5 21H3m6-13h2m-2 4h2m4-4h2m-2 4h2m-6 4h2m4 0h2"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      01
+                    </span>
+                  </div>
+
+                  <!-- Service Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[20px] lg:text-[21px] text-[#0A2E1C] tracking-tight leading-snug mt-6 mb-3">
+                    INFRASTRUCTURE &amp; RESOURCES
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    Infrastructure facilities include industrial space, co-working space with WiFi, conference hall and laboratory facilities.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- 02 — CAPACITY BUILDING (Col 2, Staggered Down)                  -->
+            <!-- =============================================================== -->
+            <div class="md:translate-y-6 lg:translate-y-10 xl:translate-y-12 transition-transform">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full">
+                <!-- Colored Top Accent: Yellow / Gold -->
+                <div class="w-full h-[5px] bg-[#F59E0B]"></div>
+
+                <div class="p-6 sm:p-7 lg:p-8 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50/90 border border-emerald-100/80 flex items-center justify-center text-emerald-600 shrink-0">
+                      <!-- Graduation Cap / Training Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                        <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                        <path d="M22 10v6"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      02
+                    </span>
+                  </div>
+
+                  <!-- Service Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[20px] lg:text-[21px] text-[#0A2E1C] tracking-tight leading-snug mt-6 mb-3">
+                    CAPACITY BUILDING
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    Training, workshops and skill development programmes for incubatees and other beneficiaries.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- 03 — TECHNICAL MENTORING (Col 3, Organic Offset)                -->
+            <!-- =============================================================== -->
+            <div class="lg:translate-y-2 transition-transform">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full">
+                <!-- Colored Top Accent: Blue / Cyan -->
+                <div class="w-full h-[5px] bg-[#0284C7]"></div>
+
+                <div class="p-6 sm:p-7 lg:p-8 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-50/90 border border-sky-100/80 flex items-center justify-center text-sky-600 shrink-0">
+                      <!-- Gear / Technical Settings Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      03
+                    </span>
+                  </div>
+
+                  <!-- Service Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[20px] lg:text-[21px] text-[#0A2E1C] tracking-tight leading-snug mt-6 mb-3">
+                    TECHNICAL MENTORING
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    Experts with sound technical knowledge from institutions and industry will mentor entrepreneurs from time to time.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- 04 — BUSINESS MENTORING (Col 1, Mid Row)                        -->
+            <!-- =============================================================== -->
+            <div class="md:translate-y-6 lg:translate-y-0 transition-transform">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full">
+                <!-- Colored Top Accent: Green -->
+                <div class="w-full h-[5px] bg-[#16A34A]"></div>
+
+                <div class="p-6 sm:p-7 lg:p-8 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50/90 border border-emerald-100/80 flex items-center justify-center text-emerald-600 shrink-0">
+                      <!-- People / Business Users Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      04
+                    </span>
+                  </div>
+
+                  <!-- Service Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[20px] lg:text-[21px] text-[#0A2E1C] tracking-tight leading-snug mt-6 mb-3">
+                    BUSINESS MENTORING
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    Senior corporates and established entrepreneurs will mentor startups for better business insights.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- 05 — REGULATORY & ADVISORY SERVICES (Col 2, Staggered Down)     -->
+            <!-- =============================================================== -->
+            <div class="lg:translate-y-10 xl:translate-y-12 transition-transform">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full">
+                <!-- Colored Top Accent: Orange -->
+                <div class="w-full h-[5px] bg-[#F97316]"></div>
+
+                <div class="p-6 sm:p-7 lg:p-8 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50/90 border border-amber-100/80 flex items-center justify-center text-amber-600 shrink-0">
+                      <!-- Balance Scales / Legal Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3-1M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 1m-3-1l-6-2m0-2v2m0 0v14m-4 0h8"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      05
+                    </span>
+                  </div>
+
+                  <!-- Service Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[20px] lg:text-[21px] text-[#0A2E1C] tracking-tight leading-snug mt-6 mb-3">
+                    REGULATORY &amp; ADVISORY SERVICES
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    Company formation, restructuring, legal services and related advisory support.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- 06 — PRODUCT & SERVICE DEVELOPMENT (Col 3, Organic Offset)      -->
+            <!-- =============================================================== -->
+            <div class="md:translate-y-6 lg:translate-y-2 transition-transform">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full">
+                <!-- Colored Top Accent: Red / Coral -->
+                <div class="w-full h-[5px] bg-[#E11D48]"></div>
+
+                <div class="p-6 sm:p-7 lg:p-8 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50/90 border border-emerald-100/80 flex items-center justify-center text-emerald-600 shrink-0">
+                      <!-- Package / Cube Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      06
+                    </span>
+                  </div>
+
+                  <!-- Service Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[20px] lg:text-[21px] text-[#0A2E1C] tracking-tight leading-snug mt-6 mb-3">
+                    PRODUCT &amp; SERVICE DEVELOPMENT
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    Validation, branding, labelling, development and launch support for products and services.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- 07 — IPR FACILITATION (Col 1, Bottom Row)                       -->
+            <!-- =============================================================== -->
+            <div class="lg:translate-y-0 transition-transform">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full">
+                <!-- Colored Top Accent: Blue / Cyan -->
+                <div class="w-full h-[5px] bg-[#0284C7]"></div>
+
+                <div class="p-6 sm:p-7 lg:p-8 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-50/90 border border-sky-100/80 flex items-center justify-center text-sky-600 shrink-0">
+                      <!-- Shield / Legal IP Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      07
+                    </span>
+                  </div>
+
+                  <!-- Service Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[20px] lg:text-[21px] text-[#0A2E1C] tracking-tight leading-snug mt-6 mb-3">
+                    IPR FACILITATION
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    Intellectual property rights such as patent, trademark, industrial design, copyright and geographical indications.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- 08 — NETWORKING (Col 2, Staggered Down)                         -->
+            <!-- =============================================================== -->
+            <div class="md:translate-y-6 lg:translate-y-10 xl:translate-y-12 transition-transform">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full">
+                <!-- Colored Top Accent: Purple / Violet -->
+                <div class="w-full h-[5px] bg-[#8B5CF6]"></div>
+
+                <div class="p-6 sm:p-7 lg:p-8 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-50/90 border border-purple-100/80 flex items-center justify-center text-purple-600 shrink-0">
+                      <!-- Connected Nodes Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="18" cy="5" r="3"/>
+                        <circle cx="6" cy="12" r="3"/>
+                        <circle cx="18" cy="19" r="3"/>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      08
+                    </span>
+                  </div>
+
+                  <!-- Service Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[20px] lg:text-[21px] text-[#0A2E1C] tracking-tight leading-snug mt-6 mb-3">
+                    NETWORKING
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    Networking and collaboration with all stakeholders including industry, institutions and investors.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- 09 — FUNDING SUPPORT (Col 3, Organic Offset / Tablet Centered)  -->
+            <!-- =============================================================== -->
+            <div class="md:col-span-2 md:max-w-md md:mx-auto lg:col-span-1 lg:max-w-none lg:mx-0 lg:translate-y-2 transition-transform">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full">
+                <!-- Colored Top Accent: Yellow / Gold -->
+                <div class="w-full h-[5px] bg-[#F59E0B]"></div>
+
+                <div class="p-6 sm:p-7 lg:p-8 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50/90 border border-amber-100/80 flex items-center justify-center text-amber-600 shrink-0">
+                      <!-- Currency / Rupee Coin Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M9 8h6M9 11h4.5a2 2 0 010 4H9m0-4h2.5m1 4l3 3.5"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      09
+                    </span>
+                  </div>
+
+                  <!-- Service Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[20px] lg:text-[21px] text-[#0A2E1C] tracking-tight leading-snug mt-6 mb-3">
+                    FUNDING SUPPORT
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    Grants support through IVP voucher program and funding support through seed money and financial institutions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section Hairline -->
+      <div class="section-hairline"></div>
+
+      <!-- ===================================================================== -->
+      <!-- 2C. TARGET BENEFICIARIES SECTION                                       -->
+      <!-- ===================================================================== -->
+      <section class="relative reveal-on-scroll py-2 sm:py-4">
+        <div class="space-y-10 sm:space-y-12">
+          
+          <!-- Section Heading (Requirement 1) -->
+          <div class="text-center max-w-3xl mx-auto space-y-3.5">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-wider uppercase shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
+              <span>WHO WE SUPPORT</span>
+            </div>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0A2E1C] tracking-tight leading-[1.15]">
+              Target Beneficiaries
+            </h2>
+            <p class="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto font-normal">
+              EDII–MAFBIF supports a diverse range of individuals, innovators, startups, businesses, corporates and institutions through tailored incubation, technology, innovation and entrepreneurship support.
+            </p>
+          </div>
+
+          <!-- Staggered Multi-Column Grid (7 Beneficiary Cards: 3 Top, 2 Center, 2 Center) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-6 lg:gap-x-7 xl:gap-x-8 gap-y-7 sm:gap-y-8 lg:gap-y-9 xl:gap-y-10 lg:pb-14 xl:pb-16 items-stretch">
+            
+            <!-- =============================================================== -->
+            <!-- 01 — INDIVIDUALS WITH BUSINESS IDEAS (Row 1, Left)              -->
+            <!-- =============================================================== -->
+            <div class="col-span-1 md:col-span-1 lg:col-span-4 lg:col-start-1 h-full">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full min-h-[210px] sm:min-h-[220px]">
+                <!-- Colored Top Accent: Coral / Red -->
+                <div class="w-full h-[5px] bg-[#E11D48]"></div>
+
+                <div class="p-6 sm:p-7 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-rose-50/90 border border-rose-100/80 flex items-center justify-center text-rose-600 shrink-0">
+                      <!-- Person / Entrepreneur with Idea Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M19 11V7m0 0l2 2m-2-2l-2 2"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      01
+                    </span>
+                  </div>
+
+                  <!-- Beneficiary Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[19px] lg:text-[20px] text-[#0A2E1C] tracking-tight leading-snug mt-5 mb-2.5 min-h-[48px] sm:min-h-[52px] flex items-center">
+                    INDIVIDUALS WITH BUSINESS IDEAS
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    Any individuals such as students, employed or unemployed persons, women and farmers with a business idea.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- 02 — INNOVATORS (Row 1, Center)                                 -->
+            <!-- =============================================================== -->
+            <div class="col-span-1 md:col-span-1 lg:col-span-4 lg:col-start-5 h-full">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full min-h-[210px] sm:min-h-[220px]">
+                <!-- Colored Top Accent: Yellow / Gold -->
+                <div class="w-full h-[5px] bg-[#F59E0B]"></div>
+
+                <div class="p-6 sm:p-7 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50/90 border border-amber-100/80 flex items-center justify-center text-amber-600 shrink-0">
+                      <!-- Lightbulb / Innovation Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      02
+                    </span>
+                  </div>
+
+                  <!-- Beneficiary Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[19px] lg:text-[20px] text-[#0A2E1C] tracking-tight leading-snug mt-5 mb-2.5 min-h-[48px] sm:min-h-[52px] flex items-center">
+                    INNOVATORS
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    For prototype development, IPR facilitation and grant-in-aid support.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- 03 — START-UPS (Row 1, Right)                                  -->
+            <!-- =============================================================== -->
+            <div class="col-span-1 md:col-span-1 lg:col-span-4 lg:col-start-9 h-full">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full min-h-[210px] sm:min-h-[220px]">
+                <!-- Colored Top Accent: Blue -->
+                <div class="w-full h-[5px] bg-[#0284C7]"></div>
+
+                <div class="p-6 sm:p-7 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-50/90 border border-sky-100/80 flex items-center justify-center text-sky-600 shrink-0">
+                      <!-- Rocket / Startup Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/>
+                        <path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6.05 11a22.35 22.35 0 01-3.95 2z"/>
+                        <path d="M9 12H4s.5-3 2.5-4.5M15 15v5s3-.5 4.5-2.5"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      03
+                    </span>
+                  </div>
+
+                  <!-- Beneficiary Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[19px] lg:text-[20px] text-[#0A2E1C] tracking-tight leading-snug mt-5 mb-2.5 min-h-[48px] sm:min-h-[52px] flex items-center">
+                    START-UPS
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    Start-ups at any stage of development.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- 04 — EXISTING BUSINESS ENTERPRISES (Row 2, Indented Left)       -->
+            <!-- =============================================================== -->
+            <div class="col-span-1 md:col-span-1 lg:col-span-4 lg:col-start-3 h-full">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full min-h-[210px] sm:min-h-[220px]">
+                <!-- Colored Top Accent: Green -->
+                <div class="w-full h-[5px] bg-[#16A34A]"></div>
+
+                <div class="p-6 sm:p-7 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50/90 border border-emerald-100/80 flex items-center justify-center text-emerald-600 shrink-0">
+                      <!-- Buildings / Business Enterprise Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 21h18M5 21V7l8-4v18M13 7l6 3v11M9 9v.01M9 13v.01M9 17v.01M17 13v.01M17 17v.01"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      04
+                    </span>
+                  </div>
+
+                  <!-- Beneficiary Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[19px] lg:text-[20px] text-[#0A2E1C] tracking-tight leading-snug mt-5 mb-2.5 min-h-[48px] sm:min-h-[52px] flex items-center">
+                    EXISTING BUSINESS ENTERPRISES
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    SMEs and industries looking for innovative intervention and scale-up opportunities.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- 05 — CORPORATES (Row 2, Indented Right)                         -->
+            <!-- =============================================================== -->
+            <div class="col-span-1 md:col-span-1 lg:col-span-4 lg:col-start-7 h-full">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full min-h-[210px] sm:min-h-[220px]">
+                <!-- Colored Top Accent: Orange -->
+                <div class="w-full h-[5px] bg-[#F97316]"></div>
+
+                <div class="p-6 sm:p-7 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-orange-50/90 border border-orange-100/80 flex items-center justify-center text-orange-600 shrink-0">
+                      <!-- Corporate Headquarters Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2M5 21H3m6-13h2m-2 4h2m4-4h2m-2 4h2m-6 4h2m4 0h2"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      05
+                    </span>
+                  </div>
+
+                  <!-- Beneficiary Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[19px] lg:text-[20px] text-[#0A2E1C] tracking-tight leading-snug mt-5 mb-2.5 min-h-[48px] sm:min-h-[52px] flex items-center">
+                    CORPORATES
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    For technology transfer and CSR initiatives.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- 06 — INSTITUTIONS (Row 3, Indented Left)                        -->
+            <!-- =============================================================== -->
+            <div class="col-span-1 md:col-span-1 lg:col-span-4 lg:col-start-3 h-full">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full min-h-[210px] sm:min-h-[220px]">
+                <!-- Colored Top Accent: Red / Coral -->
+                <div class="w-full h-[5px] bg-[#E11D48]"></div>
+
+                <div class="p-6 sm:p-7 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-rose-50/90 border border-rose-100/80 flex items-center justify-center text-rose-600 shrink-0">
+                      <!-- Institution / Academic Campus Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 21h18M4 18h16M12 3L2 8h20L12 3zM6 8v10M10 8v10M14 8v10M18 8v10"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      06
+                    </span>
+                  </div>
+
+                  <!-- Beneficiary Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[19px] lg:text-[20px] text-[#0A2E1C] tracking-tight leading-snug mt-5 mb-2.5 min-h-[48px] sm:min-h-[52px] flex items-center">
+                    INSTITUTIONS
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    Institutions looking to bring the startup ecosystem into their campus.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- 07 — CONSULTANCY PROJECTS (Row 3, Indented Right / Tablet Center)-->
+            <!-- =============================================================== -->
+            <div class="col-span-1 md:col-span-2 md:max-w-md md:mx-auto lg:col-span-4 lg:max-w-none lg:mx-0 lg:col-start-7 h-full w-full">
+              <div class="service-card cursor-default bg-white rounded-[24px] border border-slate-200/70 shadow-[0_4px_24px_rgba(10,46,28,0.03)] hover:shadow-[0_12px_28px_rgba(10,46,28,0.06)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full min-h-[210px] sm:min-h-[220px]">
+                <!-- Colored Top Accent: Gray / Blue -->
+                <div class="w-full h-[5px] bg-[#475569]"></div>
+
+                <div class="p-6 sm:p-7 flex flex-col flex-1">
+                  <!-- Icon & Number Badge Row -->
+                  <div class="flex items-center justify-between">
+                    <div class="w-12 h-12 rounded-2xl bg-slate-100/90 border border-slate-200/80 flex items-center justify-center text-slate-600 shrink-0">
+                      <!-- Project / Chart Consulting Outline Icon -->
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                      </svg>
+                    </div>
+                    <span class="rounded-full bg-slate-50 border border-slate-200/60 px-3 py-1 text-xs font-mono font-bold text-slate-400 select-none">
+                      07
+                    </span>
+                  </div>
+
+                  <!-- Beneficiary Title -->
+                  <h3 class="font-heading font-extrabold uppercase text-lg sm:text-[19px] lg:text-[20px] text-[#0A2E1C] tracking-tight leading-snug mt-5 mb-2.5 min-h-[48px] sm:min-h-[52px] flex items-center">
+                    CONSULTANCY PROJECTS
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-slate-600 text-[14.5px] sm:text-[15px] lg:text-[15.5px] leading-relaxed font-normal">
+                    For agroforestry-related consultancy projects such as micro forestry, urban forestry, agroforestry and sustainable tourism.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section Hairline -->
+      <div class="section-hairline"></div>
+
+      <!-- ===================================================================== -->
+      <!-- 2D. STRUCTURED INCUBATION ROADMAP                                      -->
+      <!-- ===================================================================== -->
+      <section class="relative reveal-on-scroll">
+        <div class="bg-white rounded-[26px] sm:rounded-[28px] border border-slate-200/80 p-6 sm:p-8 lg:p-10 shadow-soft-sm">
+          <div class="max-w-3xl mb-8">
+            <div class="inline-flex items-center space-x-2 text-[11px] font-bold text-[#15803D] uppercase tracking-widest">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
+              <span>STRUCTURED EXECUTION</span>
+            </div>
+            <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-[#0A2E1C] tracking-tight mt-1">
+              The EDII–MAFBIF Incubation Journey
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 mt-2">
+              Our support services are orchestrated in stages to help early concepts transition smoothly into viable commercial enterprises.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 relative">
+            
+            <!-- Step 1 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/80 border border-slate-200/70 relative">
+              <div class="w-8 h-8 rounded-lg bg-[#0F4A2A] text-white flex items-center justify-center font-bold text-xs mb-3">01</div>
+              <h4 class="font-heading font-bold text-sm text-[#0A2E1C]">Ideation &amp; Onboarding</h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Initial evaluation, problem-solution alignment, and formal induction into pre-incubation or regular incubation.
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/80 border border-slate-200/70 relative">
+              <div class="w-8 h-8 rounded-lg bg-[#15803D] text-white flex items-center justify-center font-bold text-xs mb-3">02</div>
+              <h4 class="font-heading font-bold text-sm text-[#0A2E1C]">Technical &amp; Mentorship</h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Hands-on guidance with FC&amp;RI faculty, product trials, business mentoring, and regulatory compliance.
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/80 border border-slate-200/70 relative">
+              <div class="w-8 h-8 rounded-lg bg-[#0284C7] text-white flex items-center justify-center font-bold text-xs mb-3">03</div>
+              <h4 class="font-heading font-bold text-sm text-[#0A2E1C]">IP &amp; Funding Access</h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Securing intellectual property, facilitation of IVP vouchers, seed capital applications, and institutional grant linkages.
+              </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/80 border border-slate-200/70 relative">
+              <div class="w-8 h-8 rounded-lg bg-[#CFA851] text-[#0A2E1C] flex items-center justify-center font-bold text-xs mb-3">04</div>
+              <h4 class="font-heading font-bold text-sm text-[#0A2E1C]">Launch &amp; Scaling</h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Market testing, buyer-seller networking, commercial pilot operations, and investor showcases for sustained growth.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Hairline -->
+      <div class="section-hairline"></div>
+
+      <!-- ===================================================================== -->
+      <!-- 2D. INFRASTRUCTURE / FACILITIES RELATIONSHIP CTA SECTION (Item 4)      -->
+      <!-- ===================================================================== -->
+      <section class="relative reveal-on-scroll">
+        <!-- Dual Ambient Glow -->
+        <div class="ambient-orb-green w-80 h-80 -top-10 -left-10 opacity-50"></div>
+        <div class="ambient-orb-teal w-80 h-80 -bottom-10 -right-10 opacity-50"></div>
+
+        <div class="relative z-10 bg-gradient-to-br from-[#0A2216] via-[#0E3B24] to-[#134E4A] rounded-[26px] sm:rounded-[28px] p-8 sm:p-12 lg:p-14 border border-[#163818] shadow-soft-lg text-white overflow-hidden text-center">
+          
+          <div class="max-w-2xl mx-auto space-y-5">
+            <!-- Eyebrow Badge -->
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 text-[11px] sm:text-xs font-bold tracking-widest uppercase shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#CFA851] animate-pulse"></span>
+              <span>CAMPUS INFRASTRUCTURE &amp; LABS</span>
+            </div>
+
+            <!-- Required Heading -->
+            <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FBFCEB] tracking-tight leading-[1.2]">
+              Need the Right Space for Your Venture?
+            </h2>
+
+            <!-- Required Description -->
+            <p class="text-emerald-100/90 text-sm sm:text-base md:text-lg leading-relaxed">
+              Explore our infrastructure, laboratories, co-working spaces, co-working facilities, conference halls, and specialized resources available to support your venture.
+            </p>
+
+            <!-- Buttons: Explore Facilities → and Inquire CTA -->
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a href="/facilities" class="inline-flex items-center justify-center px-8 py-3.5 text-sm sm:text-base font-bold rounded-xl text-[#0A2E1C] bg-[#CFA851] hover:bg-[#b89342] shadow-md transition-all duration-200 cursor-pointer group w-full sm:w-auto">
+                <span>Explore Facilities</span>
+                <span class="ml-2 transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
+              </a>
+              <a href="/contact" class="inline-flex items-center justify-center px-7 py-3.5 text-sm sm:text-base font-semibold rounded-xl text-white bg-white/10 hover:bg-white/15 border border-white/20 transition-all duration-200 cursor-pointer w-full sm:w-auto">
+                <span>Inquire About Incubation</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 3. INSTITUTIONAL FOOTER (Deep Forest Green with Sitemap & Contact)        -->
+  <!-- ========================================================================= -->
+  <footer class="relative bg-[#07190F] text-slate-300 border-t-2 border-t-[#16A34A]/30 mt-auto py-12 sm:py-16 overflow-hidden">
+    
+    <div class="ambient-orb-teal w-80 h-80 -bottom-20 left-1/4 opacity-20"></div>
+
+    <div class="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+        
+        <!-- Brand Info -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 flex items-center justify-center">
+              <img src="/logo.png" alt="EDII-MAFBIF Logo" class="w-full h-full object-contain">
+            </div>
+            <div>
+              <h3 class="font-heading font-extrabold text-xl text-white tracking-tight">EDII–MAFBIF</h3>
+              <p class="text-xs text-slate-400">TNAU-backed agroforestry business incubator.</p>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-md">
+            Forest College and Research Institute, Mettupalayam, Tamil Nadu 641301. Supported by EDII, Government of Tamil Nadu &amp; TNAU.
+          </p>
+        </div>
+
+        <!-- Sitemap -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-xs font-bold text-[#CFA851] uppercase tracking-wider">Sitemap</h4>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="/technologies" class="hover:text-white transition-colors">Technologies</a></li>
+            <li><a href="/facilities" class="hover:text-white transition-colors">Facilities</a></li>
+            <li><a href="/services" class="text-emerald-400 font-bold">Services &amp; Support</a></li>
+            <li><a href="/incubation" class="hover:text-white transition-colors">Incubation</a></li>
+            <li><a href="/events" class="hover:text-white transition-colors">Events &amp; Training</a></li>
+            <li><a href="/success-stories" class="hover:text-white transition-colors">Success Stories</a></li>
+            <li><a href="/contact" class="hover:text-white transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Incubator Office -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-xs font-bold text-[#CFA851] uppercase tracking-wider">Incubator Office</h4>
+          <div class="space-y-1.5 text-xs text-slate-400">
+            <p class="font-medium text-white">Forest College and Research Institute,</p>
+            <p>Mettupalayam, Tamil Nadu 641301</p>
+            <p class="pt-1">Email: <a href="mailto:info@mafbif.com" class="text-emerald-400 hover:underline">info@mafbif.com</a></p>
+            <p class="text-slate-400">Supported by EDII &amp; TNAU</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-3">
+        <p>© 2026 MAFBIF - Supported by EDII, Government of Tamil Nadu &amp; TNAU.</p>
+        <p class="font-bold text-[#CFA851] text-[11px] tracking-wider uppercase">TNAU-BACKED AGROFORESTRY INCUBATION</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- 4. SCRIPTS (Mobile Navigation, Dropdown Toggle & Scroll Reveal)           -->
+  <!-- ========================================================================= -->
+  <script>
+    document.documentElement.classList.add('js');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Navigation Drawer Toggle
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+          mobileBtn.setAttribute('aria-expanded', !isExpanded);
+          mobileMenu.classList.toggle('hidden');
+          if (iconOpen) iconOpen.classList.toggle('hidden');
+          if (iconClose) iconClose.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+            if (iconOpen) iconOpen.classList.remove('hidden');
+            if (iconClose) iconClose.classList.add('hidden');
+          }
+        });
+      }
+
+      // Support Dropdown
+      const supportDdWrapper = document.getElementById('support-nav-group');
+      const supportDdPanel = document.getElementById('support-dropdown-panel');
+      const supportDdArrow = supportDdWrapper && supportDdWrapper.querySelector('svg');
+      let supportDdTimer = null;
+
+      function openSupportDd() {
+        if (supportDdTimer) { clearTimeout(supportDdTimer); supportDdTimer = null; }
+        if (supportDdPanel) {
+          supportDdPanel.classList.remove('hidden');
+          if (supportDdArrow) supportDdArrow.style.transform = 'rotate(180deg)';
+        }
+      }
+
+      function scheduleCloseSupportDd() {
+        supportDdTimer = setTimeout(() => {
+          if (supportDdPanel) {
+            supportDdPanel.classList.add('hidden');
+            if (supportDdArrow) supportDdArrow.style.transform = '';
+          }
+        }, 180);
+      }
+
+      if (supportDdWrapper && supportDdPanel) {
+        supportDdWrapper.addEventListener('mouseenter', openSupportDd);
+        supportDdWrapper.addEventListener('mouseleave', scheduleCloseSupportDd);
+        supportDdPanel.addEventListener('mouseenter', openSupportDd);
+        supportDdPanel.addEventListener('mouseleave', scheduleCloseSupportDd);
+      }
+
+      // Incubation Dropdown
+      const incubDdWrapper = document.getElementById('incubation-nav-group');
+      const incubDdPanel = document.getElementById('incubation-dropdown-panel');
+      const incubDdArrow = incubDdWrapper && incubDdWrapper.querySelector('svg');
+      let incubDdTimer = null;
+
+      function openIncubDd() {
+        if (incubDdTimer) { clearTimeout(incubDdTimer); incubDdTimer = null; }
+        if (incubDdPanel) {
+          incubDdPanel.classList.remove('hidden');
+          if (incubDdArrow) incubDdArrow.style.transform = 'rotate(180deg)';
+        }
+      }
+
+      function scheduleCloseIncubDd() {
+        incubDdTimer = setTimeout(() => {
+          if (incubDdPanel) {
+            incubDdPanel.classList.add('hidden');
+            if (incubDdArrow) incubDdArrow.style.transform = '';
+          }
+        }, 180);
+      }
+
+      if (incubDdWrapper && incubDdPanel) {
+        incubDdWrapper.addEventListener('mouseenter', openIncubDd);
+        incubDdWrapper.addEventListener('mouseleave', scheduleCloseIncubDd);
+        incubDdPanel.addEventListener('mouseenter', openIncubDd);
+        incubDdPanel.addEventListener('mouseleave', scheduleCloseIncubDd);
+      }
+
+      // Restrained Scroll Reveal
+      const revealElements = document.querySelectorAll('.reveal-on-scroll');
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+      } else {
+        revealElements.forEach(el => el.classList.add('is-revealed'));
+      }
+    });
+  </script>
+
+</body>
+</html>

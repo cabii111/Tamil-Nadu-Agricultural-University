@@ -313,10 +313,20 @@
               <span>Technologies</span>
               
             </a>
-            <a href="/facilities" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
-              <span>Facilities</span>
+            <!-- Support Dropdown Menu -->
+            <div class="relative" id="support-nav-group">
+              <button type="button" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all inline-flex items-center focus:outline-none" aria-expanded="false">
+                <span>Support</span>
+                <svg class="ml-1 w-3.5 h-3.5 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
               
-            </a>
+              <div class="absolute left-0 top-full w-52 rounded-2xl shadow-xl bg-white border border-slate-100 hidden z-50 pt-2.5 pb-2 mt-1" id="support-dropdown-panel">
+                <a href="/facilities" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Facilities</a>
+                <a href="/services" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Services &amp; Support</a>
+              </div>
+            </div>
 
             <!-- Incubation Dropdown Menu -->
             <div class="relative" id="incubation-nav-group">
@@ -381,7 +391,12 @@
           <a href="/" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Home</a>
           <a href="/about" class="block px-3.5 py-2.5 rounded-xl bg-[#F0FDF4] text-[#0A2E1C] font-bold text-sm">About Us</a>
           <a href="/technologies" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Technologies</a>
-          <a href="/facilities" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Facilities</a>
+          <!-- Mobile Support Section -->
+          <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
+            <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Support</div>
+            <a href="/facilities" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Facilities</a>
+            <a href="/services" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Services &amp; Support</a>
+          </div>
           
           <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
             <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Incubation</div>
@@ -551,7 +566,77 @@
       <div class="section-hairline"></div>
 
       <!-- ===================================================================== -->
-      <!-- 4. OUR JOURNEY / TIMELINE ("Six years of rural impact")               -->
+      <!-- 4. MESSAGE FROM THE DEAN (Full Institutional Leadership Perspective)  -->
+      <!-- ===================================================================== -->
+      <section id="deans-message" class="reveal-on-scroll py-2 scroll-mt-28">
+        <div class="bg-white rounded-[26px] sm:rounded-[28px] p-8 sm:p-12 lg:p-14 border border-slate-200/80 shadow-soft-sm">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-start">
+
+            <!-- Left Column: Dean Photograph + Credentials -->
+            <div class="md:col-span-5 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+              <div class="w-full max-w-[280px] rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 bg-slate-100 img-zoom-container hover-lift">
+                <img
+                  src="/Public/Members/dean-photo.jpeg"
+                  alt="Dr. A. Balasubramanian, Dean (Forestry) and Nodal Officer (MAFBIF)"
+                  class="w-full h-auto object-cover aspect-[4/5]">
+              </div>
+
+              <h3 class="font-heading font-extrabold text-xl sm:text-2xl text-[#0A2E1C] mt-5 tracking-tight">
+                Dr. A. Balasubramanian
+              </h3>
+
+              <!-- Dual-Color Accent Line under Leadership (Nature Green to Science Blue) -->
+              <div class="w-14 h-1 bg-gradient-to-r from-[#16A34A] to-[#0284C7] rounded-full my-2.5"></div>
+
+              <p class="text-xs sm:text-sm text-slate-600 font-medium leading-snug">
+                Dean (Forestry) and Nodal Officer (MAFBIF)
+              </p>
+            </div>
+
+            <!-- Right Column: Full Official Message -->
+            <div class="md:col-span-7 lg:col-span-8 flex flex-col justify-center space-y-5">
+              <div>
+                <div
+                  class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-widest uppercase mb-2.5 shadow-2xs">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
+                  <span>LEADERSHIP PERSPECTIVE</span>
+                </div>
+                <h2
+                  class="font-heading text-2xl sm:text-3xl lg:text-[38px] font-extrabold text-[#0A2E1C] tracking-tight leading-tight">
+                  Message from the Dean
+                </h2>
+              </div>
+
+              <p class="text-slate-700 text-sm sm:text-base md:text-[16.5px] leading-relaxed text-justify sm:text-left">
+                EDII-MAFBIF, a section 8 company is an initiative of Tamil Nadu Agricultural University and Forest College
+                and Research Institute with funding assistance from EDII TN, Chennai to promote entrepreneurship in Agro
+                forestry sector. EDII-MAFBIF, being the first of its kind in the country, proposes to extend its services
+                and its development catchment to almost all the districts of Tamil Nadu that can be managed effectively.
+                EDII-MAFBIF is a support process that accelerates the successful development of sustainable businesses in
+                Forest and Agroforestry landscapes.
+              </p>
+
+              <p class="text-slate-700 text-sm sm:text-base md:text-[16.5px] leading-relaxed text-justify sm:text-left">
+                EDII-MAFBIF aims in creating entrepreneurship skills in various stake holders like professional graduates,
+                unemployed youth, Members of SHG, Farmers, Tribal Community, etc., in order to augment sustainable income
+                and employment generation activities. EDII-MAFBIF diversifies income generation through technology
+                adoption and commercialization. EDII-MAFBIF also helps to validate, license, commercialize the concept and
+                technology already developed by any individual or group or a firm. EDII-MAFBIF aims to converge and link
+                all stakeholders involved in agroforestry-based value chain system through suitable partnership and
+                collaboration. EDII-MAFBIF involves in networking all wood-based industries to facilitate skill
+                development of Incubatees and to sustain the market conditions.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Transition Hairline -->
+      <div class="section-hairline"></div>
+
+      <!-- ===================================================================== -->
+      <!-- 5. OUR JOURNEY / TIMELINE ("Six years of rural impact")               -->
       <!-- ===================================================================== -->
       <section class="relative reveal-on-scroll">
         
@@ -636,7 +721,7 @@
       <div class="section-hairline"></div>
 
       <!-- ===================================================================== -->
-      <!-- 5. GOVERNANCE & EXPERT GUIDANCE ("Governed by industry and research") -->
+      <!-- 6. GOVERNANCE & EXPERT GUIDANCE ("Governed by industry and research") -->
       <!-- ===================================================================== -->
       <section id="governance" class="reveal-on-scroll py-2">
         <div class="text-center max-w-3xl mx-auto mb-10">
@@ -764,6 +849,7 @@
             <li><a href="/about" class="text-emerald-400 font-bold">About Us</a></li>
             <li><a href="/technologies" class="hover:text-white transition-colors">Technologies</a></li>
             <li><a href="/facilities" class="hover:text-white transition-colors">Facilities</a></li>
+            <li><a href="/services" class="hover:text-white transition-colors">Services &amp; Support</a></li>
             <li><a href="/incubation" class="hover:text-white transition-colors">Incubation</a></li>
             <li><a href="/events" class="hover:text-white transition-colors">Events &amp; Training</a></li>
             <li><a href="/success-stories" class="hover:text-white transition-colors">Success Stories</a></li>
@@ -822,6 +908,36 @@
             if (iconClose) iconClose.classList.add('hidden');
           }
         });
+      }
+
+      // Support Dropdown
+      const supportDdWrapper = document.getElementById('support-nav-group');
+      const supportDdPanel   = document.getElementById('support-dropdown-panel');
+      const supportDdArrow   = supportDdWrapper && supportDdWrapper.querySelector('svg');
+      let   supportDdTimer   = null;
+
+      function openSupportDd() {
+        if (supportDdTimer) { clearTimeout(supportDdTimer); supportDdTimer = null; }
+        if (supportDdPanel) {
+          supportDdPanel.classList.remove('hidden');
+          if (supportDdArrow) supportDdArrow.style.transform = 'rotate(180deg)';
+        }
+      }
+
+      function scheduleCloseSupportDd() {
+        supportDdTimer = setTimeout(() => {
+          if (supportDdPanel) {
+            supportDdPanel.classList.add('hidden');
+            if (supportDdArrow) supportDdArrow.style.transform = '';
+          }
+        }, 180);
+      }
+
+      if (supportDdWrapper && supportDdPanel) {
+        supportDdWrapper.addEventListener('mouseenter', openSupportDd);
+        supportDdWrapper.addEventListener('mouseleave', scheduleCloseSupportDd);
+        supportDdPanel.addEventListener('mouseenter',  openSupportDd);
+        supportDdPanel.addEventListener('mouseleave',  scheduleCloseSupportDd);
       }
 
       // Incubation Dropdown

@@ -287,10 +287,20 @@
               <span>Technologies</span>
               
             </a>
-            <a href="/facilities" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
-              <span>Facilities</span>
+            <!-- Support Dropdown Menu -->
+            <div class="relative" id="support-nav-group">
+              <button type="button" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all inline-flex items-center focus:outline-none" aria-expanded="false">
+                <span>Support</span>
+                <svg class="ml-1 w-3.5 h-3.5 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
               
-            </a>
+              <div class="absolute left-0 top-full w-52 rounded-2xl shadow-xl bg-white border border-slate-100 hidden z-50 pt-2.5 pb-2 mt-1" id="support-dropdown-panel">
+                <a href="/facilities" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Facilities</a>
+                <a href="/services" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Services &amp; Support</a>
+              </div>
+            </div>
 
             <!-- Incubation Dropdown Menu -->
             <div class="relative" id="incubation-nav-group">
@@ -355,7 +365,12 @@
           <a href="/" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Home</a>
           <a href="/about" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">About Us</a>
           <a href="/technologies" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Technologies</a>
-          <a href="/facilities" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Facilities</a>
+          <!-- Mobile Support Section -->
+          <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
+            <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Support</div>
+            <a href="/facilities" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Facilities</a>
+            <a href="/services" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Services &amp; Support</a>
+          </div>
           
           <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
             <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Incubation</div>
@@ -756,6 +771,7 @@
             <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
             <li><a href="/technologies" class="hover:text-white transition-colors">Technologies</a></li>
             <li><a href="/facilities" class="hover:text-white transition-colors">Facilities</a></li>
+            <li><a href="/services" class="hover:text-white transition-colors">Services &amp; Support</a></li>
             <li><a href="/incubation" class="hover:text-white transition-colors">Incubation</a></li>
             <li><a href="/events" class="hover:text-white transition-colors">Events &amp; Training</a></li>
             <li><a href="/success-stories" class="text-emerald-400 font-bold">Success Stories</a></li>
@@ -814,6 +830,36 @@
             if (iconClose) iconClose.classList.add('hidden');
           }
         });
+      }
+
+      // Support Dropdown
+      const supportDdWrapper = document.getElementById('support-nav-group');
+      const supportDdPanel   = document.getElementById('support-dropdown-panel');
+      const supportDdArrow   = supportDdWrapper && supportDdWrapper.querySelector('svg');
+      let   supportDdTimer   = null;
+
+      function openSupportDd() {
+        if (supportDdTimer) { clearTimeout(supportDdTimer); supportDdTimer = null; }
+        if (supportDdPanel) {
+          supportDdPanel.classList.remove('hidden');
+          if (supportDdArrow) supportDdArrow.style.transform = 'rotate(180deg)';
+        }
+      }
+
+      function scheduleCloseSupportDd() {
+        supportDdTimer = setTimeout(() => {
+          if (supportDdPanel) {
+            supportDdPanel.classList.add('hidden');
+            if (supportDdArrow) supportDdArrow.style.transform = '';
+          }
+        }, 180);
+      }
+
+      if (supportDdWrapper && supportDdPanel) {
+        supportDdWrapper.addEventListener('mouseenter', openSupportDd);
+        supportDdWrapper.addEventListener('mouseleave', scheduleCloseSupportDd);
+        supportDdPanel.addEventListener('mouseenter',  openSupportDd);
+        supportDdPanel.addEventListener('mouseleave',  scheduleCloseSupportDd);
       }
 
       // Incubation Dropdown

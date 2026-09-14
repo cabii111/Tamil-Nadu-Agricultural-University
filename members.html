@@ -196,10 +196,20 @@
               <span>Technologies</span>
               
             </a>
-            <a href="/facilities" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
-              <span>Facilities</span>
+            <!-- Support Dropdown Menu -->
+            <div class="relative" id="support-nav-group">
+              <button type="button" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all inline-flex items-center focus:outline-none" aria-expanded="false">
+                <span>Support</span>
+                <svg class="ml-1 w-3.5 h-3.5 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
               
-            </a>
+              <div class="absolute left-0 top-full w-52 rounded-2xl shadow-xl bg-white border border-slate-100 hidden z-50 pt-2.5 pb-2 mt-1" id="support-dropdown-panel">
+                <a href="/facilities" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Facilities</a>
+                <a href="/services" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Services &amp; Support</a>
+              </div>
+            </div>
 
             <!-- Incubation Dropdown Menu -->
             <div class="relative" id="incubation-nav-group">
@@ -264,7 +274,12 @@
           <a href="/" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Home</a>
           <a href="/about" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">About Us</a>
           <a href="/technologies" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Technologies</a>
-          <a href="/facilities" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Facilities</a>
+          <!-- Mobile Support Section -->
+          <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
+            <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Support</div>
+            <a href="/facilities" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Facilities</a>
+            <a href="/services" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Services &amp; Support</a>
+          </div>
           
           <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
             <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Incubation</div>
@@ -298,15 +313,83 @@
   <main class="flex-grow pt-2 pb-16">
     <div class="max-w-[1440px] mx-auto px-3.5 sm:px-6 lg:px-8 xl:px-12 space-y-12 sm:space-y-14">
 
-      <!-- PAGE HEADER -->
+            <!-- ========================================================================= -->
+      <!-- 1. PAGE HEADER & STATS HIGHLIGHT -->
+      <!-- ========================================================================= -->
       <section class="reveal-on-scroll relative">
         <div class="ambient-orb-green w-80 h-80 -top-10 -left-10 opacity-50"></div>
         <div class="relative z-10 bg-white rounded-[26px] sm:rounded-[28px] border border-slate-200/80 shadow-sm p-8 sm:p-12 lg:p-14">
-          <div class="max-w-2xl">
-            <p class="text-[11px] font-bold text-[#15803D] uppercase tracking-widest mb-3">Incubation / Members</p>
-            <h1 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[42px] text-[#0A2E1C] tracking-tight leading-tight mb-4">Members</h1>
-            <p class="text-slate-500 text-sm sm:text-base leading-relaxed">
-              This directory will list the active incubatee startups and ventures of EDII-MAFBIF. Member information will be published here as ventures are formally enrolled.
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+            <div class="max-w-2xl">
+              <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] font-extrabold uppercase tracking-widest mb-3">
+                <span class="w-2 h-2 rounded-full bg-[#15803D] animate-pulse"></span>
+                <span>Incubation / Member Directory</span>
+              </div>
+              <h1 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[44px] text-[#0A2E1C] tracking-tight leading-tight mb-4">
+                Incubatee Members &amp; Innovators
+              </h1>
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Explore the active agroforestry startups, biotechnology ventures, and green innovators incubated at EDII-MAFBIF, Forest College and Research Institute (FC&amp;RI), Mettupalayam, Tamil Nadu Agricultural University.
+              </p>
+            </div>
+
+            <!-- Header Stat Chips -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-3 shrink-0">
+              <div class="bg-[#F8FAF8] border border-slate-200/80 rounded-2xl p-4 text-center">
+                <div class="font-heading font-extrabold text-2xl text-[#0A2E1C]">17</div>
+                <div class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider mt-0.5">Active Incubatees</div>
+              </div>
+              <div class="bg-[#F0FDF4] border border-emerald-200/80 rounded-2xl p-4 text-center">
+                <div class="font-heading font-extrabold text-2xl text-[#15803D]">₹47L+</div>
+                <div class="text-[11px] font-semibold text-emerald-800 uppercase tracking-wider mt-0.5">Grants Sanctioned</div>
+              </div>
+              <div class="bg-[#FEFCE8] border border-amber-200/80 rounded-2xl p-4 text-center">
+                <div class="font-heading font-extrabold text-2xl text-[#854D0E]">100%</div>
+                <div class="text-[11px] font-semibold text-amber-800 uppercase tracking-wider mt-0.5">EDII-IVP Backed</div>
+              </div>
+              <div class="bg-[#F8FAF8] border border-slate-200/80 rounded-2xl p-4 text-center">
+                <div class="font-heading font-extrabold text-2xl text-[#0A2E1C]">TNAU</div>
+                <div class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider mt-0.5">FC&amp;RI Mentored</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-hairline"></div>
+
+      <!-- ========================================================================= -->
+      <!-- 2. OFFICIAL EDII IVP GRANT DISBURSEMENT SHOWCASE (From Institutional Records) -->
+      <!-- ========================================================================= -->
+      <section class="reveal-on-scroll relative">
+        <div class="ambient-orb-teal w-96 h-96 -top-10 -right-10 opacity-30"></div>
+        <div class="relative z-10 bg-gradient-to-br from-[#07190F] via-[#0A2E1C] to-[#0E3B24] rounded-[26px] sm:rounded-[28px] p-7 sm:p-10 lg:p-12 text-white shadow-xl border border-emerald-800/60 overflow-hidden">
+          <!-- Subtle Decorative Grid Background Pattern -->
+          <div class="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#CFA851_1px,transparent_1px)] [background-size:16px_16px]"></div>
+
+          <div class="relative z-10 max-w-4xl mx-auto text-center space-y-5">
+            <!-- Badge -->
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#CFA851] text-[11px] font-bold tracking-widest uppercase">
+              <svg class="w-4 h-4 text-[#CFA851]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Achievements and Recognitions</span>
+            </div>
+
+            <!-- Official Title -->
+            <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
+              EDII IVP GRANT DISBURSEMENT
+            </h2>
+
+            <!-- Highlight Quote from Official Disbursement Document -->
+            <div class="p-5 sm:p-6 rounded-2xl bg-white/[0.08] backdrop-blur-sm border border-white/15 max-w-3xl mx-auto shadow-inner">
+              <p class="text-base sm:text-lg lg:text-xl font-medium text-emerald-100/95 leading-relaxed italic">
+                “MAFBIF proudly declares that around <span class="text-[#CFA851] font-extrabold underline decoration-[#CFA851]/60 underline-offset-4">47 Lakhs</span> has been sanctioned to our incubate members for their innovative thought.”
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-emerald-200/80 max-w-2xl mx-auto leading-relaxed">
+              Disbursed under the Innovation Voucher Programme (IVP) by the Entrepreneurship Development and Innovation Institute (EDII), Government of Tamil Nadu, in active collaboration with TNAU Forest College &amp; Research Institute.
             </p>
           </div>
         </div>
@@ -314,206 +397,1116 @@
 
       <div class="section-hairline"></div>
 
-      <!-- 20 EMPTY PLACEHOLDER CARDS -->
+      <!-- ========================================================================= -->
+      <!-- 3. INCUBATEE PORTFOLIO DIRECTORY (Interactive Search & 17 Member Cards) -->
+      <!-- ========================================================================= -->
       <section class="reveal-on-scroll relative py-2">
-        <div class="ambient-orb-teal w-96 h-96 -top-12 -right-12 opacity-40"></div>
+        <div class="ambient-orb-green w-96 h-96 -bottom-10 -left-10 opacity-30"></div>
 
         <div class="relative z-10 bg-white rounded-[26px] sm:rounded-[28px] border border-slate-200/80 shadow-sm p-6 sm:p-10 lg:p-12">
-
-          <div class="flex items-center justify-between mb-8">
-            <div>
-              <h2 class="font-heading font-extrabold text-xl sm:text-2xl text-[#0A2E1C]">Incubatee Portfolio</h2>
-              <p class="text-xs text-slate-400 mt-1">Member entries will be published as enrollments are confirmed.</p>
+          
+          <!-- Section Heading + Search + Filter Controls -->
+          <div class="flex flex-col space-y-6 mb-8 sm:mb-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div>
+                <h2 class="font-heading font-extrabold text-2xl sm:text-3xl text-[#0A2E1C]">Incubatee Portfolio</h2>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                  17 sanctioned ventures commercializing agroforestry, sericulture, bioplastics, organic formulations, and clean technologies.
+                </p>
+              </div>
+              <div class="shrink-0 flex items-center space-x-2">
+                <span class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-xs font-bold">
+                  <span class="w-2 h-2 rounded-full bg-[#15803D]"></span>
+                  <span>17 Innovators Enrolled</span>
+                </span>
+              </div>
             </div>
-            <div class="shrink-0 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
-              Slots available
+
+            <!-- Search Bar & Category Filters -->
+            <div class="flex flex-col md:flex-row gap-3 pt-2">
+              <!-- Search Input -->
+              <div class="relative flex-grow">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                  <svg class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                  </svg>
+                </div>
+                <input 
+                  type="text" 
+                  id="member-search-input" 
+                  placeholder="Search by innovator name, company, or innovation..." 
+                  class="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-200 bg-slate-50/60 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#15803D] focus:border-transparent focus:bg-white transition-all"
+                >
+                <button id="clear-search-btn" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 hidden" aria-label="Clear search">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Filter Pills -->
+              <div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none" id="category-filter-group">
+                <button type="button" data-filter="all" class="filter-btn active px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-[#0A2E1C] text-white shadow-xs">
+                  All (17)
+                </button>
+                <button type="button" data-filter="sericulture" class="filter-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-100 hover:bg-slate-200 text-slate-700 whitespace-nowrap">
+                  Sericulture &amp; Silk
+                </button>
+                <button type="button" data-filter="biotech" class="filter-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-100 hover:bg-slate-200 text-slate-700 whitespace-nowrap">
+                  Biotechnology &amp; Diagnostics
+                </button>
+                <button type="button" data-filter="waste" class="filter-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-100 hover:bg-slate-200 text-slate-700 whitespace-nowrap">
+                  Waste to Wealth &amp; Bioplastics
+                </button>
+                <button type="button" data-filter="organic" class="filter-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-100 hover:bg-slate-200 text-slate-700 whitespace-nowrap">
+                  Organic &amp; Herbal
+                </button>
+                <button type="button" data-filter="solar" class="filter-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-100 hover:bg-slate-200 text-slate-700 whitespace-nowrap">
+                  Solar &amp; Energy
+                </button>
+              </div>
+            </div>
+
+            <!-- Active results counter -->
+            <div class="flex items-center justify-between text-xs text-slate-500 pt-1">
+              <span id="results-count-text">Displaying all 17 sanctioned incubatee members</span>
             </div>
           </div>
 
-          <!-- 20 placeholder cards — intentionally empty -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4">
+          <!-- 17 Member Cards Grid -->
+          <div id="members-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
 
-            <!-- Card 01 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 01: Dr. S. PRABHU -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="sericulture" 
+                 data-search="dr. s. prabhu ceo roma enterprises commercialization of illamathi- a phytojuvenoid hormone for enhancing silk productivity sericulture & silk tech">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #01
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>2 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Dr.S.PRABHU.png" alt="Dr. S. PRABHU" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Dr. S. PRABHU
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, ROMA Enterprises</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Commercialization of Illamathi- a Phytojuvenoid hormone for enhancing silk productivity”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Sericulture & Silk Tech
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 02 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 02: Dr. P. RAJESHWARI -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="sericulture" 
+                 data-search="dr. p. rajeshwari ceo rainbow enterprises production of micronutrient mixture to enhance quality and yield of mulberry leaves mulberry & crop nutrition">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #02
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>2 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Dr.%20P.%20RAJESHWARI.png" alt="Dr. P. RAJESHWARI" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Dr. P. RAJESHWARI
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, Rainbow Enterprises</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Production of Micronutrient Mixture to enhance quality and yield of mulberry leaves”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Mulberry & Crop Nutrition
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 03 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 03: Dr. P. MOHANRAJ -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="biotech" 
+                 data-search="dr. p. mohanraj ceo jiya biotech commercialization of probiotics formulation as growth enhancers of mulberry silkworm silkworm probiotics & biotech">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #03
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>2 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Dr.%20P.%20MOHANRAJ.png" alt="Dr. P. MOHANRAJ" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Dr. P. MOHANRAJ
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, Jiya Biotech</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Commercialization of Probiotics formulation as growth enhancers of Mulberry silkworm”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Silkworm Probiotics & Biotech
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 04 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 04: Mr. C. ABIKKUMAR -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="waste" 
+                 data-search="mr. c. abikkumar ceo valento enterprises production of decomposable plastic from silkworm cocoon waste bioplastics & waste to wealth">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #04
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>2 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Mr.%20C.%20ABIKKUMAR.png" alt="Mr. C. ABIKKUMAR" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Mr. C. ABIKKUMAR
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, Valento Enterprises</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Production of decomposable plastic from silkworm cocoon waste”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Bioplastics & Waste to Wealth
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 05 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 05: Mr. P. Jeevanatham -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="organic" 
+                 data-search="mr. p. jeevanatham ceo poovanthi organic products formulation of chemical free organic handwash from sapindus emarginatus organic hygiene & botanicals">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #05
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>2 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Mr.%20P.%20Jeevanatham.png" alt="Mr. P. Jeevanatham" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Mr. P. Jeevanatham
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, Poovanthi Organic Products</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Formulation of Chemical Free Organic Handwash from Sapindus emarginatus”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Organic Hygiene & Botanicals
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 06 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 06: Dr. T. Geetha -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="biotech" 
+                 data-search="dr. t. geetha ceo uyiriyal biotech commercial spray dried formulation of bacteriocin - an alternative to antibiotics biotech & therapeutics">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #06
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>2 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Dr.%20T.%20Geetha.png" alt="Dr. T. Geetha" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Dr. T. Geetha
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, Uyiriyal Biotech</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Commercial Spray Dried Formulation of Bacteriocin - An Alternative to Antibiotics”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Biotech & Therapeutics
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 07 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 07: Dr. R. Nagganatha Suganthan -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="biotech" 
+                 data-search="dr. r. nagganatha suganthan director utilis biosciences orchidia- test kit for detecting viral infection in orchids plant diagnostics & floral health">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #07
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>2 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Dr.R.Nagganatha%20Suganthan.png" alt="Dr. R. Nagganatha Suganthan" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Dr. R. Nagganatha Suganthan
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>Director, Utilis Biosciences</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“OrchiDia- Test Kit for detecting viral infection in Orchids”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Plant Diagnostics & Floral Health
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 08 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 08: Mrs. M. R. G. Sangeetha -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="solar" 
+                 data-search="mrs. m. r. g. sangeetha ceo mrgs agro traders dual grant: ivp a - portable solar dehydrator (₹2 lakhs) | ivp b - commercialization of portable solar dehydrator (₹3 lakhs) solar tech & food processing">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #08
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>5 Lakhs (IVP A + B)</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Mrs.%20M.%20R.%20G.%20Sangeetha.png" alt="Mrs. M. R. G. Sangeetha" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Mrs. M. R. G. Sangeetha
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, MRGS Agro Traders</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start space-y-2">
+          <div class="flex items-center space-x-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Dual IVP Grants Sanctioned</span>
+          </div>
+          <div class="space-y-1.5 pt-0.5">
+            <div class="bg-white p-2 rounded-lg border border-slate-200/70">
+              <div class="flex items-center justify-between text-[11px] font-bold text-[#0A2E1C]">
+                <span>IVP A: Portable Solar Dehydrator</span>
+                <span class="text-[#15803D] bg-emerald-50 px-1.5 py-0.5 rounded">₹2 Lakhs</span>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+            </div>
+            <div class="bg-white p-2 rounded-lg border border-slate-200/70">
+              <div class="flex items-center justify-between text-[11px] font-bold text-[#0A2E1C]">
+                <span>IVP B: Commercialization of Portable Solar Dehydrator</span>
+                <span class="text-[#15803D] bg-emerald-50 px-1.5 py-0.5 rounded">₹3 Lakhs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+              </div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Solar Tech & Food Processing
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 09 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 09: Ms. S. Gayathri -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="organic" 
+                 data-search="ms. s. gayathri ceo herbo queen enterprises validation and commercialization of forest based skin and body care products forest botanicals & wellness">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #09
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>2 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Ms.%20S.%20Gayathri.png" alt="Ms. S. Gayathri" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Ms. S. Gayathri
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, Herbo Queen Enterprises</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Validation and Commercialization of Forest Based Skin and Body Care Products”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Forest Botanicals & Wellness
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 10 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 10: Dr. R. Ramamoorthy -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="sericulture" 
+                 data-search="dr. r. ramamoorthy ceo aara enterprises talc based nano composite formulation for silkworm disease management nanotech crop protection">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #10
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>2 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Dr.%20R.%20Ramamoorthy.png" alt="Dr. R. Ramamoorthy" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Dr. R. Ramamoorthy
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, Aara Enterprises</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Talc Based Nano Composite Formulation for Silkworm Disease Management”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Nanotech Crop Protection
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 11 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 11: Mr. M. Subhash Krishnan -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="waste" 
+                 data-search="mr. m. subhash krishnan ceo esskay biotech wood seasoning technology for industrial application of melia dubia agroforestry & timber seasoning">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #11
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>2 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Mr.%20M.%20Subhash%20Krishnan.png" alt="Mr. M. Subhash Krishnan" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Mr. M. Subhash Krishnan
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, ESSKAY BIOTECH</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Wood seasoning technology for Industrial application of Melia dubia”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Agroforestry & Timber Seasoning
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 12 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 12: Mr. V.S. HARI PRANESSH & Mr. D. DHINESH KUMAR -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="waste" 
+                 data-search="mr. v.s. hari pranessh & mr. d. dhinesh kumar ceo foris enterprises validation and commercialization of livestock feed from neolamarckia cadamba leaves - value from waste value from waste & feed">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #12
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>2 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Mr.V.S.HARI%20PRANESSH%20and%20Mr.D.DHINESH%20KUMAR.png" alt="Mr. V.S. HARI PRANESSH & Mr. D. DHINESH KUMAR" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Mr. V.S. HARI PRANESSH & Mr. D. DHINESH KUMAR
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, Foris Enterprises</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Validation and Commercialization of Livestock Feed from Neolamarckia cadamba Leaves - VALUE FROM WASTE”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Value from Waste & Feed
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 13 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 13: Ms. S.A. BRINDHA BHARATHI -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="biotech" 
+                 data-search="ms. s.a. brindha bharathi ceo sunshine enterprises nutristicks for plant growth promotors agri inputs & growth promoters">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #13
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>2 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Ms.%20S.A.%20BRINDHA%20BHARATHI.png" alt="Ms. S.A. BRINDHA BHARATHI" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Ms. S.A. BRINDHA BHARATHI
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, SUNSHINE ENTERPRISES</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Nutristicks for plant growth promotors”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Agri Inputs & Growth Promoters
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 14 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 14: Mr. M.S. Srinithi -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="organic" 
+                 data-search="mr. m.s. srinithi ceo herbly ritualls specialized face mask herbal formulations & cosmetics">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #14
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>6 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Mr.%20M.S.%20Srinithi.png" alt="Mr. M.S. Srinithi" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Mr. M.S. Srinithi
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, Herbly Ritualls</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Specialized Face Mask”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Herbal Formulations & Cosmetics
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 15 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 15: Mr. V. Muruganatham -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="waste" 
+                 data-search="mr. v. muruganatham vice president greenviro global pvt ltd. activated charcoal activated carbon & industrial biomass">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #15
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>10 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Mr.%20V.%20Muruganatham.png" alt="Mr. V. Muruganatham" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Mr. V. Muruganatham
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>Vice President, Greenviro Global Pvt Ltd.</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Activated Charcoal”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Activated Carbon & Industrial Biomass
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 16 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <!-- Card 16: Ms. M. R. G. Sangeetha -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="solar" 
+                 data-search="ms. m. r. g. sangeetha ceo mrgs agro traders portable solar dehydrator clean tech & solar dehydration">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #16
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>6 Lakhs</span>
+                  </span>
+                </div>
+
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Ms.%20M.%20R.%20G.%20Sangeetha.png" alt="Ms. M. R. G. Sangeetha" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
+
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Ms. M. R. G. Sangeetha
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, MRGS Agro Traders</span>
+                  </p>
+                </div>
+
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Portable Solar Dehydrator”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
+
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Clean Tech & Solar Dehydration
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
             </div>
 
-            <!-- Card 17 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-              </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
-            </div>
+            <!-- Card 17: Mr. V. KABINESH & Ms. M. Kowsalya -->
+            <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+                 data-category="waste" 
+                 data-search="mr. v. kabinesh & ms. m. kowsalya ceo m/s o3 cordial sac bio compact - replacement for poly-bag eco bioplastics & green packaging">
+              <div>
+                <!-- Top Row: Index + Sanctioned Budget Pill -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                    #17
+                  </span>
+                  <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                    <span class="text-amber-600 font-bold">₹</span>
+                    <span>2 Lakhs</span>
+                  </span>
+                </div>
 
-            <!-- Card 18 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-              </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
-            </div>
+                <!-- Member Portrait Frame -->
+                <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                  <img src="/Public/Members/Mr.%20V.%20KABINESH%20&%20Ms.M.Kowsalya.png" alt="Mr. V. KABINESH & Ms. M. Kowsalya" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+                </div>
 
-            <!-- Card 19 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-              </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
-            </div>
+                <!-- Name & Company Lockup -->
+                <div class="mt-4 text-center">
+                  <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                    Mr. V. KABINESH & Ms. M. Kowsalya
+                  </h3>
+                  <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                    <span>CEO, M/s O3 Cordial sac</span>
+                  </p>
+                </div>
 
-            <!-- Card 20 -->
-            <div class="placeholder-card bg-[#F8FAF8] border border-dashed border-slate-200 rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-4">
-              <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 mb-3 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                <!-- Innovative Idea Block -->
+                
+        <div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+          <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            <span>Innovative Idea</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“Bio Compact - replacement for Poly-bag”</p>
+        </div>
               </div>
-              <div class="w-14 h-2 bg-slate-200 rounded-full mb-1.5"></div>
-              <div class="w-10 h-1.5 bg-slate-100 rounded-full"></div>
-            </div>
 
-          </div><!-- end grid -->
+              <!-- Card Footer -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                  Eco Bioplastics & Green Packaging
+                </span>
+                <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                  <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Grant Sanctioned</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Empty state when search produces no results -->
+          <div id="empty-state" class="hidden text-center py-12 px-4">
+            <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-400">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-base text-slate-800 mb-1">No incubatees found</h3>
+            <p class="text-xs text-slate-500 max-w-sm mx-auto mb-4">No member profiles match your current search query or filter criteria.</p>
+            <button id="reset-filter-btn" class="px-4 py-2 rounded-xl bg-[#0A2E1C] text-white text-xs font-bold hover:bg-[#15803D] transition-colors">
+              Reset Filters
+            </button>
+          </div>
+
         </div>
       </section>
 
@@ -557,6 +1550,7 @@
             <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
             <li><a href="/technologies" class="hover:text-white transition-colors">Technologies</a></li>
             <li><a href="/facilities" class="hover:text-white transition-colors">Facilities</a></li>
+            <li><a href="/services" class="hover:text-white transition-colors">Services &amp; Support</a></li>
             <li><a href="/incubation" class="hover:text-white transition-colors">Incubation</a></li>
             <li><a href="/events" class="hover:text-white transition-colors">Events &amp; Training</a></li>
             <li><a href="/success-stories" class="hover:text-white transition-colors">Success Stories</a></li>
@@ -610,6 +1604,36 @@
         });
       }
 
+      // Support Dropdown
+      const supportDdWrapper = document.getElementById('support-nav-group');
+      const supportDdPanel   = document.getElementById('support-dropdown-panel');
+      const supportDdArrow   = supportDdWrapper && supportDdWrapper.querySelector('svg');
+      let   supportDdTimer   = null;
+
+      function openSupportDd() {
+        if (supportDdTimer) { clearTimeout(supportDdTimer); supportDdTimer = null; }
+        if (supportDdPanel) {
+          supportDdPanel.classList.remove('hidden');
+          if (supportDdArrow) supportDdArrow.style.transform = 'rotate(180deg)';
+        }
+      }
+
+      function scheduleCloseSupportDd() {
+        supportDdTimer = setTimeout(() => {
+          if (supportDdPanel) {
+            supportDdPanel.classList.add('hidden');
+            if (supportDdArrow) supportDdArrow.style.transform = '';
+          }
+        }, 180);
+      }
+
+      if (supportDdWrapper && supportDdPanel) {
+        supportDdWrapper.addEventListener('mouseenter', openSupportDd);
+        supportDdWrapper.addEventListener('mouseleave', scheduleCloseSupportDd);
+        supportDdPanel.addEventListener('mouseenter',  openSupportDd);
+        supportDdPanel.addEventListener('mouseleave',  scheduleCloseSupportDd);
+      }
+
       // Incubation Dropdown
       const incubDdWrapper = document.getElementById('incubation-nav-group');
       const incubDdPanel   = document.getElementById('incubation-dropdown-panel');
@@ -657,6 +1681,112 @@
         revealElements.forEach(el => el.classList.add('is-revealed'));
       }
     });
+  
+
+      // Member Filter and Search Logic
+      const searchInput = document.getElementById('member-search-input');
+      const clearSearchBtn = document.getElementById('clear-search-btn');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const memberCards = document.querySelectorAll('.member-card');
+      const emptyState = document.getElementById('empty-state');
+      const resultsText = document.getElementById('results-count-text');
+      const resetBtn = document.getElementById('reset-filter-btn');
+
+      let currentCategory = 'all';
+      let currentQuery = '';
+
+      function filterMembers() {
+        let visibleCount = 0;
+        const q = currentQuery.toLowerCase().trim();
+
+        memberCards.forEach(card => {
+          const cardCat = card.getAttribute('data-category');
+          const searchData = card.getAttribute('data-search') || '';
+
+          const matchesCategory = (currentCategory === 'all' || cardCat === currentCategory);
+          const matchesSearch = !q || searchData.includes(q);
+
+          if (matchesCategory && matchesSearch) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (emptyState) {
+          if (visibleCount === 0) {
+            emptyState.classList.remove('hidden');
+          } else {
+            emptyState.classList.add('hidden');
+          }
+        }
+
+        if (resultsText) {
+          if (visibleCount === memberCards.length) {
+            resultsText.textContent = 'Displaying all 17 sanctioned incubatee members';
+          } else {
+            resultsText.textContent = `Showing ${visibleCount} of 17 incubatee members`;
+          }
+        }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentQuery = e.target.value;
+          if (clearSearchBtn) {
+            if (currentQuery.length > 0) {
+              clearSearchBtn.classList.remove('hidden');
+            } else {
+              clearSearchBtn.classList.add('hidden');
+            }
+          }
+          filterMembers();
+        });
+      }
+
+      if (clearSearchBtn) {
+        clearSearchBtn.addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          currentQuery = '';
+          clearSearchBtn.classList.add('hidden');
+          filterMembers();
+          if (searchInput) searchInput.focus();
+        });
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('active', 'bg-[#0A2E1C]', 'text-white', 'shadow-xs');
+            b.classList.add('bg-slate-100', 'text-slate-700');
+          });
+          btn.classList.add('active', 'bg-[#0A2E1C]', 'text-white', 'shadow-xs');
+          btn.classList.remove('bg-slate-100', 'text-slate-700');
+          currentCategory = btn.getAttribute('data-filter') || 'all';
+          filterMembers();
+        });
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          currentQuery = '';
+          currentCategory = 'all';
+          if (clearSearchBtn) clearSearchBtn.classList.add('hidden');
+          filterBtns.forEach((b, idx) => {
+            if (idx === 0) {
+              b.classList.add('active', 'bg-[#0A2E1C]', 'text-white', 'shadow-xs');
+              b.classList.remove('bg-slate-100', 'text-slate-700');
+            } else {
+              b.classList.remove('active', 'bg-[#0A2E1C]', 'text-white', 'shadow-xs');
+              b.classList.add('bg-slate-100', 'text-slate-700');
+            }
+          });
+          filterMembers();
+        });
+      }
+
   </script>
 
 </body>

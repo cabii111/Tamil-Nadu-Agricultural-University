@@ -294,10 +294,20 @@
               <span>Technologies</span>
               
             </a>
-            <a href="/facilities" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all">
-              <span>Facilities</span>
+            <!-- Support Dropdown Menu -->
+            <div class="relative" id="support-nav-group">
+              <button type="button" class="px-2.5 xl:px-3 py-1.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50/80 font-medium text-[13px] xl:text-[13.5px] 2xl:text-[14px] transition-all inline-flex items-center focus:outline-none" aria-expanded="false">
+                <span>Support</span>
+                <svg class="ml-1 w-3.5 h-3.5 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
               
-            </a>
+              <div class="absolute left-0 top-full w-52 rounded-2xl shadow-xl bg-white border border-slate-100 hidden z-50 pt-2.5 pb-2 mt-1" id="support-dropdown-panel">
+                <a href="/facilities" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Facilities</a>
+                <a href="/services" class="block px-4 py-2 text-sm text-slate-700 hover:bg-[#F0FDF4] hover:text-[#0A2E1C] font-medium">Services &amp; Support</a>
+              </div>
+            </div>
 
             <!-- Incubation Dropdown Menu -->
             <div class="relative" id="incubation-nav-group">
@@ -362,7 +372,12 @@
           <a href="/" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Home</a>
           <a href="/about" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">About Us</a>
           <a href="/technologies" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Technologies</a>
-          <a href="/facilities" class="block px-3.5 py-2.5 rounded-xl text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-sm transition-colors">Facilities</a>
+          <!-- Mobile Support Section -->
+          <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
+            <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Support</div>
+            <a href="/facilities" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Facilities</a>
+            <a href="/services" class="block px-2.5 py-2 rounded-lg text-slate-700 hover:text-[#0A2E1C] hover:bg-slate-50 font-medium text-xs sm:text-sm transition-colors">Services &amp; Support</a>
+          </div>
           
           <div class="py-1.5 pl-3 border-l-2 border-[#16A34A]/30 ml-2 my-1.5 space-y-1">
             <div class="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Incubation</div>
@@ -723,6 +738,136 @@
       <div class="section-hairline"></div>
 
       <!-- ===================================================================== -->
+      <!-- 5B. EDII IVP GRANT DISBURSEMENT & INCUBATEE MEMBERS SHOWCASE          -->
+      <!-- ===================================================================== -->
+      <section class="relative reveal-on-scroll py-2">
+        <div class="bg-gradient-to-br from-[#07190F] via-[#0A2E1C] to-[#0E3B24] rounded-[26px] sm:rounded-[28px] p-6 sm:p-10 lg:p-12 text-white shadow-xl border border-emerald-800/60 overflow-hidden relative">
+          <div class="ambient-orb-green w-80 h-80 -top-10 -left-10 opacity-30"></div>
+          <div class="ambient-orb-teal w-96 h-96 -bottom-10 -right-10 opacity-25"></div>
+
+          <div class="relative z-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+              <div>
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#CFA851] text-[11px] font-bold tracking-widest uppercase mb-3">
+                  <svg class="w-3.5 h-3.5 text-[#CFA851]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>Achievements &amp; Recognitions</span>
+                </div>
+                <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
+                  EDII IVP Grant Disbursement &amp; Incubatee Members
+                </h2>
+                <p class="text-xs sm:text-sm text-emerald-100/90 mt-1 max-w-2xl leading-relaxed">
+                  MAFBIF proudly declares that around <span class="text-[#CFA851] font-bold">47 Lakhs</span> has been sanctioned to our incubate members for their innovative thoughts and commercial ventures.
+                </p>
+              </div>
+
+              <div class="shrink-0">
+                <a href="/members" class="inline-flex items-center space-x-2 bg-[#CFA851] hover:bg-[#b89342] text-[#0A2E1C] px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm shadow-md transition-all">
+                  <span>View All 17 Incubatee Members</span>
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Featured 4 Incubatees Preview Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+              <!-- Dr. S. PRABHU -->
+              <div class="bg-white/[0.08] backdrop-blur-sm p-5 rounded-2xl border border-white/15 hover:bg-white/[0.14] transition-all flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="text-[10px] font-extrabold text-[#CFA851] bg-white/10 px-2 py-0.5 rounded-full uppercase tracking-wider">#01</span>
+                    <span class="text-xs font-extrabold text-[#CFA851] bg-[#CFA851]/20 px-2 py-0.5 rounded-full">₹2 Lakhs</span>
+                  </div>
+                  <div class="w-20 h-24 rounded-xl overflow-hidden border border-white/20 mb-3 mx-auto shadow-sm bg-black/20">
+                    <img src="/Public/Members/Dr.S.PRABHU.png" alt="Dr. S. PRABHU" class="w-full h-full object-cover object-top" loading="lazy">
+                  </div>
+                  <h3 class="font-heading font-extrabold text-sm text-white text-center">Dr. S. PRABHU</h3>
+                  <p class="text-[11px] font-semibold text-emerald-300 text-center">CEO, ROMA Enterprises</p>
+                  <p class="text-[11px] text-emerald-100/80 mt-2 line-clamp-2 text-center italic">"Illamathi Phytojuvenoid for enhancing silk productivity"</p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-white/10 text-center">
+                  <span class="text-[10px] text-emerald-300/80 font-medium">Sericulture &amp; Silk Tech</span>
+                </div>
+              </div>
+
+              <!-- Dr. P. RAJESHWARI -->
+              <div class="bg-white/[0.08] backdrop-blur-sm p-5 rounded-2xl border border-white/15 hover:bg-white/[0.14] transition-all flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="text-[10px] font-extrabold text-[#CFA851] bg-white/10 px-2 py-0.5 rounded-full uppercase tracking-wider">#02</span>
+                    <span class="text-xs font-extrabold text-[#CFA851] bg-[#CFA851]/20 px-2 py-0.5 rounded-full">₹2 Lakhs</span>
+                  </div>
+                  <div class="w-20 h-24 rounded-xl overflow-hidden border border-white/20 mb-3 mx-auto shadow-sm bg-black/20">
+                    <img src="/Public/Members/Dr.%20P.%20RAJESHWARI.png" alt="Dr. P. RAJESHWARI" class="w-full h-full object-cover object-top" loading="lazy">
+                  </div>
+                  <h3 class="font-heading font-extrabold text-sm text-white text-center">Dr. P. RAJESHWARI</h3>
+                  <p class="text-[11px] font-semibold text-emerald-300 text-center">CEO, Rainbow Enterprises</p>
+                  <p class="text-[11px] text-emerald-100/80 mt-2 line-clamp-2 text-center italic">"Micronutrient Mixture to enhance quality and yield of mulberry leaves"</p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-white/10 text-center">
+                  <span class="text-[10px] text-emerald-300/80 font-medium">Mulberry &amp; Crop Nutrition</span>
+                </div>
+              </div>
+
+              <!-- Mr. V. Muruganatham -->
+              <div class="bg-white/[0.08] backdrop-blur-sm p-5 rounded-2xl border border-white/15 hover:bg-white/[0.14] transition-all flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="text-[10px] font-extrabold text-[#CFA851] bg-white/10 px-2 py-0.5 rounded-full uppercase tracking-wider">#15</span>
+                    <span class="text-xs font-extrabold text-[#CFA851] bg-[#CFA851]/20 px-2 py-0.5 rounded-full">₹10 Lakhs</span>
+                  </div>
+                  <div class="w-20 h-24 rounded-xl overflow-hidden border border-white/20 mb-3 mx-auto shadow-sm bg-black/20">
+                    <img src="/Public/Members/Mr.%20V.%20Muruganatham.png" alt="Mr. V. Muruganatham" class="w-full h-full object-cover object-top" loading="lazy">
+                  </div>
+                  <h3 class="font-heading font-extrabold text-sm text-white text-center">Mr. V. Muruganatham</h3>
+                  <p class="text-[11px] font-semibold text-emerald-300 text-center">VP, Greenviro Global</p>
+                  <p class="text-[11px] text-emerald-100/80 mt-2 line-clamp-2 text-center italic">"Commercial Activated Charcoal from Agroforestry Biomass"</p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-white/10 text-center">
+                  <span class="text-[10px] text-emerald-300/80 font-medium">Activated Carbon &amp; Biomass</span>
+                </div>
+              </div>
+
+              <!-- Ms. M. R. G. Sangeetha -->
+              <div class="bg-white/[0.08] backdrop-blur-sm p-5 rounded-2xl border border-white/15 hover:bg-white/[0.14] transition-all flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="text-[10px] font-extrabold text-[#CFA851] bg-white/10 px-2 py-0.5 rounded-full uppercase tracking-wider">#16</span>
+                    <span class="text-xs font-extrabold text-[#CFA851] bg-[#CFA851]/20 px-2 py-0.5 rounded-full">₹6 Lakhs</span>
+                  </div>
+                  <div class="w-20 h-24 rounded-xl overflow-hidden border border-white/20 mb-3 mx-auto shadow-sm bg-black/20">
+                    <img src="/Public/Members/Ms.%20M.%20R.%20G.%20Sangeetha.png" alt="Ms. M. R. G. Sangeetha" class="w-full h-full object-cover object-top" loading="lazy">
+                  </div>
+                  <h3 class="font-heading font-extrabold text-sm text-white text-center">Ms. M. R. G. Sangeetha</h3>
+                  <p class="text-[11px] font-semibold text-emerald-300 text-center">CEO, MRGS Agro Traders</p>
+                  <p class="text-[11px] text-emerald-100/80 mt-2 line-clamp-2 text-center italic">"Portable Solar Dehydrator for agro-produce post-harvest processing"</p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-white/10 text-center">
+                  <span class="text-[10px] text-emerald-300/80 font-medium">Solar Dehydration Tech</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Directory Link Banner -->
+            <div class="mt-6 pt-5 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-emerald-200/90 gap-3">
+              <div class="flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span>All 17 incubatees receive dedicated TNAU technical mentoring, lab access, and EDII financial guidance.</span>
+              </div>
+              <a href="/members" class="font-bold text-[#CFA851] hover:text-white flex items-center space-x-1 underline underline-offset-4">
+                <span>View Full Incubatee Members Directory (17 Innovators)</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Transition Hairline -->
+      <div class="section-hairline"></div>
+
+      <!-- ===================================================================== -->
       <!-- 6. INCUBATION APPLICATION FORM SECTION                                -->
       <!-- ===================================================================== -->
       <section id="apply" class="relative reveal-on-scroll py-2">
@@ -916,6 +1061,7 @@
             <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
             <li><a href="/technologies" class="hover:text-white transition-colors">Technologies</a></li>
             <li><a href="/facilities" class="hover:text-white transition-colors">Facilities</a></li>
+            <li><a href="/services" class="hover:text-white transition-colors">Services &amp; Support</a></li>
             <li><a href="/incubation" class="text-emerald-400 font-bold">Incubation</a></li>
             <li><a href="/events" class="hover:text-white transition-colors">Events &amp; Training</a></li>
             <li><a href="/success-stories" class="hover:text-white transition-colors">Success Stories</a></li>
@@ -1008,6 +1154,36 @@
             if (iconClose) iconClose.classList.add('hidden');
           }
         });
+      }
+
+      // Support Dropdown
+      const supportDdWrapper = document.getElementById('support-nav-group');
+      const supportDdPanel   = document.getElementById('support-dropdown-panel');
+      const supportDdArrow   = supportDdWrapper && supportDdWrapper.querySelector('svg');
+      let   supportDdTimer   = null;
+
+      function openSupportDd() {
+        if (supportDdTimer) { clearTimeout(supportDdTimer); supportDdTimer = null; }
+        if (supportDdPanel) {
+          supportDdPanel.classList.remove('hidden');
+          if (supportDdArrow) supportDdArrow.style.transform = 'rotate(180deg)';
+        }
+      }
+
+      function scheduleCloseSupportDd() {
+        supportDdTimer = setTimeout(() => {
+          if (supportDdPanel) {
+            supportDdPanel.classList.add('hidden');
+            if (supportDdArrow) supportDdArrow.style.transform = '';
+          }
+        }, 180);
+      }
+
+      if (supportDdWrapper && supportDdPanel) {
+        supportDdWrapper.addEventListener('mouseenter', openSupportDd);
+        supportDdWrapper.addEventListener('mouseleave', scheduleCloseSupportDd);
+        supportDdPanel.addEventListener('mouseenter',  openSupportDd);
+        supportDdPanel.addEventListener('mouseleave',  scheduleCloseSupportDd);
       }
 
       // Incubation Dropdown
