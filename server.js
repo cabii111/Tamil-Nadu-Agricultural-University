@@ -21,10 +21,11 @@ const server = http.createServer((req, res) => {
   
   let filePath = path.join(__dirname, reqPath);
   
-  // Try exact file, then with .html, then in scratch/, then by basename in scratch/
+  // Try exact file, then with .html, then directory index.html, then in scratch/, then by basename in scratch/
   const tryPaths = [
     filePath,
     filePath + '.html',
+    path.join(filePath, 'index.html'),
     path.join(__dirname, 'scratch', reqPath),
     path.join(__dirname, 'scratch', reqPath + '.html'),
     path.join(__dirname, 'scratch', path.basename(reqPath)),

@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Supabase CDN Client & Public Configuration -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase-client.js"></script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -92,6 +96,7 @@
       border: 3px solid #BBF7D0;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
+      overflow: hidden;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -350,7 +355,7 @@
 
           <p class="text-[11px] font-bold text-[#15803D] uppercase tracking-widest mb-7">Nodal Officer</p>
 
-          <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 items-center sm:items-start text-center sm:text-left">
+          <div id="nodal-officer-container" class="flex flex-col sm:flex-row gap-6 sm:gap-8 items-center sm:items-start text-center sm:text-left">
 
             <!-- Dean Photo -->
             <div class="shrink-0">
@@ -397,7 +402,7 @@
 
           <p class="text-[11px] font-bold text-[#15803D] uppercase tracking-widest mb-7">Technical Mentoring</p>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 sm:gap-6">
+          <div id="technical-mentors-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 sm:gap-6">
 
             <!-- Mentor 1 — Dr. Prasanth Rajan
                  Source: scratch/incubation.html H3 elements
@@ -524,7 +529,13 @@
       </div>
       <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-3">
         <p>© 2026 MAFBIF - Supported by EDII, Government of Tamil Nadu &amp; TNAU.</p>
-        <p class="font-bold text-[#CFA851] text-[11px] tracking-wider uppercase">TNAU-BACKED AGROFORESTRY INCUBATION</p>
+        <div class="flex items-center gap-4 sm:gap-6">
+          <p class="font-bold text-[#CFA851] text-[11px] tracking-wider uppercase">TNAU-BACKED AGROFORESTRY INCUBATION</p>
+          <span class="text-white/20 select-none hidden sm:inline">|</span>
+          <a href="/admin/login" class="text-slate-400 hover:text-[#CFA851] transition-colors duration-200 text-xs inline-flex items-center gap-1 opacity-75 hover:opacity-100">
+            Admin Login &rarr;
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -634,6 +645,158 @@
         revealElements.forEach(el => revealObserver.observe(el));
       } else {
         revealElements.forEach(el => el.classList.add('is-revealed'));
+      }
+    });
+
+    // =========================================================================
+    // DYNAMIC MENTORS DATA INTEGRATION FROM SUPABASE (public.mentors)
+    // =========================================================================
+
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function createNodalOfficerHtml(mentor) {
+      const name = escapeHtml(mentor.name || '');
+      const designation = escapeHtml(mentor.designation || 'Nodal Officer');
+      const institution = escapeHtml(mentor.institution || '');
+      const specialization = mentor.specialization ? escapeHtml(mentor.specialization) : '';
+      const photoUrl = mentor.photo_url || 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/iX3h8rqPfxJk6DDB/dean-photo-ePd3q9KTKLKY1jBp.jpeg';
+
+      return `
+        <!-- Dean Photo -->
+        <div class="shrink-0">
+          <div class="w-44 h-52 sm:w-52 sm:h-64 rounded-2xl overflow-hidden border-2 border-emerald-100 shadow-md bg-slate-100 relative">
+            <img
+              src="${photoUrl}"
+              alt="${name}, ${designation}"
+              class="w-full h-full object-cover object-top"
+              loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+            <div class="absolute inset-0 bg-[#F0FDF4] items-center justify-center hidden">
+              <svg class="w-16 h-16 text-emerald-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dean Info -->
+        <div class="flex flex-col justify-center space-y-3">
+          <div class="h-0.5 w-8 bg-[#CFA851] rounded-full"></div>
+          <h2 class="font-heading font-extrabold text-2xl sm:text-3xl text-[#0A2E1C] tracking-tight">${name}</h2>
+          <p class="text-[#15803D] font-semibold text-sm sm:text-base">${designation}</p>
+          ${institution ? `<p class="text-xs text-slate-400 font-medium">${institution}</p>` : ''}
+          ${specialization ? `<div class="pt-1"><span class="inline-flex items-center px-2.5 py-1 rounded-lg bg-emerald-50 border border-emerald-100 text-[11px] font-bold text-emerald-700 uppercase tracking-wide">${specialization}</span></div>` : ''}
+        </div>
+      `;
+    }
+
+    function createTechnicalMentorCardHtml(mentor) {
+      const name = escapeHtml(mentor.name || '');
+      const designation = escapeHtml(mentor.designation || '');
+      const institution = escapeHtml(mentor.institution || '');
+      const specialization = mentor.specialization ? escapeHtml(mentor.specialization) : '';
+
+      let subtitle = '';
+      if (designation && institution) {
+        subtitle = `${designation}, ${institution}`;
+      } else {
+        subtitle = designation || institution || '';
+      }
+
+      const photoHtml = mentor.photo_url
+        ? `<img src="${escapeHtml(mentor.photo_url)}" alt="${name}" class="w-full h-full object-cover object-top" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <div class="w-full h-full items-center justify-center hidden">
+             <svg class="w-8 h-8 text-[#15803D]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+           </div>`
+        : `<svg class="w-8 h-8 text-[#15803D]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>`;
+
+      return `
+        <div class="flex items-start gap-5 bg-[#F8FAF8] border border-slate-200/80 rounded-2xl p-5 sm:p-6 hover:border-emerald-200 hover:shadow-sm transition-all duration-200">
+          <div class="faculty-avatar shrink-0">
+            ${photoHtml}
+          </div>
+          <div class="space-y-1.5 min-w-0">
+            <div class="h-0.5 w-5 bg-[#0284C7] rounded-full"></div>
+            <h3 class="font-heading font-bold text-[#0A2E1C] text-lg leading-tight">${name}</h3>
+            ${subtitle ? `<p class="text-[#15803D] text-xs font-semibold">${subtitle}</p>` : ''}
+            ${specialization ? `
+              <div class="pt-1">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-lg bg-emerald-50 border border-emerald-100 text-[11px] font-bold text-emerald-700 uppercase tracking-wide">
+                  ${specialization}
+                </span>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    async function loadMentorsFromSupabase(retryCount = 0) {
+      const client = window.supabaseClient;
+      if (!client) {
+        if (retryCount < 5) {
+          setTimeout(() => loadMentorsFromSupabase(retryCount + 1), 150);
+          return;
+        }
+        console.info('[Mentors] Supabase client offline or timed out. Retaining static mentor cards.');
+        return;
+      }
+
+      try {
+        const { data, error } = await client
+          .from('mentors')
+          .select('*');
+
+        if (error) {
+          console.warn('[Mentors] Supabase fetch error, retaining static cards:', error.message);
+          return;
+        }
+
+        if (Array.isArray(data) && data.length > 0) {
+          // Sort by display_order ascending, then name
+          data.sort((a, b) => {
+            const orderA = a.display_order !== null && a.display_order !== undefined ? Number(a.display_order) : 999;
+            const orderB = b.display_order !== null && b.display_order !== undefined ? Number(b.display_order) : 999;
+            if (orderA !== orderB) return orderA - orderB;
+            return (a.name || '').localeCompare(b.name || '');
+          });
+
+          // Separate Nodal Officer (Dean / display_order 1) from Technical Mentors
+          let nodalOfficer = data.find(m => Number(m.display_order) === 1 || (m.designation && m.designation.toLowerCase().includes('nodal')));
+          if (!nodalOfficer) nodalOfficer = data[0];
+
+          const technicalMentors = data.filter(m => m.id !== nodalOfficer.id);
+
+          const nodalContainer = document.getElementById('nodal-officer-container');
+          if (nodalContainer && nodalOfficer) {
+            nodalContainer.innerHTML = createNodalOfficerHtml(nodalOfficer);
+          }
+
+          const grid = document.getElementById('technical-mentors-grid');
+          if (grid && technicalMentors.length > 0) {
+            grid.innerHTML = technicalMentors.map(m => createTechnicalMentorCardHtml(m)).join('');
+          }
+          console.log(`[Mentors] Loaded ${data.length} records dynamically from Supabase.`);
+        }
+      } catch (err) {
+        console.error('[Mentors] Failed to load dynamic mentors:', err);
+      }
+    }
+
+    // Trigger dynamic load
+    loadMentorsFromSupabase();
+    window.addEventListener('load', () => {
+      if (!window.supabaseLoaded) {
+        loadMentorsFromSupabase();
       }
     });
   </script>

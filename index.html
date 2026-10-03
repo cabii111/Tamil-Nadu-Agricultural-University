@@ -134,7 +134,7 @@
       z-index: 0;
     }
 
-    /* Clean Hero Slide Transitions (Zero Ghosting) */
+    /* Refined Silky Hero Crossfade Transition (Smooth & Zero Jitter) */
     .hero-slide {
       position: absolute;
       inset: 0;
@@ -142,7 +142,7 @@
       height: 100%;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 350ms ease-in-out, visibility 350ms ease-in-out;
+      transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1), visibility 500ms ease;
       z-index: 1;
     }
 
@@ -152,91 +152,22 @@
       z-index: 2;
     }
 
-    /* Hero Animated Frame & Shadow */
-    @keyframes frameGradientFlow {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    @keyframes heroFloat {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-5px);
-      }
-    }
-
-    @keyframes ambientGlowPulse {
-      0%, 100% {
-        opacity: 0.45;
-        transform: scale(0.99);
-      }
-      50% {
-        opacity: 0.75;
-        transform: scale(1.02);
-      }
-    }
-
-    .hero-floating-card {
-      animation: heroFloat 6s ease-in-out infinite;
-      will-change: transform;
-    }
-
-    .hero-floating-card:hover {
-      animation-play-state: paused;
-    }
-
-    .hero-animated-frame {
+    /* Refined Institutional Image Frame with Thin Green/Gold Accent */
+    .hero-institutional-frame {
       position: relative;
-      padding: 3.5px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, #15803D 0%, #34D399 25%, #CFA851 50%, #0284C7 75%, #15803D 100%);
-      background-size: 300% 300%;
-      animation: frameGradientFlow 7s ease infinite;
+      padding: 1.5px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(22, 163, 74, 0.35) 0%, rgba(207, 168, 81, 0.3) 50%, rgba(2, 132, 199, 0.25) 100%);
       box-shadow: 
-        0 24px 48px -12px rgba(10, 46, 28, 0.35),
-        0 12px 24px -8px rgba(0, 0, 0, 0.2),
-        0 0 0 1px rgba(255, 255, 255, 0.3) inset;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+        0 14px 30px -8px rgba(10, 46, 28, 0.08),
+        0 4px 12px -3px rgba(0, 0, 0, 0.04);
+      transition: box-shadow 0.3s ease;
     }
 
-    .hero-animated-frame:hover {
+    .hero-institutional-frame:hover {
       box-shadow: 
-        0 32px 64px -15px rgba(10, 46, 28, 0.45),
-        0 18px 32px -8px rgba(0, 0, 0, 0.25);
-    }
-
-    .hero-frame-glow {
-      position: absolute;
-      inset: -6px;
-      border-radius: 28px;
-      background: linear-gradient(135deg, rgba(22, 163, 74, 0.4), rgba(207, 168, 81, 0.3), rgba(2, 132, 199, 0.35));
-      filter: blur(18px);
-      z-index: 0;
-      animation: ambientGlowPulse 5s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    /* Hero Nature Background Styling */
-    .hero-nature-section {
-      background-image: url('/Public/Hero/hero%20background.png');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-    }
-
-    @media (max-width: 768px) {
-      .hero-nature-section {
-        background-position: center 25%;
-      }
+        0 18px 36px -10px rgba(10, 46, 28, 0.12),
+        0 6px 16px -4px rgba(0, 0, 0, 0.06);
     }
 
     /* Continuous Editorial Marquee Animation */
@@ -661,159 +592,198 @@
   <main class="flex-grow pb-16">
 
     <!-- ===================================================================== -->
-    <!-- 2. HOME HERO SECTION (Integrated Nature Landscape Background)         -->
+    <!-- 2. HERO SECTION (Spacious Institutional White Style)                   -->
     <!-- ===================================================================== -->
-    <section id="hero"
-      class="relative w-full overflow-hidden hero-nature-section flex flex-col justify-between"
-      style="background-image: url('/Public/Hero/hero%20background.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+    <div class="max-w-[1440px] mx-auto px-3.5 sm:px-6 lg:px-8 xl:px-12 pt-3 sm:pt-5">
+      <section id="hero" class="relative">
 
-      <!-- Full-Width Hero Container (80-90vh Composition) -->
-      <div class="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-8 sm:pt-10 lg:pt-14 xl:pt-16 pb-6 sm:pb-8 flex-grow flex flex-col justify-between min-h-[78vh] sm:min-h-[82vh] lg:min-h-[86vh]">
+        <!-- Dual-Color Subtle Ambient Depth Orbs (Forest Green + Science Teal) -->
+        <div class="ambient-orb-green w-72 h-72 sm:w-96 sm:h-96 -top-10 -left-10 opacity-30 pointer-events-none"></div>
+        <div class="ambient-orb-teal w-80 h-80 sm:w-[420px] sm:h-[420px] -bottom-14 -right-10 opacity-25 pointer-events-none"></div>
 
-        <!-- MAIN HERO GRID (Text Left, Carousel Right) -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center my-auto">
+        <!-- Clean White Institutional Hero Card -->
+        <div
+          class="relative z-10 bg-white rounded-[24px] sm:rounded-[28px] shadow-[0_4px_24px_-4px_rgba(10,46,28,0.06),0_2px_8px_-2px_rgba(10,46,28,0.03)] border border-slate-200/80 p-6 sm:p-8 lg:p-10 xl:p-12 overflow-hidden">
+          
+          <!-- Main Hero Grid (Text Left, Image Carousel Right) -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
 
-          <!-- LEFT SIDE: MESSAGE & CTAs (Span 6) -->
-          <div class="lg:col-span-6 flex flex-col justify-center">
+            <!-- LEFT SIDE: MESSAGE & CTAs (Span 6) -->
+            <div class="lg:col-span-6 flex flex-col justify-center">
 
-            <!-- Eyebrow Tag: Innovation for a Greener Tomorrow -->
-            <div
-              class="inline-flex items-center space-x-2 self-start px-3.5 py-1.5 rounded-full bg-white/85 backdrop-blur-sm border border-emerald-200/80 text-[#15803D] text-[10.5px] sm:text-xs font-bold tracking-wider uppercase shadow-2xs mb-3.5 sm:mb-4">
-              <svg class="w-3.5 h-3.5 text-[#16A34A]" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
-              </svg>
-              <span>INNOVATION FOR A GREENER TOMORROW</span>
-            </div>
-
-            <!-- Main Headline in Elegant Editorial Serif -->
-            <h1
-              class="font-serif text-[32px] sm:text-[42px] md:text-[46px] xl:text-[50px] font-bold text-[#0A2E1C] tracking-tight leading-[1.18] sm:leading-[1.2] mb-4 sm:mb-5">
-              Ideas to Impact,<br>
-              From Fields to a<br>
-              <span class="text-[#15803D] inline-flex items-center flex-wrap">
-                Greener Future
-                <svg class="w-6 h-6 sm:w-7 sm:h-7 xl:w-[32px] xl:h-[32px] ml-2 sm:ml-2.5 text-[#16A34A] transform -rotate-12 inline-block shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <!-- Eyebrow Badge: Innovation for a Greener Tomorrow -->
+              <div
+                class="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[10.5px] sm:text-xs font-bold tracking-wider uppercase shadow-2xs mb-3.5 sm:mb-4">
+                <svg class="w-3.5 h-3.5 text-[#16A34A] shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
                 </svg>
-              </span>
-            </h1>
+                <span>INNOVATION FOR A GREENER TOMORROW</span>
+              </div>
 
-            <!-- Concise Description -->
-            <p class="text-slate-700 text-sm sm:text-base leading-relaxed max-w-xl mb-6 sm:mb-7 font-medium">
-              EDII-MAFBIF fosters agri-innovation, entrepreneurship and sustainable enterprise development through incubation, technology support, training and mentorship — for a resilient tomorrow.
-            </p>
-
-            <!-- Call to Action: View Technologies -->
-            <div class="mb-2">
-              <a href="/technologies"
-                class="inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 text-sm sm:text-base font-bold rounded-full text-white bg-gradient-to-r from-[#092B1B] via-[#0F4A2A] to-[#15803D] hover:from-[#061D12] hover:via-[#0B3820] hover:to-[#166534] border border-emerald-400/40 shadow-xl shadow-emerald-950/30 hover:shadow-2xl hover:shadow-emerald-900/45 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group">
-                <svg class="w-4 h-4 mr-2.5 text-emerald-300 shrink-0 group-hover:rotate-12 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                </svg>
-                <span>View Technologies</span>
-                <span class="inline-flex items-center justify-center w-6 h-6 ml-2.5 rounded-full bg-white/20 text-white group-hover:bg-white/30 group-hover:translate-x-1 transition-all duration-200">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              <!-- Main Headline in Elegant Editorial Serif -->
+              <h1
+                class="font-serif text-[32px] sm:text-[38px] md:text-[44px] xl:text-[48px] font-bold text-[#0A2E1C] tracking-tight leading-[1.18] sm:leading-[1.20] mb-4 sm:mb-5">
+                Ideas to Impact,<br>
+                From Fields to a<br>
+                <span class="text-[#15803D] inline-flex items-center flex-wrap">
+                  Greener Future
+                  <svg class="w-6 h-6 sm:w-7 sm:h-7 xl:w-[30px] xl:h-[30px] ml-2 sm:ml-2.5 text-[#16A34A] transform -rotate-12 inline-block shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
                   </svg>
                 </span>
-              </a>
+              </h1>
+
+              <!-- Supporting Paragraph with Refined Typography & Spacing -->
+              <p class="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.65] max-w-[500px] mb-6 sm:mb-7">
+                EDII-MAFBIF fosters agri-innovation, entrepreneurship and sustainable enterprise development through incubation, technology support, training and mentorship — for a resilient tomorrow.
+              </p>
+
+              <!-- Primary Call to Action: View Technologies -->
+              <div class="mb-6 sm:mb-7">
+                <a href="/technologies"
+                  class="inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base font-semibold rounded-xl text-white bg-[#0F4A2A] hover:bg-[#15803D] border border-emerald-900/20 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 group">
+                  <span>View Technologies</span>
+                  <svg class="ml-2 w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Lower Hero Strip: Mini Value Props (Lighter & Refined) -->
+              <div class="flex items-center gap-3.5 sm:gap-5 flex-wrap pt-4 border-t border-slate-100">
+                <div class="flex items-center space-x-2">
+                  <div class="w-6 h-6 rounded-full bg-[#EBF7EE] text-[#15803D] border border-[#D1F0D9] flex items-center justify-center shrink-0">
+                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
+                    </svg>
+                  </div>
+                  <div class="leading-tight">
+                    <span class="font-bold text-xs text-slate-800">Innovate</span>
+                    <span class="text-[11px] text-slate-500 font-medium ml-0.5">for Agriculture</span>
+                  </div>
+                </div>
+
+                <div class="hidden sm:block w-[1px] h-3.5 bg-slate-200"></div>
+
+                <div class="flex items-center space-x-2">
+                  <div class="w-6 h-6 rounded-full bg-[#EBF7EE] text-[#15803D] border border-[#D1F0D9] flex items-center justify-center shrink-0">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                  </div>
+                  <div class="leading-tight">
+                    <span class="font-bold text-xs text-slate-800">Incubate</span>
+                    <span class="text-[11px] text-slate-500 font-medium ml-0.5">for Entrepreneurs</span>
+                  </div>
+                </div>
+
+                <div class="hidden sm:block w-[1px] h-3.5 bg-slate-200"></div>
+
+                <div class="flex items-center space-x-2">
+                  <div class="w-6 h-6 rounded-full bg-[#EBF7EE] text-[#15803D] border border-[#D1F0D9] flex items-center justify-center shrink-0">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div class="leading-tight">
+                    <span class="font-bold text-xs text-slate-800">Sustain</span>
+                    <span class="text-[11px] text-slate-500 font-medium ml-0.5">for a Greener Tomorrow</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
-          </div>
-
-          <!-- RIGHT SIDE: ANIMATED FRAME WITH RICH SHADOW & AUTO-SLIDER (Span 6) -->
-          <div class="lg:col-span-6 relative">
-            <div class="hero-floating-card relative">
-              <!-- Ambient Pulsing Glow behind the frame -->
-              <div class="hero-frame-glow"></div>
-
-              <!-- Luminous Animated Gradient Frame with Deep Multi-Layer Shadow -->
-              <div class="hero-animated-frame relative z-10">
+            <!-- RIGHT SIDE: LARGE LANDSCAPE IMAGE CAROUSEL (Span 6) -->
+            <div class="lg:col-span-6 relative">
+              <div class="hero-institutional-frame relative">
                 <div id="hero-slider-container"
-                  class="relative w-full aspect-[4/3] sm:aspect-[16/10] max-h-[320px] sm:max-h-[350px] lg:max-h-[370px] xl:max-h-[385px] rounded-[20px] sm:rounded-[22px] overflow-hidden bg-slate-900 group select-none shadow-2xl">
+                  class="relative w-full aspect-[16/10] max-h-[350px] sm:max-h-[370px] lg:max-h-[390px] rounded-[20px] overflow-hidden bg-slate-900 group select-none">
 
-                  <!-- Slide 1 (Active by default: FC&RI Stage Ceremony) -->
+                  <!-- Slide 1 (Active: TNAU FC&RI Stage Ceremony) -->
                   <div class="hero-slide active">
                     <img
                       src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.47.35-pm-0t2KiOCydqN7Ptif.jpeg"
                       alt="TNAU FC&RI Stage Ceremony" class="w-full h-full object-cover object-center">
                   </div>
 
-                  <!-- Slide 2 -->
+                  <!-- Slide 2: MoU & Agreement Distribution -->
                   <div class="hero-slide">
                     <img
                       src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.47.51-pm-Urh8Qnaq4ttqfgcl.jpeg"
                       alt="MoU & Agreement Distribution" class="w-full h-full object-cover object-center">
                   </div>
 
-                  <!-- Slide 3 -->
+                  <!-- Slide 3: Inauguration & Project Launch -->
                   <div class="hero-slide">
                     <img
                       src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.47.42-pm-FrbF2fFVuLAii0AT.jpeg"
                       alt="Inauguration & Project Launch" class="w-full h-full object-cover object-center">
                   </div>
 
-                  <!-- Slide 4 -->
+                  <!-- Slide 4: Incubation & Strategy Session -->
                   <div class="hero-slide">
                     <img
                       src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.48.13-pm-n1F09M7GerGw7Kdr.jpeg"
                       alt="Incubation & Strategy Session" class="w-full h-full object-cover object-center">
                   </div>
 
-                  <!-- Slide 5 -->
+                  <!-- Slide 5: Farmers & Entrepreneurs Capacity Building -->
                   <div class="hero-slide">
                     <img
                       src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.48.19-pm-aTz9blVktoo52pRf.jpeg"
                       alt="Farmers & Entrepreneurs Capacity Building" class="w-full h-full object-cover object-center">
                   </div>
 
-                  <!-- Slide 6 -->
+                  <!-- Slide 6: Agroforestry Innovation Showcase -->
                   <div class="hero-slide">
                     <img
                       src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.48.41-pm-eQjrBoZsNYmefsIV.jpeg"
                       alt="Agroforestry Innovation Showcase" class="w-full h-full object-cover object-center">
                   </div>
 
-                  <!-- Slide 7 -->
+                  <!-- Slide 7: Field Demonstration with Farmers -->
                   <div class="hero-slide">
                     <img
                       src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.48.46-pm-mnOxDbzbpAMtU288.jpeg"
                       alt="Field Demonstration with Farmers" class="w-full h-full object-cover object-center">
                   </div>
 
-                  <!-- Slide 8 -->
+                  <!-- Slide 8: Value Addition & Processing Workshop -->
                   <div class="hero-slide">
                     <img
                       src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.48.58-pm-ULaWkASyX5XoGGOn.jpeg"
                       alt="Value Addition & Processing Workshop" class="w-full h-full object-cover object-center">
                   </div>
 
-                  <!-- Slide 9 -->
+                  <!-- Slide 9: Institutional Review & Evaluation -->
                   <div class="hero-slide">
                     <img
                       src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.47.59-pm-G5bpdfrRWKn3Fusv.jpeg"
                       alt="Institutional Review & Evaluation" class="w-full h-full object-cover object-center">
                   </div>
 
-                  <!-- Slide 10 -->
+                  <!-- Slide 10: Forest Products & Enterprise Meet -->
                   <div class="hero-slide">
                     <img
                       src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/whatsapp-image-2026-06-18-at-4.48.06-pm-RHigXrZURFLLXASa.jpeg"
                       alt="Forest Products & Enterprise Meet" class="w-full h-full object-cover object-center">
                   </div>
 
-                  <!-- Discreet Navigation Arrows on Hover (Left & Right Sides) -->
+                  <!-- Subtle Navigation Controls on Hover -->
                   <div
                     class="absolute inset-y-0 left-0 right-0 z-20 flex items-center justify-between px-3 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                     <button id="slider-prev-btn" type="button"
-                      class="w-9 h-9 rounded-full bg-black/40 hover:bg-black/75 backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer pointer-events-auto shadow-md hover:scale-105"
+                      class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/40 hover:bg-black/75 backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer pointer-events-auto shadow-md hover:scale-105"
                       aria-label="Previous slide">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
                       </svg>
                     </button>
                     <button id="slider-next-btn" type="button"
-                      class="w-9 h-9 rounded-full bg-black/40 hover:bg-black/75 backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer pointer-events-auto shadow-md hover:scale-105"
+                      class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/40 hover:bg-black/75 backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer pointer-events-auto shadow-md hover:scale-105"
                       aria-label="Next slide">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
@@ -821,84 +791,31 @@
                     </button>
                   </div>
 
-                  <!-- Slide Indicators (10 Dots) -->
-                  <div id="slider-indicators"
+                  <!-- 10 Pagination Dots (Correctly Representing All 10 Images) -->
+                  <div
                     class="absolute bottom-2.5 sm:bottom-3 inset-x-0 z-20 flex items-center justify-center space-x-1.5 pointer-events-auto">
-                    <button type="button" class="slider-dot w-5 h-2 rounded-full bg-white transition-all duration-300 cursor-pointer shadow-sm active" data-index="0" aria-label="Go to slide 1"></button>
-                    <button type="button" class="slider-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-sm" data-index="1" aria-label="Go to slide 2"></button>
-                    <button type="button" class="slider-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-sm" data-index="2" aria-label="Go to slide 3"></button>
-                    <button type="button" class="slider-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-sm" data-index="3" aria-label="Go to slide 4"></button>
-                    <button type="button" class="slider-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-sm" data-index="4" aria-label="Go to slide 5"></button>
-                    <button type="button" class="slider-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-sm" data-index="5" aria-label="Go to slide 6"></button>
-                    <button type="button" class="slider-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-sm" data-index="6" aria-label="Go to slide 7"></button>
-                    <button type="button" class="slider-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-sm" data-index="7" aria-label="Go to slide 8"></button>
-                    <button type="button" class="slider-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-sm" data-index="8" aria-label="Go to slide 9"></button>
-                    <button type="button" class="slider-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-sm" data-index="9" aria-label="Go to slide 10"></button>
+                    <button type="button" class="slider-dot active w-5 h-1.5 rounded-full bg-white transition-all duration-300 cursor-pointer shadow-xs" data-index="0" aria-label="Go to slide 1"></button>
+                    <button type="button" class="slider-dot w-1.5 h-1.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-xs" data-index="1" aria-label="Go to slide 2"></button>
+                    <button type="button" class="slider-dot w-1.5 h-1.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-xs" data-index="2" aria-label="Go to slide 3"></button>
+                    <button type="button" class="slider-dot w-1.5 h-1.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-xs" data-index="3" aria-label="Go to slide 4"></button>
+                    <button type="button" class="slider-dot w-1.5 h-1.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-xs" data-index="4" aria-label="Go to slide 5"></button>
+                    <button type="button" class="slider-dot w-1.5 h-1.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-xs" data-index="5" aria-label="Go to slide 6"></button>
+                    <button type="button" class="slider-dot w-1.5 h-1.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-xs" data-index="6" aria-label="Go to slide 7"></button>
+                    <button type="button" class="slider-dot w-1.5 h-1.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-xs" data-index="7" aria-label="Go to slide 8"></button>
+                    <button type="button" class="slider-dot w-1.5 h-1.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-xs" data-index="8" aria-label="Go to slide 9"></button>
+                    <button type="button" class="slider-dot w-1.5 h-1.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer shadow-xs" data-index="9" aria-label="Go to slide 10"></button>
                   </div>
 
                 </div>
               </div>
             </div>
-          </div>
-
-        </div>
-
-        <!-- 8. LOWER HERO AREA: Supporting Value Strip & Scroll Indicator -->
-        <div class="mt-8 sm:mt-10 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-
-          <!-- 3 Value Props in Subtle Translucent Glass Container -->
-          <div
-            class="inline-flex items-center gap-4 sm:gap-6 md:gap-8 flex-wrap bg-white/70 backdrop-blur-md px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl border border-white/80 shadow-soft-sm">
-            
-            <div class="flex items-center space-x-2">
-              <div
-                class="w-6 h-6 rounded-full bg-[#EBF7EE] text-[#15803D] border border-[#D1F0D9] flex items-center justify-center shrink-0">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
-                </svg>
-              </div>
-              <div class="leading-tight">
-                <span class="font-bold text-xs text-slate-800">Innovate</span>
-                <span class="text-[11px] text-slate-600 font-medium ml-0.5">for Agriculture</span>
-              </div>
-            </div>
-
-            <div class="hidden sm:block w-[1px] h-4 bg-slate-300/60"></div>
-
-            <div class="flex items-center space-x-2">
-              <div
-                class="w-6 h-6 rounded-full bg-[#EBF7EE] text-[#15803D] border border-[#D1F0D9] flex items-center justify-center shrink-0">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                </svg>
-              </div>
-              <div class="leading-tight">
-                <span class="font-bold text-xs text-slate-800">Incubate</span>
-                <span class="text-[11px] text-slate-600 font-medium ml-0.5">for Entrepreneurs</span>
-              </div>
-            </div>
-
-            <div class="hidden sm:block w-[1px] h-4 bg-slate-300/60"></div>
-
-            <div class="flex items-center space-x-2">
-              <div
-                class="w-6 h-6 rounded-full bg-[#EBF7EE] text-[#15803D] border border-[#D1F0D9] flex items-center justify-center shrink-0">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <div class="leading-tight">
-                <span class="font-bold text-xs text-slate-800">Sustain</span>
-                <span class="text-[11px] text-slate-600 font-medium ml-0.5">for a Greener Tomorrow</span>
-              </div>
-            </div>
 
           </div>
 
-          <!-- Subtle, Elegant "Scroll to explore ↓" Indicator -->
-          <div>
+          <!-- Subtle, Elegant 'Scroll to explore ↓' Indicator -->
+          <div class="mt-6 pt-3.5 border-t border-slate-100 flex justify-center items-center">
             <a href="#upcoming-events" id="hero-scroll-indicator"
-              class="inline-flex items-center space-x-2 text-xs font-semibold text-slate-700 hover:text-[#15803D] bg-white/70 hover:bg-white/95 backdrop-blur-md py-2.5 px-4 sm:px-5 rounded-full border border-white/80 transition-all cursor-pointer group select-none shadow-soft-sm"
+              class="inline-flex items-center space-x-2 text-xs font-semibold text-slate-500 hover:text-[#15803D] transition-colors py-1 px-3.5 rounded-full hover:bg-slate-50 border border-transparent hover:border-slate-200/60 cursor-pointer group select-none"
               aria-label="Scroll to explore next section">
               <span class="tracking-wider uppercase text-[10.5px]">Scroll to explore</span>
               <svg class="w-3.5 h-3.5 text-[#15803D] scroll-arrow-float transition-colors group-hover:text-[#0A2E1C]"
@@ -909,251 +826,54 @@
           </div>
 
         </div>
-
-      </div>
-    </section>
-
+      </section>
+    </div>
     <!-- Section Transition Hairline -->
     <div class="section-hairline"></div>
 
-    <div class="max-w-[1440px] mx-auto px-3.5 sm:px-6 lg:px-8 xl:px-12 space-y-12 sm:space-y-16 pt-10 sm:pt-14">
+    <div class="max-w-[1440px] mx-auto px-3.5 sm:px-6 lg:px-8 xl:px-12 space-y-12 sm:space-y-16 pt-8 sm:pt-12">
 
       <!-- ===================================================================== -->
-      <!-- 3. UPCOMING EVENTS & PROGRAMS (Unboxed Continuous Flow)                -->
+      <!-- 2. SHORT ABOUT / INTRODUCTION                                         -->
       <!-- ===================================================================== -->
-      <section id="upcoming-events" class="reveal-on-scroll py-2 scroll-mt-28">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-          <div>
-            <div
-              class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] font-bold tracking-widest uppercase mb-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
-              <span>UPCOMING EVENTS</span>
-            </div>
-            <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0A2E1C] tracking-tight">
-              Explore Our Events &amp; Programs
-            </h2>
-          </div>
-          <a href="/events"
-            class="inline-flex items-center font-semibold text-sm text-[#15803D] hover:text-[#0284C7] transition-colors group shrink-0">
-            <span>View All Events &amp; Training</span>
-            <svg class="ml-1.5 w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </div>
+      <section id="about" class="relative reveal-on-scroll scroll-mt-28">
 
-        <!-- 5 Event Cards Grid with Standardized Image Zoom & Subtle Hover Accent -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5">
-
-          <!-- Card 1: Hands-on Training -->
-          <div
-            class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
-            <div class="h-40 overflow-hidden bg-slate-100 relative">
-              <img
-                src="/Public/Events and Training/2024-25/image1.jpg"
-                alt="Hands-on Training" class="w-full h-full object-cover">
-              <span
-                class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[10.5px] font-bold px-2 py-0.5 rounded-md border border-slate-200/60 shadow-2xs">Training</span>
-            </div>
-            <div class="p-4 flex-grow flex flex-col justify-between">
-              <div>
-                <h3
-                  class="font-heading font-bold text-[16px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-1.5">
-                  Hands-on Training</h3>
-                <p class="text-slate-600 text-xs leading-relaxed">
-                  Specialized skill programs on modern nursery techniques, commercial agroforestry, bio-resource value addition, and cosmetics.
-                </p>
-              </div>
-              <ul class="mt-3 pt-3 border-t border-slate-100 text-xs font-semibold text-[#15803D] space-y-1">
-                <li>• 54+ Training Programs</li>
-                <li>• NABARD, TNSDC &amp; IVP Supported</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Card 2: Exposure Visits -->
-          <div
-            class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
-            <div class="h-40 overflow-hidden bg-slate-100 relative">
-              <img
-                src="/Public/Events and Training/2024-25/cat_theni_visit.jpg"
-                alt="Exposure Visits" class="w-full h-full object-cover">
-              <span
-                class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[10.5px] font-bold px-2 py-0.5 rounded-md border border-slate-200/60 shadow-2xs">Exposure Visits</span>
-            </div>
-            <div class="p-4 flex-grow flex flex-col justify-between">
-              <div>
-                <h3
-                  class="font-heading font-bold text-[16px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-1.5">
-                  Exposure Visits</h3>
-                <p class="text-slate-600 text-xs leading-relaxed">
-                  Academic tours, field demonstrations, and practical exposure for agriculture and forestry students, farmer groups, and state delegations.
-                </p>
-              </div>
-              <ul class="mt-3 pt-3 border-t border-slate-100 text-xs font-semibold text-[#15803D] space-y-1">
-                <li>• 24+ Student &amp; Farmer Visits</li>
-                <li>• Demonstration &amp; Field Tours</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Card 3: Startup Events -->
-          <div
-            class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
-            <div class="h-40 overflow-hidden bg-slate-100 relative">
-              <img
-                src="/Public/Events and Training/2024-25/image15.png"
-                alt="Startup Events" class="w-full h-full object-cover">
-              <span
-                class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[10.5px] font-bold px-2 py-0.5 rounded-md border border-slate-200/60 shadow-2xs">Startup Events</span>
-            </div>
-            <div class="p-4 flex-grow flex flex-col justify-between">
-              <div>
-                <h3
-                  class="font-heading font-bold text-[16px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-1.5">
-                  Startup Events</h3>
-                <p class="text-slate-600 text-xs leading-relaxed">
-                  Incubatee meetups, pitch deck reviews with StartupTN, and sensitization on government schemes, grants, and enterprise scaling.
-                </p>
-              </div>
-              <ul class="mt-3 pt-3 border-t border-slate-100 text-xs font-semibold text-[#15803D] space-y-1">
-                <li>• 10+ Startup Meets &amp; Pitch Days</li>
-                <li>• StartupTN &amp; MSME Scheme Access</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Card 4: Institutional Visits -->
-          <div
-            class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
-            <div class="h-40 overflow-hidden bg-slate-100 relative">
-              <img
-                src="/Public/Events and Training/2024-25/image17.jpg"
-                alt="Institutional Visits" class="w-full h-full object-cover">
-              <span
-                class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[10.5px] font-bold px-2 py-0.5 rounded-md border border-slate-200/60 shadow-2xs">Institutional Visits</span>
-            </div>
-            <div class="p-4 flex-grow flex flex-col justify-between">
-              <div>
-                <h3
-                  class="font-heading font-bold text-[16px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-1.5">
-                  Institutional Visits</h3>
-                <p class="text-slate-600 text-xs leading-relaxed">
-                  High-level review visits and infrastructure assessments by senior officials from NABARD, government leadership, and international envoys.
-                </p>
-              </div>
-              <ul class="mt-3 pt-3 border-t border-slate-100 text-xs font-semibold text-[#15803D] space-y-1">
-                <li>• 15+ Leadership Delegations</li>
-                <li>• NABARD &amp; Government Reviews</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Card 5: Conventions & Meets -->
-          <div
-            class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col sm:col-span-2 lg:col-span-1 group img-zoom-container">
-            <div class="h-40 overflow-hidden bg-slate-100 relative">
-              <img
-                src="/Public/Events and Training/2024-25/image24.jpg"
-                alt="Conventions & Meets" class="w-full h-full object-cover">
-              <span
-                class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[10.5px] font-bold px-2 py-0.5 rounded-md border border-slate-200/60 shadow-2xs">Meetings</span>
-            </div>
-            <div class="p-4 flex-grow flex flex-col justify-between">
-              <div>
-                <h3
-                  class="font-heading font-bold text-[16px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-1.5">
-                  Conventions &amp; Meets</h3>
-                <p class="text-slate-600 text-xs leading-relaxed">
-                  National agroforestry conventions, annual CIAF consortium meets, regional stakeholder consultations, and institutional reviews.
-                </p>
-              </div>
-              <ul class="mt-3 pt-3 border-t border-slate-100 text-xs font-semibold text-[#15803D] space-y-1">
-                <li>• Annual National Conventions</li>
-                <li>• Strategic Consortium Meets</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ===================================================================== -->
-      <!-- 4. MOVING ANNOUNCEMENT STRIP (Nature + Science Dual-Color Accent)     -->
-      <!-- ===================================================================== -->
-      <section class="reveal-on-scroll">
-        <div
-          class="w-full overflow-hidden bg-[#0A2E1C] rounded-[18px] sm:rounded-[20px] py-3.5 sm:py-4 shadow-soft-sm border border-[#16A34A]/25">
-          <div
-            class="animate-marquee text-white font-bold text-sm sm:text-base tracking-[2.5px] uppercase items-center">
-            <span class="inline-flex items-center px-4">WHERE NATURE MEETS INNOVATION <span
-                class="text-[#38BDF8] mx-3 text-xs">✦</span> TNAU-BACKED AGROFORESTRY INCUBATION <span
-                class="text-[#86EFAC] mx-3 text-xs">✦</span> EDII TAMIL NADU <span
-                class="text-[#38BDF8] mx-3 text-xs">✦</span> SUSTAINABLE ENTERPRISE DEVELOPMENT <span
-                class="text-[#86EFAC] mx-3 text-xs">✦</span></span>
-            <span class="inline-flex items-center px-4">WHERE NATURE MEETS INNOVATION <span
-                class="text-[#38BDF8] mx-3 text-xs">✦</span> TNAU-BACKED AGROFORESTRY INCUBATION <span
-                class="text-[#86EFAC] mx-3 text-xs">✦</span> EDII TAMIL NADU <span
-                class="text-[#38BDF8] mx-3 text-xs">✦</span> SUSTAINABLE ENTERPRISE DEVELOPMENT <span
-                class="text-[#86EFAC] mx-3 text-xs">✦</span></span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===================================================================== -->
-      <!-- 5. ABOUT MAFBIF SECTION (Spacious Editorial Two-Column Composition)   -->
-      <!-- ===================================================================== -->
-      <section class="relative reveal-on-scroll">
-
-        <!-- Ambient Green + Science Teal Glow Behind About Section -->
-        <div class="ambient-orb-green w-80 h-80 sm:w-96 sm:h-96 -top-10 -left-10 opacity-65"></div>
-        <div class="ambient-orb-teal w-80 h-80 sm:w-96 sm:h-96 -bottom-10 -right-10 opacity-55"></div>
+        <!-- Subtle Ambient Depth Glow -->
+        <div class="ambient-orb-green w-72 h-72 sm:w-80 sm:h-80 -top-8 -left-8 opacity-40 pointer-events-none"></div>
 
         <div
-          class="relative z-10 bg-gradient-to-br from-[#F4F9F5] via-[#EAF3EC]/70 to-[#F0FDFA]/50 rounded-[26px] sm:rounded-[28px] p-6 sm:p-10 lg:p-14 border border-[#CFE3D1]/80 shadow-soft-sm overflow-hidden">
+          class="relative z-10 bg-white rounded-[24px] sm:rounded-[26px] p-6 sm:p-8 lg:p-10 border border-slate-200/80 shadow-soft-sm overflow-hidden">
 
-          <!-- Subtle Decorative Botanical Line (Nature + Science Heritage) -->
-          <svg class="absolute -right-8 -bottom-10 w-72 h-72 text-[#16A34A]/10 pointer-events-none hidden md:block"
-            viewBox="0 0 200 200" fill="none" stroke="currentColor">
-            <path class="botanical-stroke" stroke-width="1.8"
-              d="M20,180 C50,140 80,130 110,90 C130,60 150,40 180,20 M110,90 C90,70 70,60 50,60 M110,90 C130,110 150,120 170,120 M140,50 C120,40 100,40 90,45" />
-          </svg>
-
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-14 items-center relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center relative z-10">
 
             <!-- LEFT COLUMN: Institutional Overview & CTA (7 Cols) -->
-            <div class="lg:col-span-7 flex flex-col justify-center space-y-5">
+            <div class="lg:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-5">
 
-              <!-- Section Eyebrow Label -->
+              <!-- Eyebrow Badge -->
               <div
-                class="inline-flex items-center space-x-2.5 self-start px-3.5 py-1.5 rounded-full bg-white/90 border border-[#DCFCE7] text-[#15803D] text-[11px] sm:text-xs font-bold tracking-widest uppercase shadow-2xs">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
+                class="inline-flex items-center space-x-2 self-start px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[10.5px] sm:text-xs font-bold tracking-widest uppercase shadow-2xs">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
                 <span>ABOUT MAFBIF</span>
               </div>
 
-              <!-- Main Section Heading with Exact Original Text -->
+              <!-- Short Heading -->
               <h2
-                class="font-heading text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0A2E1C] leading-[1.2] tracking-tight">
-                Empowering Innovation in <span class="text-[#0E7490]">Agroforestry</span>
+                class="font-heading text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#0A2E1C] leading-[1.25] tracking-tight">
+                Empowering Innovation in <span class="text-[#15803D]">Agroforestry</span>
               </h2>
 
-              <!-- Description Body Text (Word-for-word identical to original) -->
+              <!-- Concise Paragraph (Approx 2-3 lines) -->
               <p
-                class="text-slate-700 text-sm sm:text-base md:text-[16.5px] leading-[1.75] font-normal text-justify sm:text-left">
-                MAFBIF (Mettupalayam Agroforestry Business Incubation Forum) is a Section 8 not-for-profit organization
-                dedicated to fostering innovation and entrepreneurship in the agroforestry sector. Supported by EDII and
-                TNAU, MAFBIF empowers startups, farmers, students, women entrepreneurs, and tribal communities through
-                incubation, technology transfer, skill development, mentoring, and sustainable business support,
-                creating long-term environmental and economic impact.
+                class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
+                MAFBIF (Mettupalayam Agroforestry Business Incubation Forum) is a Section 8 not-for-profit initiative supported by EDII, Government of Tamil Nadu, and TNAU. We nurture agricultural and forestry startups, empowering entrepreneurs, farmers, and students with incubation, technology transfer, and sustainable enterprise mentorship.
               </p>
 
-              <!-- Existing CTA Button -->
+              <!-- Single Simple CTA: Explore About Us → -->
               <div class="pt-1">
                 <a href="/about"
-                  class="inline-flex items-center space-x-2.5 bg-[#0A2E1C] hover:bg-[#14532D] text-white px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base shadow-md shadow-forest-900/10 hover:shadow-lg transition-all duration-200 cursor-pointer group">
-                  <span>Explore more</span>
-                  <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
+                  class="inline-flex items-center space-x-2 text-sm sm:text-base font-semibold text-[#0A2E1C] hover:text-[#15803D] transition-colors group">
+                  <span>Explore About Us</span>
+                  <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 text-[#15803D]" fill="none"
                     stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -1163,23 +883,20 @@
 
             </div>
 
-            <!-- RIGHT COLUMN: Authentic FC&RI Documentary Campus Photography (5 Cols) -->
+            <!-- RIGHT COLUMN: One Relevant Campus Photograph (5 Cols) -->
             <div class="lg:col-span-5 relative">
               <div
-                class="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] rounded-2xl sm:rounded-[22px] overflow-hidden shadow-soft-md border border-slate-200/80 bg-slate-100 group img-zoom-container hover-lift">
+                class="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] max-h-[280px] sm:max-h-[320px] rounded-2xl overflow-hidden shadow-soft-sm border border-slate-200/80 bg-slate-100 group img-zoom-container hover-lift">
                 <img
                   src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/iX3h8rqPfxJk6DDB/15xxed-MR2VPYfiAJvUXiDt.png"
                   alt="Forest College and Research Institute, TNAU, Mettupalayam"
                   class="w-full h-full object-cover object-center">
 
-                <!-- Floating Campus Badge -->
+                <!-- Subtle Location Tag -->
                 <div
-                  class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-auto bg-white/95 backdrop-blur-md px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-slate-200/80 shadow-soft-sm flex items-center space-x-2.5 pointer-events-none">
-                  <span class="w-2 h-2 rounded-full bg-[#16A34A] shrink-0"></span>
-                  <div class="leading-tight">
-                    <span class="text-xs font-bold text-[#0A2E1C] block">FC&amp;RI Campus</span>
-                    <span class="text-[10.5px] text-slate-500 font-medium">Mettupalayam, TNAU</span>
-                  </div>
+                  class="absolute bottom-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-2xs flex items-center space-x-2 pointer-events-none">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A] shrink-0"></span>
+                  <span class="text-[11px] font-bold text-[#0A2E1C]">FC&amp;RI Campus, Mettupalayam</span>
                 </div>
               </div>
             </div>
@@ -1193,168 +910,433 @@
       <div class="section-hairline"></div>
 
       <!-- ===================================================================== -->
-      <!-- 6. LEADERSHIP PERSPECTIVE TEASER (Compact Institutional Preview)      -->
+      <!-- OUR INCUBATION JOURNEY: FROM IDEA TO IMPACT (4-Step Process)         -->
       <!-- ===================================================================== -->
-      <section class="reveal-on-scroll py-2">
-        <div class="bg-white rounded-[22px] sm:rounded-[26px] p-6 sm:p-8 lg:p-10 border border-slate-200/80 shadow-soft-sm hover-lift transition-all duration-300">
-          <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8 lg:gap-10">
+      <section id="incubation-journey" class="relative reveal-on-scroll scroll-mt-28">
 
-            <!-- Dean Photograph & Credentials -->
-            <div class="flex flex-col items-center text-center shrink-0">
-              <div class="w-32 sm:w-36 md:w-40 aspect-[4/5] rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft-xs bg-slate-100 img-zoom-container">
-                <img
-                  src="/Public/Members/dean-photo.jpeg"
-                  alt="Dr. A. Balasubramanian, Dean (Forestry) and Nodal Officer (MAFBIF)"
-                  class="w-full h-full object-cover object-top">
-              </div>
-              <h3 class="font-heading font-extrabold text-base sm:text-lg text-[#0A2E1C] mt-3 tracking-tight">
-                Dr. A. Balasubramanian
-              </h3>
-              <p class="text-[11.5px] sm:text-xs text-slate-500 font-medium max-w-[190px] leading-tight mt-0.5">
-                Dean (Forestry) &amp; Nodal Officer (MAFBIF)
-              </p>
+        <!-- Subtle Ambient Depth Glow -->
+        <div class="ambient-orb-green w-72 h-72 sm:w-80 sm:h-80 -top-8 -right-8 opacity-30 pointer-events-none"></div>
+
+        <div
+          class="relative z-10 bg-gradient-to-b from-[#F0FDF4]/50 via-white to-[#F0FDF4]/30 rounded-[24px] sm:rounded-[26px] p-6 sm:p-8 lg:p-10 border border-[#DCFCE7] shadow-soft-sm overflow-hidden">
+
+          <!-- Section Header: Centered Eyebrow, Title & Short Intro -->
+          <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+            <div
+              class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[10.5px] sm:text-xs font-bold tracking-widest uppercase mb-2.5 shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
+              <span>OUR INCUBATION JOURNEY</span>
             </div>
-
-            <!-- Vertical Divider on Desktop -->
-            <div class="hidden md:block w-[1px] self-stretch bg-slate-200/80"></div>
-
-            <!-- Leadership Content & Excerpt -->
-            <div class="flex flex-col justify-center flex-grow text-center md:text-left space-y-3">
-              <div>
-                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] font-bold tracking-widest uppercase mb-2">
-                  <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
-                  <span>LEADERSHIP PERSPECTIVE</span>
-                </div>
-                <h2 class="font-heading text-xl sm:text-2xl lg:text-[28px] font-extrabold text-[#0A2E1C] tracking-tight">
-                  A Message from the Dean
-                </h2>
-              </div>
-
-              <p class="text-slate-600 text-xs sm:text-sm lg:text-[14.5px] leading-relaxed max-w-3xl">
-                &ldquo;EDII-MAFBIF, a section 8 company is an initiative of Tamil Nadu Agricultural University and Forest College
-                and Research Institute with funding assistance from EDII TN, Chennai to promote entrepreneurship in Agro
-                forestry sector. EDII-MAFBIF is a support process that accelerates the successful development of sustainable businesses in
-                Forest and Agroforestry landscapes...&rdquo;
-              </p>
-
-              <div class="pt-1">
-                <a href="/about"
-                  class="inline-flex items-center space-x-1.5 text-xs sm:text-sm font-bold text-[#15803D] hover:text-[#0A2E1C] transition-colors group/link">
-                  <span>Read the Dean's Message</span>
-                  <svg class="w-4 h-4 text-[#16A34A] transition-transform duration-200 group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-
+            <h2
+              class="font-heading text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#0A2E1C] leading-[1.25] tracking-tight mb-3">
+              From Idea to <span class="text-[#15803D]">Impact</span>
+            </h2>
+            <p class="text-slate-600 text-xs sm:text-sm sm:text-[14.5px] leading-relaxed">
+              From early-stage ideas to sustainable enterprises, EDII–MAFBIF supports innovators through incubation, mentoring, technology access and business development.
+            </p>
           </div>
+
+          <!-- 4-Step Process Flow -->
+          <div class="relative">
+            <!-- Desktop Subtle Horizontal Connecting Line Behind Cards -->
+            <div class="hidden lg:block absolute top-1/2 left-[12%] right-[12%] h-[1.5px] bg-[#DCFCE7] -translate-y-1/2 z-0" aria-hidden="true"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-5 relative z-10">
+
+              <!-- Step 01: IDEA -->
+              <div class="relative group">
+                <div
+                  class="h-full bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#16A34A]/50 shadow-soft-sm hover-lift transition-all duration-300 flex flex-col justify-between relative z-10">
+                  <div>
+                    <div class="flex items-center justify-between mb-4">
+                      <span
+                        class="font-heading text-[11px] sm:text-xs font-extrabold px-2.5 py-1 rounded-full bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] tracking-wider">
+                        01
+                      </span>
+                      <div
+                        class="w-10 h-10 rounded-xl bg-[#EAF3EC] text-[#15803D] flex items-center justify-center group-hover:bg-[#15803D] group-hover:text-white transition-colors duration-300 shadow-2xs">
+                        <!-- Clean Lightbulb / Idea Icon -->
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3
+                      class="font-heading font-extrabold text-[15px] sm:text-[16px] text-[#0A2E1C] tracking-tight mb-2 group-hover:text-[#15803D] transition-colors">
+                      IDEA
+                    </h3>
+                    <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
+                      Identify opportunities and shape innovative ideas.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Desktop Flow Connector Arrow (points to Step 02) -->
+                <div
+                  class="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white border border-[#DCFCE7] text-[#15803D] items-center justify-center shadow-xs pointer-events-none"
+                  aria-hidden="true">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Mobile Connector Line 1 -> 2 -->
+              <div class="lg:hidden flex flex-col items-center justify-center my-0.5" aria-hidden="true">
+                <div class="w-[1.5px] h-3 bg-[#DCFCE7]"></div>
+                <div class="w-6 h-6 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] flex items-center justify-center shadow-2xs">
+                  <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+                <div class="w-[1.5px] h-3 bg-[#DCFCE7]"></div>
+              </div>
+
+              <!-- Step 02: INCUBATION -->
+              <div class="relative group">
+                <div
+                  class="h-full bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#16A34A]/50 shadow-soft-sm hover-lift transition-all duration-300 flex flex-col justify-between relative z-10">
+                  <div>
+                    <div class="flex items-center justify-between mb-4">
+                      <span
+                        class="font-heading text-[11px] sm:text-xs font-extrabold px-2.5 py-1 rounded-full bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] tracking-wider">
+                        02
+                      </span>
+                      <div
+                        class="w-10 h-10 rounded-xl bg-[#EAF3EC] text-[#15803D] flex items-center justify-center group-hover:bg-[#15803D] group-hover:text-white transition-colors duration-300 shadow-2xs">
+                        <!-- Clean Sprout / Incubation Icon -->
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 21v-8m0 0a5 5 0 015-5h1v1a5 5 0 01-5 5h-1zm0 0a5 5 0 00-5-5H6v1a5 5 0 005 5h1z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3
+                      class="font-heading font-extrabold text-[15px] sm:text-[16px] text-[#0A2E1C] tracking-tight mb-2 group-hover:text-[#15803D] transition-colors">
+                      INCUBATION
+                    </h3>
+                    <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
+                      Develop ideas through structured incubation support.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Desktop Flow Connector Arrow (points to Step 03) -->
+                <div
+                  class="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white border border-[#DCFCE7] text-[#15803D] items-center justify-center shadow-xs pointer-events-none"
+                  aria-hidden="true">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Mobile Connector Line 2 -> 3 -->
+              <div class="lg:hidden flex flex-col items-center justify-center my-0.5" aria-hidden="true">
+                <div class="w-[1.5px] h-3 bg-[#DCFCE7]"></div>
+                <div class="w-6 h-6 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] flex items-center justify-center shadow-2xs">
+                  <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+                <div class="w-[1.5px] h-3 bg-[#DCFCE7]"></div>
+              </div>
+
+              <!-- Step 03: MENTORING -->
+              <div class="relative group">
+                <div
+                  class="h-full bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#16A34A]/50 shadow-soft-sm hover-lift transition-all duration-300 flex flex-col justify-between relative z-10">
+                  <div>
+                    <div class="flex items-center justify-between mb-4">
+                      <span
+                        class="font-heading text-[11px] sm:text-xs font-extrabold px-2.5 py-1 rounded-full bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] tracking-wider">
+                        03
+                      </span>
+                      <div
+                        class="w-10 h-10 rounded-xl bg-[#EAF3EC] text-[#15803D] flex items-center justify-center group-hover:bg-[#15803D] group-hover:text-white transition-colors duration-300 shadow-2xs">
+                        <!-- Clean Mentoring / Guidance Icon -->
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3
+                      class="font-heading font-extrabold text-[15px] sm:text-[16px] text-[#0A2E1C] tracking-tight mb-2 group-hover:text-[#15803D] transition-colors">
+                      MENTORING
+                    </h3>
+                    <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
+                      Connect with technical and business expertise.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Desktop Flow Connector Arrow (points to Step 04) -->
+                <div
+                  class="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white border border-[#DCFCE7] text-[#15803D] items-center justify-center shadow-xs pointer-events-none"
+                  aria-hidden="true">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Mobile Connector Line 3 -> 4 -->
+              <div class="lg:hidden flex flex-col items-center justify-center my-0.5" aria-hidden="true">
+                <div class="w-[1.5px] h-3 bg-[#DCFCE7]"></div>
+                <div class="w-6 h-6 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] flex items-center justify-center shadow-2xs">
+                  <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+                <div class="w-[1.5px] h-3 bg-[#DCFCE7]"></div>
+              </div>
+
+              <!-- Step 04: SCALE -->
+              <div class="relative group">
+                <div
+                  class="h-full bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#16A34A]/50 shadow-soft-sm hover-lift transition-all duration-300 flex flex-col justify-between relative z-10">
+                  <div>
+                    <div class="flex items-center justify-between mb-4">
+                      <span
+                        class="font-heading text-[11px] sm:text-xs font-extrabold px-2.5 py-1 rounded-full bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] tracking-wider">
+                        04
+                      </span>
+                      <div
+                        class="w-10 h-10 rounded-xl bg-[#EAF3EC] text-[#15803D] flex items-center justify-center group-hover:bg-[#15803D] group-hover:text-white transition-colors duration-300 shadow-2xs">
+                        <!-- Clean Scale / Enterprise Growth Icon -->
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3
+                      class="font-heading font-extrabold text-[15px] sm:text-[16px] text-[#0A2E1C] tracking-tight mb-2 group-hover:text-[#15803D] transition-colors">
+                      SCALE
+                    </h3>
+                    <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
+                      Move toward technology adoption and enterprise growth.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </section>
 
+      <!-- Section Transition Hairline -->
+      <div class="section-hairline"></div>
+
       <!-- ===================================================================== -->
-      <!-- 7. OUR INSTITUTIONAL IMPACT (Deep Forest + Teal Ambient Glow)         -->
+      <!-- 3. FEATURED EVENTS & PROGRAMS (3 Compact Cards)                       -->
+      <!-- ===================================================================== -->
+      <section id="upcoming-events" class="reveal-on-scroll py-2 scroll-mt-28">
+        
+        <!-- Header with View All Link -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 gap-3">
+          <div>
+            <div
+              class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[10.5px] sm:text-xs font-bold tracking-widest uppercase mb-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
+              <span>EVENTS &amp; TRAINING</span>
+            </div>
+            <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-[#0A2E1C] tracking-tight">
+              Featured Programs &amp; Initiatives
+            </h2>
+          </div>
+          <a href="/events"
+            class="inline-flex items-center space-x-1.5 text-xs sm:text-sm font-semibold text-[#15803D] hover:text-[#0A2E1C] transition-colors group self-start sm:self-end">
+            <span>View All Events &amp; Training</span>
+            <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Compact 3 Event Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+
+          <!-- Card 1: Hands-on Training -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
+            <div class="h-44 sm:h-48 overflow-hidden bg-slate-100 relative">
+              <img
+                src="/Public/Events and Training/2024-25/image1.jpg"
+                alt="Hands-on Training" class="w-full h-full object-cover">
+              <span
+                class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[10.5px] font-bold px-2.5 py-0.5 rounded-md border border-slate-200/60 shadow-2xs">Training</span>
+            </div>
+            <div class="p-4 sm:p-5 flex-grow flex flex-col justify-between">
+              <div>
+                <h3
+                  class="font-heading font-bold text-[16px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-1.5">
+                  Hands-on Training</h3>
+                <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
+                  Specialized skill programs on modern nursery techniques, commercial agroforestry, and bio-resource value addition.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Exposure Visits -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
+            <div class="h-44 sm:h-48 overflow-hidden bg-slate-100 relative">
+              <img
+                src="/Public/Events and Training/2024-25/cat_theni_visit.jpg"
+                alt="Exposure Visits" class="w-full h-full object-cover">
+              <span
+                class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[10.5px] font-bold px-2.5 py-0.5 rounded-md border border-slate-200/60 shadow-2xs">Field Exposure</span>
+            </div>
+            <div class="p-4 sm:p-5 flex-grow flex flex-col justify-between">
+              <div>
+                <h3
+                  class="font-heading font-bold text-[16px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-1.5">
+                  Exposure Visits</h3>
+                <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
+                  Practical field demonstrations and academic exposure for agriculture and forestry students, farmers, and delegations.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Startup Events -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
+            <div class="h-44 sm:h-48 overflow-hidden bg-slate-100 relative">
+              <img
+                src="/Public/Events and Training/2024-25/image15.png"
+                alt="Startup Events" class="w-full h-full object-cover">
+              <span
+                class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[10.5px] font-bold px-2.5 py-0.5 rounded-md border border-slate-200/60 shadow-2xs">Incubation</span>
+            </div>
+            <div class="p-4 sm:p-5 flex-grow flex flex-col justify-between">
+              <div>
+                <h3
+                  class="font-heading font-bold text-[16px] text-[#0A2E1C] group-hover:text-[#15803D] transition-colors mb-1.5">
+                  Startup Events</h3>
+                <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
+                  Incubatee meetups, pitch deck reviews with StartupTN, and sensitization on government schemes and scaling.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section Transition Hairline -->
+      <div class="section-hairline"></div>
+
+      <!-- ===================================================================== -->
+      <!-- 4. OUR INSTITUTIONAL IMPACT (Compact 4x2 Grid)                        -->
       <!-- ===================================================================== -->
       <section id="institutional-impact" class="relative reveal-on-scroll">
 
         <!-- Ambient Teal Backlight Behind Impact Metrics -->
-        <div class="ambient-orb-teal w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30"></div>
+        <div class="ambient-orb-teal w-80 h-80 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25 pointer-events-none"></div>
 
         <div
-          class="relative z-10 bg-[#0A2216] text-white rounded-[26px] sm:rounded-[28px] p-8 sm:p-12 lg:p-14 border border-[#163818] shadow-soft-md overflow-hidden">
+          class="relative z-10 bg-[#0A2216] text-white rounded-[24px] sm:rounded-[26px] p-6 sm:p-8 lg:p-10 border border-[#163818] shadow-soft-sm overflow-hidden">
 
-          <div class="text-center max-w-3xl mx-auto mb-10">
+          <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
             <span
-              class="text-[11px] font-bold text-emerald-300 uppercase tracking-widest bg-emerald-950/80 px-4 py-1.5 rounded-full border border-emerald-500/30 inline-flex items-center space-x-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
+              class="text-[10.5px] sm:text-[11px] font-bold text-emerald-300 uppercase tracking-widest bg-emerald-950/80 px-3.5 py-1 rounded-full border border-emerald-500/30 inline-flex items-center space-x-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
               <span>ECOSYSTEM GROWTH</span>
             </span>
-            <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FBFCEB] mt-3 tracking-tight">
+            <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-[#FBFCEB] mt-2.5 tracking-tight">
               Our Institutional Impact
             </h2>
           </div>
 
-          <!-- 8 Animated Metric Cards -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5">
+          <!-- 8 Compact Metric Cards (4 Columns x 2 Rows on Desktop) -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
 
             <div
-              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-4 sm:p-4.5 rounded-xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
               <div
-                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                class="stat-counter font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FBFCEB] tracking-tight"
                 data-target="201">
                 201
               </div>
-              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">Rural Beneficiaries</div>
+              <div class="text-[11px] sm:text-xs font-medium text-emerald-100/90 mt-1">Rural Beneficiaries</div>
             </div>
 
             <div
-              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-4 sm:p-4.5 rounded-xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
               <div
-                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                class="stat-counter font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FBFCEB] tracking-tight"
                 data-target="20120" data-comma="true">
                 20,120
               </div>
-              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">Beneficiaries</div>
+              <div class="text-[11px] sm:text-xs font-medium text-emerald-100/90 mt-1">Beneficiaries</div>
             </div>
 
             <div
-              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-4 sm:p-4.5 rounded-xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
               <div
-                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                class="stat-counter font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FBFCEB] tracking-tight"
                 data-target="13">
                 13
               </div>
-              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">Technologies Licensed</div>
+              <div class="text-[11px] sm:text-xs font-medium text-emerald-100/90 mt-1">Technologies Licensed</div>
             </div>
 
             <div
-              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-4 sm:p-4.5 rounded-xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
               <div
-                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                class="stat-counter font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FBFCEB] tracking-tight"
                 data-target="408">
                 408
               </div>
-              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">Programmes conducted</div>
+              <div class="text-[11px] sm:text-xs font-medium text-emerald-100/90 mt-1">Programmes conducted</div>
             </div>
 
             <div
-              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-4 sm:p-4.5 rounded-xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
               <div
-                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                class="stat-counter font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FBFCEB] tracking-tight"
                 data-target="51">
                 51
               </div>
-              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">Mentors</div>
+              <div class="text-[11px] sm:text-xs font-medium text-emerald-100/90 mt-1">Mentors</div>
             </div>
 
             <div
-              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-4 sm:p-4.5 rounded-xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
               <div
-                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                class="stat-counter font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FBFCEB] tracking-tight"
                 data-target="42" data-prefix="₹" data-suffix="L">
                 ₹42L
               </div>
-              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">Seed Grant disbursed</div>
+              <div class="text-[11px] sm:text-xs font-medium text-emerald-100/90 mt-1">Seed Grant disbursed</div>
             </div>
 
             <div
-              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-4 sm:p-4.5 rounded-xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
               <div
-                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                class="stat-counter font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FBFCEB] tracking-tight"
                 data-target="38">
                 38
               </div>
-              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">Startups Created</div>
+              <div class="text-[11px] sm:text-xs font-medium text-emerald-100/90 mt-1">Startups Created</div>
             </div>
 
             <div
-              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
+              class="bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-sm p-4 sm:p-4.5 rounded-xl border border-white/10 hover:border-emerald-400/40 text-center transition-all duration-300">
               <div
-                class="stat-counter font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FBFCEB] tracking-tight"
+                class="stat-counter font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FBFCEB] tracking-tight"
                 data-target="6">
                 6
               </div>
-              <div class="text-xs sm:text-sm font-medium text-emerald-100/90 mt-2">IP Registrations</div>
+              <div class="text-[11px] sm:text-xs font-medium text-emerald-100/90 mt-1">IP Registrations</div>
             </div>
 
           </div>
@@ -1365,409 +1347,48 @@
       <div class="section-hairline"></div>
 
       <!-- ===================================================================== -->
-      <!-- 8. TECHNOLOGIES (Clean Flow + Subtle Interactive Cards)               -->
+      <!-- FINAL CTA (Compact Horizontal Banner)                                 -->
       <!-- ===================================================================== -->
-      <section id="technologies-preview" class="relative reveal-on-scroll py-2">
-
-        <!-- Ambient Dual-Color Lighting Behind Technologies -->
-        <div class="ambient-orb-green w-72 h-72 -top-6 -right-6 opacity-45"></div>
-        <div class="ambient-orb-teal w-72 h-72 -bottom-6 -left-6 opacity-45"></div>
-
-        <div class="relative z-10">
-          <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
-            <div class="max-w-2xl">
-              <div
-                class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] font-bold tracking-widest uppercase mb-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
-                <span>COMMERCIALIZATION &amp; SCIENCE</span>
-              </div>
-              <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0A2E1C] tracking-tight">
-                Technologies</h2>
-              <p class="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
-                We bridge academic research and commercial enterprise, offering startups direct access to validated
-                processing methods and technical mentoring.
-              </p>
-            </div>
-            <a href="/technologies"
-              class="inline-flex items-center font-semibold text-sm text-[#15803D] hover:text-[#0284C7] shrink-0 group transition-colors">
-              <span>Explore Technologies</span>
-              <svg class="ml-1.5 w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
-
-            <!-- Technology 1 -->
-            <div
-              class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
-              <div class="h-48 overflow-hidden bg-slate-100 relative">
-                <img
-                  src="/Public/Technologies/biomass-briquetting-pelleting.png"
-                  alt="BIOMASS BRIQUETTING AND PELLETING TECHNOLOGY" class="w-full h-full object-cover">
-                <span
-                  class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[11px] font-bold px-2.5 py-1 rounded-md border border-slate-200/60 shadow-2xs">Bioenergy</span>
-              </div>
-              <div class="p-6 flex-grow flex flex-col justify-between">
-                <div>
-                  <h3
-                    class="font-heading font-bold text-base sm:text-lg text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug">
-                    BIOMASS BRIQUETTING AND PELLETING TECHNOLOGY</h3>
-                  <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
-                    Biomass briquettes are a bio fuel substitute to coal and charcoal made from agricultural and forestry waste where the low-density biomass is converted into high density biomass briquettes.
-                  </p>
-                </div>
-                <a href="/technologies"
-                  class="mt-4 inline-flex items-center text-xs font-semibold text-[#15803D] group-hover:text-[#0284C7] transition-colors">
-                  <span>Learn more</span>
-                  <span class="ml-1 transition-transform duration-200 group-hover:translate-x-1">→</span>
-                </a>
-              </div>
-            </div>
-
-            <!-- Technology 2 -->
-            <div
-              class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
-              <div class="h-48 overflow-hidden bg-slate-100 relative">
-                <img
-                  src="/Public/Technologies/steam-distillation-essential-oils.png"
-                  alt="STEAM DISTILLATION FOR ESSENTIAL OILS" class="w-full h-full object-cover">
-                <span
-                  class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[11px] font-bold px-2.5 py-1 rounded-md border border-slate-200/60 shadow-2xs">Distillation</span>
-              </div>
-              <div class="p-6 flex-grow flex flex-col justify-between">
-                <div>
-                  <h3
-                    class="font-heading font-bold text-base sm:text-lg text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug">
-                    STEAM DISTILLATION FOR ESSENTIAL OILS</h3>
-                  <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
-                    Extraction of essential oil from tree components through steam distillation method which has a wide scope of business opportunity in local and international markets.
-                  </p>
-                </div>
-                <a href="/technologies"
-                  class="mt-4 inline-flex items-center text-xs font-semibold text-[#15803D] group-hover:text-[#0284C7] transition-colors">
-                  <span>Learn more</span>
-                  <span class="ml-1 transition-transform duration-200 group-hover:translate-x-1">→</span>
-                </a>
-              </div>
-            </div>
-
-            <!-- Technology 3 -->
-            <div
-              class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-soft-sm hover-lift hover:border-[#16A34A]/50 transition-all duration-300 flex flex-col group img-zoom-container">
-              <div class="h-48 overflow-hidden bg-slate-100 relative">
-                <img
-                  src="/Public/Technologies/wood-value-addition-cnc.png"
-                  alt="WOOD VALUE ADDITION TECHNOLOGY" class="w-full h-full object-cover">
-                <span
-                  class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-[#0A2E1C] text-[11px] font-bold px-2.5 py-1 rounded-md border border-slate-200/60 shadow-2xs">Value
-                  Addition</span>
-              </div>
-              <div class="p-6 flex-grow flex flex-col justify-between">
-                <div>
-                  <h3
-                    class="font-heading font-bold text-base sm:text-lg text-[#0A2E1C] group-hover:text-[#15803D] transition-colors leading-snug">
-                    WOOD VALUE ADDITION TECHNOLOGY</h3>
-                  <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
-                    Wood value addition such as antiques, carvings, etc through CNC Router machine.
-                  </p>
-                </div>
-                <a href="/technologies"
-                  class="mt-4 inline-flex items-center text-xs font-semibold text-[#15803D] group-hover:text-[#0284C7] transition-colors">
-                  <span>Learn more</span>
-                  <span class="ml-1 transition-transform duration-200 group-hover:translate-x-1">→</span>
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- ===================================================================== -->
-      <!-- 9. FACILITIES & INFRASTRUCTURE (Interactive Facility Accordions)      -->
-      <!-- ===================================================================== -->
-      <section class="relative reveal-on-scroll">
-
-        <!-- Ambient Green + Science Teal Background Glow -->
-        <div class="ambient-orb-green w-72 h-72 -top-6 -right-6 opacity-55"></div>
-        <div class="ambient-orb-teal w-72 h-72 -bottom-6 -left-6 opacity-45"></div>
-
+      <section id="final-cta" class="relative reveal-on-scroll">
         <div
-          class="relative z-10 bg-[#EAF3EC] rounded-[26px] sm:rounded-[28px] p-8 sm:p-12 lg:p-14 border border-[#CFE3D1]/80 shadow-soft-sm text-center">
-          <div class="max-w-4xl mx-auto">
+          class="relative z-10 bg-gradient-to-r from-[#F0FDF4] via-white to-[#F0FDF4] rounded-[20px] sm:rounded-[24px] p-6 sm:p-8 lg:py-7 lg:px-9 border border-[#DCFCE7] shadow-soft-sm overflow-hidden flex flex-col md:flex-row md:items-center md:justify-between gap-5 sm:gap-6">
 
-            <div
-              class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/80 border border-[#CFE3D1] text-[#15803D] text-[11px] font-bold tracking-widest uppercase mb-3 shadow-2xs">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
-              <span>FACILITIES &amp; INFRASTRUCTURE</span>
-            </div>
+          <!-- Subtle Decorative Accent Orb -->
+          <div class="ambient-orb-green w-48 h-48 -right-10 -bottom-10 opacity-25 pointer-events-none"></div>
 
-            <h2
-              class="font-heading text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0A2E1C] leading-tight mb-4 tracking-tight">
-              Modern Facilities for Research &amp; Innovation
+          <!-- Left: Heading & Short Text -->
+          <div class="space-y-1.5 max-w-xl relative z-10">
+            <h2 class="font-heading font-extrabold text-xl sm:text-2xl text-[#0A2E1C] tracking-tight">
+              Have an Idea with Potential?
             </h2>
-
-            <p class="text-slate-700 text-base sm:text-[17.5px] leading-[1.8] max-w-3xl mx-auto mb-8 text-center">
-              EDII-MAFBIF offers modern infrastructure and specialized facilities to support research, innovation,
-              entrepreneurship, and sustainable technology development. From fully equipped co-working spaces and
-              conference halls to advanced industrial units and laboratory facilities, we provide an ecosystem designed
-              to foster learning, collaboration, and growth.
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Explore incubation opportunities with EDII–MAFBIF.
             </p>
+          </div>
 
-            <!-- 6 Interactive Expandable Facility Cards -->
-            <div class="max-w-3xl mx-auto space-y-3 text-left mb-8" id="facilities-accordion">
-
-              <!-- Facility 1 -->
-              <div
-                class="facility-card bg-white hover:bg-[#FAFDFB] rounded-xl shadow-2xs hover:shadow-soft-md border border-slate-200/70 hover:border-[#16A34A]/60 transition-all duration-300 ease-out hover:-translate-y-0.5 overflow-hidden cursor-pointer group select-none"
-                onclick="toggleFacility(this)">
-                <div class="p-4 sm:p-4.5 flex items-center justify-between">
-                  <span
-                    class="text-base sm:text-[17px] font-bold text-slate-800 group-hover:text-[#0A2E1C] transition-colors duration-200">Co-Working
-                    Space (26 Seating Capacity)</span>
-                  <span
-                    class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#F0FDF4] group-hover:border-[#DCFCE7] border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#16A34A] transition-all duration-300 shrink-0 facility-toggle-icon">
-                    <svg class="w-3.5 h-3.5 transition-transform duration-300 transform facility-plus-icon" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
-                    </svg>
-                  </span>
-                </div>
-                <div
-                  class="facility-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-4.5 bg-[#F9FBFA]">
-                  <p class="text-slate-600 text-xs sm:text-sm pb-4 pt-2 border-t border-slate-100/90 leading-relaxed">
-                    Air-conditioned incubator workstations, dedicated high-speed fiber internet, private discussion
-                    booths, and plug-and-play setup for emerging agri-tech startup teams.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Facility 2 -->
-              <div
-                class="facility-card bg-white hover:bg-[#FAFDFB] rounded-xl shadow-2xs hover:shadow-soft-md border border-slate-200/70 hover:border-[#16A34A]/60 transition-all duration-300 ease-out hover:-translate-y-0.5 overflow-hidden cursor-pointer group select-none"
-                onclick="toggleFacility(this)">
-                <div class="p-4 sm:p-4.5 flex items-center justify-between">
-                  <span
-                    class="text-base sm:text-[17px] font-bold text-slate-800 group-hover:text-[#0A2E1C] transition-colors duration-200">Conference
-                    &amp; Meeting Facilities</span>
-                  <span
-                    class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#F0FDF4] group-hover:border-[#DCFCE7] border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#16A34A] transition-all duration-300 shrink-0 facility-toggle-icon">
-                    <svg class="w-3.5 h-3.5 transition-transform duration-300 transform facility-plus-icon" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
-                    </svg>
-                  </span>
-                </div>
-                <div
-                  class="facility-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-4.5 bg-[#F9FBFA]">
-                  <p class="text-slate-600 text-xs sm:text-sm pb-4 pt-2 border-t border-slate-100/90 leading-relaxed">
-                    100+ seating capacity audio-visual auditorium, interactive smart presentation screens, and executive
-                    boardroom for stakeholder summits, buyer meets, and investor pitches.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Facility 3 -->
-              <div
-                class="facility-card bg-white hover:bg-[#FAFDFB] rounded-xl shadow-2xs hover:shadow-soft-md border border-slate-200/70 hover:border-[#16A34A]/60 transition-all duration-300 ease-out hover:-translate-y-0.5 overflow-hidden cursor-pointer group select-none"
-                onclick="toggleFacility(this)">
-                <div class="p-4 sm:p-4.5 flex items-center justify-between">
-                  <span
-                    class="text-base sm:text-[17px] font-bold text-slate-800 group-hover:text-[#0A2E1C] transition-colors duration-200">Industrial
-                    Processing Units</span>
-                  <span
-                    class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#F0FDF4] group-hover:border-[#DCFCE7] border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#16A34A] transition-all duration-300 shrink-0 facility-toggle-icon">
-                    <svg class="w-3.5 h-3.5 transition-transform duration-300 transform facility-plus-icon" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
-                    </svg>
-                  </span>
-                </div>
-                <div
-                  class="facility-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-4.5 bg-[#F9FBFA]">
-                  <p class="text-slate-600 text-xs sm:text-sm pb-4 pt-2 border-t border-slate-100/90 leading-relaxed">
-                    Pilot-scale pulverizers, briquetting machinery, industrial biomass compactors, and drying equipment
-                    for commercializing wood and non-timber forest produce.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Facility 4 -->
-              <div
-                class="facility-card bg-white hover:bg-[#FAFDFB] rounded-xl shadow-2xs hover:shadow-soft-md border border-slate-200/70 hover:border-[#16A34A]/60 transition-all duration-300 ease-out hover:-translate-y-0.5 overflow-hidden cursor-pointer group select-none"
-                onclick="toggleFacility(this)">
-                <div class="p-4 sm:p-4.5 flex items-center justify-between">
-                  <span
-                    class="text-base sm:text-[17px] font-bold text-slate-800 group-hover:text-[#0A2E1C] transition-colors duration-200">Tissue
-                    Culture Laboratory</span>
-                  <span
-                    class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#F0FDF4] group-hover:border-[#DCFCE7] border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#16A34A] transition-all duration-300 shrink-0 facility-toggle-icon">
-                    <svg class="w-3.5 h-3.5 transition-transform duration-300 transform facility-plus-icon" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
-                    </svg>
-                  </span>
-                </div>
-                <div
-                  class="facility-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-4.5 bg-[#F9FBFA]">
-                  <p class="text-slate-600 text-xs sm:text-sm pb-4 pt-2 border-t border-slate-100/90 leading-relaxed">
-                    Controlled temperature growth chambers, laminar airflow cabinets, and autoclave systems for rapid
-                    micropropagation of elite tree clones and medicinal plants.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Facility 5 -->
-              <div
-                class="facility-card bg-white hover:bg-[#FAFDFB] rounded-xl shadow-2xs hover:shadow-soft-md border border-slate-200/70 hover:border-[#16A34A]/60 transition-all duration-300 ease-out hover:-translate-y-0.5 overflow-hidden cursor-pointer group select-none"
-                onclick="toggleFacility(this)">
-                <div class="p-4 sm:p-4.5 flex items-center justify-between">
-                  <span
-                    class="text-base sm:text-[17px] font-bold text-slate-800 group-hover:text-[#0A2E1C] transition-colors duration-200">Honey
-                    Processing Unit</span>
-                  <span
-                    class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#F0FDF4] group-hover:border-[#DCFCE7] border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#16A34A] transition-all duration-300 shrink-0 facility-toggle-icon">
-                    <svg class="w-3.5 h-3.5 transition-transform duration-300 transform facility-plus-icon" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
-                    </svg>
-                  </span>
-                </div>
-                <div
-                  class="facility-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-4.5 bg-[#F9FBFA]">
-                  <p class="text-slate-600 text-xs sm:text-sm pb-4 pt-2 border-t border-slate-100/90 leading-relaxed">
-                    Fully mechanized moisture reduction, micro-filtration, pasteurization, and hygienic bottling setup
-                    for organic wild forest honey value-addition.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Facility 6 -->
-              <div
-                class="facility-card bg-white hover:bg-[#FAFDFB] rounded-xl shadow-2xs hover:shadow-soft-md border border-slate-200/70 hover:border-[#16A34A]/60 transition-all duration-300 ease-out hover:-translate-y-0.5 overflow-hidden cursor-pointer group select-none"
-                onclick="toggleFacility(this)">
-                <div class="p-4 sm:p-4.5 flex items-center justify-between">
-                  <span
-                    class="text-base sm:text-[17px] font-bold text-slate-800 group-hover:text-[#0A2E1C] transition-colors duration-200">Research
-                    &amp; Innovation Support</span>
-                  <span
-                    class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#F0FDF4] group-hover:border-[#DCFCE7] border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#16A34A] transition-all duration-300 shrink-0 facility-toggle-icon">
-                    <svg class="w-3.5 h-3.5 transition-transform duration-300 transform facility-plus-icon" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
-                    </svg>
-                  </span>
-                </div>
-                <div
-                  class="facility-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 sm:px-4.5 bg-[#F9FBFA]">
-                  <p class="text-slate-600 text-xs sm:text-sm pb-4 pt-2 border-t border-slate-100/90 leading-relaxed">
-                    Direct laboratory access to analytical equipment, soil-wood durability testing protocols, and
-                    mentorship from TNAU Forest College and Research Institute scientists.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-
-            <p class="text-slate-700 text-base sm:text-[17.5px] leading-relaxed max-w-2xl mx-auto mb-6">
-              Explore our world-class facilities and discover how we empower sustainable development and innovation.
-            </p>
-
-            <a href="/facilities"
-              class="inline-flex items-center space-x-2 bg-[#0A2E1C] hover:bg-[#14532D] text-white px-7 sm:px-9 py-3.5 sm:py-4 rounded-xl font-bold text-base shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer group">
-              <span>Explore More...</span>
-              <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
+          <!-- Right: Action Buttons -->
+          <div class="flex items-center gap-3 sm:gap-3.5 flex-wrap shrink-0 relative z-10">
+            <a href="/incubation"
+              class="inline-flex items-center justify-center space-x-2 bg-[#0F4A2A] hover:bg-[#15803D] text-white px-5 py-2.5 sm:px-5.5 sm:py-3 rounded-xl font-semibold text-xs sm:text-sm shadow-sm hover:shadow-md transition-all duration-200 group">
+              <span>Explore Incubation</span>
+              <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" fill="none"
                 stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </a>
 
+            <a href="/contact"
+              class="inline-flex items-center justify-center space-x-2 bg-white hover:bg-[#F0FDF4] text-[#0A2E1C] hover:text-[#15803D] border border-slate-200/90 hover:border-[#16A34A]/40 px-5 py-2.5 sm:px-5.5 sm:py-3 rounded-xl font-semibold text-xs sm:text-sm shadow-2xs hover:shadow-sm transition-all duration-200 group">
+              <span>Contact Us</span>
+              <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
           </div>
-        </div>
-      </section>
 
-      <!-- Section Transition Hairline -->
-      <div class="section-hairline"></div>
-
-      <!-- ===================================================================== -->
-      <!-- 10. PILOT INFRASTRUCTURE & TECHNOLOGIES (Showcase & Local Assets)     -->
-      <!-- ===================================================================== -->
-      <section class="reveal-on-scroll py-2">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-          <div>
-            <div
-              class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[#15803D] text-[11px] font-bold tracking-widest uppercase mb-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
-              <span>PILOT INFRASTRUCTURE &amp; TECHNOLOGIES</span>
-            </div>
-            <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0A2E1C] tracking-tight">
-              Advanced Pilot Plants &amp; Infrastructure</h2>
-            <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
-              Commercial-scale pilot machinery and processing infrastructure at FC&amp;RI campus — empowering incubatees to test, validate, and scale biomass briquetting, timber seasoning, flash drying, and precision wood value addition.
-            </p>
-          </div>
-          <a href="/technologies"
-            class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold rounded-xl text-[#0A2E1C] bg-white hover:bg-slate-50 border border-slate-300/80 shrink-0 transition-colors shadow-2xs group">
-            <span>Explore Technologies &amp; Facilities</span>
-            <svg class="w-4 h-4 ml-1.5 text-[#16A34A] transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <!-- Image 1: Jai Modula CNC Wood Router Workshop (Technology #07) -->
-          <a href="/technologies#wood-value-addition-technology"
-            class="relative block rounded-2xl overflow-hidden border border-slate-200/80 bg-slate-100 h-56 group img-zoom-container shadow-2xs hover-lift">
-            <img
-              src="/Public/Facilities/cnc-wood-router-workshop.jpg"
-              alt="Jai Modula CNC Wood Router Machine for Precision Carvings and Furniture Prototyping" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none transition-opacity duration-300"></div>
-            <div class="absolute bottom-3 left-3 right-3 pointer-events-none">
-              <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-[#CFA851] mb-0.5">Technology 07</span>
-              <p class="text-white text-xs sm:text-sm font-bold truncate">Wood Value Addition (CNC)</p>
-            </div>
-          </a>
-
-          <!-- Image 2: Wood Seasoning Kiln & Vacuum Treatment Plant (Technology #04) -->
-          <a href="/technologies#wood-seasoning-and-preservation"
-            class="relative block rounded-2xl overflow-hidden border border-slate-200/80 bg-slate-100 h-56 group img-zoom-container shadow-2xs hover-lift">
-            <img
-              src="/Public/Facilities/wood-seasoning-kiln-plant.jpg"
-              alt="Wood Seasoning Kiln and Vacuum-Pressure Timber Treatment Plant with Logs" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none transition-opacity duration-300"></div>
-            <div class="absolute bottom-3 left-3 right-3 pointer-events-none">
-              <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-[#CFA851] mb-0.5">Technology 04</span>
-              <p class="text-white text-xs sm:text-sm font-bold truncate">Wood Seasoning &amp; Preservation</p>
-            </div>
-          </a>
-
-          <!-- Image 3: Industrial Biomass Flash Air Dryer & Cyclone Separator (Facility Card 05) -->
-          <a href="/facilities"
-            class="relative block rounded-2xl overflow-hidden border border-slate-200/80 bg-slate-100 h-56 group img-zoom-container shadow-2xs hover-lift">
-            <img
-              src="/Public/Facilities/biomass-flash-dryer-cyclone.jpg"
-              alt="Industrial Biomass Flash Air Dryer and Cyclone Moisture Reduction System" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none transition-opacity duration-300"></div>
-            <div class="absolute bottom-3 left-3 right-3 pointer-events-none">
-              <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-[#CFA851] mb-0.5">Pilot Facility 05</span>
-              <p class="text-white text-xs sm:text-sm font-bold truncate">Biomass Flash Drying Unit</p>
-            </div>
-          </a>
-
-          <!-- Image 4: Real-Tech Commercial Biomass Briquetting Press (Technology #01) -->
-          <a href="/technologies#biomass-briquetting-pelleting"
-            class="relative block rounded-2xl overflow-hidden border border-slate-200/80 bg-slate-100 h-56 group img-zoom-container shadow-2xs hover-lift">
-            <img
-              src="/Public/Facilities/biomass-briquetting-press.jpg"
-              alt="Real-Tech Commercial Biomass Briquetting and Pelleting Machine with Conveyor" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none transition-opacity duration-300"></div>
-            <div class="absolute bottom-3 left-3 right-3 pointer-events-none">
-              <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-[#CFA851] mb-0.5">Technology 01</span>
-              <p class="text-white text-xs sm:text-sm font-bold truncate">Biomass Briquetting Press</p>
-            </div>
-          </a>
         </div>
       </section>
 
@@ -2075,7 +1696,7 @@
       if (heroScrollBtn) {
         heroScrollBtn.addEventListener('click', (e) => {
           e.preventDefault();
-          const target = document.getElementById('upcoming-events');
+          const target = document.getElementById('about') || document.getElementById('upcoming-events');
           if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }

@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Supabase CDN Client & Public Configuration -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase-client.js"></script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -1569,7 +1573,13 @@
       </div>
       <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-3">
         <p>© 2026 MAFBIF - Supported by EDII, Government of Tamil Nadu &amp; TNAU.</p>
-        <p class="font-bold text-[#CFA851] text-[11px] tracking-wider uppercase">TNAU-BACKED AGROFORESTRY INCUBATION</p>
+        <div class="flex items-center gap-4 sm:gap-6">
+          <p class="font-bold text-[#CFA851] text-[11px] tracking-wider uppercase">TNAU-BACKED AGROFORESTRY INCUBATION</p>
+          <span class="text-white/20 select-none hidden sm:inline">|</span>
+          <a href="/admin/login" class="text-slate-400 hover:text-[#CFA851] transition-colors duration-200 text-xs inline-flex items-center gap-1 opacity-75 hover:opacity-100">
+            Admin Login &rarr;
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -1683,11 +1693,143 @@
     });
   
 
+      // =========================================================================
+      // DYNAMIC SUPABASE MEMBERS LOADER & FILTER SYSTEM
+      // =========================================================================
+
+      function escapeHtml(str) {
+        if (str === null || str === undefined) return '';
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      function resolveMemberCategory(m) {
+        if (m.category && m.category.trim()) return m.category.trim().toLowerCase();
+        const text = ((m.technology || '') + ' ' + (m.innovative_idea || '')).toLowerCase();
+        if (text.includes('silk') || text.includes('mulberry') || text.includes('sericulture')) return 'sericulture';
+        if (text.includes('biotech') || text.includes('orchidia') || text.includes('orchid') || text.includes('probiotics') || text.includes('bacteriocin')) return 'biotech';
+        if (text.includes('waste') || text.includes('plastic') || text.includes('charcoal') || text.includes('melia') || text.includes('feed') || text.includes('carbon')) return 'waste';
+        if (text.includes('organic') || text.includes('handwash') || text.includes('forest') || text.includes('herbal') || text.includes('botanical')) return 'organic';
+        if (text.includes('solar') || text.includes('dehydrator')) return 'solar';
+        return 'all';
+      }
+
+      function createMemberCardHtml(member, index) {
+        const num = member.display_order !== null && member.display_order !== undefined
+          ? String(member.display_order).padStart(2, '0')
+          : String(index + 1).padStart(2, '0');
+        
+        const category = resolveMemberCategory(member);
+        const photoUrl = member.photo_url || '/logo.png';
+        const name = escapeHtml(member.name || 'Incubatee Member');
+        const roleAndCompany = escapeHtml(
+          member.designation && member.company 
+            ? `${member.designation}, ${member.company}`
+            : (member.company || member.designation || 'Incubatee')
+        );
+        const idea = escapeHtml(member.innovative_idea || '');
+        const tech = escapeHtml(member.technology || 'Agroforestry Innovation');
+        const funding = escapeHtml(member.funding || '2 Lakhs');
+        const grantStatus = escapeHtml(member.grant_status || 'Grant Sanctioned');
+
+        const searchData = `${member.name || ''} ${member.designation || ''} ${member.company || ''} ${member.innovative_idea || ''} ${member.technology || ''}`.toLowerCase();
+
+        // Check if Dual Grant (Card #08 Mrs. M. R. G. Sangeetha)
+        const isDualGrant = Number(member.display_order) === 8 || (member.innovative_idea && member.innovative_idea.toLowerCase().includes('dual grant'));
+
+        const ideaBlockHtml = isDualGrant
+          ? `<div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start space-y-2">
+              <div class="flex items-center space-x-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+                <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+                <span>Dual IVP Grants Sanctioned</span>
+              </div>
+              <div class="space-y-1.5 pt-0.5">
+                <div class="bg-white p-2 rounded-lg border border-slate-200/70">
+                  <div class="flex items-center justify-between text-[11px] font-bold text-[#0A2E1C]">
+                    <span>IVP A: Portable Solar Dehydrator</span>
+                    <span class="text-[#15803D] bg-emerald-50 px-1.5 py-0.5 rounded">₹2 Lakhs</span>
+                  </div>
+                </div>
+                <div class="bg-white p-2 rounded-lg border border-slate-200/70">
+                  <div class="flex items-center justify-between text-[11px] font-bold text-[#0A2E1C]">
+                    <span>IVP B: Commercialization of Portable Solar Dehydrator</span>
+                    <span class="text-[#15803D] bg-emerald-50 px-1.5 py-0.5 rounded">₹3 Lakhs</span>
+                  </div>
+                </div>
+              </div>
+            </div>`
+          : `<div class="bg-[#F8FAF8] rounded-xl p-3.5 border border-slate-200/80 mt-4 flex-grow flex flex-col justify-start">
+              <div class="flex items-center space-x-1.5 mb-1.5 text-[10.5px] font-extrabold text-[#15803D] uppercase tracking-wider">
+                <svg class="w-3.5 h-3.5 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+                <span>Innovative Idea</span>
+              </div>
+              <p class="text-xs text-slate-700 leading-relaxed font-medium italic">“${idea}”</p>
+            </div>`;
+
+        return `
+          <div class="member-card bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-300 group relative" 
+               data-category="${escapeHtml(category)}" 
+               data-search="${escapeHtml(searchData)}">
+            <div>
+              <!-- Top Row: Index + Sanctioned Budget Pill -->
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#F0FDF4] text-[#15803D] border border-[#DCFCE7] shadow-2xs">
+                  #${escapeHtml(num)}
+                </span>
+                <span class="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-50 to-amber-100/90 text-[#854D0E] border border-amber-300/80 shadow-2xs">
+                  <span class="text-amber-600 font-bold">₹</span>
+                  <span>${funding}</span>
+                </span>
+              </div>
+
+              <!-- Member Portrait Frame -->
+              <div class="w-32 h-36 sm:w-36 sm:h-40 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-100/90 shadow-md bg-slate-50 relative group-hover:border-emerald-400 group-hover:shadow-lg transition-all duration-300 shrink-0">
+                <img src="${escapeHtml(photoUrl)}" alt="${name}" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.onerror=null; this.src='/logo.png';">
+              </div>
+
+              <!-- Name & Company Lockup -->
+              <div class="mt-4 text-center">
+                <h3 class="font-heading font-extrabold text-lg sm:text-[19px] text-[#0A2E1C] tracking-tight leading-snug group-hover:text-[#15803D] transition-colors">
+                  ${name}
+                </h3>
+                <p class="text-xs sm:text-[13px] font-bold text-[#15803D] mt-1 flex items-center justify-center space-x-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+                  <span>${roleAndCompany}</span>
+                </p>
+              </div>
+
+              <!-- Innovative Idea Block -->
+              ${ideaBlockHtml}
+            </div>
+
+            <!-- Card Footer -->
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+              <span class="text-slate-500 font-medium bg-slate-100/90 px-2.5 py-0.5 rounded-md">
+                ${tech}
+              </span>
+              <span class="text-[#15803D] font-bold flex items-center space-x-1">
+                <svg class="w-3 h-3 text-[#15803D] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span>${grantStatus}</span>
+              </span>
+            </div>
+          </div>
+        `;
+      }
+
       // Member Filter and Search Logic
       const searchInput = document.getElementById('member-search-input');
       const clearSearchBtn = document.getElementById('clear-search-btn');
       const filterBtns = document.querySelectorAll('.filter-btn');
-      const memberCards = document.querySelectorAll('.member-card');
       const emptyState = document.getElementById('empty-state');
       const resultsText = document.getElementById('results-count-text');
       const resetBtn = document.getElementById('reset-filter-btn');
@@ -1696,10 +1838,11 @@
       let currentQuery = '';
 
       function filterMembers() {
+        const cards = document.querySelectorAll('#members-grid .member-card');
         let visibleCount = 0;
         const q = currentQuery.toLowerCase().trim();
 
-        memberCards.forEach(card => {
+        cards.forEach(card => {
           const cardCat = card.getAttribute('data-category');
           const searchData = card.getAttribute('data-search') || '';
 
@@ -1723,10 +1866,10 @@
         }
 
         if (resultsText) {
-          if (visibleCount === memberCards.length) {
-            resultsText.textContent = 'Displaying all 17 sanctioned incubatee members';
+          if (visibleCount === cards.length) {
+            resultsText.textContent = `Displaying all ${cards.length} sanctioned incubatee members`;
           } else {
-            resultsText.textContent = `Showing ${visibleCount} of 17 incubatee members`;
+            resultsText.textContent = `Showing ${visibleCount} of ${cards.length} incubatee members`;
           }
         }
       }
@@ -1786,6 +1929,60 @@
           filterMembers();
         });
       }
+
+      // Initial filter on static fallback cards
+      filterMembers();
+
+      // Fetch dynamic members from Supabase
+      async function loadMembersFromSupabase(retryCount = 0) {
+        const client = window.supabaseClient;
+        if (!client) {
+          if (retryCount < 5) {
+            setTimeout(() => loadMembersFromSupabase(retryCount + 1), 150);
+            return;
+          }
+          console.info('[Members] Supabase client offline or timed out. Retaining static member cards.');
+          return;
+        }
+
+        try {
+          const { data, error } = await client
+            .from('members')
+            .select('*');
+
+          if (error) {
+            console.warn('[Members] Supabase fetch error, retaining static cards:', error.message);
+            return;
+          }
+
+          if (Array.isArray(data) && data.length > 0) {
+            // Sort by display_order ascending, then name
+            data.sort((a, b) => {
+              const orderA = a.display_order !== null && a.display_order !== undefined ? Number(a.display_order) : 999;
+              const orderB = b.display_order !== null && b.display_order !== undefined ? Number(b.display_order) : 999;
+              if (orderA !== orderB) return orderA - orderB;
+              return (a.name || '').localeCompare(b.name || '');
+            });
+
+            const grid = document.getElementById('members-grid');
+            if (grid) {
+              grid.innerHTML = data.map((member, idx) => createMemberCardHtml(member, idx)).join('');
+              console.log(`[Members] Loaded ${data.length} records dynamically from Supabase.`);
+              filterMembers();
+            }
+          }
+        } catch (err) {
+          console.error('[Members] Failed to load dynamic members:', err);
+        }
+      }
+
+      // Trigger dynamic load
+      loadMembersFromSupabase();
+      window.addEventListener('load', () => {
+        if (!window.supabaseLoaded) {
+          loadMembersFromSupabase();
+        }
+      });
 
   </script>
 
